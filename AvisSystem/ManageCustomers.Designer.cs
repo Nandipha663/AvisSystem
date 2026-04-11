@@ -88,7 +88,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Serach by ID:";
+            this.label1.Text = "Search by ID:";
             // 
             // textBox1
             // 
