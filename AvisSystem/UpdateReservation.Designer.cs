@@ -41,6 +41,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,11 +71,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(421, 55);
+            this.label1.Location = new System.Drawing.Point(366, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 15);
+            this.label1.Size = new System.Drawing.Size(147, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Search by ID:";
+            this.label1.Text = "Enter Reservation_ID:";
             // 
             // textBox1
             // 
@@ -117,7 +118,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(9, 50);
+            this.button2.Location = new System.Drawing.Point(159, 93);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 29);
             this.button2.TabIndex = 7;
@@ -126,16 +127,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(147, 50);
+            this.button3.Location = new System.Drawing.Point(306, 92);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 28);
             this.button3.TabIndex = 8;
             this.button3.Text = "Update reservation";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(288, 50);
+            this.button4.Location = new System.Drawing.Point(452, 93);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 29);
             this.button4.TabIndex = 9;
@@ -166,11 +168,22 @@
             this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addReservationToolStripMenuItem.Text = "Add Reservation";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(366, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Search Reservation";
+            // 
             // UpdateReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -206,5 +219,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem manageReservationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addReservationToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
     }
 }
