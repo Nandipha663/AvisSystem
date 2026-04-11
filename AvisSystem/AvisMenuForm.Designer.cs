@@ -48,6 +48,7 @@
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +154,8 @@
             // 
             this.manageVehiclesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewVehiclesStatusToolStripMenuItem,
-            this.updateVehicleStatusToolStripMenuItem});
+            this.updateVehicleStatusToolStripMenuItem,
+            this.addVehicleToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
             this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
@@ -183,20 +185,26 @@
             // viewPaymentsToolStripMenuItem
             // 
             this.viewPaymentsToolStripMenuItem.Name = "viewPaymentsToolStripMenuItem";
-            this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.viewPaymentsToolStripMenuItem.Text = "View Payments";
             // 
             // addPaymentToolStripMenuItem
             // 
             this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
-            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.addPaymentToolStripMenuItem.Text = "Add Payment";
             // 
             // updatePaymentsToolStripMenuItem
             // 
             this.updatePaymentsToolStripMenuItem.Name = "updatePaymentsToolStripMenuItem";
-            this.updatePaymentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updatePaymentsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.updatePaymentsToolStripMenuItem.Text = "Update payments";
+            // 
+            // addVehicleToolStripMenuItem
+            // 
+            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
+            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
             // 
             // AvisMenuForm
             // 
@@ -236,5 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewPaymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updatePaymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
     }
 }

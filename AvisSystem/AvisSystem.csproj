@@ -52,6 +52,12 @@
     <Compile Include="AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVehicle.Designer.cs">
+      <DependentUpon>AddVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="AvisMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +84,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateVehicles.Designer.cs">
+      <DependentUpon>UpdateVehicles.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVehicle.resx">
+      <DependentUpon>AddVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AvisMenuForm.resx">
       <DependentUpon>AvisMenuForm.cs</DependentUpon>
