@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvisMenuForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActiveCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateCustomersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewScheduledReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateRentalsInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewVehiclesStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatePaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -69,8 +68,7 @@
             // 
             this.manageCustomerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewActiveCustomerToolStripMenuItem,
-            this.updateCustomersToolStripMenuItem,
-            this.updateCustomersToolStripMenuItem1});
+            this.updateCustomersToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
             this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.manageCustomerToolStripMenuItem.Text = "Manage Customer";
@@ -78,27 +76,20 @@
             // viewActiveCustomerToolStripMenuItem
             // 
             this.viewActiveCustomerToolStripMenuItem.Name = "viewActiveCustomerToolStripMenuItem";
-            this.viewActiveCustomerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.viewActiveCustomerToolStripMenuItem.Text = "View Active Customer";
+            this.viewActiveCustomerToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.viewActiveCustomerToolStripMenuItem.Text = "View/Update Active Customer";
             // 
             // updateCustomersToolStripMenuItem
             // 
             this.updateCustomersToolStripMenuItem.Name = "updateCustomersToolStripMenuItem";
-            this.updateCustomersToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.updateCustomersToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.updateCustomersToolStripMenuItem.Text = "Add  Customers";
-            // 
-            // updateCustomersToolStripMenuItem1
-            // 
-            this.updateCustomersToolStripMenuItem1.Name = "updateCustomersToolStripMenuItem1";
-            this.updateCustomersToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
-            this.updateCustomersToolStripMenuItem1.Text = "Update Customers Information";
             // 
             // manageReservationToolStripMenuItem
             // 
             this.manageReservationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewScheduledReservationToolStripMenuItem,
-            this.addReservationToolStripMenuItem,
-            this.updateReservationToolStripMenuItem});
+            this.addReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
             this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.manageReservationToolStripMenuItem.Text = "Manage Reservation";
@@ -106,27 +97,20 @@
             // viewScheduledReservationToolStripMenuItem
             // 
             this.viewScheduledReservationToolStripMenuItem.Name = "viewScheduledReservationToolStripMenuItem";
-            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.viewScheduledReservationToolStripMenuItem.Text = "View Scheduled Reservation";
+            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Reservation";
             // 
             // addReservationToolStripMenuItem
             // 
             this.addReservationToolStripMenuItem.Name = "addReservationToolStripMenuItem";
-            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.addReservationToolStripMenuItem.Text = "Add Reservation";
-            // 
-            // updateReservationToolStripMenuItem
-            // 
-            this.updateReservationToolStripMenuItem.Name = "updateReservationToolStripMenuItem";
-            this.updateReservationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.updateReservationToolStripMenuItem.Text = "Update Reservation";
             // 
             // manageRentalsToolStripMenuItem
             // 
             this.manageRentalsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolStripMenuItem,
-            this.addRentalsToolStripMenuItem,
-            this.updateRentalsInformationToolStripMenuItem});
+            this.addRentalsToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
@@ -134,20 +118,14 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.viewToolStripMenuItem.Text = "View Rentals";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.viewToolStripMenuItem.Text = "View/Update Rentals";
             // 
             // addRentalsToolStripMenuItem
             // 
             this.addRentalsToolStripMenuItem.Name = "addRentalsToolStripMenuItem";
-            this.addRentalsToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.addRentalsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.addRentalsToolStripMenuItem.Text = "Add Rentals";
-            // 
-            // updateRentalsInformationToolStripMenuItem
-            // 
-            this.updateRentalsInformationToolStripMenuItem.Name = "updateRentalsInformationToolStripMenuItem";
-            this.updateRentalsInformationToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.updateRentalsInformationToolStripMenuItem.Text = "Update Rentals Information";
             // 
             // manageVehiclesToolStripMenuItem
             // 
@@ -168,8 +146,7 @@
             // 
             this.processPaymentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewPaymentsToolStripMenuItem,
-            this.addPaymentToolStripMenuItem,
-            this.updatePaymentsToolStripMenuItem});
+            this.addPaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
             this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.processPaymentToolStripMenuItem.Text = "Process Payment";
@@ -177,38 +154,43 @@
             // viewPaymentsToolStripMenuItem
             // 
             this.viewPaymentsToolStripMenuItem.Name = "viewPaymentsToolStripMenuItem";
-            this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.viewPaymentsToolStripMenuItem.Text = "View Payments";
+            this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewPaymentsToolStripMenuItem.Text = "View/Update Payments";
             // 
             // addPaymentToolStripMenuItem
             // 
             this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
-            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.addPaymentToolStripMenuItem.Text = "Add Payment";
-            // 
-            // updatePaymentsToolStripMenuItem
-            // 
-            this.updatePaymentsToolStripMenuItem.Name = "updatePaymentsToolStripMenuItem";
-            this.updatePaymentsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.updatePaymentsToolStripMenuItem.Text = "Update payments";
             // 
             // addVehicleToolStripMenuItem
             // 
             this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
-            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(800, 425);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // AvisMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AvisMenuForm";
             this.Text = "AvisMenuForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,21 +202,18 @@
         private System.Windows.Forms.ToolStripMenuItem manageCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewActiveCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateCustomersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateCustomersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem manageReservationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewScheduledReservationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addReservationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateReservationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageRentalsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addRentalsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateRentalsInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageVehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewVehiclesStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewPaymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPaymentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updatePaymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
