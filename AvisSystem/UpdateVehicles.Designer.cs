@@ -41,6 +41,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -60,28 +62,29 @@
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(26, 62);
+            this.groupBox1.Location = new System.Drawing.Point(29, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(618, 208);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fleet";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(329, 40);
+            this.label1.Location = new System.Drawing.Point(329, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 16);
+            this.label1.Size = new System.Drawing.Size(98, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Search by Car_ID:";
+            this.label1.Text = "Enter Car_ID:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(476, 36);
+            this.textBox1.Location = new System.Drawing.Point(433, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 20);
+            this.textBox1.Size = new System.Drawing.Size(193, 20);
             this.textBox1.TabIndex = 3;
             // 
             // dataGridView1
@@ -94,11 +97,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(29, 289);
+            this.groupBox2.Location = new System.Drawing.Point(29, 294);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(615, 133);
             this.groupBox2.TabIndex = 4;
@@ -164,11 +168,31 @@
             this.button3.Text = "Update vehicle info";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(329, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Search Vehicle";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(404, 68);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(109, 36);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Clear";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // UpdateVehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -202,5 +226,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem manageVehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button4;
     }
 }

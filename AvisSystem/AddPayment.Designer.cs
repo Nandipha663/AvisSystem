@@ -64,7 +64,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(744, 412);
+            this.groupBox1.Size = new System.Drawing.Size(744, 312);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Record Transaction";
@@ -175,7 +175,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(294, 361);
+            this.button1.Location = new System.Drawing.Point(285, 253);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 36);
             this.button1.TabIndex = 11;
@@ -184,7 +184,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(441, 361);
+            this.button2.Location = new System.Drawing.Point(433, 253);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 35);
             this.button2.TabIndex = 12;
@@ -193,7 +193,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(564, 361);
+            this.button3.Location = new System.Drawing.Point(566, 254);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(88, 35);
             this.button3.TabIndex = 13;

@@ -41,6 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox2);
@@ -165,6 +167,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Search Transaction";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(410, 74);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(97, 36);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Clear";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // UpdatePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,5 +216,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button3;
     }
 }
