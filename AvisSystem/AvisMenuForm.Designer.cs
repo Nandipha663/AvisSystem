@@ -43,7 +43,6 @@
             this.updateRentalsInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewVehiclesStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateVehicleStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -154,7 +153,6 @@
             // 
             this.manageVehiclesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewVehiclesStatusToolStripMenuItem,
-            this.updateVehicleStatusToolStripMenuItem,
             this.addVehicleToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
             this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
@@ -163,14 +161,8 @@
             // viewVehiclesStatusToolStripMenuItem
             // 
             this.viewVehiclesStatusToolStripMenuItem.Name = "viewVehiclesStatusToolStripMenuItem";
-            this.viewVehiclesStatusToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.viewVehiclesStatusToolStripMenuItem.Text = "View Vehicles Status";
-            // 
-            // updateVehicleStatusToolStripMenuItem
-            // 
-            this.updateVehicleStatusToolStripMenuItem.Name = "updateVehicleStatusToolStripMenuItem";
-            this.updateVehicleStatusToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.updateVehicleStatusToolStripMenuItem.Text = "Update Vehicle Status";
+            this.viewVehiclesStatusToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.viewVehiclesStatusToolStripMenuItem.Text = "View/Update Vehicles Status";
             // 
             // processPaymentToolStripMenuItem
             // 
@@ -239,7 +231,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateRentalsInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageVehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewVehiclesStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateVehicleStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewPaymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPaymentToolStripMenuItem;
