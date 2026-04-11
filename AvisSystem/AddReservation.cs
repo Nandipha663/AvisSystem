@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
-    public partial class AddCustomer : Form
+    public partial class AddReservation : Form
     {
-        public AddCustomer()
+        public AddReservation()
         {
             InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

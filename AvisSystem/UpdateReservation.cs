@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
-    public partial class AddCustomer : Form
+    public partial class UpdateReservation : Form
     {
-        public AddCustomer()
+        public UpdateReservation()
         {
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateReservation_Load(object sender, EventArgs e)
         {
 
         }
