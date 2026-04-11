@@ -165,7 +165,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "ManageCustomers";
-            this.Text = "ManageCustomers";
+            this.Text = "UpdateCustomers";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
