@@ -147,6 +147,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Deposit",
+            "Full Payment",
+            "Balance Payment",
+            "Extra Charges"});
             this.comboBox1.Location = new System.Drawing.Point(154, 85);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(149, 21);
@@ -156,7 +161,7 @@
             // maskedTextBox2
             // 
             this.maskedTextBox2.Location = new System.Drawing.Point(260, 137);
-            this.maskedTextBox2.Mask = ".";
+            this.maskedTextBox2.Mask = ".00";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(43, 20);
             this.maskedTextBox2.TabIndex = 9;
@@ -174,7 +179,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 36);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Save";
+            this.button1.Text = "Record Payment";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
