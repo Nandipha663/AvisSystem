@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
-    public partial class Form1 : Form
+    public partial class HomeForm : Form
     {
-        public Form1()
+        public HomeForm()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
