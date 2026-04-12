@@ -84,9 +84,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 15);
+            this.label3.Size = new System.Drawing.Size(114, 15);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Phone Number:";
+            this.label3.Text = "Contact Number:";
             // 
             // label4
             // 
@@ -295,6 +295,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(182, 20);
             this.textBox12.TabIndex = 28;
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // label11
             // 

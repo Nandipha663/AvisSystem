@@ -29,7 +29,7 @@ namespace AvisSystem
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
+            //Mask this to 13 digits
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -50,6 +50,11 @@ namespace AvisSystem
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            //Umiquely auto-generated
         }
     }
 }
