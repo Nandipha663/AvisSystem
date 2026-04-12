@@ -41,10 +41,10 @@
             this.addRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewVehiclesStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,23 +88,23 @@
             // manageReservationToolStripMenuItem
             // 
             this.manageReservationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewScheduledReservationToolStripMenuItem,
-            this.addReservationToolStripMenuItem});
+            this.addReservationToolStripMenuItem,
+            this.viewScheduledReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
-            this.manageReservationToolStripMenuItem.Text = "Manage Reservation";
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
             // viewScheduledReservationToolStripMenuItem
             // 
             this.viewScheduledReservationToolStripMenuItem.Name = "viewScheduledReservationToolStripMenuItem";
-            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Reservation";
+            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Booking";
             // 
             // addReservationToolStripMenuItem
             // 
             this.addReservationToolStripMenuItem.Name = "addReservationToolStripMenuItem";
-            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.addReservationToolStripMenuItem.Text = "Add Reservation";
+            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.addReservationToolStripMenuItem.Text = "Add Booking";
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -142,6 +142,12 @@
             this.viewVehiclesStatusToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.viewVehiclesStatusToolStripMenuItem.Text = "View/Update Vehicles Status";
             // 
+            // addVehicleToolStripMenuItem
+            // 
+            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
+            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
+            // 
             // processPaymentToolStripMenuItem
             // 
             this.processPaymentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -162,12 +168,6 @@
             this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
             this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.addPaymentToolStripMenuItem.Text = "Add Payment";
-            // 
-            // addVehicleToolStripMenuItem
-            // 
-            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
-            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
             // 
             // pictureBox1
             // 
