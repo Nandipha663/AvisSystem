@@ -109,8 +109,8 @@
             // manageRentalsToolStripMenuItem
             // 
             this.manageRentalsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem,
-            this.addRentalsToolStripMenuItem});
+            this.addRentalsToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
