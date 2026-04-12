@@ -42,18 +42,6 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.manageBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -194,14 +182,70 @@
             this.groupBox1.Size = new System.Drawing.Size(884, 373);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add Booking";
+            this.groupBox1.Text = "Add Reservation";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(198, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 28;
+            this.button1.Location = new System.Drawing.Point(387, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 32);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Add Reservation";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(520, 353);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 30);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox4
+            // 
+            this.maskedTextBox4.Location = new System.Drawing.Point(198, 211);
+            this.maskedTextBox4.Mask = "00/00/0000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox4.TabIndex = 26;
+            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(198, 128);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox1.TabIndex = 23;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(387, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 32);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Add Reservation";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(198, 154);
+            this.maskedTextBox3.Mask = "00/00/0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox3.TabIndex = 25;
+            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox4
+            // 
+            this.maskedTextBox4.Location = new System.Drawing.Point(198, 211);
+            this.maskedTextBox4.Mask = "00/00/0000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox4.TabIndex = 26;
+            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
             // 
             // label8
             // 
@@ -213,99 +257,12 @@
             this.label8.TabIndex = 27;
             this.label8.Text = "Branch_ID:";
             // 
-            // maskedTextBox4
+            // textBox3
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(198, 211);
-            this.maskedTextBox4.Mask = "00/00/0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox4.TabIndex = 26;
-            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(198, 154);
-            this.maskedTextBox3.Mask = "00/00/0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox3.TabIndex = 25;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(198, 180);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox2.TabIndex = 24;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(198, 128);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox1.TabIndex = 23;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(640, 351);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 32);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(520, 353);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 30);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 32);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Add Reservation";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageBookingToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(924, 24);
-            this.menuStrip1.TabIndex = 22;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // manageBookingToolStripMenuItem
-            // 
-            this.manageBookingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addBookingToolStripMenuItem,
-            this.viewUpdateBookingToolStripMenuItem});
-            this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.manageBookingToolStripMenuItem.Text = "Manage Booking";
-            // 
-            // addBookingToolStripMenuItem
-            // 
-            this.addBookingToolStripMenuItem.Name = "addBookingToolStripMenuItem";
-            this.addBookingToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.addBookingToolStripMenuItem.Text = "Add Booking";
-            // 
-            // viewUpdateBookingToolStripMenuItem
-            // 
-            this.viewUpdateBookingToolStripMenuItem.Name = "viewUpdateBookingToolStripMenuItem";
-            this.viewUpdateBookingToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.viewUpdateBookingToolStripMenuItem.Text = "View/Update Booking";
+            this.textBox3.Location = new System.Drawing.Point(198, 103);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(157, 20);
+            this.textBox3.TabIndex = 28;
             // 
             // AddReservation
             // 
