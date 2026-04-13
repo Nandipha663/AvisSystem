@@ -17,39 +17,44 @@ namespace AvisSystem
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            //Mask this to 13 digits
+        }
+
+        private void TextBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void TextBox6_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void Label9_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void TextBox7_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void TextBox12_TextChanged(object sender, EventArgs e)
         {
-
+            //Uniquely auto-generated
         }
     }
 }

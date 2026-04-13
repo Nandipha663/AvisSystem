@@ -88,29 +88,29 @@
             // manageReservationToolStripMenuItem
             // 
             this.manageReservationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewScheduledReservationToolStripMenuItem,
-            this.addReservationToolStripMenuItem});
+            this.addReservationToolStripMenuItem,
+            this.viewScheduledReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
-            this.manageReservationToolStripMenuItem.Text = "Manage Reservation";
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
             // viewScheduledReservationToolStripMenuItem
             // 
             this.viewScheduledReservationToolStripMenuItem.Name = "viewScheduledReservationToolStripMenuItem";
-            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Reservation";
+            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Booking";
             // 
             // addReservationToolStripMenuItem
             // 
             this.addReservationToolStripMenuItem.Name = "addReservationToolStripMenuItem";
-            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.addReservationToolStripMenuItem.Text = "Add Reservation";
+            this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.addReservationToolStripMenuItem.Text = "Add Booking";
             // 
             // manageRentalsToolStripMenuItem
             // 
             this.manageRentalsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem,
-            this.addRentalsToolStripMenuItem});
+            this.addRentalsToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
