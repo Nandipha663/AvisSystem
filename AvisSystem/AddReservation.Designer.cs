@@ -37,19 +37,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,13 +140,6 @@
             this.textBox1.Size = new System.Drawing.Size(157, 20);
             this.textBox1.TabIndex = 10;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(198, 237);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 11;
-            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(198, 71);
@@ -163,6 +156,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.maskedTextBox4);
@@ -174,7 +168,6 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
@@ -191,68 +184,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Reservation";
             // 
-            // button1
+            // textBox3
             // 
-            this.button1.Location = new System.Drawing.Point(387, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 32);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Add Reservation";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(520, 353);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 30);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(640, 351);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 32);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(198, 128);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox1.TabIndex = 23;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(198, 180);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox2.TabIndex = 24;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(198, 154);
-            this.maskedTextBox3.Mask = "00/00/0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox3.TabIndex = 25;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(198, 211);
-            this.maskedTextBox4.Mask = "00/00/0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox4.TabIndex = 26;
-            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            this.textBox3.Location = new System.Drawing.Point(198, 103);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(157, 20);
+            this.textBox3.TabIndex = 28;
             // 
             // label8
             // 
@@ -264,12 +201,80 @@
             this.label8.TabIndex = 27;
             this.label8.Text = "Branch_ID:";
             // 
-            // textBox3
+            // maskedTextBox4
             // 
-            this.textBox3.Location = new System.Drawing.Point(198, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 28;
+            this.maskedTextBox4.Location = new System.Drawing.Point(198, 211);
+            this.maskedTextBox4.Mask = "00/00/0000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox4.TabIndex = 26;
+            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(198, 154);
+            this.maskedTextBox3.Mask = "00/00/0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox3.TabIndex = 25;
+            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(198, 180);
+            this.maskedTextBox2.Mask = "00/00/0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox2.TabIndex = 24;
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(198, 128);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(157, 20);
+            this.maskedTextBox1.TabIndex = 23;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(640, 351);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(107, 32);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Clear";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(520, 353);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 30);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(387, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 32);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Add Reservation";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Active",
+            "Cancelled",
+            "Completed"});
+            this.comboBox1.Location = new System.Drawing.Point(198, 238);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 21);
+            this.comboBox1.TabIndex = 29;
             // 
             // AddReservation
             // 
@@ -296,7 +301,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -309,5 +313,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

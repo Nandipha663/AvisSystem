@@ -38,14 +38,14 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,13 +136,6 @@
             this.textBox5.Size = new System.Drawing.Size(148, 20);
             this.textBox5.TabIndex = 16;
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(156, 151);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(148, 20);
-            this.textBox6.TabIndex = 17;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(368, 256);
@@ -172,6 +165,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
@@ -188,7 +182,6 @@
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 333);
@@ -196,15 +189,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Vehicle";
             // 
-            // label3
+            // textBox7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 15);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Branch_ID:";
+            this.textBox7.Location = new System.Drawing.Point(156, 179);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(148, 20);
+            this.textBox7.TabIndex = 30;
             // 
             // label6
             // 
@@ -216,12 +206,27 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Category:";
             // 
-            // textBox7
+            // label3
             // 
-            this.textBox7.Location = new System.Drawing.Point(156, 179);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(148, 20);
-            this.textBox7.TabIndex = 30;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 15);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Branch_ID:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Available",
+            "Reserved",
+            "Rented"});
+            this.comboBox1.Location = new System.Drawing.Point(156, 152);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
+            this.comboBox1.TabIndex = 31;
             // 
             // AddVehicle
             // 
@@ -249,7 +254,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -257,5 +261,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
