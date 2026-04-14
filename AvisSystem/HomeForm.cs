@@ -24,8 +24,21 @@ namespace AvisSystem
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-            //Form frm = (Form)Application.OpenForms["HomeForm"];
-            //MenuStrip ms = (MenuStrip)frm.Controls("menuStrip1");
+            HomeForm homeform = new HomeForm();
+
+            fileToolStripMenuItem.Enabled = true;
+
+            loginToolStripMenuItem.Enabled = true;
+            logoutToolStripMenuItem.Enabled = false;
+            exitToolStripMenuItem.Enabled = false;
+
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
         }
     }
 }
