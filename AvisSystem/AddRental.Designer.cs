@@ -184,13 +184,13 @@
             // addRentalToolStripMenuItem
             // 
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.addRentalToolStripMenuItem.Text = "Add Rental";
             // 
             // viewUpdateRentalToolStripMenuItem
             // 
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
-            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
             // 
             // groupBox1
@@ -224,7 +224,7 @@
             this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddRental";
-            this.Text = "AddRental";
+            this.Text = "/:\"";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

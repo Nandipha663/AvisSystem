@@ -21,5 +21,11 @@ namespace AvisSystem
         {
 
         }
+
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+            //Form frm = (Form)Application.OpenForms["HomeForm"];
+            //MenuStrip ms = (MenuStrip)frm.Controls("menuStrip1");
+        }
     }
 }
