@@ -56,5 +56,24 @@ namespace AvisSystem
         {
 
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
+        }
     }
 }

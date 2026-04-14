@@ -41,5 +41,28 @@ namespace AvisSystem
         {
 
         }
+
+        private void UpdateRental_Load(object sender, EventArgs e)
+        {
+            fileToolStripMenuItem.Enabled = true;
+
+            loginToolStripMenuItem.Enabled = false;
+            logoutToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
+        }
     }
 }

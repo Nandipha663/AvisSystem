@@ -34,11 +34,11 @@
             this.viewActiveCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewScheduledReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewScheduledReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewVehiclesStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +46,10 @@
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +57,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
             this.manageCustomerToolStripMenuItem,
             this.manageReservationToolStripMenuItem,
             this.manageRentalsToolStripMenuItem,
@@ -94,17 +99,19 @@
             this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
-            // viewScheduledReservationToolStripMenuItem
-            // 
-            this.viewScheduledReservationToolStripMenuItem.Name = "viewScheduledReservationToolStripMenuItem";
-            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Booking";
-            // 
             // addReservationToolStripMenuItem
             // 
             this.addReservationToolStripMenuItem.Name = "addReservationToolStripMenuItem";
             this.addReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.addReservationToolStripMenuItem.Text = "Add Booking";
+            this.addReservationToolStripMenuItem.Click += new System.EventHandler(this.addReservationToolStripMenuItem_Click);
+            // 
+            // viewScheduledReservationToolStripMenuItem
+            // 
+            this.viewScheduledReservationToolStripMenuItem.Name = "viewScheduledReservationToolStripMenuItem";
+            this.viewScheduledReservationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.viewScheduledReservationToolStripMenuItem.Text = "View/Update Scheduled Booking";
+            this.viewScheduledReservationToolStripMenuItem.Click += new System.EventHandler(this.viewScheduledReservationToolStripMenuItem_Click);
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -115,23 +122,25 @@
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.viewToolStripMenuItem.Text = "View/Update Rentals";
-            // 
             // addRentalsToolStripMenuItem
             // 
             this.addRentalsToolStripMenuItem.Name = "addRentalsToolStripMenuItem";
             this.addRentalsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.addRentalsToolStripMenuItem.Text = "Add Rentals";
+            this.addRentalsToolStripMenuItem.Click += new System.EventHandler(this.addRentalsToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.viewToolStripMenuItem.Text = "View/Update Rentals";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // manageVehiclesToolStripMenuItem
             // 
             this.manageVehiclesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewVehiclesStatusToolStripMenuItem,
-            this.addVehicleToolStripMenuItem});
+            this.addVehicleToolStripMenuItem,
+            this.viewVehiclesStatusToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
             this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
@@ -141,18 +150,20 @@
             this.viewVehiclesStatusToolStripMenuItem.Name = "viewVehiclesStatusToolStripMenuItem";
             this.viewVehiclesStatusToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.viewVehiclesStatusToolStripMenuItem.Text = "View/Update Vehicles Status";
+            this.viewVehiclesStatusToolStripMenuItem.Click += new System.EventHandler(this.viewVehiclesStatusToolStripMenuItem_Click);
             // 
             // addVehicleToolStripMenuItem
             // 
             this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
             this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
+            this.addVehicleToolStripMenuItem.Click += new System.EventHandler(this.addVehicleToolStripMenuItem_Click);
             // 
             // processPaymentToolStripMenuItem
             // 
             this.processPaymentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewPaymentsToolStripMenuItem,
-            this.addPaymentToolStripMenuItem});
+            this.addPaymentToolStripMenuItem,
+            this.viewPaymentsToolStripMenuItem});
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
             this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.processPaymentToolStripMenuItem.Text = "Process Payment";
@@ -162,12 +173,14 @@
             this.viewPaymentsToolStripMenuItem.Name = "viewPaymentsToolStripMenuItem";
             this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.viewPaymentsToolStripMenuItem.Text = "View/Update Payments";
+            this.viewPaymentsToolStripMenuItem.Click += new System.EventHandler(this.viewPaymentsToolStripMenuItem_Click);
             // 
             // addPaymentToolStripMenuItem
             // 
             this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
             this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.addPaymentToolStripMenuItem.Text = "Add Payment";
+            this.addPaymentToolStripMenuItem.Click += new System.EventHandler(this.addPaymentToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -177,6 +190,37 @@
             this.pictureBox1.Size = new System.Drawing.Size(800, 425);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // AvisMenuForm
             // 
@@ -188,6 +232,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AvisMenuForm";
             this.Text = "AvisMenuForm";
+            this.Load += new System.EventHandler(this.AvisMenuForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -215,5 +260,9 @@
         private System.Windows.Forms.ToolStripMenuItem addPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

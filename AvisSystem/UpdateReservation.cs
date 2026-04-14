@@ -24,7 +24,11 @@ namespace AvisSystem
 
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
+            fileToolStripMenuItem.Enabled = true;
 
+            loginToolStripMenuItem.Enabled = false;
+            logoutToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -35,6 +39,20 @@ namespace AvisSystem
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
         }
     }
 }
