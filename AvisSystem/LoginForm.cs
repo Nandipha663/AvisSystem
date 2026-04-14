@@ -35,27 +35,7 @@ namespace AvisSystem
             logoutToolStripMenuItem.Enabled = false;
             exitToolStripMenuItem.Enabled = true;
 
-           /* if (textBox1.Text == "AvisAdmin" && textBox2.Text == "2026")
-            {
-                MessageBox.Show("Login successful!");
-            }
-            else if (textBox1.Text != "AvisAdmin" && textBox2.Text == "2026")
-            {
-                MessageBox.Show("Invalid Username!");
-                textBox1.Clear();
-
-            }
-            else if (textBox1.Text == "AvisAdmin" && textBox2.Text != "2026")
-            {
-                MessageBox.Show("Invalid Password!");
-                textBox2.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password. Please try again.");
-                textBox1.Clear();
-                textBox2.Clear();
-            }*/
+         
         }
 
         private void button2_Click(object sender, EventArgs e)
