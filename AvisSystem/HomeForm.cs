@@ -40,5 +40,10 @@ namespace AvisSystem
             LoginForm loginform = new LoginForm();
             loginform.Show();
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

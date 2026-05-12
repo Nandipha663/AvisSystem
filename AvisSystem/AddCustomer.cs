@@ -56,5 +56,125 @@ namespace AvisSystem
         {
             //Uniquely auto-generated
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AvisMenuForm avisMenuForm = new AvisMenuForm();
+            avisMenuForm.Show();
+        }
+
+        private void manageCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer newAddCustomer = new AddCustomer();
+            this.Hide();
+            newAddCustomer.Show();
+        }
+
+        private void AddCustomer_Load(object sender, EventArgs e)
+        {
+            addCustomerToolStripMenuItem.Enabled = false;
+            fileToolStripMenuItem.Enabled = true;
+            loginToolStripMenuItem.Enabled = false;
+            logoutToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
+            
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm newLoginForm = new LoginForm();
+            this.Hide();
+            newLoginForm.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                HomeForm newHomeForm = new HomeForm();
+                this.Hide();
+                newHomeForm.Show();
+        }
+
+        private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                ManageCustomers newManageCustomers = new ManageCustomers();
+                this.Hide();
+                newManageCustomers.Show();
+        }
+
+        private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservation newAddReservation = new AddReservation();
+            this.Hide();
+            newAddReservation.Show();
+        }
+
+        private void viewUpdateScheduledBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                UpdateReservation newUpdateReservation = new UpdateReservation();
+                this.Hide();
+                newUpdateReservation.Show();
+        }
+
+        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVehicle newAddVehicle = new AddVehicle();
+            this.Hide();
+            newAddVehicle.Show();
+        }
+
+        private void viewUpdateVehicleStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                UpdateVehicles newUpdateVehicles = new UpdateVehicles();
+                this.Hide();
+                newUpdateVehicles.Show();
+        }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRental newAddRental = new AddRental();
+            this.Hide();
+            newAddRental.Show();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRental newUpdateRental = new UpdateRental();
+            this.Hide();
+            newUpdateRental.Show();
+        }
+
+        private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPayment newAddPayment = new AddPayment();
+            this.Hide();
+            newAddPayment.Show();
+        }
+
+        private void viewUpdatePaymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdatePayment newUpdatePayment = new UpdatePayment();
+            this.Hide();
+            newUpdatePayment.Show();
+        }
+
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+            this.Hide();
+            newAvisMenuForm.Show();
+        }
     }
 }

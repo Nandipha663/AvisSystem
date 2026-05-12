@@ -24,6 +24,7 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
+ 
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +100,30 @@ namespace AvisSystem
             UpdatePayment newUpdatePayment = new UpdatePayment();
             this.Hide();
             newUpdatePayment.Show();
+        }
+
+        private void manageCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer newAddCustomer = new AddCustomer();
+            this.Hide();
+            newAddCustomer.Show();
+        }
+
+        private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCustomers newManageCustomers = new ManageCustomers();    
+            this.Hide();
+            newManageCustomers.Show();
+        }
+
+        private void manageReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
