@@ -31,17 +31,30 @@ namespace AvisSystem
 
         }
 
+        private void setUpForm(Form form) {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            //make the new form a child of the main form and show it
+            form.MdiParent = this;
+
+            //make form size of parent
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+    
             LoginForm loginform = new LoginForm();
+            setUpForm(loginform);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
-            homeform.Show();
+            setUpForm(homeform);
         }
 
         private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +112,13 @@ namespace AvisSystem
             UpdatePayment newUpdatePayment = new UpdatePayment();
             this.Hide();
             newUpdatePayment.Show();
+        }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer newAddCustomer = new AddCustomer();
+            this.Hide();
+            newAddCustomer.Show();
         }
     }
 }

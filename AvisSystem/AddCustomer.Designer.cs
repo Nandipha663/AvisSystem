@@ -55,7 +55,15 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -138,7 +146,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(182, 20);
             this.textBox3.TabIndex = 13;
-           // this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -146,7 +153,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(182, 20);
             this.textBox4.TabIndex = 14;
-            //this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 
@@ -161,7 +167,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(182, 20);
             this.textBox6.TabIndex = 16;
-           // this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label9
             // 
@@ -172,7 +177,6 @@
             this.label9.Size = new System.Drawing.Size(106, 15);
             this.label9.TabIndex = 18;
             this.label9.Text = "Postal Address:";
-           // this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // textBox8
             // 
@@ -210,7 +214,6 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
-           // this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -258,9 +261,9 @@
             this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(6, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 426);
+            this.groupBox1.Size = new System.Drawing.Size(782, 429);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Customer";
@@ -295,7 +298,6 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(182, 20);
             this.textBox12.TabIndex = 28;
-            //this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // label11
             // 
@@ -317,17 +319,75 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "User Name:";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.manageCustomerToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Text = "Login";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // manageCustomerToolStripMenuItem
+            // 
+            this.manageCustomerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewUpdateCustomerToolStripMenuItem});
+            this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
+            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.manageCustomerToolStripMenuItem.Text = "Manage  Customer";
+            // 
+            // viewUpdateCustomerToolStripMenuItem
+            // 
+            this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
+            this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddCustomer";
             this.Text = "AddCustomer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -359,5 +419,12 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateCustomerToolStripMenuItem;
     }
 }
