@@ -75,5 +75,96 @@ namespace AvisSystem
             HomeForm homeform = new HomeForm();
             homeform.Show();
         }
+
+        private void AddRental_Load(object sender, EventArgs e)
+        {
+            fileToolStripMenuItem.Enabled = true;
+            loginToolStripMenuItem.Enabled = false;
+            logoutToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
+            addRentalToolStripMenuItem.Enabled = false;
+           
+        }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRental newAddRental = new AddRental();
+            this.Hide();
+            newAddRental.Show();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRental newUpdateRental = new UpdateRental();
+            this.Hide();
+            newUpdateRental.Show();
+        }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer newAddCustomer = new AddCustomer();
+            this.Hide();
+            newAddCustomer.Show();
+        }
+
+        private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCustomers newManageCustomers = new ManageCustomers();
+            this.Hide();
+            newManageCustomers.Show();
+        }
+
+        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVehicle newAddVehicle = new AddVehicle();
+            this.Hide();
+            newAddVehicle.Show();
+        }
+
+        private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                UpdateVehicles newUpdateVehicles = new UpdateVehicles();
+                this.Hide();
+                newUpdateVehicles.Show();
+        }
+
+        private void addRentalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddReservation newAddReservation = new AddReservation();
+            this.Hide();
+            newAddReservation.Show();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UpdateReservation newUpdateReservation = new UpdateReservation();
+            this.Hide();
+            newUpdateReservation.Show();
+        }
+
+        private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPayment newAddPayment = new AddPayment();
+            this.Hide();
+            newAddPayment.Show();
+        }
+
+        private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdatePayment newUpdatePayment = new UpdatePayment();
+            this.Hide();
+            newUpdatePayment.Show();
+        }
+
+        private void manageRentalsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 }

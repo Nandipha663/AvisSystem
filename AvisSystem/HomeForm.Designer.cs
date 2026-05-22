@@ -35,6 +35,9 @@
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCustomerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewScheduledReservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +50,6 @@
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageCustomerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,14 +57,16 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(126, -16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 424);
+            this.pictureBox1.Size = new System.Drawing.Size(716, 481);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Navy;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.manageCustomerToolStripMenuItem1,
@@ -74,7 +76,7 @@
             this.processPaymentToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(123, 450);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,12 +86,15 @@
             this.loginToolStripMenuItem,
             this.logoutToolStripMenuItem,
             this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
             // 
+            this.loginToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.loginToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loginToolStripMenuItem.Text = "Login";
@@ -97,15 +102,42 @@
             // 
             // logoutToolStripMenuItem
             // 
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // manageCustomerToolStripMenuItem1
+            // 
+            this.manageCustomerToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCustomerToolStripMenuItem,
+            this.viewUpdateCustomerToolStripMenuItem});
+            this.manageCustomerToolStripMenuItem1.Enabled = false;
+            this.manageCustomerToolStripMenuItem1.Name = "manageCustomerToolStripMenuItem1";
+            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(110, 19);
+            this.manageCustomerToolStripMenuItem1.Text = "Manage Customer";
+            // 
+            // addCustomerToolStripMenuItem
+            // 
+            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            // 
+            // viewUpdateCustomerToolStripMenuItem
+            // 
+            this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
+            this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
             // 
             // manageReservationToolStripMenuItem
             // 
@@ -114,7 +146,7 @@
             this.viewScheduledReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Enabled = false;
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
             // addReservationToolStripMenuItem
@@ -136,7 +168,7 @@
             this.viewToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Enabled = false;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
             // 
             // addRentalsToolStripMenuItem
@@ -158,7 +190,7 @@
             this.viewVehiclesStatusToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Enabled = false;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -180,7 +212,7 @@
             this.viewPaymentsToolStripMenuItem});
             this.processPaymentToolStripMenuItem.Enabled = false;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.processPaymentToolStripMenuItem.Text = "Process Payment";
             // 
             // addPaymentToolStripMenuItem
@@ -195,33 +227,11 @@
             this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.viewPaymentsToolStripMenuItem.Text = "View/Update Payments";
             // 
-            // manageCustomerToolStripMenuItem1
-            // 
-            this.manageCustomerToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCustomerToolStripMenuItem,
-            this.viewUpdateCustomerToolStripMenuItem});
-            this.manageCustomerToolStripMenuItem1.Enabled = false;
-            this.manageCustomerToolStripMenuItem1.Name = "manageCustomerToolStripMenuItem1";
-            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(117, 20);
-            this.manageCustomerToolStripMenuItem1.Text = "Manage Customer";
-            // 
-            // addCustomerToolStripMenuItem
-            // 
-            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.addCustomerToolStripMenuItem.Text = "Add Customer";
-            // 
-            // viewUpdateCustomerToolStripMenuItem
-            // 
-            this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
-            this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(846, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.IsMdiContainer = true;
