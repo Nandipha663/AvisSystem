@@ -62,6 +62,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.manageCustomerToolStripMenuItem,
+            this.manageCustomersToolStripMenuItem,
             this.manageReservationToolStripMenuItem,
             this.manageRentalsToolStripMenuItem,
             this.manageVehiclesToolStripMenuItem,
@@ -133,6 +134,7 @@
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
             this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.manageReservationToolStripMenuItem.Text = "Manage Booking";
+            this.manageReservationToolStripMenuItem.Click += new System.EventHandler(this.manageReservationToolStripMenuItem_Click);
             // 
             // addReservationToolStripMenuItem
             // 
@@ -238,6 +240,13 @@
             this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
             this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
+            // 
+            // viewPaymentsToolStripMenuItem
+            // 
+            this.viewPaymentsToolStripMenuItem.Name = "viewPaymentsToolStripMenuItem";
+            this.viewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewPaymentsToolStripMenuItem.Text = "View/Update Payments";
+            this.viewPaymentsToolStripMenuItem.Click += new System.EventHandler(this.viewPaymentsToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 

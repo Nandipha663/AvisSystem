@@ -24,6 +24,7 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
+ 
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)

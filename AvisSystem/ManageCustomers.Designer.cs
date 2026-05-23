@@ -341,12 +341,14 @@
             this.button1.Text = "🗑️  Delete Customer";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // button2
             // 
-            this.textBox2.Location = new System.Drawing.Point(156, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(288, 20);
-            this.textBox2.TabIndex = 1;
+            this.button2.Location = new System.Drawing.Point(308, 81);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 34);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Update Customer Info";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label2
             // 

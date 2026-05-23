@@ -206,7 +206,7 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // loginToolStripMenuItem
+            // toolStripMenuItem1
             // 
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
@@ -214,7 +214,7 @@
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loginToolStripMenuItem.Text = "Login";
             // 
-            // logoutToolStripMenuItem
+            // addPaymentToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
@@ -223,7 +223,7 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // viewUpdatePaymentToolStripMenuItem
             // 
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));

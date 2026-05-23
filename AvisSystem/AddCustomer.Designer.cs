@@ -223,6 +223,7 @@
             this.button2.TabIndex = 24;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -382,6 +383,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddCustomer";
             this.Text = "AddCustomer";
+            this.Load += new System.EventHandler(this.AddCustomer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
