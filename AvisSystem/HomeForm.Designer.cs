@@ -57,9 +57,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(126, -16);
+            this.pictureBox1.Location = new System.Drawing.Point(126, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(716, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(716, 450);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -95,6 +95,7 @@
             // 
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
             this.loginToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loginToolStripMenuItem.Text = "Login";
@@ -104,15 +105,16 @@
             // 
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
             this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
@@ -124,7 +126,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageCustomerToolStripMenuItem1.Enabled = false;
             this.manageCustomerToolStripMenuItem1.Name = "manageCustomerToolStripMenuItem1";
-            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(110, 19);
+            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(113, 19);
             this.manageCustomerToolStripMenuItem1.Text = "Manage Customer";
             // 
             // addCustomerToolStripMenuItem
@@ -146,7 +148,7 @@
             this.viewScheduledReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Enabled = false;
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
             // addReservationToolStripMenuItem
@@ -168,7 +170,7 @@
             this.viewToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Enabled = false;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
             // 
             // addRentalsToolStripMenuItem
@@ -190,7 +192,7 @@
             this.viewVehiclesStatusToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Enabled = false;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -212,7 +214,7 @@
             this.viewPaymentsToolStripMenuItem});
             this.processPaymentToolStripMenuItem.Enabled = false;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.processPaymentToolStripMenuItem.Text = "Process Payment";
             // 
             // addPaymentToolStripMenuItem

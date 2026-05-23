@@ -153,5 +153,10 @@ namespace AvisSystem
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
         }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

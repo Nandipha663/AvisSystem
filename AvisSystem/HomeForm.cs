@@ -36,35 +36,11 @@ namespace AvisSystem
 
         }
 
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LoginForm loginform = new LoginForm();
-            loginform.Show();
-        }
-
-        private void setUpForm(Form form)
-        {
-            if (ActiveMdiChild != null)
-            {
-                ActiveMdiChild.Close();
-            }
-
-            //make the new form a child of the main form and show it
-            form.MdiParent = this;
-
-            //make form size of parent
-            form.WindowState = FormWindowState.Maximized;
-            form.Show();
-        }
         private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             LoginForm loginForm = new LoginForm();
-
-            //enable menu items of the main Form
-            HomeForm.main.manageCustomerToolStripMenuItem1.Enabled = true;
-            HomeForm.main.manageReservationToolStripMenuItem.Enabled = true;
-            setUpForm(loginForm);
+            loginForm.Show();
         }
     }
 }

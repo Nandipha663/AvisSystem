@@ -112,5 +112,19 @@ namespace AvisSystem
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
+        }
     }
 }

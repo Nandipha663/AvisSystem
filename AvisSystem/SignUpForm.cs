@@ -242,7 +242,7 @@ namespace AvisSystem
             else
             {
                 button1.Enabled = false;
-                button1.BackColor = Color.Gray;
+                button1.BackColor = Color.LightCoral;
             }
         }
 

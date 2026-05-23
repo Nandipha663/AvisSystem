@@ -78,7 +78,7 @@ namespace AvisSystem
 
         private void AddCustomer_Load(object sender, EventArgs e)
         {
-            addCustomerToolStripMenuItem1.Enabled = false;
+            addNewCustomerToolStripMenuItem.Enabled = false;
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
@@ -86,88 +86,11 @@ namespace AvisSystem
             
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            HomeForm homeform = new HomeForm();
-            homeform.Show();
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoginForm newLoginForm = new LoginForm();
-            this.Hide();
-            newLoginForm.Show();
-        }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                HomeForm newHomeForm = new HomeForm();
-                this.Hide();
-                newHomeForm.Show();
-        }
-
         private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 ManageCustomers newManageCustomers = new ManageCustomers();
                 this.Hide();
                 newManageCustomers.Show();
-        }
-
-        private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddReservation newAddReservation = new AddReservation();
-            this.Hide();
-            newAddReservation.Show();
-        }
-
-        private void viewUpdateScheduledBookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                UpdateReservation newUpdateReservation = new UpdateReservation();
-                this.Hide();
-                newUpdateReservation.Show();
-        }
-
-        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddVehicle newAddVehicle = new AddVehicle();
-            this.Hide();
-            newAddVehicle.Show();
-        }
-
-        private void viewUpdateVehicleStatusToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-                this.Hide();
-                newUpdateVehicles.Show();
-        }
-
-        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddRental newAddRental = new AddRental();
-            this.Hide();
-            newAddRental.Show();
-        }
-
-        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
-            newUpdateRental.Show();
-        }
-
-        private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddPayment newAddPayment = new AddPayment();
-            this.Hide();
-            newAddPayment.Show();
-        }
-
-        private void viewUpdatePaymentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdatePayment newUpdatePayment = new UpdatePayment();
-            this.Hide();
-            newUpdatePayment.Show();
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,11 +110,93 @@ namespace AvisSystem
 
         }
 
-        private void viewUpdateCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void viewUpdateCustomerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewUpdateCustomerToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             ManageCustomers newManageCustomers = new ManageCustomers();
             this.Hide();
             newManageCustomers.Show();
+        }
+
+        private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddReservation newAddReservation = new AddReservation();
+            this.Hide();
+            newAddReservation.Show();
+        }
+
+        private void viewUpdateReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateReservation newUpdateReservation = new UpdateReservation();
+            this.Hide();
+            newUpdateReservation.Show();
+        }
+
+        private void addNewRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRental newAddRental = new AddRental();
+            this.Hide();
+            newAddRental.Show();
+        }
+
+        private void viewUpdateRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRental newUpdateRental = new UpdateRental();
+            this.Hide();
+            newUpdateRental.Show();
+        }
+
+        private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVehicle newAddVehicle = new AddVehicle();
+            this.Hide();
+            newAddVehicle.Show();
+        }
+
+        private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateVehicles newUpdateVehicles = new UpdateVehicles();
+            this.Hide();
+            newUpdateVehicles.Show();
+        }
+
+        private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPayment newAddPayment = new AddPayment();
+            this.Hide();
+            newAddPayment.Show();
+        }
+
+        private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdatePayment newUpdatePayment = new UpdatePayment();
+            this.Hide();
+            newUpdatePayment.Show();
+        }
+
+        private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            LoginForm newLoginForm = new LoginForm();
+            this.Hide();
+            newLoginForm.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
+
+        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeform = new HomeForm();
+            homeform.Show();
         }
     }
 }
