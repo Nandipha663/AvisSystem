@@ -137,5 +137,20 @@ namespace AvisSystem
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
