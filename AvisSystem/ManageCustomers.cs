@@ -126,5 +126,10 @@ namespace AvisSystem
             HomeForm homeform = new HomeForm();
             homeform.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

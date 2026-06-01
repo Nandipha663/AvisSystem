@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBranch.Designer.cs">
+      <DependentUpon>AddBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClaim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClaim.Designer.cs">
+      <DependentUpon>AddClaim.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,18 @@
     <Compile Include="SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateBranch.Designer.cs">
+      <DependentUpon>UpdateBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateClaim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClaim.Designer.cs">
+      <DependentUpon>UpdateClaim.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdatePayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +156,12 @@
     <Compile Include="UpdateVehicles.Designer.cs">
       <DependentUpon>UpdateVehicles.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddBranch.resx">
+      <DependentUpon>AddBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClaim.resx">
+      <DependentUpon>AddClaim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +201,12 @@
     </Compile>
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateBranch.resx">
+      <DependentUpon>UpdateBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClaim.resx">
+      <DependentUpon>UpdateClaim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatePayment.resx">
       <DependentUpon>UpdatePayment.cs</DependentUpon>
