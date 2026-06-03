@@ -49,6 +49,12 @@
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdatePaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,7 +87,9 @@
             this.manageBookingToolStripMenuItem,
             this.manageRentalsToolStripMenuItem,
             this.manageVehicleToolStripMenuItem,
-            this.processPaymentToolStripMenuItem});
+            this.processPaymentToolStripMenuItem,
+            this.manageClaimsToolStripMenuItem,
+            this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(143, 450);
@@ -104,7 +112,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -112,7 +120,7 @@
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -121,7 +129,7 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -192,7 +200,7 @@
             // 
             this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.addRentalToolStripMenuItem.Text = "Add Rental";
             this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
             // 
@@ -200,7 +208,7 @@
             // 
             this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
-            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
             this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
@@ -254,6 +262,62 @@
             this.viewUpdatePaymentToolStripMenuItem.Name = "viewUpdatePaymentToolStripMenuItem";
             this.viewUpdatePaymentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
+            // 
+            // manageClaimsToolStripMenuItem
+            // 
+            this.manageClaimsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addClaimToolStripMenuItem,
+            this.updateClaimToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
+            this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
+            // 
+            // addClaimToolStripMenuItem
+            // 
+            this.addClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
+            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.addClaimToolStripMenuItem.Text = "Add Claim";
+            this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
+            // 
+            // updateClaimToolStripMenuItem
+            // 
+            this.updateClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.updateClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
+            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.updateClaimToolStripMenuItem.Text = "Update Claim";
+            this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
+            // 
+            // manageBranchesToolStripMenuItem
+            // 
+            this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBranchToolStripMenuItem,
+            this.updateBranchToolStripMenuItem});
+            this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
+            this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
+            // 
+            // addBranchToolStripMenuItem
+            // 
+            this.addBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.addBranchToolStripMenuItem.Name = "addBranchToolStripMenuItem";
+            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBranchToolStripMenuItem.Text = "Add Branch";
+            this.addBranchToolStripMenuItem.Click += new System.EventHandler(this.addBranchToolStripMenuItem_Click);
+            // 
+            // updateBranchToolStripMenuItem
+            // 
+            this.updateBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.updateBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.updateBranchToolStripMenuItem.Name = "updateBranchToolStripMenuItem";
+            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateBranchToolStripMenuItem.Text = "Update Branch";
+            this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -494,5 +558,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ToolStripMenuItem manageClaimsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClaimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateClaimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateBranchToolStripMenuItem;
     }
 }

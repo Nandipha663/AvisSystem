@@ -52,6 +52,12 @@
             this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClaimToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +74,9 @@
             this.manageReservationToolStripMenuItem,
             this.manageRentalsToolStripMenuItem,
             this.manageVehiclesToolStripMenuItem,
-            this.processPaymentToolStripMenuItem});
+            this.processPaymentToolStripMenuItem,
+            this.manageClaimsToolStripMenuItem,
+            this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(138, 450);
@@ -277,6 +285,62 @@
             this.viewPaymentsToolStripMenuItem.Text = "View/Update Payments";
             this.viewPaymentsToolStripMenuItem.Click += new System.EventHandler(this.viewPaymentsToolStripMenuItem_Click);
             // 
+            // manageClaimsToolStripMenuItem
+            // 
+            this.manageClaimsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addClaimToolStripMenuItem1,
+            this.updateClaimToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
+            this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
+            // 
+            // addClaimToolStripMenuItem1
+            // 
+            this.addClaimToolStripMenuItem1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.addClaimToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.addClaimToolStripMenuItem1.Name = "addClaimToolStripMenuItem1";
+            this.addClaimToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.addClaimToolStripMenuItem1.Text = "Add New Claim";
+            this.addClaimToolStripMenuItem1.Click += new System.EventHandler(this.addClaimToolStripMenuItem1_Click);
+            // 
+            // updateClaimToolStripMenuItem
+            // 
+            this.updateClaimToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.updateClaimToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
+            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.updateClaimToolStripMenuItem.Text = "View/Update Claims";
+            this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
+            // 
+            // manageBranchesToolStripMenuItem
+            // 
+            this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBranchToolStripMenuItem,
+            this.updateBranchToolStripMenuItem});
+            this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
+            this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
+            // 
+            // addBranchToolStripMenuItem
+            // 
+            this.addBranchToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.addBranchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.addBranchToolStripMenuItem.Name = "addBranchToolStripMenuItem";
+            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.addBranchToolStripMenuItem.Text = "Add New Branch";
+            this.addBranchToolStripMenuItem.Click += new System.EventHandler(this.addBranchToolStripMenuItem_Click);
+            // 
+            // updateBranchToolStripMenuItem
+            // 
+            this.updateBranchToolStripMenuItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.updateBranchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.updateBranchToolStripMenuItem.Name = "updateBranchToolStripMenuItem";
+            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.updateBranchToolStripMenuItem.Text = "View/Update Branches";
+            this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -332,5 +396,11 @@
         private System.Windows.Forms.ToolStripMenuItem manageCustomerToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageClaimsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClaimToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem updateClaimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateBranchToolStripMenuItem;
     }
 }

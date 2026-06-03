@@ -31,28 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateBranch));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateVehicleStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdatePaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,11 +61,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -107,6 +107,30 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loginToolStripMenuItem.Text = "Login";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // manageCustomersToolStripMenuItem
             // 
             this.manageCustomersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -118,6 +142,22 @@
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
             // 
+            // addCustomerToolStripMenuItem
+            // 
+            this.addCustomerToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.addCustomerToolStripMenuItem.Text = "Add New Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
+            // 
+            // viewUpdateCustomerToolStripMenuItem
+            // 
+            this.viewUpdateCustomerToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
+            this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
+            this.viewUpdateCustomerToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomerToolStripMenuItem_Click);
+            // 
             // manageBookingToolStripMenuItem
             // 
             this.manageBookingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,6 +167,22 @@
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
             this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
+            // 
+            // addBookingsToolStripMenuItem
+            // 
+            this.addBookingsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addBookingsToolStripMenuItem.Name = "addBookingsToolStripMenuItem";
+            this.addBookingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.addBookingsToolStripMenuItem.Text = "Add New Bookings";
+            this.addBookingsToolStripMenuItem.Click += new System.EventHandler(this.addBookingsToolStripMenuItem_Click);
+            // 
+            // viewUpdateBookingsToolStripMenuItem
+            // 
+            this.viewUpdateBookingsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateBookingsToolStripMenuItem.Name = "viewUpdateBookingsToolStripMenuItem";
+            this.viewUpdateBookingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.viewUpdateBookingsToolStripMenuItem.Text = "View/Update Bookings";
+            this.viewUpdateBookingsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBookingsToolStripMenuItem_Click);
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -138,6 +194,22 @@
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
             // 
+            // addRentalToolStripMenuItem
+            // 
+            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.addRentalToolStripMenuItem.Text = "Add New Rental";
+            this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
+            // 
+            // viewUpdateRentalsToolStripMenuItem
+            // 
+            this.viewUpdateRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateRentalsToolStripMenuItem.Name = "viewUpdateRentalsToolStripMenuItem";
+            this.viewUpdateRentalsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.viewUpdateRentalsToolStripMenuItem.Text = "View/Update Rentals";
+            this.viewUpdateRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalsToolStripMenuItem_Click);
+            // 
             // manageRentalsToolStripMenuItem1
             // 
             this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -147,6 +219,22 @@
             this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
             this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(130, 19);
             this.manageRentalsToolStripMenuItem1.Text = "🚗 Manage Vehicle";
+            // 
+            // addVehicleToolStripMenuItem
+            // 
+            this.addVehicleToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
+            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.addVehicleToolStripMenuItem.Text = "Add New Vehicle";
+            this.addVehicleToolStripMenuItem.Click += new System.EventHandler(this.addVehicleToolStripMenuItem_Click);
+            // 
+            // viewUpdateVehicleStatusToolStripMenuItem
+            // 
+            this.viewUpdateVehicleStatusToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateVehicleStatusToolStripMenuItem.Name = "viewUpdateVehicleStatusToolStripMenuItem";
+            this.viewUpdateVehicleStatusToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.viewUpdateVehicleStatusToolStripMenuItem.Text = "View/Update Vehicle Status";
+            this.viewUpdateVehicleStatusToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateVehicleStatusToolStripMenuItem_Click);
             // 
             // processPaymentToolStripMenuItem
             // 
@@ -158,6 +246,22 @@
             this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
+            // addPaymentToolStripMenuItem
+            // 
+            this.addPaymentToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
+            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.addPaymentToolStripMenuItem.Text = "Add New Payment";
+            this.addPaymentToolStripMenuItem.Click += new System.EventHandler(this.addPaymentToolStripMenuItem_Click);
+            // 
+            // viewUpdatePaymentsToolStripMenuItem
+            // 
+            this.viewUpdatePaymentsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdatePaymentsToolStripMenuItem.Name = "viewUpdatePaymentsToolStripMenuItem";
+            this.viewUpdatePaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.viewUpdatePaymentsToolStripMenuItem.Text = "View/Update Payments";
+            this.viewUpdatePaymentsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentsToolStripMenuItem_Click);
+            // 
             // manageBranchesToolStripMenuItem
             // 
             this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -167,6 +271,21 @@
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
             this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.manageBranchesToolStripMenuItem.Text = "🏢 Manage Branches";
+            // 
+            // addNewBranchToolStripMenuItem
+            // 
+            this.addNewBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
+            this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
+            this.addNewBranchToolStripMenuItem.Click += new System.EventHandler(this.addNewBranchToolStripMenuItem_Click);
+            // 
+            // viewUpdateBranchesToolStripMenuItem
+            // 
+            this.viewUpdateBranchesToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateBranchesToolStripMenuItem.Name = "viewUpdateBranchesToolStripMenuItem";
+            this.viewUpdateBranchesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.viewUpdateBranchesToolStripMenuItem.Text = "View/Update Branches";
             // 
             // manageClaimsToolStripMenuItem
             // 
@@ -178,120 +297,13 @@
             this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.manageClaimsToolStripMenuItem.Text = "📋 Manage Claims";
             // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loginToolStripMenuItem.Text = "Login";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // addCustomerToolStripMenuItem
-            // 
-            this.addCustomerToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.addCustomerToolStripMenuItem.Text = "Add New Customer";
-            // 
-            // viewUpdateCustomerToolStripMenuItem
-            // 
-            this.viewUpdateCustomerToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateCustomerToolStripMenuItem.Name = "viewUpdateCustomerToolStripMenuItem";
-            this.viewUpdateCustomerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.viewUpdateCustomerToolStripMenuItem.Text = "View/Update Customer";
-            // 
-            // addBookingsToolStripMenuItem
-            // 
-            this.addBookingsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addBookingsToolStripMenuItem.Name = "addBookingsToolStripMenuItem";
-            this.addBookingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.addBookingsToolStripMenuItem.Text = "Add New Bookings";
-            // 
-            // viewUpdateBookingsToolStripMenuItem
-            // 
-            this.viewUpdateBookingsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateBookingsToolStripMenuItem.Name = "viewUpdateBookingsToolStripMenuItem";
-            this.viewUpdateBookingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.viewUpdateBookingsToolStripMenuItem.Text = "View/Update Bookings";
-            // 
-            // addRentalToolStripMenuItem
-            // 
-            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.addRentalToolStripMenuItem.Text = "Add New Rental";
-            // 
-            // viewUpdateRentalsToolStripMenuItem
-            // 
-            this.viewUpdateRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateRentalsToolStripMenuItem.Name = "viewUpdateRentalsToolStripMenuItem";
-            this.viewUpdateRentalsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.viewUpdateRentalsToolStripMenuItem.Text = "View/Update Rentals";
-            // 
-            // addVehicleToolStripMenuItem
-            // 
-            this.addVehicleToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
-            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.addVehicleToolStripMenuItem.Text = "Add New Vehicle";
-            // 
-            // viewUpdateVehicleStatusToolStripMenuItem
-            // 
-            this.viewUpdateVehicleStatusToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateVehicleStatusToolStripMenuItem.Name = "viewUpdateVehicleStatusToolStripMenuItem";
-            this.viewUpdateVehicleStatusToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.viewUpdateVehicleStatusToolStripMenuItem.Text = "View/Update Vehicle Status";
-            // 
-            // addPaymentToolStripMenuItem
-            // 
-            this.addPaymentToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
-            this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.addPaymentToolStripMenuItem.Text = "Add New Payment";
-            // 
-            // viewUpdatePaymentsToolStripMenuItem
-            // 
-            this.viewUpdatePaymentsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdatePaymentsToolStripMenuItem.Name = "viewUpdatePaymentsToolStripMenuItem";
-            this.viewUpdatePaymentsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.viewUpdatePaymentsToolStripMenuItem.Text = "View/Update Payments";
-            // 
-            // addNewBranchToolStripMenuItem
-            // 
-            this.addNewBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
-            this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
-            // 
-            // viewUpdateBranchesToolStripMenuItem
-            // 
-            this.viewUpdateBranchesToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateBranchesToolStripMenuItem.Name = "viewUpdateBranchesToolStripMenuItem";
-            this.viewUpdateBranchesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.viewUpdateBranchesToolStripMenuItem.Text = "View/Update Branches";
-            // 
             // addClaimToolStripMenuItem
             // 
             this.addClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
             this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.addClaimToolStripMenuItem.Text = "Add New Claim";
+            this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
             // 
             // viewUpdateClaimsToolStripMenuItem
             // 
@@ -299,6 +311,7 @@
             this.viewUpdateClaimsToolStripMenuItem.Name = "viewUpdateClaimsToolStripMenuItem";
             this.viewUpdateClaimsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
+            this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -363,34 +376,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Branch";
             // 
-            // label2
+            // button4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Selected Branch:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(128, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(178, 20);
-            this.textBox2.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightCyan;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(9, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 52);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "🗑️  Delete Branch";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(575, 102);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(166, 47);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Update Branch";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -405,18 +402,34 @@
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // button1
             // 
-            this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(575, 102);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 47);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Update Branch";
-            this.button4.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.Color.LightCyan;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(9, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 52);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "🗑️  Delete Branch";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(128, 25);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(178, 20);
+            this.textBox2.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Selected Branch:";
             // 
             // label13
             // 

@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateVehicles));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -69,13 +74,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdatePaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.processPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -99,6 +105,55 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fleet";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(132, 323);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 15);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Value:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 324);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 15);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Filter By:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(410, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 50);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(135, 342);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(7, 342);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -326,7 +381,9 @@
             this.manageBookingsToolStripMenuItem,
             this.manageRentalsToolStripMenuItem,
             this.manageVehiclesToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.manageClaimsToolStripMenuItem,
+            this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(138, 467);
@@ -501,6 +558,58 @@
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
             this.viewUpdatePaymentToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentToolStripMenuItem_Click);
             // 
+            // manageClaimsToolStripMenuItem
+            // 
+            this.manageClaimsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewClaimToolStripMenuItem,
+            this.viewUpdateClaimsToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
+            this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
+            // 
+            // addNewClaimToolStripMenuItem
+            // 
+            this.addNewClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addNewClaimToolStripMenuItem.Name = "addNewClaimToolStripMenuItem";
+            this.addNewClaimToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addNewClaimToolStripMenuItem.Text = "Add New Claim";
+            this.addNewClaimToolStripMenuItem.Click += new System.EventHandler(this.addNewClaimToolStripMenuItem_Click);
+            // 
+            // viewUpdateClaimsToolStripMenuItem
+            // 
+            this.viewUpdateClaimsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateClaimsToolStripMenuItem.Name = "viewUpdateClaimsToolStripMenuItem";
+            this.viewUpdateClaimsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
+            this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
+            // 
+            // manageBranchesToolStripMenuItem
+            // 
+            this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewBranchToolStripMenuItem,
+            this.viewToolStripMenuItem});
+            this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
+            this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
+            // 
+            // addNewBranchToolStripMenuItem
+            // 
+            this.addNewBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
+            this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
+            this.addNewBranchToolStripMenuItem.Click += new System.EventHandler(this.addNewBranchToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.viewToolStripMenuItem.Text = "View/Update Branches";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -516,55 +625,6 @@
             this.processPaymentsToolStripMenuItem.Name = "processPaymentsToolStripMenuItem";
             this.processPaymentsToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.processPaymentsToolStripMenuItem.Text = "Process Payments";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 342);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(135, 342);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(410, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Filter";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 324);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 15);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Filter By:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(132, 323);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 15);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Value:";
             // 
             // UpdateVehicles
             // 
@@ -643,5 +703,11 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ToolStripMenuItem manageClaimsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewClaimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateClaimsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
     }
 }

@@ -158,5 +158,33 @@ namespace AvisSystem
         {
 
         }
+
+        private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClaim newAddClaim = new AddClaim();
+            this.Hide();
+            newAddClaim.Show();
+        }
+
+        private void viewUpdateClaimsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateClaim newUpdateClaim = new UpdateClaim();
+            this.Hide();
+            newUpdateClaim.Show();
+        }
+
+        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddBranch newAddBranch = new AddBranch();
+            this.Hide();
+            newAddBranch.Show();
+        }
+
+        private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateBranch newUpdateBranch = new UpdateBranch();
+            this.Hide();
+            newUpdateBranch.Show();
+        }
     }
 }

@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddClaim));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,19 +56,19 @@
             this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +103,30 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(130, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loginToolStripMenuItem.Text = "Login";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // manageCustomersToolStripMenuItem
             // 
             this.manageCustomersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,6 +143,7 @@
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // viewUpdateCustomersToolStripMenuItem
             // 
@@ -126,30 +151,7 @@
             this.viewUpdateCustomersToolStripMenuItem.Name = "viewUpdateCustomersToolStripMenuItem";
             this.viewUpdateCustomersToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.viewUpdateCustomersToolStripMenuItem.Text = "View/Update Customers";
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loginToolStripMenuItem.Text = "Login";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.viewUpdateCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomersToolStripMenuItem_Click);
             // 
             // manageBookingToolStripMenuItem
             // 
@@ -169,6 +171,7 @@
             this.addNewBookingToolStripMenuItem.Name = "addNewBookingToolStripMenuItem";
             this.addNewBookingToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.addNewBookingToolStripMenuItem.Text = "Add New Booking";
+            this.addNewBookingToolStripMenuItem.Click += new System.EventHandler(this.addNewBookingToolStripMenuItem_Click);
             // 
             // viewUpdateBookingsToolStripMenuItem
             // 
@@ -176,6 +179,7 @@
             this.viewUpdateBookingsToolStripMenuItem.Name = "viewUpdateBookingsToolStripMenuItem";
             this.viewUpdateBookingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.viewUpdateBookingsToolStripMenuItem.Text = "View/Update Bookings";
+            this.viewUpdateBookingsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBookingsToolStripMenuItem_Click);
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -193,6 +197,7 @@
             this.addNewRentalToolStripMenuItem.Name = "addNewRentalToolStripMenuItem";
             this.addNewRentalToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.addNewRentalToolStripMenuItem.Text = "Add New Rental";
+            this.addNewRentalToolStripMenuItem.Click += new System.EventHandler(this.addNewRentalToolStripMenuItem_Click);
             // 
             // viewUpdateRentalsToolStripMenuItem
             // 
@@ -200,6 +205,7 @@
             this.viewUpdateRentalsToolStripMenuItem.Name = "viewUpdateRentalsToolStripMenuItem";
             this.viewUpdateRentalsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.viewUpdateRentalsToolStripMenuItem.Text = "View/Update Rentals";
+            this.viewUpdateRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalsToolStripMenuItem_Click);
             // 
             // manageVehicleToolStripMenuItem
             // 
@@ -217,6 +223,7 @@
             this.addNewVehicleToolStripMenuItem.Name = "addNewVehicleToolStripMenuItem";
             this.addNewVehicleToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.addNewVehicleToolStripMenuItem.Text = "Add New Vehicle";
+            this.addNewVehicleToolStripMenuItem.Click += new System.EventHandler(this.addNewVehicleToolStripMenuItem_Click);
             // 
             // viewUpdateVehiclesToolStripMenuItem
             // 
@@ -224,6 +231,7 @@
             this.viewUpdateVehiclesToolStripMenuItem.Name = "viewUpdateVehiclesToolStripMenuItem";
             this.viewUpdateVehiclesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.viewUpdateVehiclesToolStripMenuItem.Text = "View/Update Vehicles";
+            this.viewUpdateVehiclesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateVehiclesToolStripMenuItem_Click);
             // 
             // processPaymentToolStripMenuItem
             // 
@@ -241,6 +249,7 @@
             this.addNewPaymentToolStripMenuItem.Name = "addNewPaymentToolStripMenuItem";
             this.addNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.addNewPaymentToolStripMenuItem.Text = "Add New Payment";
+            this.addNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.addNewPaymentToolStripMenuItem_Click);
             // 
             // viewUpdatePaymentToolStripMenuItem
             // 
@@ -248,6 +257,7 @@
             this.viewUpdatePaymentToolStripMenuItem.Name = "viewUpdatePaymentToolStripMenuItem";
             this.viewUpdatePaymentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
+            this.viewUpdatePaymentToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentToolStripMenuItem_Click);
             // 
             // manageBranchesToolStripMenuItem
             // 
@@ -265,6 +275,7 @@
             this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
             this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
+            this.addNewBranchToolStripMenuItem.Click += new System.EventHandler(this.addNewBranchToolStripMenuItem_Click);
             // 
             // viewUpdateBranchToolStripMenuItem
             // 
@@ -272,6 +283,7 @@
             this.viewUpdateBranchToolStripMenuItem.Name = "viewUpdateBranchToolStripMenuItem";
             this.viewUpdateBranchToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.viewUpdateBranchToolStripMenuItem.Text = "View/Update Branch";
+            this.viewUpdateBranchToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBranchToolStripMenuItem_Click);
             // 
             // manageClaimsToolStripMenuItem
             // 
@@ -296,6 +308,7 @@
             this.viewUpdateClaimsToolStripMenuItem.Name = "viewUpdateClaimsToolStripMenuItem";
             this.viewUpdateClaimsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
+            this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -319,95 +332,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Claim";
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 15);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Booking_ID:";
+            this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(587, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 62);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "+ Add Claim";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // button2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 21);
-            this.comboBox1.TabIndex = 29;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 15);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Claim Description:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 15);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Claim Date:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 159);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 15);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Claim Type:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 15);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Claim Status::";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(149, 198);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(166, 21);
-            this.comboBox2.TabIndex = 34;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(149, 74);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 20);
-            this.textBox1.TabIndex = 35;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(149, 112);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(166, 20);
-            this.maskedTextBox1.TabIndex = 36;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(149, 153);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 20);
-            this.textBox2.TabIndex = 37;
+            this.button2.BackColor = System.Drawing.Color.Silver;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(133, 444);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 53);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "X  Cancel";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -422,27 +367,95 @@
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // textBox2
             // 
-            this.button2.BackColor = System.Drawing.Color.Silver;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(133, 444);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 53);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "X  Cancel";
-            this.button2.UseVisualStyleBackColor = false;
+            this.textBox2.Location = new System.Drawing.Point(149, 153);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(166, 20);
+            this.textBox2.TabIndex = 37;
             // 
-            // button1
+            // maskedTextBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(587, 435);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 62);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "+ Add Claim";
-            this.button1.UseVisualStyleBackColor = false;
+            this.maskedTextBox1.Location = new System.Drawing.Point(149, 112);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(166, 20);
+            this.maskedTextBox1.TabIndex = 36;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(149, 74);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(166, 20);
+            this.textBox1.TabIndex = 35;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(149, 198);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(166, 21);
+            this.comboBox2.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 15);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Claim Status::";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 15);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Claim Type:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Claim Date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 15);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Claim Description:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(149, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(166, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 15);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Booking_ID:";
             // 
             // AddClaim
             // 
@@ -455,6 +468,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddClaim";
             this.Text = "AddClaim";
+            this.Load += new System.EventHandler(this.AddClaim_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

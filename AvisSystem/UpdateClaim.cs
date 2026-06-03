@@ -19,7 +19,9 @@ namespace AvisSystem
 
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UpdateBranch newUpdateBranch = new UpdateBranch();
+            this.Hide();
+            newUpdateBranch.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -29,7 +31,11 @@ namespace AvisSystem
 
         private void UpdateClaim_Load(object sender, EventArgs e)
         {
-
+            viewUpdateClaimsToolStripMenuItem.Enabled = false;
+            fileToolStripMenuItem.Enabled = true;
+            loginToolStripMenuItem.Enabled = false;
+            logoutToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,6 +60,25 @@ namespace AvisSystem
                 textBox1.ForeColor = Color.Gray;
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
+        }
+
+        private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClaim newAddClaim = new AddClaim();
+            this.Hide();
+            newAddClaim.Show();
+        }
+
+        private void viewUpdateClaimsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddBranch newAddBranch = new AddBranch();
+            this.Hide();
+            newAddBranch.Show();
         }
     }
 }
