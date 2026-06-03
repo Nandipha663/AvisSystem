@@ -306,7 +306,7 @@
             this.addBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.addBranchToolStripMenuItem.Name = "addBranchToolStripMenuItem";
-            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addBranchToolStripMenuItem.Text = "Add Branch";
             this.addBranchToolStripMenuItem.Click += new System.EventHandler(this.addBranchToolStripMenuItem_Click);
             // 
@@ -315,7 +315,7 @@
             this.updateBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.updateBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.updateBranchToolStripMenuItem.Name = "updateBranchToolStripMenuItem";
-            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.updateBranchToolStripMenuItem.Text = "Update Branch";
             this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
@@ -445,7 +445,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(831, 30);
+            this.button5.Location = new System.Drawing.Point(767, 35);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 50);
             this.button5.TabIndex = 9;

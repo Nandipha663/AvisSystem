@@ -174,5 +174,20 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox7.Clear();
+            if (comboBox1.Items.Count > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+
+        }
     }
 }

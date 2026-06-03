@@ -147,5 +147,15 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            comboBox1.Text = "";
+            maskedTextBox1.Clear();
+            textBox3.Clear();
+            maskedTextBox2.Clear();
+        }
     }
 }
