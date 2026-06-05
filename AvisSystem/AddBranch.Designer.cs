@@ -533,6 +533,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddBranch";
             this.Text = "AddBranch";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddBranch_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
