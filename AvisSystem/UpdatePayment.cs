@@ -182,6 +182,6 @@ namespace AvisSystem
             AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
-        }
+        }  
     }
 }
