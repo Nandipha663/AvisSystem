@@ -512,6 +512,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddRental";
             this.Text = "AddRental";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddRental_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

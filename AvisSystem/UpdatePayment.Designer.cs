@@ -506,6 +506,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UpdatePayment";
             this.Text = "UpdatePayment";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdatePayment_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

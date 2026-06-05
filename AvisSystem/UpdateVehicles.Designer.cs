@@ -640,6 +640,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "UpdateVehicles";
             this.Text = "UpdateVehicles";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdateVehicles_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
