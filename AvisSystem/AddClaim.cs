@@ -120,9 +120,9 @@ namespace AvisSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            HomeForm newHormForm = new HomeForm();
-            this.Hide();  
-            newHormForm.Show();
+            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+            this.Hide();
+            newAvisMenuForm.Show();
         }
     }
 }
