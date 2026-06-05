@@ -24,7 +24,15 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            textBox1.Clear();
+            textBox10.Clear();
+            textBox9.Clear();
+            textBox3.Clear();
+            maskedTextBox1.Clear();
+            maskedTextBox3.Clear();
+            textBox4.Clear();
+            maskedTextBox4.Clear();
+            textBox2.Clear();
         }
 
         private void AddReservation_Load(object sender, EventArgs e)

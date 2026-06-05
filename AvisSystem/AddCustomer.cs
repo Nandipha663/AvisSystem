@@ -226,5 +226,22 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+            textBox12.Clear();
+            textBox13.Clear();
+            textBox14.Clear();
+        }
     }
 }

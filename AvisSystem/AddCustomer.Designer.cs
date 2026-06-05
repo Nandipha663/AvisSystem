@@ -296,6 +296,7 @@
             this.button4.TabIndex = 32;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox14
             // 
@@ -550,7 +551,7 @@
             this.addClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
-            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.addClaimToolStripMenuItem.Text = "Add New Claim";
             this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
             // 
@@ -559,7 +560,7 @@
             this.updateClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.updateClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
-            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.updateClaimToolStripMenuItem.Text = "View/Update Claim";
             this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
             // 

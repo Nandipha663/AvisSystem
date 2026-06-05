@@ -84,7 +84,7 @@
             this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(126, 450);
+            this.menuStrip1.Size = new System.Drawing.Size(123, 450);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,7 +96,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
@@ -134,7 +134,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageCustomerToolStripMenuItem1.Enabled = false;
             this.manageCustomerToolStripMenuItem1.Name = "manageCustomerToolStripMenuItem1";
-            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(113, 19);
+            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(110, 19);
             this.manageCustomerToolStripMenuItem1.Text = "Manage Customer";
             // 
             // addCustomerToolStripMenuItem
@@ -156,7 +156,7 @@
             this.viewScheduledReservationToolStripMenuItem});
             this.manageReservationToolStripMenuItem.Enabled = false;
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageReservationToolStripMenuItem.Text = "Manage Booking";
             // 
             // addReservationToolStripMenuItem
@@ -178,7 +178,7 @@
             this.viewToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.Enabled = false;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageRentalsToolStripMenuItem.Text = "Manage Rentals";
             // 
             // addRentalsToolStripMenuItem
@@ -200,7 +200,7 @@
             this.viewVehiclesStatusToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.Enabled = false;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -222,7 +222,7 @@
             this.viewPaymentsToolStripMenuItem});
             this.processPaymentToolStripMenuItem.Enabled = false;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.processPaymentToolStripMenuItem.Text = "Process Payment";
             // 
             // addPaymentToolStripMenuItem
@@ -245,19 +245,19 @@
             this.manageClaimsToolStripMenuItem.Enabled = false;
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageClaimsToolStripMenuItem.Text = "Manage Claims";
             // 
             // addClaimToolStripMenuItem
             // 
             this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
-            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.addClaimToolStripMenuItem.Text = "Add Claim";
             // 
             // updateClaimToolStripMenuItem
             // 
             this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
-            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.updateClaimToolStripMenuItem.Text = "View/Update Claim";
             // 
             // manageBranchesToolStripMenuItem
@@ -268,13 +268,13 @@
             this.manageBranchesToolStripMenuItem.Enabled = false;
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
             this.manageBranchesToolStripMenuItem.Text = "Manage Branches";
             // 
             // addBranchToolStripMenuItem
             // 
             this.addBranchToolStripMenuItem.Name = "addBranchToolStripMenuItem";
-            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.addBranchToolStripMenuItem.Text = "Add Branch";
             // 
             // updateBranchToolStripMenuItem

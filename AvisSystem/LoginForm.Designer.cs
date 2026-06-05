@@ -44,9 +44,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -55,7 +53,6 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -150,7 +147,7 @@
             // textBox1
             // 
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(22, 147);
+            this.textBox1.Location = new System.Drawing.Point(22, 169);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(288, 20);
             this.textBox1.TabIndex = 5;
@@ -162,7 +159,7 @@
             // textBox2
             // 
             this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(22, 228);
+            this.textBox2.Location = new System.Drawing.Point(18, 214);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(288, 20);
             this.textBox2.TabIndex = 7;
@@ -217,9 +214,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -237,15 +232,6 @@
             this.panel1.Size = new System.Drawing.Size(316, 393);
             this.panel1.TabIndex = 12;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(24, 188);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(16, 13);
-            this.pictureBox7.TabIndex = 16;
-            this.pictureBox7.TabStop = false;
-            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
@@ -254,17 +240,6 @@
             this.pictureBox6.Size = new System.Drawing.Size(70, 73);
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.ForeColor = System.Drawing.Color.Gray;
-            this.textBox3.Location = new System.Drawing.Point(22, 188);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(280, 20);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.Text = "          Email";
-            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
-            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // pictureBox1
             // 
@@ -277,7 +252,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(23, 228);
+            this.pictureBox4.Location = new System.Drawing.Point(22, 214);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(17, 15);
             this.pictureBox4.TabIndex = 13;
@@ -286,7 +261,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(22, 147);
+            this.pictureBox3.Location = new System.Drawing.Point(22, 169);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(17, 16);
             this.pictureBox3.TabIndex = 12;
@@ -318,7 +293,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -350,9 +324,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
