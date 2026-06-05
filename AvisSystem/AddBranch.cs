@@ -130,5 +130,16 @@ namespace AvisSystem
             exitToolStripMenuItem.Enabled = true;
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
     }
 }

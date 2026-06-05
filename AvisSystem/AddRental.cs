@@ -198,6 +198,13 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
     }
     
 }

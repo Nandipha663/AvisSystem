@@ -117,5 +117,12 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHormForm = new HomeForm();
+            this.Hide();  
+            newHormForm.Show();
+        }
     }
 }

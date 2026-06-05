@@ -243,5 +243,12 @@ namespace AvisSystem
             textBox13.Clear();
             textBox14.Clear();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
     }
 }

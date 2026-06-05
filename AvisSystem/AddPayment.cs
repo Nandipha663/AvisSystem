@@ -157,5 +157,19 @@ namespace AvisSystem
             textBox3.Clear();
             maskedTextBox2.Clear();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
     }
 }
