@@ -231,10 +231,11 @@ namespace AvisSystem
         {
             textBox1.Clear();
             textBox2.Clear();
-            textBox3.Clear();
             maskedTextBox1.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
+            maskedTextBox2.Clear();
+            maskedTextBox3.Clear();
+            if (comboBox1.SelectedIndex > -1)
+                comboBox1.Text = "";
             textBox8.Clear();
             textBox9.Clear();
             textBox10.Clear();
