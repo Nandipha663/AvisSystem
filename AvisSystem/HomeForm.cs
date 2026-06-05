@@ -42,5 +42,12 @@ namespace AvisSystem
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }
