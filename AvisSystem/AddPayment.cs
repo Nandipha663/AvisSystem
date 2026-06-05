@@ -167,7 +167,7 @@ namespace AvisSystem
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+           AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
         }
