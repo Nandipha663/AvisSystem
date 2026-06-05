@@ -57,7 +57,7 @@ namespace AvisSystem
 
         private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddReservation newAddReservation = new AddReservation();
+            AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
             newAddReservation.Show();
         }
