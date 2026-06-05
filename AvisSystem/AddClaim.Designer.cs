@@ -469,6 +469,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddClaim";
             this.Text = "AddClaim";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddClaim_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
