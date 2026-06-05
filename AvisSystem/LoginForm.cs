@@ -108,14 +108,6 @@ namespace AvisSystem
                 textBox2.ForeColor = Color.Gray;
                 pictureBox4.Visible = true;
             }
-
-            // Email
-            if (textBox3.Text != "          Email")
-            {
-                textBox3.Text = "          Email";
-                textBox3.ForeColor = Color.Gray;
-                pictureBox7.Visible = true;
-            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -191,26 +183,6 @@ namespace AvisSystem
             }
         }
 
-        private void textBox3_Enter(object sender, EventArgs e)
-        {
-            if (textBox3.Text == "          Email")
-            {
-                textBox3.Text = "";
-                textBox3.ForeColor = Color.Black;
-                pictureBox7.Visible = false;
-            }
-        }
-
-        private void textBox3_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
-            {
-                textBox3.Text = "          Email";
-                textBox3.ForeColor = Color.Gray;
-                pictureBox7.Visible = true;
-            }
-        }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -221,6 +193,11 @@ namespace AvisSystem
             this.Hide();
             SignUpForm signupform = new SignUpForm();
             signupform.Show();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
