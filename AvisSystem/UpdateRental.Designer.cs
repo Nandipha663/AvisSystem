@@ -524,6 +524,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UpdateRental";
             this.Text = "UpdateRental";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdateRental_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
