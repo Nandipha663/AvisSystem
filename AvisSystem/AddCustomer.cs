@@ -231,6 +231,7 @@ namespace AvisSystem
         {
             textBox1.Clear();
             textBox2.Clear();
+            maskedTextBox2.Clear();
             maskedTextBox1.Clear();
             maskedTextBox2.Clear();
             maskedTextBox3.Clear();
