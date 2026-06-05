@@ -124,7 +124,7 @@ namespace AvisSystem
 
         private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddReservation newAddReservation = new AddReservation();
+            AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
             newAddReservation.Show();
         }
@@ -232,7 +232,7 @@ namespace AvisSystem
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
-            textBox4.Clear();
+            maskedTextBox1.Clear();
             textBox5.Clear();
             textBox6.Clear();
             textBox8.Clear();
