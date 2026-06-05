@@ -35,7 +35,7 @@ namespace AvisSystem
 
         private void addNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddReservation newAddReservation = new AddReservation();
+            AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
             newAddReservation.Show();
         }
@@ -116,6 +116,13 @@ namespace AvisSystem
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHormForm = new HomeForm();
+            this.Hide();  
+            newHormForm.Show();
         }
     }
 }

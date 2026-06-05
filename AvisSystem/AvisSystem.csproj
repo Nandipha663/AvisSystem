@@ -76,11 +76,11 @@
     <Compile Include="AddRental.Designer.cs">
       <DependentUpon>AddRental.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddReservation.cs">
+    <Compile Include="AddBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddReservation.Designer.cs">
-      <DependentUpon>AddReservation.cs</DependentUpon>
+    <Compile Include="AddBooking.Designer.cs">
+      <DependentUpon>AddBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="AddVehicle.cs">
       <SubType>Form</SubType>
@@ -171,8 +171,8 @@
     <EmbeddedResource Include="AddRental.resx">
       <DependentUpon>AddRental.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddReservation.resx">
-      <DependentUpon>AddReservation.cs</DependentUpon>
+    <EmbeddedResource Include="AddBooking.resx">
+      <DependentUpon>AddBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddVehicle.resx">
       <DependentUpon>AddVehicle.cs</DependentUpon>

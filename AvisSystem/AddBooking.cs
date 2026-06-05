@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
-    public partial class AddReservation : Form
+    public partial class AddBookingReservation : Form
     {
-        public AddReservation()
+        public AddBookingReservation()
         {
             InitializeComponent();
         }
@@ -60,7 +60,7 @@ namespace AvisSystem
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            AddReservation newAddReservation = new AddReservation();
+            AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
             newAddReservation.Show();
         }
@@ -166,6 +166,13 @@ namespace AvisSystem
             UpdateBranch newUpdateBranch = new UpdateBranch();
             this.Hide();
             newUpdateBranch.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
         }
     }
 }

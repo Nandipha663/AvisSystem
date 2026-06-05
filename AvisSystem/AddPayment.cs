@@ -86,7 +86,7 @@ namespace AvisSystem
 
         private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddReservation newAddReservation = new AddReservation();    
+            AddBookingReservation newAddReservation = new AddBookingReservation();    
             this.Hide();
             newAddReservation.Show();
         }
@@ -156,6 +156,20 @@ namespace AvisSystem
             maskedTextBox1.Clear();
             textBox3.Clear();
             maskedTextBox2.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            HomeForm newHomeForm = new HomeForm();
+            this.Hide();
+            newHomeForm.Show();
         }
     }
 }
