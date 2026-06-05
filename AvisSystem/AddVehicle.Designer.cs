@@ -169,7 +169,7 @@
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(534, 376);
+            this.button1.Location = new System.Drawing.Point(410, 376);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 62);
             this.button1.TabIndex = 24;
@@ -182,11 +182,11 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(9, 383);
+            this.button2.Location = new System.Drawing.Point(9, 376);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 55);
+            this.button2.Size = new System.Drawing.Size(152, 62);
             this.button2.TabIndex = 25;
-            this.button2.Text = "Cancel";
+            this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -194,11 +194,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(147, 383);
+            this.button3.Location = new System.Drawing.Point(199, 375);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 56);
+            this.button3.Size = new System.Drawing.Size(172, 63);
             this.button3.TabIndex = 26;
-            this.button3.Text = "X  Clear";
+            this.button3.Text = "  Cancel";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

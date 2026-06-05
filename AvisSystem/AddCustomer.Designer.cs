@@ -274,7 +274,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(568, 348);
+            this.button2.Location = new System.Drawing.Point(452, 371);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 66);
             this.button2.TabIndex = 34;
@@ -285,11 +285,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(160, 358);
+            this.button3.Location = new System.Drawing.Point(237, 371);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 56);
+            this.button3.Size = new System.Drawing.Size(152, 66);
             this.button3.TabIndex = 33;
-            this.button3.Text = "X  Cancel";
+            this.button3.Text = "  Cancel";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -299,9 +299,9 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(20, 358);
+            this.button4.Location = new System.Drawing.Point(41, 371);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 56);
+            this.button4.Size = new System.Drawing.Size(151, 66);
             this.button4.TabIndex = 32;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = false;

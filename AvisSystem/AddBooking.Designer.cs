@@ -280,9 +280,9 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(11, 379);
+            this.button3.Location = new System.Drawing.Point(36, 370);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 53);
+            this.button3.Size = new System.Drawing.Size(164, 62);
             this.button3.TabIndex = 22;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
@@ -292,11 +292,11 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(150, 379);
+            this.button2.Location = new System.Drawing.Point(227, 370);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 53);
+            this.button2.Size = new System.Drawing.Size(213, 62);
             this.button2.TabIndex = 21;
-            this.button2.Text = "X  Cancel";
+            this.button2.Text = " Cancel";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -304,9 +304,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(594, 370);
+            this.button1.Location = new System.Drawing.Point(478, 370);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 62);
+            this.button1.Size = new System.Drawing.Size(185, 62);
             this.button1.TabIndex = 20;
             this.button1.Text = "+ Add Reservation";
             this.button1.UseVisualStyleBackColor = false;
