@@ -180,9 +180,9 @@ namespace AvisSystem
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox7.Clear();
+            //textBox4.Clear();
+            textBox6.Clear();
+            textBox8.Clear();
             if (comboBox1.Items.Count > 0)
             {
                 comboBox1.SelectedIndex = 0;

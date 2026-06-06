@@ -180,5 +180,10 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
