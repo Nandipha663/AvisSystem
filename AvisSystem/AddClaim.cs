@@ -124,5 +124,15 @@ namespace AvisSystem
             this.Hide();
             newAvisMenuForm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if ( comboBox1.SelectedIndex>-1 && comboBox2.SelectedIndex>-1)
+                comboBox1.Text="";
+                textBox1.Clear();
+                maskedTextBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+        }
     }
 }

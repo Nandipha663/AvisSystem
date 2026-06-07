@@ -252,5 +252,10 @@ namespace AvisSystem
             this.Hide();
             newAvisMenuForm.Show();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
