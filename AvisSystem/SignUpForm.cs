@@ -28,6 +28,23 @@ namespace AvisSystem
 
         }
 
+        /*private void LoadActiveBranchesToComboBox()
+        {
+            comboBox1.Items.Clear();
+
+            foreach (DataGridViewRow row in BookingDG.Rows)
+            {
+                if (row.Cells["Status"].Value != null &&
+                    row.Cells["BranchID"].Value != null)
+                {
+                    if (row.Cells["Status"].Value.ToString() == "Active")
+                    {
+                        comboBox1.Items.Add(row.Cells["BranchID"].Value.ToString());
+                    }
+                }
+            }
+        }*/
+
         private void SignUpForm_Load(object sender, EventArgs e)
         {
             fileToolStripMenuItem.Enabled = true;
@@ -38,6 +55,8 @@ namespace AvisSystem
 
             button1.Enabled = false;
             button1.BackColor = Color.LightCoral;
+
+            //LoadActiveBranchesToComboBox()
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,7 +273,8 @@ namespace AvisSystem
             {
                 MessageBox.Show("Please agree to the terms and conditions to proceed with registration.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }else if (button1.Enabled == true)
+            }
+            else if (button1.Enabled == true)
             {
                 //Check Username
                 if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "          Username")
@@ -380,6 +400,106 @@ namespace AvisSystem
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text.Trim() == "Full Name")
+            {
+                textBox5.Text = "";
+                textBox5.ForeColor = Color.Black;
+                pictureBox7.Visible = false;
+            }
+        }
+
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox5.Text))
+            {
+                textBox5.Text = "          Full Name";
+                pictureBox7.Visible = true;
+                textBox5.ForeColor = Color.Gray;
+
+            }
+        }
+
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text.Trim() == "Contact Number")
+            {
+                textBox6.Text = "";
+                textBox6.ForeColor = Color.Black;
+                pictureBox6.Visible = false;
+            }
+        }
+
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox6.Text))
+            {
+                textBox6.Text = "          Contact Number";
+                pictureBox6.Visible = true;
+                textBox6.ForeColor = Color.Gray;
+
+            }
+        }
+
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            if (comboBox1.Text.Trim() == "BranchID")
+            {
+                comboBox1.Text = "";
+                comboBox1.ForeColor = Color.Black;
+                pictureBox8.Visible = false;
+            }
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                comboBox1.Text = "          BranchID";
+                comboBox1.ForeColor = Color.Gray;
+                pictureBox8.Visible = true;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex != -1)
+            {
+                comboBox1.ForeColor = Color.Black;
+                pictureBox8.Visible = false;
+            }
+        }
+
+        private void comboBox2_Enter(object sender, EventArgs e)
+        {
+            if (comboBox2.Text.Trim() == "Position")
+            {
+                comboBox2.Text = "";
+                comboBox2.ForeColor = Color.Black;
+                pictureBox9.Visible = false;
+            }
+        }
+
+        private void comboBox2_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(comboBox2.Text))
+            {
+                comboBox2.Text = "          Position";
+                comboBox2.ForeColor = Color.Gray;
+                pictureBox9.Visible = true;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedIndex != -1)
+            {
+                comboBox2.ForeColor = Color.Black;
+                pictureBox9.Visible = false;
+            }
         }
     }
 }

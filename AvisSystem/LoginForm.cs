@@ -123,7 +123,7 @@ namespace AvisSystem
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //textBox2.UseSystemPasswordChar = true;
+            //textBox2.UseSystemPasswordChar = false;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
