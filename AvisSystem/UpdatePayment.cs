@@ -182,6 +182,11 @@ namespace AvisSystem
             AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
-        }  
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
