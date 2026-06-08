@@ -49,5 +49,10 @@ namespace AvisSystem
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

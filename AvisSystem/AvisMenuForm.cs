@@ -149,5 +149,19 @@ namespace AvisSystem
             this.Hide();
             newUpdateBranch.Show();
         }
+
+        private void signUPEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            this.Hide();
+            signUp.Show();
+        }
+
+        private void viewUpdateEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee updateemployees = new ManageEmployee();
+            this.Hide();
+            updateemployees.Show();
+        }
     }
 }

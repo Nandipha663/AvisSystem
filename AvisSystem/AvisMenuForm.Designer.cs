@@ -59,6 +59,9 @@
             this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUPEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,10 +79,11 @@
             this.manageVehiclesToolStripMenuItem,
             this.processPaymentToolStripMenuItem,
             this.manageClaimsToolStripMenuItem,
-            this.manageBranchesToolStripMenuItem});
+            this.manageBranchesToolStripMenuItem,
+            this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(246, 471);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 471);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +96,7 @@
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -102,7 +106,7 @@
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -112,7 +116,7 @@
             this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -122,7 +126,7 @@
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -132,7 +136,7 @@
             this.viewActiveCustomerToolStripMenuItem,
             this.updateCustomersToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
-            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(233, 19);
+            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(243, 19);
             this.manageCustomerToolStripMenuItem.Text = " ";
             // 
             // viewActiveCustomerToolStripMenuItem
@@ -155,7 +159,7 @@
             this.manageCustomerToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageCustomerToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.manageCustomerToolStripMenuItem1.Name = "manageCustomerToolStripMenuItem1";
-            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(233, 34);
+            this.manageCustomerToolStripMenuItem1.Size = new System.Drawing.Size(243, 34);
             this.manageCustomerToolStripMenuItem1.Text = "👥 Manage Customer";
             // 
             // addCustomerToolStripMenuItem
@@ -184,7 +188,7 @@
             this.manageReservationToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageReservationToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageReservationToolStripMenuItem.Text = "📅  Manage Booking";
             // 
             // addReservationToolStripMenuItem
@@ -213,7 +217,7 @@
             this.manageRentalsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑  Manage Rentals";
             // 
             // addRentalsToolStripMenuItem
@@ -242,7 +246,7 @@
             this.manageVehiclesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -271,7 +275,7 @@
             this.processPaymentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addPaymentToolStripMenuItem
@@ -300,7 +304,7 @@
             this.manageClaimsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝  Manage Claims";
             // 
             // addClaimToolStripMenuItem1
@@ -329,7 +333,7 @@
             this.manageBranchesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
             // 
             // addBranchToolStripMenuItem
@@ -354,13 +358,38 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(246, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(256, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(738, 471);
+            this.pictureBox1.Size = new System.Drawing.Size(728, 471);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUPEmployeeToolStripMenuItem,
+            this.viewUpdateEmployeesToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUPEmployeeToolStripMenuItem
+            // 
+            this.signUPEmployeeToolStripMenuItem.Name = "signUPEmployeeToolStripMenuItem";
+            this.signUPEmployeeToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
+            this.signUPEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUPEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUPEmployeeToolStripMenuItem_Click);
+            // 
+            // viewUpdateEmployeesToolStripMenuItem
+            // 
+            this.viewUpdateEmployeesToolStripMenuItem.Name = "viewUpdateEmployeesToolStripMenuItem";
+            this.viewUpdateEmployeesToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
+            this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
+            this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
             // 
             // AvisMenuForm
             // 
@@ -414,5 +443,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBranchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signUPEmployeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeesToolStripMenuItem;
     }
 }

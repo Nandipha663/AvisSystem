@@ -88,11 +88,22 @@
     <Compile Include="AddVehicle.Designer.cs">
       <DependentUpon>AddVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="AvisDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AvisDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AvisMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AvisMenuForm.Designer.cs">
       <DependentUpon>AvisMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployee.Designer.cs">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -180,6 +191,9 @@
     <EmbeddedResource Include="AvisMenuForm.resx">
       <DependentUpon>AvisMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployee.resx">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +235,17 @@
     <EmbeddedResource Include="UpdateVehicles.resx">
       <DependentUpon>UpdateVehicles.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AvisDS.xsc">
+      <DependentUpon>AvisDS.xsd</DependentUpon>
+    </None>
+    <None Include="AvisDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AvisDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AvisDS.xss">
+      <DependentUpon>AvisDS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
