@@ -80,5 +80,75 @@ namespace AvisSystem
             this.Hide();
             newAddBranch.Show();
         }
+
+        private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer newAddCustomer = new AddCustomer();
+            this.Hide();
+            newAddCustomer.Show();
+        }
+
+        private void viewUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCustomers newManageCustomers = new ManageCustomers();
+            this.Hide();
+            newManageCustomers.Show();
+        }
+
+        private void addNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddBookingReservation newAddReservation = new AddBookingReservation();
+            this.Hide();
+            newAddReservation.Show();
+        }
+
+        private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateReservation newUpdateReservation = new UpdateReservation();
+            this.Hide();
+            newUpdateReservation.Show();
+        }
+
+        private void addNewRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRental newAddRental = new AddRental();
+            this.Hide();
+            newAddRental.Show();
+        }
+
+        private void viewUpdateRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRental newUpdateRental = new UpdateRental();
+            this.Hide();
+            newUpdateRental.Show();
+        }
+
+        private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVehicle newAddVehicle = new AddVehicle();
+            this.Hide();
+            newAddVehicle.Show();
+        }
+
+        private void viewUpdateVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateVehicles newUpdateVehicles = new UpdateVehicles();
+            this.Hide();
+            newUpdateVehicles.Show();
+        }
+
+        private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPayment newAddPayment = new AddPayment();
+            this.Hide();
+            newAddPayment.Show();
+        }
+
+        private void vToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdatePayment newUpdatePayment = new UpdatePayment();
+            this.Hide();
+            newUpdatePayment.Show();
+        }
     }
 }
