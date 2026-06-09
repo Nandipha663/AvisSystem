@@ -26,11 +26,22 @@ namespace AvisSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=146.230.177.46;Initial Catalog=GroupPmb3;User ID=GroupPmb3;TrustServe" +
-            "rCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=146.230.177.46;Initial Catalog=GroupPmb3;User ID=GroupPmb3;Password=t" +
+            "t9d2hTrustServerCertificate=True;")]
         public string GroupPmb3ConnectionString {
             get {
                 return ((string)(this["GroupPmb3ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=146.230.177.46;User ID=GroupPmb3;Password=tt9d2h;TrustServerCertifica" +
+            "te=True")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
             }
         }
     }

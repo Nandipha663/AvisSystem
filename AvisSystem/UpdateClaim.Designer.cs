@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateClaim));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.claimIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsiblePartyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLAIMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS1 = new AvisSystem.AvisDS();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -71,10 +82,23 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.claimTableAdapter1 = new AvisSystem.AvisDSTableAdapters.CLAIMTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.claimIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsiblePartyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -93,7 +117,7 @@
             this.manageClaimsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 496);
+            this.menuStrip1.Size = new System.Drawing.Size(255, 626);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -358,14 +382,86 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.claimIDDataGridViewTextBoxColumn,
+            this.bookingIDDataGridViewTextBoxColumn,
+            this.claimDescriptionDataGridViewTextBoxColumn,
+            this.claimDateDataGridViewTextBoxColumn,
+            this.claimTypeDataGridViewTextBoxColumn,
+            this.claimStatusDataGridViewTextBoxColumn,
+            this.responsiblePartyDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.cLAIMBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(782, 150);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick_1);
+            // 
+            // claimIDDataGridViewTextBoxColumn
+            // 
+            this.claimIDDataGridViewTextBoxColumn.DataPropertyName = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn.HeaderText = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn.Name = "claimIDDataGridViewTextBoxColumn";
+            this.claimIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            this.bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // claimDescriptionDataGridViewTextBoxColumn
+            // 
+            this.claimDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn.HeaderText = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn.Name = "claimDescriptionDataGridViewTextBoxColumn";
+            this.claimDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // claimDateDataGridViewTextBoxColumn
+            // 
+            this.claimDateDataGridViewTextBoxColumn.DataPropertyName = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn.HeaderText = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn.Name = "claimDateDataGridViewTextBoxColumn";
+            this.claimDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // claimTypeDataGridViewTextBoxColumn
+            // 
+            this.claimTypeDataGridViewTextBoxColumn.DataPropertyName = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn.HeaderText = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn.Name = "claimTypeDataGridViewTextBoxColumn";
+            this.claimTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // claimStatusDataGridViewTextBoxColumn
+            // 
+            this.claimStatusDataGridViewTextBoxColumn.DataPropertyName = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn.HeaderText = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn.Name = "claimStatusDataGridViewTextBoxColumn";
+            this.claimStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // responsiblePartyDataGridViewTextBoxColumn
+            // 
+            this.responsiblePartyDataGridViewTextBoxColumn.DataPropertyName = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn.HeaderText = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn.Name = "responsiblePartyDataGridViewTextBoxColumn";
+            this.responsiblePartyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cLAIMBindingSource
+            // 
+            this.cLAIMBindingSource.DataMember = "CLAIM";
+            this.cLAIMBindingSource.DataSource = this.avisDS1;
+            // 
+            // avisDS1
+            // 
+            this.avisDS1.DataSetName = "AvisDS";
+            this.avisDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
@@ -373,10 +469,29 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(271, 297);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(800, 173);
+            this.groupBox2.Size = new System.Drawing.Size(800, 317);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Claim";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.claimIDDataGridViewTextBoxColumn1,
+            this.bookingIDDataGridViewTextBoxColumn1,
+            this.claimDescriptionDataGridViewTextBoxColumn1,
+            this.claimDateDataGridViewTextBoxColumn1,
+            this.claimTypeDataGridViewTextBoxColumn1,
+            this.claimStatusDataGridViewTextBoxColumn1,
+            this.responsiblePartyDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.bindingSource1;
+            this.dataGridView2.Location = new System.Drawing.Point(9, 52);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(779, 174);
+            this.dataGridView2.TabIndex = 17;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button4
             // 
@@ -384,12 +499,13 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(628, 115);
+            this.button4.Location = new System.Drawing.Point(628, 246);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(166, 47);
             this.button4.TabIndex = 16;
             this.button4.Text = "Update Claim";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -397,7 +513,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(170, 115);
+            this.button3.Location = new System.Drawing.Point(167, 246);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 52);
             this.button3.TabIndex = 15;
@@ -410,12 +526,13 @@
             this.button1.BackColor = System.Drawing.Color.LightCyan;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(9, 115);
+            this.button1.Location = new System.Drawing.Point(6, 246);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 52);
             this.button1.TabIndex = 14;
             this.button1.Text = "🗑️  Delete Claim";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -482,13 +599,67 @@
             this.button5.TabIndex = 16;
             this.button5.Text = "Filter";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // claimTableAdapter1
+            // 
+            this.claimTableAdapter1.ClearBeforeFill = true;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.AllowNew = true;
+            this.bindingSource1.DataMember = "Claim";
+            this.bindingSource1.DataSource = this.avisDS1;
+            // 
+            // claimIDDataGridViewTextBoxColumn1
+            // 
+            this.claimIDDataGridViewTextBoxColumn1.DataPropertyName = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn1.HeaderText = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn1.Name = "claimIDDataGridViewTextBoxColumn1";
+            this.claimIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bookingIDDataGridViewTextBoxColumn1
+            // 
+            this.bookingIDDataGridViewTextBoxColumn1.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn1.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn1.Name = "bookingIDDataGridViewTextBoxColumn1";
+            // 
+            // claimDescriptionDataGridViewTextBoxColumn1
+            // 
+            this.claimDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn1.HeaderText = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn1.Name = "claimDescriptionDataGridViewTextBoxColumn1";
+            // 
+            // claimDateDataGridViewTextBoxColumn1
+            // 
+            this.claimDateDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn1.HeaderText = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn1.Name = "claimDateDataGridViewTextBoxColumn1";
+            // 
+            // claimTypeDataGridViewTextBoxColumn1
+            // 
+            this.claimTypeDataGridViewTextBoxColumn1.DataPropertyName = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn1.HeaderText = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn1.Name = "claimTypeDataGridViewTextBoxColumn1";
+            // 
+            // claimStatusDataGridViewTextBoxColumn1
+            // 
+            this.claimStatusDataGridViewTextBoxColumn1.DataPropertyName = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn1.HeaderText = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn1.Name = "claimStatusDataGridViewTextBoxColumn1";
+            // 
+            // responsiblePartyDataGridViewTextBoxColumn1
+            // 
+            this.responsiblePartyDataGridViewTextBoxColumn1.DataPropertyName = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn1.HeaderText = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn1.Name = "responsiblePartyDataGridViewTextBoxColumn1";
             // 
             // UpdateClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(953, 496);
+            this.ClientSize = new System.Drawing.Size(1138, 626);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -509,8 +680,12 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +735,24 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button5;
+        private AvisDS avisDS1;
+        private AvisDSTableAdapters.CLAIMTableAdapter claimTableAdapter1;
+        private System.Windows.Forms.BindingSource cLAIMBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn responsiblePartyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimDescriptionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimTypeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn claimStatusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn responsiblePartyDataGridViewTextBoxColumn1;
     }
 }
