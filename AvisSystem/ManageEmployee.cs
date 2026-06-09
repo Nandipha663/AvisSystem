@@ -158,8 +158,20 @@ namespace AvisSystem
             }
         }
 
+        public void LoadEmployees()
+        {
+            eMPLOYEETableAdapter.Fill(avisDS.EMPLOYEE);
+        }
+
         private void ManageEmployee_Load(object sender, EventArgs e)
         {
+
+            dataGridView1.DataSource = eMPLOYEEBindingSource;
+
+            LoadEmployees();
+
+            // TODO: This line of code loads data into the 'avisDS.EMPLOYEE' table. You can move, or remove it, as needed.
+            //this.eMPLOYEETableAdapter.Fill(this.avisDS.EMPLOYEE);
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
@@ -174,6 +186,153 @@ namespace AvisSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show(
+                                  "Are you sure you want to delete this customer?",
+                                  "Confirm Delete",
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Question
+                                  );
+
+            if (result == DialogResult.Yes)
+            {
+                int employee = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                eMPLOYEETableAdapter.DeleteEmployee(employee);
+
+                MessageBox.Show("Customer deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                eMPLOYEETableAdapter.Fill(avisDS.EMPLOYEE);
+            }
+            else
+            {
+                MessageBox.Show("Customer deletion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            comboBox2.Text = "";
+            comboBox2.Enabled = true;
+
+            if (comboBox1.Text == "Status")
+            {
+                //load status values form employee table
+                comboBox2.Items.Add("Active");
+                comboBox2.Items.Add("On Leave");
+                comboBox2.Items.Add("Resigned");
+                comboBox2.Items.Add("Retired");
+            }
+            else if (comboBox1.Text == "Branch")
+            {
+               //load branchID from branch table
+               /*for (int i = 0;i < branchIDDataGridView.Rows.Count - 1 < i++){
+                    string branchIDs = branchIDDataGridView.Rows[i].Cells[0].Value.ToString();
+                    comboBox2.Items.Add(branchIDs);
+                }*/
+            }
+            else if (comboBox1.Text == "Position")
+            {
+                //load employee positions
+                comboBox2.Items.Add("Manager");
+                comboBox2.Items.Add("Consultant");
+                comboBox2.Items.Add("Inventory Auditor");
+                comboBox2.Items.Add("Administrator");
+                comboBox2.Items.Add("Fleet Manager");
+                comboBox2.Items.Add("Accountant");
+
+            }
+            else
+            {
+                comboBox2.Items.Add("Select filter first");
+                comboBox2.Enabled = false;
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Select filter type and value");
+                return;
+            }
+
+            string column = "";
+            string value = comboBox2.Text.Trim();
+
+            if (comboBox1.Text == "Status")
+                column = "EmploymentStatus";
+
+            else if (comboBox1.Text == "Branch")
+                column = "BranchID";
+
+            else if (comboBox1.Text == "Position")
+                column = "Position";
+
+            if (column == "")
+                return;
+
+            if (column == "BranchID")
+                eMPLOYEEBindingSource.Filter = $"{column} = {value}";
+            else
+                eMPLOYEEBindingSource.Filter = $"{column} = '{value}'";
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string selectedEmpl = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox2.Text = selectedEmpl;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            eMPLOYEETableAdapter.Fill(avisDS.EMPLOYEE);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Remove filter
+            eMPLOYEEBindingSource.RemoveFilter();
+
+            // Reset ComboBoxes
+            comboBox1.SelectedIndex = -1;
+            comboBox2.Items.Clear();
+            comboBox2.Text = "";
+            comboBox2.Enabled = false;
+
+            // Optional message
+            MessageBox.Show("Filters reset successfully.");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            string name = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            try
+            {
+                this.Validate();
+                eMPLOYEEBindingSource.EndEdit();
+                eMPLOYEETableAdapter.Update(avisDS.EMPLOYEE);
+
+                eMPLOYEETableAdapter.Fill(avisDS.EMPLOYEE);
+                MessageBox.Show($"Employee Updated:\nID: {id}\nName: {name}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            eMPLOYEETableAdapter.FillByFullName(avisDS.EMPLOYEE, textBox1.Text);
         }
     }
 }

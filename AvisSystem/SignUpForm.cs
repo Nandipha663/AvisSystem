@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using AvisSystem.AvisDSTableAdapters;
 
 namespace AvisSystem
 {
     public partial class SignUpForm : Form
     {
+
+        AvisSystem.AvisDSTableAdapters.EMPLOYEETableAdapter employeeTA = new AvisSystem.AvisDSTableAdapters.EMPLOYEETableAdapter();
+        
+
         public SignUpForm()
         {
             InitializeComponent();
@@ -45,8 +50,13 @@ namespace AvisSystem
             }
         }*/
 
+        //AvisDS avisDS = new AvisDS();
+        AvisSystem.AvisDS avisDS = new AvisSystem.AvisDS();
         private void SignUpForm_Load(object sender, EventArgs e)
         {
+
+            //employeeTA.Fill(avisDS.EMPLOYEE);
+
             fileToolStripMenuItem.Enabled = true;
 
             loginToolStripMenuItem.Enabled = true;
@@ -242,16 +252,22 @@ namespace AvisSystem
             if (checkBox1.Checked &&
 
                 !string.IsNullOrWhiteSpace(textBox1.Text) &&
-                textBox1.Text != "Username" &&
+                textBox1.Text.Trim() != "Username" &&
 
                 !string.IsNullOrWhiteSpace(textBox2.Text) &&
-                textBox2.Text != "Email" &&
+                textBox2.Text.Trim() != "Email" &&
 
                 !string.IsNullOrWhiteSpace(textBox3.Text) &&
-                textBox3.Text != "Password" &&
+                textBox3.Text.Trim() != "Password" &&
 
                 !string.IsNullOrWhiteSpace(textBox4.Text) &&
-                textBox4.Text != "Confirm Password" &&
+                textBox4.Text.Trim() != "Confirm Password" &&
+
+                !string.IsNullOrWhiteSpace(comboBox2.Text) &&
+                comboBox2.Text.Trim() != "Position" &&
+
+                !string.IsNullOrWhiteSpace(comboBox1.Text) &&
+                comboBox1.Text.Trim() != "BranchID" &&
 
                 label5.Text == "Strong Password ✔")
             {
@@ -265,67 +281,131 @@ namespace AvisSystem
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void EmptySpaces()
         {
-
-            ValidateRegistration();
-            if (button1.Enabled == false)
+            //check terms and conditions checkbox
+            if(checkBox1.Checked == false)
             {
                 MessageBox.Show("Please agree to the terms and conditions to proceed with registration.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else if (button1.Enabled == true)
+
+            //Check Username
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text.Trim() == "Username")
             {
-                //Check Username
-                if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "          Username")
+                MessageBox.Show("Please Enter a Valid Username", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox1.Focus();
+                return;
+            }
+
+            //Check Password
+            if (string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text.ToLower() == "Password" || label5.Text == "Password must be 8+ chars,atleast one uppercase,one lowercase,one number")
+            {
+                MessageBox.Show("Please Enter a valid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox3.Focus();
+                return;
+            }
+
+            //Check Email
+            if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Trim() == "Email")
+            {
+                MessageBox.Show("Please Enter a Valid Email", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Focus();
+                return;
+            }
+
+            //Check Full name
+            if (string.IsNullOrWhiteSpace(textBox5.Text) || textBox5.Text.Trim() == "Full Name")
+            {
+                MessageBox.Show("Please Enter a valid name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox5.Focus();
+                return;
+            }
+
+            //Check Contact number
+            if (string.IsNullOrWhiteSpace(textBox6.Text) || textBox6.Text.Trim() == "Contact Number")
+            {
+                MessageBox.Show("Please Enter a valid Email", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox6.Focus();
+                return;
+            }
+
+            //check branchID
+            if (string.IsNullOrWhiteSpace(comboBox1.Text) || comboBox1.Text.Trim() == "BranchID")
+            {
+                MessageBox.Show("Please Select a Valid Branch",
+                                "Warning",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                comboBox1.Focus();
+
+                return;
+            }
+
+            //check position
+            if (string.IsNullOrWhiteSpace(comboBox2.Text) || comboBox2.Text.Trim() == "Position")
+            {
+                MessageBox.Show("Please Select a Valid Branch",
+                                "Warning",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                comboBox2.Focus();
+
+                return;
+            }
+
+            //Check Confirm Password
+            if (string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.Text.Trim() == "Confirm Password")
+            {
+                MessageBox.Show("Please enter your full name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox4.Focus();
+                return;
+            }
+
+            if (textBox4.Text == textBox3.Text)
+            {
+                //Also the add the conditions where all textboxes are filled and the password is strong before allowing the registration to be successful
+                //WTD:Add the registration information to the employees table in the database
+
+
+                MessageBox.Show("Registration Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                LoginForm loginform = new LoginForm();
+                loginform.Show();
+            }
+            else
+            {
+                MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox4.Focus();
+                return;
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            ValidateRegistration();
+            EmptySpaces();
+
+            try
+            {
+                employeeTA.AddNewEmployee(Convert.ToInt32(comboBox1.Text), textBox5.Text.ToString(), textBox2.Text.ToString(), comboBox2.Text.ToString(), textBox6.Text.ToString(), textBox1.Text.ToString(), textBox3.Text.ToString());
+
+                //Refill employees table
+                ManageEmployee empForm = Application.OpenForms["ManageEmployee"] as ManageEmployee;
+
+                if (empForm != null)
                 {
-                    MessageBox.Show("Please Enter a Valid Username", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox1.Focus();
-                    return;
+                    empForm.LoadEmployees(); // refresh open form
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while registering the employee: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                //Check Password
-                if (string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.Text == "          Password" || label5.Text == "Password must be 8+ chars,atleast one uppercase,one lowercase,one number")
-                {
-                    MessageBox.Show("Please Enter a valid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox3.Focus();
-                    return;
-                }
-
-                //Check Email
-                if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text == "          Email")
-                {
-                    MessageBox.Show("Please Enter a Valid Email", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox2.Focus();
-                    return;
-                }
-
-                if (textBox4.Text == textBox3.Text)
-                {
-                    //Also the add the conditions where all textboxes are filled and the password is strong before allowing the registration to be successful
-                    //WTD:Add the registration information to the employees table in the database
-
-
-                    MessageBox.Show("Registration Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    LoginForm loginform = new LoginForm();
-                    loginform.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox4.Focus();
-                    return;
-
-                }
-
-                //Check Confirm Password
-                if (string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.Text == "          Confirm Password")
-                {
-                    MessageBox.Show("Please enter your full name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox4.Focus();
-                    return;
-                }
             }
         }
 
@@ -500,6 +580,11 @@ namespace AvisSystem
                 comboBox2.ForeColor = Color.Black;
                 pictureBox9.Visible = false;
             }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
