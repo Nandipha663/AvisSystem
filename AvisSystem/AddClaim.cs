@@ -112,27 +112,158 @@ namespace AvisSystem
 
         private void AddClaim_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS1.CLAIM' table. You can move, or remove it, as needed.
+            this.cLAIMTableAdapter.Fill(this.avisDS1.CLAIM);
             addNewClaimToolStripMenuItem.Enabled = false;
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
+
+            var statuses = this.avisDS1.CLAIM
+                               .AsEnumerable()
+                               .Select(row => row["CLaimStatus"].ToString())
+                               .Distinct()
+                               .ToList();
+            comboBox2.DataSource = statuses;
+
+            comboBox2.SelectedIndex = -1;
+            LoadBookingIDs();
+        }
+        private void LoadBookingIDs()
+        {
+            try
+            {
+                // Fill the BOOKING table if not already filled
+                if (this.avisDS1.BOOKING.Rows.Count == 0)
+                    dsBook.Fill(this.avisDS1.BOOKING);
+                comboBox1.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load Booking IDs:\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if ( comboBox1.SelectedIndex>-1 && comboBox2.SelectedIndex>-1)
-                comboBox1.Text="";
-                textBox1.Clear();
-                maskedTextBox1.Clear();
+            comboBox1.SelectedValue = DBNull.Value;
+            comboBox1.SelectedIndex = -1;
+
+            comboBox2.SelectedIndex = -1;
+
+            textBox1.Clear();
+           dateTimePicker1.Value = DateTime.Today;
             textBox2.Clear();
             textBox3.Clear();
+
+            this.dsBook.Fill(this.avisDS1.BOOKING);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a Booking ID before adding a claim.",
+                                " ",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int bookingID = Convert.ToInt32(comboBox1.SelectedValue);
+            try
+            {
+                dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
+
+                MessageBox.Show($"Claim added for Booking ID: {bookingID}",
+                                " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding claim:\n" + ex.Message,
+                                "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (comboBox2.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a Claim Status.",
+                                " ",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string claimStatus = comboBox2.SelectedItem.ToString();
+            try
+            {
+                int nextClaimID = GetNextCLAIMID();
+                string claimType = textBox2.Text.Trim();
+                string claimDescription = textBox1.Text.Trim();
+                string responsibleParty = textBox3.Text.Trim();
+                DateTime claimDate = dateTimePicker1.Value;
+
+                this.cLAIMTableAdapter.Fill(this.avisDS1.CLAIM);
+
+                AvisDS.CLAIMRow newRow = this.avisDS1.CLAIM.NewCLAIMRow();
+               // newRow["ClaimID"] = nextClaimID;
+                newRow.BookingID = bookingID;
+                newRow.ClaimStatus = claimStatus;
+                newRow.ClaimDescription = claimDescription;
+                newRow.ClaimType = claimType;
+                newRow.ResponsibleParty= responsibleParty;
+                newRow.ClaimDate = claimDate;
+
+                this.avisDS1.CLAIM.AddCLAIMRow(newRow);
+                this.cLAIMTableAdapter.Update(this.avisDS1.CLAIM);
+                MessageBox.Show("Claim successfully added to the database!",
+                                " ",
+                                MessageBoxButtons.OK);
+                ClearForm(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving claim:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ClearForm()
+        {
+            comboBox1.SelectedValue = DBNull.Value;
+            comboBox1.SelectedIndex = -1;
+
+            comboBox2.SelectedIndex = -1;
+
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            
+            dateTimePicker1.Value = DateTime.Today;
+
+            this.dsBook.Fill(this.avisDS1.BOOKING);
+        }
+        private int GetNextCLAIMID()
+        {
+            if (this.avisDS1.CLAIM.Rows.Count == 0)
+                return 1;
+
+            // Find the maximum ClaimID and add 1
+            int maxId = this.avisDS1.CLAIM
+                .AsEnumerable()
+                .Select(row => row.Field<int>("ClaimID"))
+                .DefaultIfEmpty(0)
+                .Max();
+
+            return maxId + 1;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
