@@ -39,7 +39,44 @@ namespace AvisSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "AvisAdmin" && textBox2.Text == "2026")
+
+            try
+            {
+                AvisDSTableAdapters.EMPLOYEETableAdapter empTA =
+                    new AvisDSTableAdapters.EMPLOYEETableAdapter();
+
+                AvisDS.EMPLOYEEDataTable dt =
+                    new AvisDS.EMPLOYEEDataTable();
+
+                empTA.FillByLogin(
+                    dt,
+                    textBox1.Text,
+                    textBox2.Text
+                );
+
+                if (dt.Rows.Count > 0)
+                {
+                    
+                    AvisMenuForm menu = new AvisMenuForm();
+                    menu.Show();
+
+                    MessageBox.Show("Login Successful!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+           /* if (textBox1.Text == "AvisAdmin" && textBox2.Text == "2026")
             {
                 this.Hide();
                 AvisMenuForm menuform = new AvisMenuForm();
@@ -83,7 +120,7 @@ namespace AvisSystem
 
                     checkBox1.Checked = false;
                 }
-            }
+            }*/
         }
 
         private void button3_Click(object sender, EventArgs e)
