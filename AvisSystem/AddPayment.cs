@@ -150,12 +150,13 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
             textBox2.Clear();
-            comboBox1.Text = "";
-            maskedTextBox1.Clear();
-            textBox3.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            //comboBox1.Text = "";
             maskedTextBox2.Clear();
+            dateTimePicker1.ResetText();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -170,6 +171,47 @@ namespace AvisSystem
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*try
+            {
+                pAYMENTTableAdapter.AddTransaction(textBox2.Text, comboBox2.SelectedValue.ToString(), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), maskedTextBox2.Text, comboBox3.SelectedValue.ToString());
+                MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Refill Payment table
+                UpdatePayment pay = Application.OpenForms["UpdatePayment"] as UpdatePayment;
+
+                if (pay != null)
+                {
+                    pay.LoadPayments(); // refresh open form
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while recording a transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }*/
+        }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            this.Hide();
+            signUp.Show();
+        }
+
+        private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            this.Hide();
+            manageEmp.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

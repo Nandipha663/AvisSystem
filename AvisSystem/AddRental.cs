@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AvisSystem
 {
@@ -78,6 +79,17 @@ namespace AvisSystem
 
         private void AddRental_Load(object sender, EventArgs e)
         {
+
+            AvisDSTableAdapters.VEHICLETableAdapter vehicleTA = new AvisDSTableAdapters.VEHICLETableAdapter();
+
+            AvisDS.VEHICLEDataTable dt = new AvisDS.VEHICLEDataTable();
+
+            vehicleTA.Fill(dt);
+
+            comboBox3.DataSource = dt;
+            comboBox3.DisplayMember = "VehicleVinNo";
+            comboBox3.ValueMember = "VehicleVinNo";
+
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
@@ -163,12 +175,14 @@ namespace AvisSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox2.Clear();
+            
             textBox3.Clear();
             textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            dateTimePicker1.ResetText();
+
         }
 
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,6 +218,41 @@ namespace AvisSystem
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
+        }
+
+        AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vehicleTA = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(textBox4.Text),comboBox3.Text);
+                MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Refill employees table
+                UpdateRental Return = Application.OpenForms["UpdateRental"] as UpdateRental;
+
+                if (Return != null)
+                {
+                    Return.LoadVehiclesReturn(); // refresh open form
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while registering the employee: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     

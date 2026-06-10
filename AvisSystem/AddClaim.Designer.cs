@@ -56,7 +56,11 @@
             this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,12 +80,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dsBook = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.cLAIMTableAdapter = new AvisSystem.AvisDSTableAdapters.CLAIMTableAdapter();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,10 +103,11 @@
             this.manageVehicleToolStripMenuItem,
             this.processPaymentToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
-            this.manageClaimsToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem,
+            this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 503);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 503);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,7 +119,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
@@ -146,7 +153,7 @@
             this.viewUpdateCustomersToolStripMenuItem});
             this.manageCustomersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             // 
             // addCustomerToolStripMenuItem
@@ -172,7 +179,7 @@
             this.viewUpdateBookingsToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
             this.manageBookingToolStripMenuItem.Click += new System.EventHandler(this.manageBookingToolStripMenuItem_Click);
             // 
@@ -200,7 +207,7 @@
             this.viewUpdateRentalsToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
             // 
             // addNewRentalToolStripMenuItem
@@ -226,7 +233,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehicleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehicleToolStripMenuItem.Name = "manageVehicleToolStripMenuItem";
-            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehicleToolStripMenuItem.Text = "🚗 Manage Vehicle";
             // 
             // addNewVehicleToolStripMenuItem
@@ -252,7 +259,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addNewPaymentToolStripMenuItem
@@ -278,7 +285,7 @@
             this.viewUpdateBranchToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏢 Manage Branches";
             // 
             // addNewBranchToolStripMenuItem
@@ -304,7 +311,7 @@
             this.viewUpdateClaimsToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📋 Manage Claims";
             // 
             // addNewClaimToolStripMenuItem
@@ -322,8 +329,37 @@
             this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
             this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
             // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpEmployeeToolStripMenuItem,
+            this.manageEmployeeToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUpEmployeeToolStripMenuItem
+            // 
+            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.signUpEmployeeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
+            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(266, 34);
+            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
+            // 
+            // manageEmployeeToolStripMenuItem
+            // 
+            this.manageEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.manageEmployeeToolStripMenuItem.Name = "manageEmployeeToolStripMenuItem";
+            this.manageEmployeeToolStripMenuItem.Size = new System.Drawing.Size(266, 34);
+            this.manageEmployeeToolStripMenuItem.Text = "Manage Employee";
+            this.manageEmployeeToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeeToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox3);
@@ -340,35 +376,51 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(255, 0);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(256, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(655, 503);
+            this.groupBox1.Size = new System.Drawing.Size(783, 503);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Claim";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(27, 310);
+            this.dateTimePicker1.MinDate = new System.DateTime(2026, 6, 9, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(312, 31);
+            this.dateTimePicker1.TabIndex = 44;
+            this.dateTimePicker1.Value = new System.DateTime(2026, 6, 9, 21, 59, 39, 0);
             // 
             // textBox1
             // 
             this.textBox1.AcceptsReturn = true;
-            this.textBox1.Location = new System.Drawing.Point(268, 78);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(22, 236);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 20);
+            this.textBox1.Size = new System.Drawing.Size(317, 30);
             this.textBox1.TabIndex = 43;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(268, 242);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(403, 310);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 20);
+            this.textBox3.Size = new System.Drawing.Size(303, 31);
             this.textBox3.TabIndex = 42;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 236);
+            this.label6.Location = new System.Drawing.Point(398, 282);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(211, 25);
             this.label6.TabIndex = 41;
@@ -379,7 +431,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(456, 348);
+            this.button1.Location = new System.Drawing.Point(601, 408);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(170, 83);
             this.button1.TabIndex = 40;
@@ -392,7 +444,7 @@
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(235, 348);
+            this.button2.Location = new System.Drawing.Point(298, 408);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 83);
             this.button2.TabIndex = 39;
@@ -407,7 +459,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(20, 348);
+            this.button3.Location = new System.Drawing.Point(22, 408);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(182, 83);
             this.button3.TabIndex = 38;
@@ -417,19 +469,21 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(268, 159);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(403, 148);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 20);
+            this.textBox2.Size = new System.Drawing.Size(303, 31);
             this.textBox2.TabIndex = 37;
             // 
             // comboBox2
             // 
             this.comboBox2.DataSource = this.cLAIMBindingSource;
             this.comboBox2.DisplayMember = "ClaimStatus";
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(268, 198);
+            this.comboBox2.Location = new System.Drawing.Point(403, 233);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 21);
+            this.comboBox2.Size = new System.Drawing.Size(303, 33);
             this.comboBox2.TabIndex = 34;
             this.comboBox2.ValueMember = "ClaimStatus";
             // 
@@ -447,7 +501,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 198);
+            this.label5.Location = new System.Drawing.Point(398, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(152, 25);
             this.label5.TabIndex = 33;
@@ -457,7 +511,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 159);
+            this.label4.Location = new System.Drawing.Point(398, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 25);
             this.label4.TabIndex = 32;
@@ -467,7 +521,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 118);
+            this.label3.Location = new System.Drawing.Point(22, 282);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 31;
@@ -477,7 +531,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 74);
+            this.label2.Location = new System.Drawing.Point(22, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(204, 25);
             this.label2.TabIndex = 30;
@@ -487,10 +541,11 @@
             // 
             this.comboBox1.DataSource = this.bOOKINGBindingSource;
             this.comboBox1.DisplayMember = "BookingID";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(268, 30);
+            this.comboBox1.Location = new System.Drawing.Point(22, 148);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 21);
+            this.comboBox1.Size = new System.Drawing.Size(317, 33);
             this.comboBox1.TabIndex = 29;
             this.comboBox1.ValueMember = "BookingID";
             // 
@@ -503,7 +558,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 30);
+            this.label1.Location = new System.Drawing.Point(22, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 28;
@@ -517,23 +572,35 @@
             // 
             this.cLAIMTableAdapter.ClearBeforeFill = true;
             // 
-            // dateTimePicker1
+            // label7
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(268, 122);
-            this.dateTimePicker1.MinDate = new System.DateTime(2026, 6, 9, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 44;
-            this.dateTimePicker1.Value = new System.DateTime(2026, 6, 9, 21, 59, 39, 0);
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(232, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(349, 73);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "New Claim";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(140, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
             // 
             // AddClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(910, 503);
+            this.ClientSize = new System.Drawing.Size(1039, 503);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -548,6 +615,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,5 +670,10 @@
         private System.Windows.Forms.BindingSource cLAIMBindingSource;
         private AvisDSTableAdapters.CLAIMTableAdapter cLAIMTableAdapter;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageEmployeeToolStripMenuItem;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

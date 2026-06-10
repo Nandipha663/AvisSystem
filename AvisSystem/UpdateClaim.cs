@@ -29,7 +29,9 @@ namespace AvisSystem
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            textBox1.Text = "🔍 Search for a claim...";
+            textBox1.ForeColor = Color.Gray;
+
             textBox2.Clear();
             comboBox1.SelectedIndex = -1;
             comboBox2.Items.Clear();
@@ -133,7 +135,7 @@ namespace AvisSystem
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            claimTableAdapter1.FillByClaimType(this.avisDS1.CLAIM, textBox1.Text);
+            //claimTableAdapter1.FillByClaimType(this.avisDS1.CLAIM, textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != "🔍 Search for a claim...")
             {
                 try
@@ -427,6 +429,46 @@ namespace AvisSystem
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            this.Hide();
+            signUp.Show();
+        }
+
+        private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            this.Hide();
+            manageEmp.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Remove filter
+                cLAIMBindingSource.RemoveFilter();
+
+                // Reset ComboBoxes
+                comboBox1.SelectedIndex = -1;
+                comboBox2.Items.Clear();
+                comboBox2.Text = "";
+                comboBox2.Enabled = false;
+                
+                MessageBox.Show("Filters reset successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while resetting filters: " + ex.Message);
             }
         }
     }

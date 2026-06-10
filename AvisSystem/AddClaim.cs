@@ -180,7 +180,7 @@ namespace AvisSystem
             int bookingID = Convert.ToInt32(comboBox1.SelectedValue);
             try
             {
-                dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
+                //dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
 
                 MessageBox.Show($"Claim added for Booking ID: {bookingID}",
                                 " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -262,6 +262,30 @@ namespace AvisSystem
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            this.Hide();
+            signUp.Show();
+        }
+
+        private void manageEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            this.Hide();
+            manageEmp.Show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

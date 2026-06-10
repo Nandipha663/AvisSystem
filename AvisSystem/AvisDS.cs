@@ -7,9 +7,12 @@
     }
 }
 
-namespace AvisSystem.AvisDSTableAdapters {
-    
-    
+namespace AvisSystem.AvisDSTableAdapters
+{
+    partial class VEHICLE_RETURNTableAdapter
+    {
+    }
+
     public partial class EMPLOYEETableAdapter {
     }
 }

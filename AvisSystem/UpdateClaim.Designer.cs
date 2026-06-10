@@ -56,6 +56,9 @@
             this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -72,6 +75,14 @@
             this.avisDS1 = new AvisSystem.AvisDS();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.claimIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsiblePartyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -83,14 +94,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.claimTableAdapter1 = new AvisSystem.AvisDSTableAdapters.CLAIMTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.claimIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsiblePartyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -114,10 +118,11 @@
             this.manageVehicleToolStripMenuItem,
             this.processPaymentToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
-            this.manageClaimsToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem,
+            this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 626);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 626);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,7 +134,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
@@ -163,7 +168,7 @@
             this.viewUpdateToolStripMenuItem});
             this.manageCustomersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             // 
             // addNewCustomerToolStripMenuItem
@@ -189,7 +194,7 @@
             this.viewUpdateBookingToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
             // 
             // addNewBookingToolStripMenuItem
@@ -215,7 +220,7 @@
             this.viewUpdateRentalsToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
             // 
             // addNewRentalToolStripMenuItem
@@ -241,7 +246,7 @@
             this.viewUpdateVehicleToolStripMenuItem});
             this.manageVehicleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehicleToolStripMenuItem.Name = "manageVehicleToolStripMenuItem";
-            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehicleToolStripMenuItem.Text = "🚗 Manage Vehicle";
             // 
             // addNewVehicleToolStripMenuItem
@@ -267,7 +272,7 @@
             this.vToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addNewPaymentToolStripMenuItem
@@ -293,7 +298,7 @@
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏢 Manage Branches";
             // 
             // addNewBranchToolStripMenuItem
@@ -319,7 +324,7 @@
             this.viewUpdateClaimsToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📋 Manage Claims";
             // 
             // addNewClaimToolStripMenuItem
@@ -338,32 +343,60 @@
             this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
             this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
             // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpEmployeeToolStripMenuItem,
+            this.viewUpdateEmployeeToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUpEmployeeToolStripMenuItem
+            // 
+            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
+            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
+            // 
+            // viewUpdateEmployeeToolStripMenuItem
+            // 
+            this.viewUpdateEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
+            this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
+            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(266, 9);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(266, -2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 25);
+            this.label3.Size = new System.Drawing.Size(209, 37);
             this.label3.TabIndex = 7;
             this.label3.Text = "Search Claim";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(268, 35);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(272, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 15);
+            this.label1.Size = new System.Drawing.Size(193, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "Enter Claim type:";
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(271, 54);
+            this.textBox1.Location = new System.Drawing.Point(271, 63);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 20);
+            this.textBox1.Size = new System.Drawing.Size(260, 31);
             this.textBox1.TabIndex = 9;
             this.textBox1.Text = "🔍 Search for a claim...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -372,10 +405,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(271, 80);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(271, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 191);
+            this.groupBox1.Size = new System.Drawing.Size(867, 191);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List of claims";
@@ -393,9 +430,10 @@
             this.claimStatusDataGridViewTextBoxColumn,
             this.responsiblePartyDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.cLAIMBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(782, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(861, 166);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick_1);
@@ -420,6 +458,7 @@
             this.claimDescriptionDataGridViewTextBoxColumn.HeaderText = "ClaimDescription";
             this.claimDescriptionDataGridViewTextBoxColumn.Name = "claimDescriptionDataGridViewTextBoxColumn";
             this.claimDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.claimDescriptionDataGridViewTextBoxColumn.Width = 200;
             // 
             // claimDateDataGridViewTextBoxColumn
             // 
@@ -434,6 +473,7 @@
             this.claimTypeDataGridViewTextBoxColumn.HeaderText = "ClaimType";
             this.claimTypeDataGridViewTextBoxColumn.Name = "claimTypeDataGridViewTextBoxColumn";
             this.claimTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.claimTypeDataGridViewTextBoxColumn.Width = 150;
             // 
             // claimStatusDataGridViewTextBoxColumn
             // 
@@ -441,6 +481,7 @@
             this.claimStatusDataGridViewTextBoxColumn.HeaderText = "ClaimStatus";
             this.claimStatusDataGridViewTextBoxColumn.Name = "claimStatusDataGridViewTextBoxColumn";
             this.claimStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.claimStatusDataGridViewTextBoxColumn.Width = 150;
             // 
             // responsiblePartyDataGridViewTextBoxColumn
             // 
@@ -448,6 +489,7 @@
             this.responsiblePartyDataGridViewTextBoxColumn.HeaderText = "ResponsibleParty";
             this.responsiblePartyDataGridViewTextBoxColumn.Name = "responsiblePartyDataGridViewTextBoxColumn";
             this.responsiblePartyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.responsiblePartyDataGridViewTextBoxColumn.Width = 150;
             // 
             // cLAIMBindingSource
             // 
@@ -461,15 +503,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(271, 297);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(259, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(800, 317);
+            this.groupBox2.Size = new System.Drawing.Size(879, 349);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Claim";
@@ -487,129 +532,11 @@
             this.claimStatusDataGridViewTextBoxColumn1,
             this.responsiblePartyDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.bindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 52);
+            this.dataGridView2.Location = new System.Drawing.Point(14, 61);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(779, 174);
+            this.dataGridView2.Size = new System.Drawing.Size(858, 208);
             this.dataGridView2.TabIndex = 17;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(628, 246);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 47);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Update Claim";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightCyan;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(167, 246);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 52);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightCyan;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(6, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 52);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "🗑️  Delete Claim";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(120, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 20);
-            this.textBox2.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 15);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Selected Claim:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(532, 35);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 15);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Filter By:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(662, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Value:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(535, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 14;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(662, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 15;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(831, 24);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 50);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Filter";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // claimTableAdapter1
-            // 
-            this.claimTableAdapter1.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.AllowNew = true;
-            this.bindingSource1.DataMember = "Claim";
-            this.bindingSource1.DataSource = this.avisDS1;
             // 
             // claimIDDataGridViewTextBoxColumn1
             // 
@@ -629,30 +556,179 @@
             this.claimDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDescription";
             this.claimDescriptionDataGridViewTextBoxColumn1.HeaderText = "ClaimDescription";
             this.claimDescriptionDataGridViewTextBoxColumn1.Name = "claimDescriptionDataGridViewTextBoxColumn1";
+            this.claimDescriptionDataGridViewTextBoxColumn1.Width = 200;
             // 
             // claimDateDataGridViewTextBoxColumn1
             // 
             this.claimDateDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDate";
             this.claimDateDataGridViewTextBoxColumn1.HeaderText = "ClaimDate";
             this.claimDateDataGridViewTextBoxColumn1.Name = "claimDateDataGridViewTextBoxColumn1";
+            this.claimDateDataGridViewTextBoxColumn1.Width = 150;
             // 
             // claimTypeDataGridViewTextBoxColumn1
             // 
             this.claimTypeDataGridViewTextBoxColumn1.DataPropertyName = "ClaimType";
             this.claimTypeDataGridViewTextBoxColumn1.HeaderText = "ClaimType";
             this.claimTypeDataGridViewTextBoxColumn1.Name = "claimTypeDataGridViewTextBoxColumn1";
+            this.claimTypeDataGridViewTextBoxColumn1.Width = 150;
             // 
             // claimStatusDataGridViewTextBoxColumn1
             // 
             this.claimStatusDataGridViewTextBoxColumn1.DataPropertyName = "ClaimStatus";
             this.claimStatusDataGridViewTextBoxColumn1.HeaderText = "ClaimStatus";
             this.claimStatusDataGridViewTextBoxColumn1.Name = "claimStatusDataGridViewTextBoxColumn1";
+            this.claimStatusDataGridViewTextBoxColumn1.Width = 150;
             // 
             // responsiblePartyDataGridViewTextBoxColumn1
             // 
             this.responsiblePartyDataGridViewTextBoxColumn1.DataPropertyName = "ResponsibleParty";
             this.responsiblePartyDataGridViewTextBoxColumn1.HeaderText = "ResponsibleParty";
             this.responsiblePartyDataGridViewTextBoxColumn1.Name = "responsiblePartyDataGridViewTextBoxColumn1";
+            this.responsiblePartyDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.AllowNew = true;
+            this.bindingSource1.DataMember = "Claim";
+            this.bindingSource1.DataSource = this.avisDS1;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(677, 275);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(195, 54);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Update Claim";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.BackColor = System.Drawing.Color.LightCyan;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(126, 275);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 52);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Clear";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackColor = System.Drawing.Color.LightCyan;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(6, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 52);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "🗑️Delete";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(192, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(278, 31);
+            this.textBox2.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(177, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Selected Claim:";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(622, 35);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 25);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Filter By:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(782, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 25);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Value:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(625, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(156, 33);
+            this.comboBox1.TabIndex = 14;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(787, 63);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(156, 33);
+            this.comboBox2.TabIndex = 15;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(949, 44);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(189, 50);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Filter";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // claimTableAdapter1
+            // 
+            this.claimTableAdapter1.ClearBeforeFill = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackColor = System.Drawing.Color.LightCyan;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(949, 1);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(186, 37);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "Reset Filter";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // UpdateClaim
             // 
@@ -660,12 +736,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1138, 626);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -754,5 +831,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn claimTypeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn claimStatusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn responsiblePartyDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeeToolStripMenuItem;
+        private System.Windows.Forms.Button button6;
     }
 }

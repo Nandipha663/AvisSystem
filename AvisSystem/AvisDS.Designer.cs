@@ -8510,12 +8510,25 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, " +
                 "PaymentStatus FROM dbo.PAYMENT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO PAYMENT
+                         (InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentStatus)
+VALUES        (@InvoiceID,@BookingID,@PaymentType,@PaymentDate,@PaymentAmount,@PaymentStatus); 
+SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentStatus FROM PAYMENT WHERE (PaymentID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceID", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentAmount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "PaymentAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8728,6 +8741,55 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         public virtual int Update(string InvoiceID, int BookingID, string PaymentType, System.DateTime PaymentDate, decimal PaymentAmount, string PaymentStatus, int Original_PaymentID, string Original_InvoiceID, int Original_BookingID, string Original_PaymentType, System.DateTime Original_PaymentDate, decimal Original_PaymentAmount, string Original_PaymentStatus) {
             return this.Update(InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentStatus, Original_PaymentID, Original_InvoiceID, Original_BookingID, Original_PaymentType, Original_PaymentDate, Original_PaymentAmount, Original_PaymentStatus, Original_PaymentID);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddTransaction(string InvoiceID, int BookingID, string PaymentType, string PaymentDate, decimal PaymentAmount, string PaymentStatus) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((InvoiceID == null)) {
+                throw new global::System.ArgumentNullException("InvoiceID");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(InvoiceID));
+            }
+            command.Parameters[1].Value = ((int)(BookingID));
+            if ((PaymentType == null)) {
+                throw new global::System.ArgumentNullException("PaymentType");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(PaymentType));
+            }
+            if ((PaymentDate == null)) {
+                throw new global::System.ArgumentNullException("PaymentDate");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(PaymentDate));
+            }
+            command.Parameters[4].Value = ((decimal)(PaymentAmount));
+            if ((PaymentStatus == null)) {
+                throw new global::System.ArgumentNullException("PaymentStatus");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(PaymentStatus));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -8916,12 +8978,39 @@ SELECT VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Im
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Ima" +
                 "ge FROM dbo.VEHICLE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO VEHICLE
+                         (VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Image)
+VALUES        (@VehicleVinNo,@BranchID,@RegistrationNo,@Make,@Model,@Category,@Status,@Image); 
+SELECT VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Image FROM VEHICLE WHERE (VehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BranchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "DELETE FROM VEHICLE\r\nWHERE        (VehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT        VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Stat" +
+                "us, Image\r\nFROM            VEHICLE\r\nWHERE        (VehicleVinNo LIKE @VehicleVinN" +
+                "o + \'%\')";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8943,6 +9032,42 @@ SELECT VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Im
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.VEHICLEDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByVVN(AvisDS.VEHICLEDataTable dataTable, string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLEDataTable GetDataBy11(string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
             AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9207,6 +9332,101 @@ SELECT VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Im
         public virtual int Update(int BranchID, string RegistrationNo, string Make, string Model, string Category, string Status, byte[] Image, string Original_VehicleVinNo, int Original_BranchID, string Original_RegistrationNo, string Original_Make, string Original_Model, string Original_Category, string Original_Status) {
             return this.Update(Original_VehicleVinNo, BranchID, RegistrationNo, Make, Model, Category, Status, Image, Original_VehicleVinNo, Original_BranchID, Original_RegistrationNo, Original_Make, Original_Model, Original_Category, Original_Status);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddNewVehicle(string VehicleVinNo, int BranchID, string RegistrationNo, string Make, string Model, string Category, string Status, byte[] Image) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
+            command.Parameters[1].Value = ((int)(BranchID));
+            if ((RegistrationNo == null)) {
+                throw new global::System.ArgumentNullException("RegistrationNo");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(RegistrationNo));
+            }
+            if ((Make == null)) {
+                throw new global::System.ArgumentNullException("Make");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Make));
+            }
+            if ((Model == null)) {
+                throw new global::System.ArgumentNullException("Model");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Model));
+            }
+            if ((Category == null)) {
+                throw new global::System.ArgumentNullException("Category");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Category));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Status));
+            }
+            if ((Image == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((byte[])(Image));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteVehicle(string VehicleVinNo) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -9396,12 +9616,37 @@ SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, V" +
                 "ehicleVinNo FROM dbo.[VEHICLE RETURN]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO [VEHICLE RETURN]
+                         (BookingID, BranchID, ReturnDate, [Inspection Report], Charges, VehicleVinNo)
+VALUES        (@BookingID,@BranchID,@ReturnDate,@Inspection_Report,@Charges,@VehicleVinNo); 
+SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, VehicleVinNo FROM [VEHICLE RETURN] WHERE (ReturnID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BranchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inspection_Report", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Inspection Report", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Charges", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Charges", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "DELETE FROM [VEHICLE RETURN]\r\nWHERE        (ReturnID = @ReturnID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, V" +
+                "ehicleVinNo\r\n\nFROM dbo.[VEHICLE RETURN]\r\n\nWHERE CAST(BookingID AS VARCHAR) LIKE " +
+                "@Search + \'%\'";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Search", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9423,6 +9668,42 @@ SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.VEHICLE_RETURNDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.VEHICLE_RETURNDataTable dataTable = new AvisDS.VEHICLE_RETURNDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBookingID(AvisDS.VEHICLE_RETURNDataTable dataTable, string Search) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Search == null)) {
+                throw new global::System.ArgumentNullException("Search");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Search));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLE_RETURNDataTable GetDataBy(string Search) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Search == null)) {
+                throw new global::System.ArgumentNullException("Search");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Search));
+            }
             AvisDS.VEHICLE_RETURNDataTable dataTable = new AvisDS.VEHICLE_RETURNDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9602,6 +9883,74 @@ SELECT ReturnID, BookingID, BranchID, ReturnDate, [Inspection Report], Charges, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int BookingID, int BranchID, System.DateTime ReturnDate, string Inspection_Report, decimal Charges, string VehicleVinNo, int Original_ReturnID, int Original_BookingID, int Original_BranchID, System.DateTime Original_ReturnDate, string Original_Inspection_Report, decimal Original_Charges, string Original_VehicleVinNo) {
             return this.Update(Original_ReturnID, BookingID, BranchID, ReturnDate, Inspection_Report, Charges, VehicleVinNo, Original_ReturnID, Original_BookingID, Original_BranchID, Original_ReturnDate, Original_Inspection_Report, Original_Charges, Original_VehicleVinNo);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddNewVR(int BookingID, int BranchID, string ReturnDate, string Inspection_Report, decimal Charges, string VehicleVinNo) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(BookingID));
+            command.Parameters[1].Value = ((int)(BranchID));
+            if ((ReturnDate == null)) {
+                throw new global::System.ArgumentNullException("ReturnDate");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(ReturnDate));
+            }
+            if ((Inspection_Report == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Inspection_Report));
+            }
+            command.Parameters[4].Value = ((decimal)(Charges));
+            if ((VehicleVinNo == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(VehicleVinNo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteVehicleReturn(int ReturnID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(ReturnID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -9835,9 +10184,9 @@ SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position, ContactNumber, Em
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position,\n       ContactNumb" +
-                "er, EmploymentStatus, Username, Password\r\n\nFROM EMPLOYEE\r\n\nWHERE Fullname LIKE @" +
-                "Fullname + \'%\'";
+            this._commandCollection[3].CommandText = "SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position,\r\n       ContactNum" +
+                "ber, EmploymentStatus, Username, Password\r\n\r\nFROM EMPLOYEE\r\n\r\nWHERE Fullname LIK" +
+                "E @Fullname + \'%\'";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fullname", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Fullname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
