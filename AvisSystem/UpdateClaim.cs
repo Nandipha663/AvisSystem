@@ -38,7 +38,7 @@ namespace AvisSystem
             comboBox2.Text = "";
             comboBox2.Enabled = false;
             DataTable bottomTable = (DataTable)dataGridView2.DataSource;
-            bottomTable.Clear();    
+            bottomTable.Clear();
         }
         private void UpdateClaim_Load(object sender, EventArgs e)
         {
@@ -131,13 +131,13 @@ namespace AvisSystem
                 if (ordered.Length > 0)
                 {
                     comboBox2.Items.AddRange(ordered);
-                    comboBox2.SelectedIndex = -1; 
+                    comboBox2.SelectedIndex = -1;
                 }
             }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //claimTableAdapter1.FillByClaimType(this.avisDS1.CLAIM, textBox1.Text);
+            claimTableAdapter1.FillByClaimType(this.avisDS1.CLAIM, textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != "🔍 Search for a claim...")
             {
                 try
@@ -312,21 +312,7 @@ namespace AvisSystem
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Index >= 0)
-            {
-                object cellValue = dataGridView1.CurrentRow.Cells[5].Value;
-                if (cellValue != DBNull.Value && cellValue != null)
-                {
-                    textBox2.Text = cellValue.ToString();
-                }
-                else
-                {
-                    textBox2.Text = "";
-                }
-            }
-        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -351,11 +337,11 @@ namespace AvisSystem
                 }
             }
         }
-       
+
         private void button4_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 dataGridView2.EndEdit();
 
                 DataTable bottomTable = (DataTable)dataGridView2.DataSource;
@@ -400,41 +386,7 @@ namespace AvisSystem
         {
 
         }
-   
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            string claimStatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            textBox2.Text = claimStatus;
-        }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-            if (e.RowIndex < 0) return;
-
-            try
-            {
-                DataRowView selectedRowView = (DataRowView)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                AvisDS.CLAIMRow selectedClaim = (AvisDS.CLAIMRow)selectedRowView.Row;
-
-                DataTable bottomTable = (DataTable)dataGridView2.DataSource;
-
-                foreach (DataRow row in bottomTable.Rows)
-                {
-                    if (Convert.ToInt32(row["ClaimID"]) == selectedClaim.ClaimID)
-                    {
-                        MessageBox.Show($"Claim ID {selectedClaim.ClaimID} has already been added to the update list below.",
-                                        " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-                bottomTable.ImportRow(selectedClaim);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -467,7 +419,7 @@ namespace AvisSystem
                 comboBox2.Items.Clear();
                 comboBox2.Text = "";
                 comboBox2.Enabled = false;
-                
+
                 MessageBox.Show("Filters reset successfully.");
             }
             catch (Exception ex)
@@ -475,8 +427,62 @@ namespace AvisSystem
                 MessageBox.Show("An error occurred while resetting filters: " + ex.Message);
             }
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Index >= 0)
+            {
+                object cellValue = dataGridView1.CurrentRow.Cells[5].Value;
+                if (cellValue != DBNull.Value && cellValue != null)
+                {
+                    textBox2.Text = cellValue.ToString();
+                }
+                else
+                {
+                    textBox2.Text = "";
+                }
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.RowIndex < 0) return;
+
+            try
+            {
+                DataRowView selectedRowView = (DataRowView)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                AvisDS.CLAIMRow selectedClaim = (AvisDS.CLAIMRow)selectedRowView.Row;
+
+                DataTable bottomTable = (DataTable)dataGridView2.DataSource;
+
+                foreach (DataRow row in bottomTable.Rows)
+                {
+                    if (Convert.ToInt32(row["ClaimID"]) == selectedClaim.ClaimID)
+                    {
+                        MessageBox.Show($"Claim ID {selectedClaim.ClaimID} has already been added to the update list below.",
+                                        " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                bottomTable.ImportRow(selectedClaim);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            {
+                string claimStatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                textBox2.Text = claimStatus;
+            }
+        }
     }
-    
+
+
 }
 
 
