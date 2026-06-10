@@ -35,6 +35,8 @@ namespace AvisSystem
             comboBox2.Items.Clear();
             comboBox2.Text = "";
             comboBox2.Enabled = false;
+            DataTable bottomTable = (DataTable)dataGridView2.DataSource;
+            bottomTable.Clear();    
         }
         private void UpdateClaim_Load(object sender, EventArgs e)
         {
@@ -347,13 +349,7 @@ namespace AvisSystem
                 }
             }
         }
-
-        private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            string claimStatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            textBox2.Text = claimStatus;
-        }
-
+       
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -402,8 +398,16 @@ namespace AvisSystem
         {
 
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+   
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            string claimStatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            textBox2.Text = claimStatus;
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
             if (e.RowIndex < 0) return;
 
             try
@@ -419,7 +423,7 @@ namespace AvisSystem
                     {
                         MessageBox.Show($"Claim ID {selectedClaim.ClaimID} has already been added to the update list below.",
                                         " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return; 
+                        return;
                     }
                 }
                 bottomTable.ImportRow(selectedClaim);
@@ -430,6 +434,7 @@ namespace AvisSystem
             }
         }
     }
+    
 }
 
 

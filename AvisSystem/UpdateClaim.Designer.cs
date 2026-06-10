@@ -72,6 +72,14 @@
             this.avisDS1 = new AvisSystem.AvisDS();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.claimIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsiblePartyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -83,14 +91,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.claimTableAdapter1 = new AvisSystem.AvisDSTableAdapters.CLAIMTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.claimIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.claimStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsiblePartyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -397,8 +397,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(782, 150);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick_1);
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // claimIDDataGridViewTextBoxColumn
             // 
@@ -492,6 +492,55 @@
             this.dataGridView2.Size = new System.Drawing.Size(779, 174);
             this.dataGridView2.TabIndex = 17;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // claimIDDataGridViewTextBoxColumn1
+            // 
+            this.claimIDDataGridViewTextBoxColumn1.DataPropertyName = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn1.HeaderText = "ClaimID";
+            this.claimIDDataGridViewTextBoxColumn1.Name = "claimIDDataGridViewTextBoxColumn1";
+            this.claimIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bookingIDDataGridViewTextBoxColumn1
+            // 
+            this.bookingIDDataGridViewTextBoxColumn1.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn1.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn1.Name = "bookingIDDataGridViewTextBoxColumn1";
+            // 
+            // claimDescriptionDataGridViewTextBoxColumn1
+            // 
+            this.claimDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn1.HeaderText = "ClaimDescription";
+            this.claimDescriptionDataGridViewTextBoxColumn1.Name = "claimDescriptionDataGridViewTextBoxColumn1";
+            // 
+            // claimDateDataGridViewTextBoxColumn1
+            // 
+            this.claimDateDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn1.HeaderText = "ClaimDate";
+            this.claimDateDataGridViewTextBoxColumn1.Name = "claimDateDataGridViewTextBoxColumn1";
+            // 
+            // claimTypeDataGridViewTextBoxColumn1
+            // 
+            this.claimTypeDataGridViewTextBoxColumn1.DataPropertyName = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn1.HeaderText = "ClaimType";
+            this.claimTypeDataGridViewTextBoxColumn1.Name = "claimTypeDataGridViewTextBoxColumn1";
+            // 
+            // claimStatusDataGridViewTextBoxColumn1
+            // 
+            this.claimStatusDataGridViewTextBoxColumn1.DataPropertyName = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn1.HeaderText = "ClaimStatus";
+            this.claimStatusDataGridViewTextBoxColumn1.Name = "claimStatusDataGridViewTextBoxColumn1";
+            // 
+            // responsiblePartyDataGridViewTextBoxColumn1
+            // 
+            this.responsiblePartyDataGridViewTextBoxColumn1.DataPropertyName = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn1.HeaderText = "ResponsibleParty";
+            this.responsiblePartyDataGridViewTextBoxColumn1.Name = "responsiblePartyDataGridViewTextBoxColumn1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.AllowNew = true;
+            this.bindingSource1.DataMember = "Claim";
+            this.bindingSource1.DataSource = this.avisDS1;
             // 
             // button4
             // 
@@ -604,55 +653,6 @@
             // claimTableAdapter1
             // 
             this.claimTableAdapter1.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.AllowNew = true;
-            this.bindingSource1.DataMember = "Claim";
-            this.bindingSource1.DataSource = this.avisDS1;
-            // 
-            // claimIDDataGridViewTextBoxColumn1
-            // 
-            this.claimIDDataGridViewTextBoxColumn1.DataPropertyName = "ClaimID";
-            this.claimIDDataGridViewTextBoxColumn1.HeaderText = "ClaimID";
-            this.claimIDDataGridViewTextBoxColumn1.Name = "claimIDDataGridViewTextBoxColumn1";
-            this.claimIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // bookingIDDataGridViewTextBoxColumn1
-            // 
-            this.bookingIDDataGridViewTextBoxColumn1.DataPropertyName = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn1.HeaderText = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn1.Name = "bookingIDDataGridViewTextBoxColumn1";
-            // 
-            // claimDescriptionDataGridViewTextBoxColumn1
-            // 
-            this.claimDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDescription";
-            this.claimDescriptionDataGridViewTextBoxColumn1.HeaderText = "ClaimDescription";
-            this.claimDescriptionDataGridViewTextBoxColumn1.Name = "claimDescriptionDataGridViewTextBoxColumn1";
-            // 
-            // claimDateDataGridViewTextBoxColumn1
-            // 
-            this.claimDateDataGridViewTextBoxColumn1.DataPropertyName = "ClaimDate";
-            this.claimDateDataGridViewTextBoxColumn1.HeaderText = "ClaimDate";
-            this.claimDateDataGridViewTextBoxColumn1.Name = "claimDateDataGridViewTextBoxColumn1";
-            // 
-            // claimTypeDataGridViewTextBoxColumn1
-            // 
-            this.claimTypeDataGridViewTextBoxColumn1.DataPropertyName = "ClaimType";
-            this.claimTypeDataGridViewTextBoxColumn1.HeaderText = "ClaimType";
-            this.claimTypeDataGridViewTextBoxColumn1.Name = "claimTypeDataGridViewTextBoxColumn1";
-            // 
-            // claimStatusDataGridViewTextBoxColumn1
-            // 
-            this.claimStatusDataGridViewTextBoxColumn1.DataPropertyName = "ClaimStatus";
-            this.claimStatusDataGridViewTextBoxColumn1.HeaderText = "ClaimStatus";
-            this.claimStatusDataGridViewTextBoxColumn1.Name = "claimStatusDataGridViewTextBoxColumn1";
-            // 
-            // responsiblePartyDataGridViewTextBoxColumn1
-            // 
-            this.responsiblePartyDataGridViewTextBoxColumn1.DataPropertyName = "ResponsibleParty";
-            this.responsiblePartyDataGridViewTextBoxColumn1.HeaderText = "ResponsibleParty";
-            this.responsiblePartyDataGridViewTextBoxColumn1.Name = "responsiblePartyDataGridViewTextBoxColumn1";
             // 
             // UpdateClaim
             // 

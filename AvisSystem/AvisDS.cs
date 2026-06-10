@@ -7,9 +7,12 @@
     }
 }
 
-namespace AvisSystem.AvisDSTableAdapters {
-    
-    
+namespace AvisSystem.AvisDSTableAdapters
+{
+    partial class BOOKINGTableAdapter
+    {
+    }
+
     public partial class EMPLOYEETableAdapter {
     }
 }
