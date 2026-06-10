@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPayment));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,21 +65,17 @@
             this.processPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdatePaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +84,8 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.label1);
@@ -105,6 +109,69 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Record Transaction";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(412, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(184, 25);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Payment Status:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Pending",
+            "Completed",
+            "Incomplete",
+            "Confirmed",
+            "Cancelled"});
+            this.comboBox3.Location = new System.Drawing.Point(407, 154);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(367, 33);
+            this.comboBox3.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(412, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 25);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Payment Type:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "EFT",
+            "Cash",
+            "Credit Card",
+            "Debit Card"});
+            this.comboBox2.Location = new System.Drawing.Point(8, 154);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(367, 33);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 236);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(365, 31);
+            this.dateTimePicker1.TabIndex = 15;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(6, 319);
+            this.maskedTextBox2.Mask = "000000000.00";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(362, 31);
+            this.maskedTextBox2.TabIndex = 14;
             // 
             // button3
             // 
@@ -396,34 +463,6 @@
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
             this.viewUpdatePaymentToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentToolStripMenuItem_Click);
             // 
-            // manageClaimsToolStripMenuItem
-            // 
-            this.manageClaimsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addClaimToolStripMenuItem,
-            this.updateClaimToolStripMenuItem});
-            this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(248, 34);
-            this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
-            // 
-            // addClaimToolStripMenuItem
-            // 
-            this.addClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
-            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
-            this.addClaimToolStripMenuItem.Text = "Add New Claim";
-            this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
-            // 
-            // updateClaimToolStripMenuItem
-            // 
-            this.updateClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.updateClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
-            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
-            this.updateClaimToolStripMenuItem.Text = "View/Update Claims";
-            this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
-            // 
             // manageBranchesToolStripMenuItem
             // 
             this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -452,20 +491,33 @@
             this.updateBranchToolStripMenuItem.Text = "View/Update Branches";
             this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
-            // maskedTextBox2
+            // manageClaimsToolStripMenuItem
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(6, 319);
-            this.maskedTextBox2.Mask = "000000000.00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(362, 31);
-            this.maskedTextBox2.TabIndex = 14;
+            this.manageClaimsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addClaimToolStripMenuItem,
+            this.updateClaimToolStripMenuItem});
+            this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(248, 34);
+            this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
-            // dateTimePicker1
+            // addClaimToolStripMenuItem
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 236);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(365, 31);
-            this.dateTimePicker1.TabIndex = 15;
+            this.addClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
+            this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
+            this.addClaimToolStripMenuItem.Text = "Add New Claim";
+            this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
+            // 
+            // updateClaimToolStripMenuItem
+            // 
+            this.updateClaimToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.updateClaimToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
+            this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
+            this.updateClaimToolStripMenuItem.Text = "View/Update Claims";
+            this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
@@ -493,53 +545,23 @@
             this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
             this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
             // 
-            // comboBox2
+            // label7
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "EFT",
-            "Cash",
-            "Credit Card",
-            "Debit Card"});
-            this.comboBox2.Location = new System.Drawing.Point(8, 154);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(367, 33);
-            this.comboBox2.TabIndex = 16;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(412, 208);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(229, 25);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Payment Description";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(412, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 25);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Payment Type:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Pending",
-            "Completed",
-            "Incomplete",
-            "Confirmed",
-            "Cancelled"});
-            this.comboBox3.Location = new System.Drawing.Point(407, 154);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(367, 33);
-            this.comboBox3.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(412, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(184, 25);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Payment Status:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.textBox1.Location = new System.Drawing.Point(407, 236);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(365, 112);
+            this.textBox1.TabIndex = 21;
             // 
             // AddPayment
             // 
@@ -609,5 +631,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
     }
 }
