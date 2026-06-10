@@ -638,7 +638,7 @@ namespace AvisSystem {
             
             private global::System.Data.DataColumn columnPickUp_Date;
             
-            private global::System.Data.DataColumn columnReturn_Date;
+            private global::System.Data.DataColumn columnExpectedReturnDate;
             
             private global::System.Data.DataColumn columnStatus;
             
@@ -745,9 +745,9 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Return_DateColumn {
+            public global::System.Data.DataColumn ExpectedReturnDateColumn {
                 get {
-                    return this.columnReturn_Date;
+                    return this.columnExpectedReturnDate;
                 }
             }
             
@@ -812,7 +812,7 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BOOKINGRow AddBOOKINGRow(CUSTOMERRow parentCUSTOMERRowByFK_BOOKING_CUSTOMER, BRANCHRow parentBRANCHRowByFK_BOOKING_BRANCH, VEHICLERow parentVEHICLERowByFK_BOOKING_VEHICLE, string PickUp_Branch, string DropOff_Branch, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime Return_Date, string Status, string InvoiceID, decimal Invoice_Amount) {
+            public BOOKINGRow AddBOOKINGRow(CUSTOMERRow parentCUSTOMERRowByFK_BOOKING_CUSTOMER, BRANCHRow parentBRANCHRowByFK_BOOKING_BRANCH, VEHICLERow parentVEHICLERowByFK_BOOKING_VEHICLE, string PickUp_Branch, string DropOff_Branch, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime ExpectedReturnDate, string Status, string InvoiceID, decimal Invoice_Amount) {
                 BOOKINGRow rowBOOKINGRow = ((BOOKINGRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -823,7 +823,7 @@ namespace AvisSystem {
                         DropOff_Branch,
                         Booking_Date,
                         PickUp_Date,
-                        Return_Date,
+                        ExpectedReturnDate,
                         Status,
                         InvoiceID,
                         Invoice_Amount};
@@ -873,7 +873,7 @@ namespace AvisSystem {
                 this.columnDropOff_Branch = base.Columns["DropOff Branch"];
                 this.columnBooking_Date = base.Columns["Booking Date"];
                 this.columnPickUp_Date = base.Columns["PickUp Date"];
-                this.columnReturn_Date = base.Columns["Return Date"];
+                this.columnExpectedReturnDate = base.Columns["ExpectedReturnDate"];
                 this.columnStatus = base.Columns["Status"];
                 this.columnInvoiceID = base.Columns["InvoiceID"];
                 this.columnInvoice_Amount = base.Columns["Invoice Amount"];
@@ -898,8 +898,8 @@ namespace AvisSystem {
                 base.Columns.Add(this.columnBooking_Date);
                 this.columnPickUp_Date = new global::System.Data.DataColumn("PickUp Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPickUp_Date);
-                this.columnReturn_Date = new global::System.Data.DataColumn("Return Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReturn_Date);
+                this.columnExpectedReturnDate = new global::System.Data.DataColumn("ExpectedReturnDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpectedReturnDate);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
                 this.columnInvoiceID = new global::System.Data.DataColumn("InvoiceID", typeof(string), null, global::System.Data.MappingType.Element);
@@ -924,7 +924,7 @@ namespace AvisSystem {
                 this.columnDropOff_Branch.MaxLength = 50;
                 this.columnBooking_Date.AllowDBNull = false;
                 this.columnPickUp_Date.AllowDBNull = false;
-                this.columnReturn_Date.AllowDBNull = false;
+                this.columnExpectedReturnDate.AllowDBNull = false;
                 this.columnStatus.AllowDBNull = false;
                 this.columnStatus.MaxLength = 50;
                 this.columnInvoiceID.MaxLength = 50;
@@ -4112,12 +4112,12 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Return_Date {
+            public System.DateTime ExpectedReturnDate {
                 get {
-                    return ((global::System.DateTime)(this[this.tableBOOKING.Return_DateColumn]));
+                    return ((global::System.DateTime)(this[this.tableBOOKING.ExpectedReturnDateColumn]));
                 }
                 set {
-                    this[this.tableBOOKING.Return_DateColumn] = value;
+                    this[this.tableBOOKING.ExpectedReturnDateColumn] = value;
                 }
             }
             
@@ -5894,14 +5894,15 @@ namespace AvisSystem.AvisDSTableAdapters {
             tableMapping.ColumnMappings.Add("DropOff Branch", "DropOff Branch");
             tableMapping.ColumnMappings.Add("Booking Date", "Booking Date");
             tableMapping.ColumnMappings.Add("PickUp Date", "PickUp Date");
-            tableMapping.ColumnMappings.Add("Return Date", "Return Date");
+            tableMapping.ColumnMappings.Add("Return Date", "ExpectedReturnDate");
             tableMapping.ColumnMappings.Add("Status", "Status");
             tableMapping.ColumnMappings.Add("InvoiceID", "InvoiceID");
             tableMapping.ColumnMappings.Add("Invoice Amount", "Invoice Amount");
+            tableMapping.ColumnMappings.Add("ExpectedReturnDate", "ExpectedReturnDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[BOOKING] WHERE (([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ([BranchID] = @Original_BranchID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([PickUp Branch] = @Original_PickUp_Branch) AND ([DropOff Branch] = @Original_DropOff_Branch) AND ([Booking Date] = @Original_Booking_Date) AND ([PickUp Date] = @Original_PickUp_Date) AND ([Return Date] = @Original_Return_Date) AND ([Status] = @Original_Status) AND ((@IsNull_InvoiceID = 1 AND [InvoiceID] IS NULL) OR ([InvoiceID] = @Original_InvoiceID)) AND ((@IsNull_Invoice_Amount = 1 AND [Invoice Amount] IS NULL) OR ([Invoice Amount] = @Original_Invoice_Amount)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [BOOKING] WHERE (([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ([BranchID] = @Original_BranchID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([PickUp Branch] = @Original_PickUp_Branch) AND ([DropOff Branch] = @Original_DropOff_Branch) AND ([Booking Date] = @Original_Booking_Date) AND ([PickUp Date] = @Original_PickUp_Date) AND ([ExpectedReturnDate] = @Original_ExpectedReturnDate) AND ([Status] = @Original_Status) AND ((@IsNull_InvoiceID = 1 AND [InvoiceID] IS NULL) OR ([InvoiceID] = @Original_InvoiceID)) AND ((@IsNull_Invoice_Amount = 1 AND [Invoice Amount] IS NULL) OR ([Invoice Amount] = @Original_Invoice_Amount)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5911,7 +5912,7 @@ namespace AvisSystem.AvisDSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DropOff_Branch", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DropOff Branch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PickUp_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickUp Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Return_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Return Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_InvoiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5919,8 +5920,8 @@ namespace AvisSystem.AvisDSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Invoice Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[BOOKING] ([CustomerID], [BranchID], [VehicleVinNo], [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], [Return Date], [Status], [InvoiceID], [Invoice Amount]) VALUES (@CustomerID, @BranchID, @VehicleVinNo, @PickUp_Branch, @DropOff_Branch, @Booking_Date, @PickUp_Date, @Return_Date, @Status, @InvoiceID, @Invoice_Amount);
-SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], [Return Date], Status, InvoiceID, [Invoice Amount] FROM BOOKING WHERE (BookingID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [BOOKING] ([CustomerID], [BranchID], [VehicleVinNo], [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], [ExpectedReturnDate], [Status], [InvoiceID], [Invoice Amount]) VALUES (@CustomerID, @BranchID, @VehicleVinNo, @PickUp_Branch, @DropOff_Branch, @Booking_Date, @PickUp_Date, @ExpectedReturnDate, @Status, @InvoiceID, @Invoice_Amount);
+SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], ExpectedReturnDate, Status, InvoiceID, [Invoice Amount] FROM BOOKING WHERE (BookingID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5929,14 +5930,14 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DropOff_Branch", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DropOff Branch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickUp_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickUp Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Return_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Return Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Invoice Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[BOOKING] SET [CustomerID] = @CustomerID, [BranchID] = @BranchID, [VehicleVinNo] = @VehicleVinNo, [PickUp Branch] = @PickUp_Branch, [DropOff Branch] = @DropOff_Branch, [Booking Date] = @Booking_Date, [PickUp Date] = @PickUp_Date, [Return Date] = @Return_Date, [Status] = @Status, [InvoiceID] = @InvoiceID, [Invoice Amount] = @Invoice_Amount WHERE (([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ([BranchID] = @Original_BranchID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([PickUp Branch] = @Original_PickUp_Branch) AND ([DropOff Branch] = @Original_DropOff_Branch) AND ([Booking Date] = @Original_Booking_Date) AND ([PickUp Date] = @Original_PickUp_Date) AND ([Return Date] = @Original_Return_Date) AND ([Status] = @Original_Status) AND ((@IsNull_InvoiceID = 1 AND [InvoiceID] IS NULL) OR ([InvoiceID] = @Original_InvoiceID)) AND ((@IsNull_Invoice_Amount = 1 AND [Invoice Amount] IS NULL) OR ([Invoice Amount] = @Original_Invoice_Amount)));
-SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], [Return Date], Status, InvoiceID, [Invoice Amount] FROM BOOKING WHERE (BookingID = @BookingID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [BOOKING] SET [CustomerID] = @CustomerID, [BranchID] = @BranchID, [VehicleVinNo] = @VehicleVinNo, [PickUp Branch] = @PickUp_Branch, [DropOff Branch] = @DropOff_Branch, [Booking Date] = @Booking_Date, [PickUp Date] = @PickUp_Date, [ExpectedReturnDate] = @ExpectedReturnDate, [Status] = @Status, [InvoiceID] = @InvoiceID, [Invoice Amount] = @Invoice_Amount WHERE (([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ([BranchID] = @Original_BranchID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([PickUp Branch] = @Original_PickUp_Branch) AND ([DropOff Branch] = @Original_DropOff_Branch) AND ([Booking Date] = @Original_Booking_Date) AND ([PickUp Date] = @Original_PickUp_Date) AND ([ExpectedReturnDate] = @Original_ExpectedReturnDate) AND ([Status] = @Original_Status) AND ((@IsNull_InvoiceID = 1 AND [InvoiceID] IS NULL) OR ([InvoiceID] = @Original_InvoiceID)) AND ((@IsNull_Invoice_Amount = 1 AND [Invoice Amount] IS NULL) OR ([Invoice Amount] = @Original_Invoice_Amount)));
+SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff Branch], [Booking Date], [PickUp Date], ExpectedReturnDate, Status, InvoiceID, [Invoice Amount] FROM BOOKING WHERE (BookingID = @BookingID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5945,7 +5946,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DropOff_Branch", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DropOff Branch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickUp_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickUp Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Return_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Return Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Invoice Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5957,7 +5958,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DropOff_Branch", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DropOff Branch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PickUp_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickUp Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Return_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Return Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_InvoiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5976,13 +5977,21 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff B" +
-                "ranch], [Booking Date], [PickUp Date], [Return Date], Status, InvoiceID, [Invoic" +
-                "e Amount] FROM dbo.BOOKING";
+            this._commandCollection[0].CommandText = "SELECT        BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [Dr" +
+                "opOff Branch], [Booking Date], [PickUp Date], ExpectedReturnDate, Status, Invoic" +
+                "eID, [Invoice Amount]\r\nFROM            BOOKING";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [Dr" +
+                "opOff Branch], [Booking Date], [PickUp Date], ExpectedReturnDate, Status, Invoic" +
+                "eID, [Invoice Amount]\r\nFROM            BOOKING\r\nWHERE        (BookingID = @Booki" +
+                "ngID)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6004,6 +6013,42 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.BOOKINGDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.BOOKINGDataTable dataTable = new AvisDS.BOOKINGDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBookingID(AvisDS.BOOKINGDataTable dataTable, object BookingID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((BookingID == null)) {
+                throw new global::System.ArgumentNullException("BookingID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(BookingID));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.BOOKINGDataTable GetDataBy(object BookingID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((BookingID == null)) {
+                throw new global::System.ArgumentNullException("BookingID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(BookingID));
+            }
             AvisDS.BOOKINGDataTable dataTable = new AvisDS.BOOKINGDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6042,7 +6087,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_BookingID, int Original_CustomerID, int Original_BranchID, string Original_VehicleVinNo, string Original_PickUp_Branch, string Original_DropOff_Branch, System.DateTime Original_Booking_Date, System.DateTime Original_PickUp_Date, System.DateTime Original_Return_Date, string Original_Status, string Original_InvoiceID, global::System.Nullable<decimal> Original_Invoice_Amount) {
+        public virtual int Delete(int Original_BookingID, int Original_CustomerID, int Original_BranchID, string Original_VehicleVinNo, string Original_PickUp_Branch, string Original_DropOff_Branch, System.DateTime Original_Booking_Date, System.DateTime Original_PickUp_Date, System.DateTime Original_ExpectedReturnDate, string Original_Status, string Original_InvoiceID, global::System.Nullable<decimal> Original_Invoice_Amount) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_BookingID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CustomerID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_BranchID));
@@ -6066,7 +6111,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             }
             this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Booking_Date));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_PickUp_Date));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Return_Date));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_ExpectedReturnDate));
             if ((Original_Status == null)) {
                 throw new global::System.ArgumentNullException("Original_Status");
             }
@@ -6109,7 +6154,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int CustomerID, int BranchID, string VehicleVinNo, string PickUp_Branch, string DropOff_Branch, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime Return_Date, string Status, string InvoiceID, global::System.Nullable<decimal> Invoice_Amount) {
+        public virtual int Insert(int CustomerID, int BranchID, string VehicleVinNo, string PickUp_Branch, string DropOff_Branch, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime ExpectedReturnDate, string Status, string InvoiceID, global::System.Nullable<decimal> Invoice_Amount) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CustomerID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(BranchID));
             if ((VehicleVinNo == null)) {
@@ -6132,7 +6177,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             }
             this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Booking_Date));
             this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(PickUp_Date));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(Return_Date));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(ExpectedReturnDate));
             if ((Status == null)) {
                 throw new global::System.ArgumentNullException("Status");
             }
@@ -6179,7 +6224,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
                     string DropOff_Branch, 
                     System.DateTime Booking_Date, 
                     System.DateTime PickUp_Date, 
-                    System.DateTime Return_Date, 
+                    System.DateTime ExpectedReturnDate, 
                     string Status, 
                     string InvoiceID, 
                     global::System.Nullable<decimal> Invoice_Amount, 
@@ -6191,7 +6236,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
                     string Original_DropOff_Branch, 
                     System.DateTime Original_Booking_Date, 
                     System.DateTime Original_PickUp_Date, 
-                    System.DateTime Original_Return_Date, 
+                    System.DateTime Original_ExpectedReturnDate, 
                     string Original_Status, 
                     string Original_InvoiceID, 
                     global::System.Nullable<decimal> Original_Invoice_Amount, 
@@ -6218,7 +6263,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Booking_Date));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(PickUp_Date));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Return_Date));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(ExpectedReturnDate));
             if ((Status == null)) {
                 throw new global::System.ArgumentNullException("Status");
             }
@@ -6260,7 +6305,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
             }
             this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_Booking_Date));
             this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_PickUp_Date));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_Return_Date));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_ExpectedReturnDate));
             if ((Original_Status == null)) {
                 throw new global::System.ArgumentNullException("Original_Status");
             }
@@ -6312,7 +6357,7 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
                     string DropOff_Branch, 
                     System.DateTime Booking_Date, 
                     System.DateTime PickUp_Date, 
-                    System.DateTime Return_Date, 
+                    System.DateTime ExpectedReturnDate, 
                     string Status, 
                     string InvoiceID, 
                     global::System.Nullable<decimal> Invoice_Amount, 
@@ -6324,11 +6369,11 @@ SELECT BookingID, CustomerID, BranchID, VehicleVinNo, [PickUp Branch], [DropOff 
                     string Original_DropOff_Branch, 
                     System.DateTime Original_Booking_Date, 
                     System.DateTime Original_PickUp_Date, 
-                    System.DateTime Original_Return_Date, 
+                    System.DateTime Original_ExpectedReturnDate, 
                     string Original_Status, 
                     string Original_InvoiceID, 
                     global::System.Nullable<decimal> Original_Invoice_Amount) {
-            return this.Update(CustomerID, BranchID, VehicleVinNo, PickUp_Branch, DropOff_Branch, Booking_Date, PickUp_Date, Return_Date, Status, InvoiceID, Invoice_Amount, Original_BookingID, Original_CustomerID, Original_BranchID, Original_VehicleVinNo, Original_PickUp_Branch, Original_DropOff_Branch, Original_Booking_Date, Original_PickUp_Date, Original_Return_Date, Original_Status, Original_InvoiceID, Original_Invoice_Amount, Original_BookingID);
+            return this.Update(CustomerID, BranchID, VehicleVinNo, PickUp_Branch, DropOff_Branch, Booking_Date, PickUp_Date, ExpectedReturnDate, Status, InvoiceID, Invoice_Amount, Original_BookingID, Original_CustomerID, Original_BranchID, Original_VehicleVinNo, Original_PickUp_Branch, Original_DropOff_Branch, Original_Booking_Date, Original_PickUp_Date, Original_ExpectedReturnDate, Original_Status, Original_InvoiceID, Original_Invoice_Amount, Original_BookingID);
         }
     }
     
@@ -7039,12 +7084,19 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, R" +
                 "esponsibleParty FROM dbo.CLAIM";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimSt" +
+                "atus, ResponsibleParty\r\nFROM            CLAIM\r\nWHERE        (ClaimType LIKE @Cla" +
+                "imType + \'%\')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClaimType", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ClaimType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7066,6 +7118,42 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.CLAIMDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.CLAIMDataTable dataTable = new AvisDS.CLAIMDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByClaimType(AvisDS.CLAIMDataTable dataTable, string ClaimType) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ClaimType == null)) {
+                throw new global::System.ArgumentNullException("ClaimType");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ClaimType));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.CLAIMDataTable GetDataBy(string ClaimType) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ClaimType == null)) {
+                throw new global::System.ArgumentNullException("ClaimType");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ClaimType));
+            }
             AvisDS.CLAIMDataTable dataTable = new AvisDS.CLAIMDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

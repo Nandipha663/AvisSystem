@@ -154,17 +154,18 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            comboBox1.SelectedValue = DBNull.Value;
-            comboBox1.SelectedIndex = -1;
+         //   comboBox1.SelectedValue = DBNull.Value;
+         //   comboBox1.SelectedIndex = -1;
 
-            comboBox2.SelectedIndex = -1;
+           // comboBox2.SelectedIndex = -1;
 
-            textBox1.Clear();
-           dateTimePicker1.Value = DateTime.Today;
-            textBox2.Clear();
-            textBox3.Clear();
+          //  textBox1.Clear();
+          // dateTimePicker1.Value = DateTime.Today;
+          //  textBox2.Clear();
+          //  textBox3.Clear();
 
-            this.dsBook.Fill(this.avisDS1.BOOKING);
+         //   this.dsBook.Fill(this.avisDS1.BOOKING);
+         ClearForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -180,7 +181,7 @@ namespace AvisSystem
             int bookingID = Convert.ToInt32(comboBox1.SelectedValue);
             try
             {
-                //dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
+             //  dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
 
                 MessageBox.Show($"Claim added for Booking ID: {bookingID}",
                                 " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -233,10 +234,10 @@ namespace AvisSystem
         }
         private void ClearForm()
         {
-            comboBox1.SelectedValue = DBNull.Value;
-            comboBox1.SelectedIndex = -1;
+           // comboBox1.SelectedValue = DBNull.Value;
+           // comboBox1.SelectedIndex = -1;
 
-            comboBox2.SelectedIndex = -1;
+           // comboBox2.SelectedIndex = -1;
 
             textBox1.Text = "";
             textBox2.Text = "";
@@ -245,6 +246,15 @@ namespace AvisSystem
             dateTimePicker1.Value = DateTime.Today;
 
             this.dsBook.Fill(this.avisDS1.BOOKING);
+            if (comboBox1.DataSource != null)
+            {
+                this.BindingContext[comboBox1.DataSource].ResumeBinding();
+            }
+
+            comboBox1.SelectedIndex = -1;
+
+            comboBox2.SelectedIndex = -1;
+
         }
         private int GetNextCLAIMID()
         {
@@ -262,30 +272,6 @@ namespace AvisSystem
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SignUpForm signUp = new SignUpForm();
-            this.Hide();
-            signUp.Show();
-        }
-
-        private void manageEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ManageEmployee manageEmp = new ManageEmployee();
-            this.Hide();
-            manageEmp.Show();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
         {
 
         }
