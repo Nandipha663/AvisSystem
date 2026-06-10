@@ -275,5 +275,19 @@ namespace AvisSystem
         {
 
         }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            this.Hide();
+            signUp.Show();
+        }
+
+        private void manageEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            this.Hide();
+            manageEmp.Show();
+        }
     }
 }
