@@ -10582,7 +10582,7 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentA" +
@@ -10590,11 +10590,27 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentA" +
+            this._commandCollection[1].CommandText = @"INSERT INTO [PAYMENT] ([InvoiceID], [BookingID], [PaymentType], [PaymentDate], [PaymentAmount], [PaymentStatus], [PaymentDescription]) VALUES (@InvoiceID, @BookingID, @PaymentType, @PaymentDate, @PaymentAmount, @PaymentStatus, @PaymentDescription);
+SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentStatus, PaymentDescription FROM PAYMENT WHERE (PaymentID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceID", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentAmount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "PaymentAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDescription", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentA" +
                 "mount, PaymentStatus, PaymentDescription\r\nFROM            PAYMENT\r\nWHERE CAST(Bo" +
                 "okingID AS VARCHAR) LIKE @BookingID + \'%\'";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT MAX(PaymentID)\r\n\nFROM PAYMENT";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10626,7 +10642,7 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByBookingID(AvisDS.PAYMENTDataTable dataTable, string BookingID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((BookingID == null)) {
                 throw new global::System.ArgumentNullException("BookingID");
             }
@@ -10645,7 +10661,7 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual AvisDS.PAYMENTDataTable GetDataBy(string BookingID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((BookingID == null)) {
                 throw new global::System.ArgumentNullException("BookingID");
             }
@@ -10886,6 +10902,89 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string InvoiceID, int BookingID, string PaymentType, System.DateTime PaymentDate, decimal PaymentAmount, string PaymentStatus, string PaymentDescription, int Original_PaymentID, string Original_InvoiceID, int Original_BookingID, string Original_PaymentType, System.DateTime Original_PaymentDate, decimal Original_PaymentAmount, string Original_PaymentStatus, string Original_PaymentDescription) {
             return this.Update(InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentStatus, PaymentDescription, Original_PaymentID, Original_InvoiceID, Original_BookingID, Original_PaymentType, Original_PaymentDate, Original_PaymentAmount, Original_PaymentStatus, Original_PaymentDescription, Original_PaymentID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddNewPayment(string InvoiceID, int BookingID, string PaymentType, string PaymentDate, decimal PaymentAmount, string PaymentStatus, string PaymentDescription) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((InvoiceID == null)) {
+                throw new global::System.ArgumentNullException("InvoiceID");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(InvoiceID));
+            }
+            command.Parameters[1].Value = ((int)(BookingID));
+            if ((PaymentType == null)) {
+                throw new global::System.ArgumentNullException("PaymentType");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(PaymentType));
+            }
+            if ((PaymentDate == null)) {
+                throw new global::System.ArgumentNullException("PaymentDate");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(PaymentDate));
+            }
+            command.Parameters[4].Value = ((decimal)(PaymentAmount));
+            if ((PaymentStatus == null)) {
+                throw new global::System.ArgumentNullException("PaymentStatus");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(PaymentStatus));
+            }
+            if ((PaymentDescription == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(PaymentDescription));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> GetLastPaymentID() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     

@@ -32,6 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdatePayment));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.paymentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pAYMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -60,7 +70,11 @@
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -72,27 +86,14 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.avisDS = new AvisSystem.AvisDS();
-            this.pAYMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pAYMENTTableAdapter = new AvisSystem.AvisDSTableAdapters.PAYMENTTableAdapter();
-            this.paymentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -129,6 +130,70 @@
             this.dataGridView1.Size = new System.Drawing.Size(822, 179);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // paymentIDDataGridViewTextBoxColumn
+            // 
+            this.paymentIDDataGridViewTextBoxColumn.DataPropertyName = "PaymentID";
+            this.paymentIDDataGridViewTextBoxColumn.HeaderText = "PaymentID";
+            this.paymentIDDataGridViewTextBoxColumn.Name = "paymentIDDataGridViewTextBoxColumn";
+            this.paymentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // invoiceIDDataGridViewTextBoxColumn
+            // 
+            this.invoiceIDDataGridViewTextBoxColumn.DataPropertyName = "InvoiceID";
+            this.invoiceIDDataGridViewTextBoxColumn.HeaderText = "InvoiceID";
+            this.invoiceIDDataGridViewTextBoxColumn.Name = "invoiceIDDataGridViewTextBoxColumn";
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            // 
+            // paymentTypeDataGridViewTextBoxColumn
+            // 
+            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "PaymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "PaymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
+            this.paymentTypeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // paymentDateDataGridViewTextBoxColumn
+            // 
+            this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
+            this.paymentDateDataGridViewTextBoxColumn.HeaderText = "PaymentDate";
+            this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
+            this.paymentDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // paymentAmountDataGridViewTextBoxColumn
+            // 
+            this.paymentAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentAmount";
+            this.paymentAmountDataGridViewTextBoxColumn.HeaderText = "PaymentAmount";
+            this.paymentAmountDataGridViewTextBoxColumn.Name = "paymentAmountDataGridViewTextBoxColumn";
+            this.paymentAmountDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // paymentStatusDataGridViewTextBoxColumn
+            // 
+            this.paymentStatusDataGridViewTextBoxColumn.DataPropertyName = "PaymentStatus";
+            this.paymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus";
+            this.paymentStatusDataGridViewTextBoxColumn.Name = "paymentStatusDataGridViewTextBoxColumn";
+            this.paymentStatusDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // paymentDescriptionDataGridViewTextBoxColumn
+            // 
+            this.paymentDescriptionDataGridViewTextBoxColumn.DataPropertyName = "PaymentDescription";
+            this.paymentDescriptionDataGridViewTextBoxColumn.HeaderText = "PaymentDescription";
+            this.paymentDescriptionDataGridViewTextBoxColumn.Name = "paymentDescriptionDataGridViewTextBoxColumn";
+            this.paymentDescriptionDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // pAYMENTBindingSource
+            // 
+            this.pAYMENTBindingSource.DataMember = "PAYMENT";
+            this.pAYMENTBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -182,7 +247,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -190,7 +255,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -219,7 +284,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageTransactionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageTransactionsToolStripMenuItem.Name = "manageTransactionsToolStripMenuItem";
-            this.manageTransactionsToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageTransactionsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageTransactionsToolStripMenuItem.Text = "👥  Manage Customer";
             // 
             // addPaymentToolStripMenuItem
@@ -245,7 +310,7 @@
             this.viewUpdateBookingToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
             // 
             // addBookingToolStripMenuItem
@@ -271,7 +336,7 @@
             this.viewUpdateRentalStatusToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
             this.manageRentalsToolStripMenuItem.Click += new System.EventHandler(this.manageRentalsToolStripMenuItem_Click);
             // 
@@ -298,7 +363,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -324,7 +389,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addPaymentToolStripMenuItem1
@@ -350,7 +415,7 @@
             this.viewUpdateClaimsToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addNewClaimToolStripMenuItem
@@ -376,7 +441,7 @@
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
             // 
             // addNewBranchToolStripMenuItem
@@ -395,10 +460,37 @@
             this.viewUpdateBranchesToolStripMenuItem.Text = "View/Update Branches";
             this.viewUpdateBranchesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBranchesToolStripMenuItem_Click);
             // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpEmployeeToolStripMenuItem,
+            this.viewUpdateEmployeeToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUpEmployeeToolStripMenuItem
+            // 
+            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
+            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
+            // 
+            // viewUpdateEmployeeToolStripMenuItem
+            // 
+            this.viewUpdateEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
+            this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
+            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox2);
@@ -411,6 +503,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Updtate Transaction";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(609, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(211, 45);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Generate Invoice";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
             // 
@@ -548,32 +651,6 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // manageEmployeesToolStripMenuItem
-            // 
-            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.signUpEmployeeToolStripMenuItem,
-            this.viewUpdateEmployeeToolStripMenuItem});
-            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
-            // 
-            // signUpEmployeeToolStripMenuItem
-            // 
-            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
-            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
-            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
-            // 
-            // viewUpdateEmployeeToolStripMenuItem
-            // 
-            this.viewUpdateEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
-            this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
-            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -583,73 +660,9 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 23;
             // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pAYMENTBindingSource
-            // 
-            this.pAYMENTBindingSource.DataMember = "PAYMENT";
-            this.pAYMENTBindingSource.DataSource = this.avisDS;
-            // 
             // pAYMENTTableAdapter
             // 
             this.pAYMENTTableAdapter.ClearBeforeFill = true;
-            // 
-            // paymentIDDataGridViewTextBoxColumn
-            // 
-            this.paymentIDDataGridViewTextBoxColumn.DataPropertyName = "PaymentID";
-            this.paymentIDDataGridViewTextBoxColumn.HeaderText = "PaymentID";
-            this.paymentIDDataGridViewTextBoxColumn.Name = "paymentIDDataGridViewTextBoxColumn";
-            this.paymentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // invoiceIDDataGridViewTextBoxColumn
-            // 
-            this.invoiceIDDataGridViewTextBoxColumn.DataPropertyName = "InvoiceID";
-            this.invoiceIDDataGridViewTextBoxColumn.HeaderText = "InvoiceID";
-            this.invoiceIDDataGridViewTextBoxColumn.Name = "invoiceIDDataGridViewTextBoxColumn";
-            // 
-            // bookingIDDataGridViewTextBoxColumn
-            // 
-            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
-            // 
-            // paymentTypeDataGridViewTextBoxColumn
-            // 
-            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "PaymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "PaymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
-            this.paymentTypeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // paymentDateDataGridViewTextBoxColumn
-            // 
-            this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
-            this.paymentDateDataGridViewTextBoxColumn.HeaderText = "PaymentDate";
-            this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
-            this.paymentDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // paymentAmountDataGridViewTextBoxColumn
-            // 
-            this.paymentAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentAmount";
-            this.paymentAmountDataGridViewTextBoxColumn.HeaderText = "PaymentAmount";
-            this.paymentAmountDataGridViewTextBoxColumn.Name = "paymentAmountDataGridViewTextBoxColumn";
-            this.paymentAmountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // paymentStatusDataGridViewTextBoxColumn
-            // 
-            this.paymentStatusDataGridViewTextBoxColumn.DataPropertyName = "PaymentStatus";
-            this.paymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus";
-            this.paymentStatusDataGridViewTextBoxColumn.Name = "paymentStatusDataGridViewTextBoxColumn";
-            this.paymentStatusDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // paymentDescriptionDataGridViewTextBoxColumn
-            // 
-            this.paymentDescriptionDataGridViewTextBoxColumn.DataPropertyName = "PaymentDescription";
-            this.paymentDescriptionDataGridViewTextBoxColumn.HeaderText = "PaymentDescription";
-            this.paymentDescriptionDataGridViewTextBoxColumn.Name = "paymentDescriptionDataGridViewTextBoxColumn";
-            this.paymentDescriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // UpdatePayment
             // 
@@ -677,12 +690,12 @@
             this.Load += new System.EventHandler(this.UpdatePayment_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,5 +760,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
     }
 }

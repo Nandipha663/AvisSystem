@@ -173,12 +173,14 @@ namespace AvisSystem
             newAvisMenuForm.Show();
         }
 
+        AvisSystem.AvisDSTableAdapters.PAYMENTTableAdapter vehicleTA = new AvisSystem.AvisDSTableAdapters.PAYMENTTableAdapter();
         private void button1_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
-                pAYMENTTableAdapter.AddTransaction(textBox2.Text, comboBox2.SelectedValue.ToString(), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), maskedTextBox2.Text, comboBox3.SelectedValue.ToString());
+                vehicleTA.AddNewPayment(textBox2.Text, Convert.ToInt32(comboBox2.SelectedValue), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), Convert.ToDecimal(maskedTextBox2.Text), comboBox3.SelectedValue.ToString(), textBox1.Text.ToString());
                 MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 //Refill Payment table
                 UpdatePayment pay = Application.OpenForms["UpdatePayment"] as UpdatePayment;
@@ -192,7 +194,7 @@ namespace AvisSystem
             {
                 MessageBox.Show("An error occurred while recording a transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }*/
+            }
         }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)

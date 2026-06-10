@@ -7,6 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace AvisSystem
 {
@@ -22,8 +28,14 @@ namespace AvisSystem
 
         }
 
+        public void LoadPayments()
+        {
+            pAYMENTTableAdapter.Fill(avisDS.PAYMENT);
+        }
         private void UpdatePayment_Load(object sender, EventArgs e)
         {
+
+            LoadPayments();
             // TODO: This line of code loads data into the 'avisDS.PAYMENT' table. You can move, or remove it, as needed.
             this.pAYMENTTableAdapter.Fill(this.avisDS.PAYMENT);
             fileToolStripMenuItem.Enabled = true;
@@ -145,7 +157,6 @@ namespace AvisSystem
             {
                 textBox1.Text = "🔍 Search Payments...";
                 textBox1.ForeColor = Color.Gray;
-                textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
         }
 
@@ -371,6 +382,243 @@ namespace AvisSystem
             dateTimePicker1.Enabled = false;
 
             pAYMENTTableAdapter.Fill(avisDS.PAYMENT);
+        }
+
+
+        //GENERATING AN INVOICE
+        //Get Invoice Details
+        private DataTable GetInvoiceData(int paymentID)
+        {
+            string conn =
+            @"Data Source=146.230.177.46;Initial Catalog=GroupPmb3;User ID=GroupPmb3;Password=tt9d2h;TrustServerCertificate=True;Encrypt=False";
+
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                string query = @"
+
+                SELECT
+
+                PAYMENT.PaymentID,
+                PAYMENT.PaymentDate,
+                PAYMENT.PaymentAmount,
+                PAYMENT.PaymentType,
+                PAYMENT.PaymentStatus,
+
+                CUSTOMER.FullName,
+                CUSTOMER.EmailAddress,
+                CUSTOMER.ContactNumber,
+
+                BOOKING.BookingID,
+                BOOKING.[PickUp Date] AS PickUpDate,
+                BOOKING.ExpectedReturnDate AS ReturnDate,
+
+                VEHICLE.VehicleVinNo,
+                VEHICLE.Make,
+                VEHICLE.Model
+
+                FROM PAYMENT
+
+                INNER JOIN BOOKING
+                ON PAYMENT.BookingID = BOOKING.BookingID
+
+                INNER JOIN CUSTOMER
+                ON BOOKING.CustomerID = CUSTOMER.CustomerID
+
+                INNER JOIN VEHICLE
+                ON BOOKING.VehicleVinNo = VEHICLE.VehicleVinNo
+
+                WHERE PAYMENT.PaymentID = @PaymentID
+                ";
+
+                SqlDataAdapter da =
+                    new SqlDataAdapter(query, con);
+
+                da.SelectCommand.Parameters.AddWithValue(
+                    "@PaymentID", paymentID);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                return dt;
+            }
+
+        }
+
+        //Export to PDF
+        private void ExportInvoicePdf(DataTable dt)
+        {
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("No invoice data found.");
+                return;
+            }
+
+            SaveFileDialog save = new SaveFileDialog();
+
+            save.Filter = "PDF Files|*.pdf";
+            save.Title = "Save Invoice";
+            save.FileName = "AVIS_Invoice.pdf";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                Document doc =
+                    new Document(PageSize.A4, 40, 40, 40, 40);
+
+                PdfWriter.GetInstance(doc,
+                    new FileStream(save.FileName, FileMode.Create));
+
+                doc.Open();
+
+                DataRow row = dt.Rows[0];
+
+                iTextSharp.text.Font titleFont =
+                    FontFactory.GetFont(
+                        FontFactory.HELVETICA_BOLD, 22);
+
+                iTextSharp.text.Font headingFont =
+                    FontFactory.GetFont(
+                        FontFactory.HELVETICA_BOLD, 14);
+
+                iTextSharp.text.Font normalFont =
+                    FontFactory.GetFont(
+                        FontFactory.HELVETICA, 12);
+
+                Paragraph title =
+                    new Paragraph(
+                        "AVIS CAR RENTAL INVOICE",
+                        titleFont);
+
+                title.Alignment = Element.ALIGN_CENTER;
+
+                doc.Add(title);
+
+                doc.Add(new Paragraph(" "));
+
+                doc.Add(new Paragraph(
+                    "Invoice Number: "
+                    + row["PaymentID"], normalFont));
+
+                doc.Add(new Paragraph(
+                    "Invoice Date: "
+                    + DateTime.Now.ToShortDateString(),
+                    normalFont));
+
+                doc.Add(new Paragraph(" "));
+
+                doc.Add(new Paragraph(
+                    "CUSTOMER DETAILS",
+                    headingFont));
+
+                doc.Add(new Paragraph(
+                    "Customer: "
+                    + row["FullName"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Email: "
+                    + row["EmailAddress"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Phone: "
+                    + row["ContactNumber"],
+                    normalFont));
+
+                doc.Add(new Paragraph(" "));
+
+                doc.Add(new Paragraph(
+                    "BOOKING DETAILS",
+                    headingFont));
+
+                doc.Add(new Paragraph(
+                    "Booking ID: "
+                    + row["BookingID"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Pickup Date: "
+                    + Convert.ToDateTime(
+                        row["PickUpDate"]).ToShortDateString(),
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Return Date: "
+                    + Convert.ToDateTime(
+                        row["ReturnDate"]).ToShortDateString(),
+                    normalFont));
+
+                doc.Add(new Paragraph(" "));
+
+                doc.Add(new Paragraph(
+                    "VEHICLE DETAILS",
+                    headingFont));
+
+                doc.Add(new Paragraph(
+                    "Vehicle VIN: "
+                    + row["VehicleVinNo"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Vehicle: "
+                    + row["Make"] + " "
+                    + row["Model"],
+                    normalFont));
+
+                doc.Add(new Paragraph(" "));
+
+                doc.Add(new Paragraph(
+                    "PAYMENT DETAILS",
+                    headingFont));
+
+                doc.Add(new Paragraph(
+                    "Payment Type: "
+                    + row["PaymentType"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Payment Status: "
+                    + row["PaymentStatus"],
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Amount Paid: R"
+                    + row["PaymentAmount"],
+                    normalFont));
+
+                doc.Add(new Paragraph(" "));
+
+                Paragraph thanks =
+                    new Paragraph(
+                        "Thank you for choosing AVIS!",
+                        headingFont);
+
+                thanks.Alignment = Element.ALIGN_CENTER;
+
+                doc.Add(thanks);
+
+                doc.Close();
+
+                MessageBox.Show(
+                    "Invoice PDF Generated Successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                System.Diagnostics.Process.Start(
+                    save.FileName);
+            }
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            int paymentID = Convert.ToInt32(pAYMENTTableAdapter.GetLastPaymentID());
+            DataTable dt = GetInvoiceData(paymentID);
+            ExportInvoicePdf(dt);
+
+            MessageBox.Show("Invoice Generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
