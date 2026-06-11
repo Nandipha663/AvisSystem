@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomers));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,10 +75,39 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerUsernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPasswordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateCustomerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -93,7 +126,7 @@
             this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 450);
+            this.menuStrip1.Size = new System.Drawing.Size(255, 592);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -322,7 +355,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(259, 91);
             this.groupBox1.Name = "groupBox1";
@@ -334,18 +366,37 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(128, 88);
+            this.comboBox2.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "B",
+            "C1"});
+            this.comboBox2.Location = new System.Drawing.Point(676, 63);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 13;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNumberDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.licenceNumberDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.licenceCodeDataGridViewTextBoxColumn,
+            this.customerUsernameDataGridViewTextBoxColumn,
+            this.customerPasswordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 162);
+            this.dataGridView1.Size = new System.Drawing.Size(785, 162);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // label1
             // 
@@ -353,9 +404,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(262, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 15);
+            this.label1.Size = new System.Drawing.Size(152, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Enter customer_ID:";
+            this.label1.Text = "Enter Customer Name:";
             // 
             // textBox1
             // 
@@ -366,11 +417,13 @@
             this.textBox1.Size = new System.Drawing.Size(183, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "🔍 Search customers...";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
@@ -379,7 +432,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(259, 284);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(796, 208);
+            this.groupBox2.Size = new System.Drawing.Size(796, 280);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Customers";
@@ -390,7 +443,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(616, 92);
+            this.button4.Location = new System.Drawing.Point(609, 211);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(166, 47);
             this.button4.TabIndex = 9;
@@ -403,19 +456,20 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(181, 76);
+            this.button3.Location = new System.Drawing.Point(181, 211);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 52);
             this.button3.TabIndex = 4;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightCyan;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(20, 76);
+            this.button1.Location = new System.Drawing.Point(20, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 52);
             this.button1.TabIndex = 2;
@@ -486,17 +540,206 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Status",
+            "LicenceCode"});
             this.comboBox1.Location = new System.Drawing.Point(493, 64);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 12;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn1,
+            this.fullNameDataGridViewTextBoxColumn1,
+            this.addressDataGridViewTextBoxColumn1,
+            this.contactNumberDataGridViewTextBoxColumn1,
+            this.emailAddressDataGridViewTextBoxColumn1,
+            this.licenceNumberDataGridViewTextBoxColumn1,
+            this.statusDataGridViewTextBoxColumn1,
+            this.licenceCodeDataGridViewTextBoxColumn1,
+            this.customerUsernameDataGridViewTextBoxColumn1,
+            this.customerPasswordDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.updateCustomerBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.Location = new System.Drawing.Point(20, 58);
+            this.dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView2.Size = new System.Drawing.Size(745, 150);
+            this.dataGridView2.TabIndex = 10;
+            // 
+            // customerIDDataGridViewTextBoxColumn1
+            // 
+            this.customerIDDataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn1.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn1.Name = "customerIDDataGridViewTextBoxColumn1";
+            // 
+            // fullNameDataGridViewTextBoxColumn1
+            // 
+            this.fullNameDataGridViewTextBoxColumn1.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn1.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn1.Name = "fullNameDataGridViewTextBoxColumn1";
+            // 
+            // addressDataGridViewTextBoxColumn1
+            // 
+            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+            // 
+            // contactNumberDataGridViewTextBoxColumn1
+            // 
+            this.contactNumberDataGridViewTextBoxColumn1.DataPropertyName = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn1.HeaderText = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn1.Name = "contactNumberDataGridViewTextBoxColumn1";
+            // 
+            // emailAddressDataGridViewTextBoxColumn1
+            // 
+            this.emailAddressDataGridViewTextBoxColumn1.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn1.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn1.Name = "emailAddressDataGridViewTextBoxColumn1";
+            // 
+            // licenceNumberDataGridViewTextBoxColumn1
+            // 
+            this.licenceNumberDataGridViewTextBoxColumn1.DataPropertyName = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn1.HeaderText = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn1.Name = "licenceNumberDataGridViewTextBoxColumn1";
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            // 
+            // licenceCodeDataGridViewTextBoxColumn1
+            // 
+            this.licenceCodeDataGridViewTextBoxColumn1.DataPropertyName = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn1.HeaderText = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn1.Name = "licenceCodeDataGridViewTextBoxColumn1";
+            // 
+            // customerUsernameDataGridViewTextBoxColumn1
+            // 
+            this.customerUsernameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn1.HeaderText = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn1.Name = "customerUsernameDataGridViewTextBoxColumn1";
+            // 
+            // customerPasswordDataGridViewTextBoxColumn1
+            // 
+            this.customerPasswordDataGridViewTextBoxColumn1.DataPropertyName = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn1.HeaderText = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn1.Name = "customerPasswordDataGridViewTextBoxColumn1";
+            // 
+            // updateCustomerBindingSource
+            // 
+            this.updateCustomerBindingSource.DataMember = "Update Customer";
+            this.updateCustomerBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // contactNumberDataGridViewTextBoxColumn
+            // 
+            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            // 
+            // licenceNumberDataGridViewTextBoxColumn
+            // 
+            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // licenceCodeDataGridViewTextBoxColumn
+            // 
+            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
+            // 
+            // customerUsernameDataGridViewTextBoxColumn
+            // 
+            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
+            // 
+            // customerPasswordDataGridViewTextBoxColumn
+            // 
+            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
+            // 
+            // cUSTOMERBindingSource
+            // 
+            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
+            this.cUSTOMERBindingSource.DataSource = this.avisDS;
+            // 
+            // cUSTOMERTableAdapter
+            // 
+            this.cUSTOMERTableAdapter.ClearBeforeFill = true;
             // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(946, 450);
+            this.ClientSize = new System.Drawing.Size(1036, 592);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label13);
@@ -517,6 +760,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateCustomerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,5 +813,30 @@
         private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBranchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateBranchToolStripMenuItem;
+        private AvisDS avisDS;
+        private System.Windows.Forms.BindingSource cUSTOMERBindingSource;
+        private AvisDSTableAdapters.CUSTOMERTableAdapter cUSTOMERTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licenceNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licenceCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerUsernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerPasswordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licenceNumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licenceCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerUsernameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerPasswordDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource updateCustomerBindingSource;
     }
 }

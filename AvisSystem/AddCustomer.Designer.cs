@@ -37,6 +37,25 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.label6 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -75,41 +94,22 @@
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
             this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 40);
+            this.label1.Location = new System.Drawing.Point(6, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 25);
             this.label1.TabIndex = 1;
@@ -193,6 +193,154 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Customer";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(215, 74);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(182, 20);
+            this.textBox4.TabIndex = 43;
+            this.toolTip1.SetToolTip(this.textBox4, "Enter Valid South African Cellphone Number");
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(215, 154);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(182, 20);
+            this.textBox2.TabIndex = 42;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Status:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(426, 74);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(517, 367);
+            this.groupBox2.TabIndex = 40;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Verify Customer Addition";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(159, 59);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(152, 20);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(134, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Search By Customer Name";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNumberDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.licenceNumberDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.licenceCodeDataGridViewTextBoxColumn,
+            this.customerUsernameDataGridViewTextBoxColumn,
+            this.customerPasswordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 85);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(492, 261);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // contactNumberDataGridViewTextBoxColumn
+            // 
+            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            // 
+            // licenceNumberDataGridViewTextBoxColumn
+            // 
+            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // licenceCodeDataGridViewTextBoxColumn
+            // 
+            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
+            // 
+            // customerUsernameDataGridViewTextBoxColumn
+            // 
+            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
+            // 
+            // customerPasswordDataGridViewTextBoxColumn
+            // 
+            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
+            // 
+            // cUSTOMERBindingSource
+            // 
+            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
+            this.cUSTOMERBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -561,157 +709,9 @@
             this.updateBranchToolStripMenuItem.Text = "View/Update Branch";
             this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(426, 74);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(517, 367);
-            this.groupBox2.TabIndex = 40;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Verify Customer Addition";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.contactNumberDataGridViewTextBoxColumn,
-            this.emailAddressDataGridViewTextBoxColumn,
-            this.licenceNumberDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.licenceCodeDataGridViewTextBoxColumn,
-            this.customerUsernameDataGridViewTextBoxColumn,
-            this.customerPasswordDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(492, 261);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 62);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(134, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Search By Customer Name";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(159, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // contactNumberDataGridViewTextBoxColumn
-            // 
-            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            // 
-            // licenceNumberDataGridViewTextBoxColumn
-            // 
-            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // licenceCodeDataGridViewTextBoxColumn
-            // 
-            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
-            // 
-            // customerUsernameDataGridViewTextBoxColumn
-            // 
-            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
-            // 
-            // customerPasswordDataGridViewTextBoxColumn
-            // 
-            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
-            // 
-            // cUSTOMERBindingSource
-            // 
-            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
-            this.cUSTOMERBindingSource.DataSource = this.avisDS;
-            // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cUSTOMERTableAdapter
             // 
             this.cUSTOMERTableAdapter.ClearBeforeFill = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Status:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(215, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 42;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(215, 74);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 20);
-            this.textBox4.TabIndex = 43;
-            this.toolTip1.SetToolTip(this.textBox4, "Enter Valid South African Cellphone Number");
             // 
             // AddCustomer
             // 
@@ -727,13 +727,13 @@
             this.Load += new System.EventHandler(this.AddCustomer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

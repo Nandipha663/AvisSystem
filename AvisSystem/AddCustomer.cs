@@ -234,8 +234,9 @@ namespace AvisSystem
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
-            maskedTextBox1.Clear();
+            textBox4.Clear();
             maskedTextBox3.Clear();
+            comboBox1.Text= "";
             if (comboBox1.SelectedIndex > -1)
                 comboBox1.Text = "";
             
