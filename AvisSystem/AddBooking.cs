@@ -31,12 +31,16 @@ namespace AvisSystem
             maskedTextBox1.Clear();
             maskedTextBox3.Clear();
             textBox4.Clear();
-            maskedTextBox4.Clear();
+            
             textBox2.Clear();
         }
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.VEHICLE' table. You can move, or remove it, as needed.
+            this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+            // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
+            this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
             fileToolStripMenuItem.Enabled = true;
             addBookingToolStripMenuItem2.Enabled = false;
             loginToolStripMenuItem.Enabled = false;
@@ -173,6 +177,16 @@ namespace AvisSystem
             AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            cUSTOMERTableAdapter.FillByFullName(avisDS.CUSTOMER, textBox1.Text);
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
     }
 }

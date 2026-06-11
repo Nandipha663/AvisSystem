@@ -78,6 +78,8 @@ namespace AvisSystem
 
         private void AddCustomer_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
+            this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
             addNewCustomerToolStripMenuItem.Enabled = false;
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
@@ -231,16 +233,14 @@ namespace AvisSystem
         {
             textBox1.Clear();
             textBox2.Clear();
-            maskedTextBox2.Clear();
-            maskedTextBox1.Clear();
-            maskedTextBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
             maskedTextBox3.Clear();
+            comboBox1.Text= "";
             if (comboBox1.SelectedIndex > -1)
                 comboBox1.Text = "";
-            textBox8.Clear();
+            
             textBox9.Clear();
-            textBox10.Clear();
-            textBox11.Clear();
             textBox12.Clear();
             textBox13.Clear();
             textBox14.Clear();
@@ -256,6 +256,32 @@ namespace AvisSystem
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+            cUSTOMERTableAdapter.FillByFullName(avisDS.CUSTOMER, textBox3.Text);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox3.Text, textBox2.Text, comboBox1.Text, textBox12.Text, textBox13.Text);
+                MessageBox.Show("Customer added successfully!");
         }
     }
 }
