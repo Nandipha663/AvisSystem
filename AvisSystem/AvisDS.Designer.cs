@@ -7621,12 +7621,33 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber," +
                 " Status, LicenceCode, CustomerUsername, CustomerPassword FROM dbo.CUSTOMER";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        CustomerID, FullName, Address, ContactNumber, EmailAddress, Licence" +
+                "Number, Status, LicenceCode, CustomerUsername, CustomerPassword\r\nFROM           " +
+                " CUSTOMER\r\nWHERE        (FullName LIKE @FullName + \'%\')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[CUSTOMER] ([FullName], [Address], [ContactNumber], [EmailAddress], [LicenceNumber], [Status], [LicenceCode], [CustomerUsername], [CustomerPassword]) VALUES (@FullName, @Address, @ContactNumber, @EmailAddress, @LicenceNumber, @Status, @LicenceCode, @CustomerUsername, @CustomerPassword);
+SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber, Status, LicenceCode, CustomerUsername, CustomerPassword FROM CUSTOMER WHERE (CustomerID = SCOPE_IDENTITY())";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmailAddress", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LicenceNumber", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LicenceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LicenceCode", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "LicenceCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerUsername", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerUsername", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerPassword", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7648,6 +7669,42 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.CUSTOMERDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.CUSTOMERDataTable dataTable = new AvisDS.CUSTOMERDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByFullName(AvisDS.CUSTOMERDataTable dataTable, string FullName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((FullName == null)) {
+                throw new global::System.ArgumentNullException("FullName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(FullName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.CUSTOMERDataTable GetDataBy(string FullName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((FullName == null)) {
+                throw new global::System.ArgumentNullException("FullName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(FullName));
+            }
             AvisDS.CUSTOMERDataTable dataTable = new AvisDS.CUSTOMERDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8021,6 +8078,83 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
                     string Original_CustomerUsername, 
                     string Original_CustomerPassword) {
             return this.Update(FullName, Address, ContactNumber, EmailAddress, LicenceNumber, Status, LicenceCode, CustomerUsername, CustomerPassword, Original_CustomerID, Original_FullName, Original_Address, Original_ContactNumber, Original_EmailAddress, Original_LicenceNumber, Original_Status, Original_LicenceCode, Original_CustomerUsername, Original_CustomerPassword, Original_CustomerID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertCustomer(string FullName, string Address, string ContactNumber, string EmailAddress, string LicenceNumber, string Status, string LicenceCode, string CustomerUsername, string CustomerPassword) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((FullName == null)) {
+                throw new global::System.ArgumentNullException("FullName");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(FullName));
+            }
+            if ((Address == null)) {
+                throw new global::System.ArgumentNullException("Address");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Address));
+            }
+            if ((ContactNumber == null)) {
+                throw new global::System.ArgumentNullException("ContactNumber");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(ContactNumber));
+            }
+            if ((EmailAddress == null)) {
+                throw new global::System.ArgumentNullException("EmailAddress");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(EmailAddress));
+            }
+            if ((LicenceNumber == null)) {
+                throw new global::System.ArgumentNullException("LicenceNumber");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(LicenceNumber));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Status));
+            }
+            if ((LicenceCode == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(LicenceCode));
+            }
+            if ((CustomerUsername == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(CustomerUsername));
+            }
+            if ((CustomerPassword == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(CustomerPassword));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -10609,7 +10743,7 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT MAX(PaymentID)\r\n\nFROM PAYMENT";
+            this._commandCollection[3].CommandText = "SELECT MAX(PaymentID)\r\n\r\nFROM PAYMENT";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10660,7 +10794,7 @@ SELECT PaymentID, InvoiceID, BookingID, PaymentType, PaymentDate, PaymentAmount,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual AvisDS.PAYMENTDataTable GetDataBy(string BookingID) {
+        public virtual AvisDS.PAYMENTDataTable GetDataBy1(string BookingID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((BookingID == null)) {
                 throw new global::System.ArgumentNullException("BookingID");
