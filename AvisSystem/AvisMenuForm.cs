@@ -15,6 +15,9 @@ namespace AvisSystem
         public AvisMenuForm()
         {
             InitializeComponent();
+            label1.Click += panel1_Click;
+            label2.Click += panel1_Click;
+            pictureBox1.Click += panel1_Click;
         }
 
         private void AvisMenuForm_Load(object sender, EventArgs e)
@@ -162,6 +165,23 @@ namespace AvisSystem
             ManageEmployee updateemployees = new ManageEmployee();
             this.Hide();
             updateemployees.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
         }
     }
 }

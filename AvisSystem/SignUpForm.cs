@@ -586,5 +586,12 @@ namespace AvisSystem
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TermsandConditions tc = new TermsandConditions();
+            tc.Show();
+            this.Hide();
+        }
     }
 }
