@@ -218,7 +218,8 @@ namespace AvisSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), Convert.ToInt32(comboBox1.Text), textBox9.Text, comboBox4.Text, comboBox3.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text), Convert.ToDateTime(dateTimePicker3.Text), comboBox2.Text);
+            MessageBox.Show("Booking Added Successfully");
         }
 
         private void label9_Click(object sender, EventArgs e)

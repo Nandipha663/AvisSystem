@@ -258,14 +258,14 @@
             // 
             // comboBox4
             // 
-            this.comboBox4.DataSource = this.bRANCHBindingSource1;
-            this.comboBox4.DisplayMember = "branchName";
+            this.comboBox4.DataSource = this.bRANCHBindingSource2;
+            this.comboBox4.DisplayMember = "BranchID";
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(281, 225);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(157, 21);
             this.comboBox4.TabIndex = 40;
-            this.comboBox4.ValueMember = "branchName";
+            this.comboBox4.ValueMember = "BranchID";
             // 
             // bRANCHBindingSource1
             // 
@@ -279,14 +279,14 @@
             // 
             // comboBox3
             // 
-            this.comboBox3.DataSource = this.bRANCHBindingSource2;
-            this.comboBox3.DisplayMember = "branchName";
+            this.comboBox3.DataSource = this.bRANCHBindingSource1;
+            this.comboBox3.DisplayMember = "BranchID";
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(281, 264);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(157, 21);
             this.comboBox3.TabIndex = 39;
-            this.comboBox3.ValueMember = "branchName";
+            this.comboBox3.ValueMember = "BranchID";
             // 
             // bRANCHBindingSource2
             // 
