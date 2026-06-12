@@ -15,6 +15,14 @@ namespace AvisSystem
         public AddBookingReservation()
         {
             InitializeComponent();
+            label9.Click += panel1_Click;
+            label11.Click += panel1_Click;
+            pictureBox2.Click += panel1_Click;
+        }
+
+        private void Label11_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -24,19 +32,23 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-            textBox10.Clear();
-            textBox9.Clear();
-            textBox3.Clear();
-            maskedTextBox1.Clear();
-            maskedTextBox3.Clear();
-            textBox4.Clear();
-            
-            textBox2.Clear();
+            textBox9.Clear  ();
+            textBox10.Clear ();
+            comboBox1.SelectedIndex = 0;
+            dateTimePicker1.Text = DateTime.Now.ToString();
+            dateTimePicker2.Text= DateTime.Now.ToString();
+            dateTimePicker3.Text= DateTime.Now.ToString();
+            comboBox2.Text="";
+            comboBox3.SelectedIndex= 0;
+            comboBox4.SelectedIndex = 0;
+            textBox1.Clear();
+            textBox5.Clear();
         }
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
+            this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
             // TODO: This line of code loads data into the 'avisDS.VEHICLE' table. You can move, or remove it, as needed.
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
             // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
@@ -187,6 +199,48 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            vEHICLETableAdapter.FillByMake(avisDS.VEHICLE,textBox5.Text);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox9.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
         }
     }
 }
