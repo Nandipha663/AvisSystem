@@ -71,16 +71,16 @@ namespace AvisSystem
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             LoginForm loginform = new LoginForm();
             loginform.Show();
+            this.Hide();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
             homeform.Show();
+            this.Hide();
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -371,9 +371,10 @@ namespace AvisSystem
 
 
                 MessageBox.Show("Registration Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+                
                 LoginForm loginform = new LoginForm();
                 loginform.Show();
+                this.Hide();
             }
             else
             {
@@ -457,9 +458,10 @@ namespace AvisSystem
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Hide();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateRental));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vEHICLERETURNBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -78,22 +87,19 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vEHICLERETURNBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
             this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -112,10 +118,65 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(828, 155);
+            this.dataGridView1.Size = new System.Drawing.Size(828, 187);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // returnIDDataGridViewTextBoxColumn
+            // 
+            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.HeaderText = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            this.returnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // inspectionReportDataGridViewTextBoxColumn
+            // 
+            this.inspectionReportDataGridViewTextBoxColumn.DataPropertyName = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.HeaderText = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.Name = "inspectionReportDataGridViewTextBoxColumn";
+            this.inspectionReportDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // chargesDataGridViewTextBoxColumn
+            // 
+            this.chargesDataGridViewTextBoxColumn.DataPropertyName = "Charges";
+            this.chargesDataGridViewTextBoxColumn.HeaderText = "Charges";
+            this.chargesDataGridViewTextBoxColumn.Name = "chargesDataGridViewTextBoxColumn";
+            // 
+            // vehicleVinNoDataGridViewTextBoxColumn
+            // 
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // vEHICLERETURNBindingSource
+            // 
+            this.vEHICLERETURNBindingSource.DataMember = "VEHICLE RETURN";
+            this.vEHICLERETURNBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -157,7 +218,7 @@
             this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(256, 450);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 482);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,7 +232,7 @@
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "User";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
@@ -179,7 +240,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -187,7 +248,7 @@
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -196,7 +257,7 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -484,7 +545,7 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(264, 309);
+            this.groupBox2.Location = new System.Drawing.Point(264, 341);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(828, 129);
             this.groupBox2.TabIndex = 5;
@@ -516,7 +577,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(258, 123);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(834, 180);
+            this.groupBox1.Size = new System.Drawing.Size(834, 212);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rentals";
@@ -606,71 +667,63 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 22;
             // 
-            // returnIDDataGridViewTextBoxColumn
-            // 
-            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
-            this.returnIDDataGridViewTextBoxColumn.HeaderText = "ReturnID";
-            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
-            // 
-            // bookingIDDataGridViewTextBoxColumn
-            // 
-            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            // 
-            // returnDateDataGridViewTextBoxColumn
-            // 
-            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
-            this.returnDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // inspectionReportDataGridViewTextBoxColumn
-            // 
-            this.inspectionReportDataGridViewTextBoxColumn.DataPropertyName = "Inspection Report";
-            this.inspectionReportDataGridViewTextBoxColumn.HeaderText = "Inspection Report";
-            this.inspectionReportDataGridViewTextBoxColumn.Name = "inspectionReportDataGridViewTextBoxColumn";
-            this.inspectionReportDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // chargesDataGridViewTextBoxColumn
-            // 
-            this.chargesDataGridViewTextBoxColumn.DataPropertyName = "Charges";
-            this.chargesDataGridViewTextBoxColumn.HeaderText = "Charges";
-            this.chargesDataGridViewTextBoxColumn.Name = "chargesDataGridViewTextBoxColumn";
-            // 
-            // vehicleVinNoDataGridViewTextBoxColumn
-            // 
-            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // vEHICLERETURNBindingSource
-            // 
-            this.vEHICLERETURNBindingSource.DataMember = "VEHICLE RETURN";
-            this.vEHICLERETURNBindingSource.DataSource = this.avisDS;
-            // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // vEHICLE_RETURNTableAdapter
             // 
             this.vEHICLE_RETURNTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(2, 367);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(254, 117);
+            this.panel1.TabIndex = 23;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(4, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(239, 33);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Ask me anything!";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(66, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 33);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "AI Assistant";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // UpdateRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1104, 450);
+            this.ClientSize = new System.Drawing.Size(1104, 482);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox2);
@@ -690,13 +743,16 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdateRental_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,5 +818,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inspectionReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

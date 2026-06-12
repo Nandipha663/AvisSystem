@@ -60,7 +60,7 @@ namespace AvisSystem
                     AvisMenuForm menu = new AvisMenuForm();
                     menu.Show();
 
-                    MessageBox.Show("Login Successful!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("WELCOME!\nLogin Successful","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                     this.Hide();
                 }
@@ -73,54 +73,6 @@ namespace AvisSystem
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
-           /* if (textBox1.Text == "AvisAdmin" && textBox2.Text == "2026")
-            {
-                this.Hide();
-                AvisMenuForm menuform = new AvisMenuForm();
-                menuform.Show();
-
-            }else
-            {
-                if (textBox1.Text != "AvisAdmin" && textBox2.Text == "2026")
-                {
-                    MessageBox.Show("Invalid Username!");
-
-                    textBox1.Text = "          Username";
-                    textBox1.ForeColor = Color.Gray;
-                    pictureBox3.Visible = true;
-
-                    checkBox1.Checked = false;
-
-                }
-                else if (textBox1.Text == "AvisAdmin" && textBox2.Text != "2026")
-                {
-                    MessageBox.Show("Invalid Password!");
-                    textBox2.UseSystemPasswordChar = false;
-                    textBox2.Text = "          Password";
-                    textBox2.ForeColor = Color.Gray;
-                    pictureBox4.Visible = true;
-
-                    checkBox1.Checked = false;
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username or password. Please try again.");
-
-                    textBox1.Text = "          Username";
-                    textBox1.ForeColor = Color.Gray;
-                    pictureBox3.Visible = true;
-
-                    textBox2.UseSystemPasswordChar = false;
-                    textBox2.Text = "          Password";
-                    textBox2.ForeColor = Color.Gray;
-                    pictureBox4.Visible = true;
-
-                    checkBox1.Checked = false;
-                }
-            }*/
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -165,9 +117,9 @@ namespace AvisSystem
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
             homeform.Show();
+            this.Hide();
         }
 
         
@@ -227,9 +179,10 @@ namespace AvisSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             SignUpForm signupform = new SignUpForm();
             signupform.Show();
+            this.Hide();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

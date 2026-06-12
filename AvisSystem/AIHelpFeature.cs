@@ -220,6 +220,12 @@ namespace AvisSystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+           /* if (AIHelpFeature != null && !AIHelpFeature.IsDisposed)
+            {
+                AIHelpFeature.ClearChat();
+            }*/
+
             LoginForm login = new LoginForm();
             login.Show();
             this.Hide();
@@ -228,8 +234,8 @@ namespace AvisSystem
         private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCustomer newAddCustomer = new AddCustomer();
-            this.Hide();
             newAddCustomer.Show();
+            this.Hide();
         }
 
         private void processPaymentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,92 +246,92 @@ namespace AvisSystem
         private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCustomers newManageCustomers = new ManageCustomers();
-            this.Hide();
             newManageCustomers.Show();
+            this.Hide();
         }
 
         private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
-            this.Hide();
             newAddReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateReservation newUpdateReservation = new UpdateReservation();
-            this.Hide();
             newUpdateReservation.Show();
+            this.Hide();
         }
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
-            this.Hide();
             newAddRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
             newUpdateRental.Show();
+            this.Hide();
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
-            this.Hide();
             newAddVehicle.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-            this.Hide();
             newUpdateVehicles.Show();
+            this.Hide();
         }
 
         private void addPaymentToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
-            this.Hide();
             newAddPayment.Show();
+            this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePayment newUpdatePayment = new UpdatePayment();
-            this.Hide();
             newUpdatePayment.Show();
+            this.Hide();
         }
 
         private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
-            this.Hide();
             newAddClaim.Show();
+            this.Hide();
         }
 
         private void viewUpdateClaimsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim newUpdateClaim = new UpdateClaim();
-            this.Hide();
             newUpdateClaim.Show();
+            this.Hide();
         }
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBranch newAddBranch = new AddBranch();
-            this.Hide();
             newAddBranch.Show();
+            this.Hide();
         }
 
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
-            this.Hide();
             newUpdateBranch.Show();
+            this.Hide();
         }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -354,12 +360,6 @@ namespace AvisSystem
 
             AddMessage("Hello 👋 How can I help you today?", false);
         }
-
-        //Code to add in logout toolstrip
-        /*if (aiForm != null && !aiForm.IsDisposed)
-          {
-             aiForm.ClearChat();
-          }*/
     }
 }
 

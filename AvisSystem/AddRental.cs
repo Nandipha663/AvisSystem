@@ -16,6 +16,9 @@ namespace AvisSystem
         public AddRental()
         {
             InitializeComponent();
+            label3.Click += panel1_Click;
+            label10.Click += panel1_Click;
+            pictureBox2.Click += panel1_Click;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -65,16 +68,17 @@ namespace AvisSystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             LoginForm loginform = new LoginForm();
             loginform.Show();
+            this.Hide();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
             homeform.Show();
+            this.Hide();
         }
 
         private void AddRental_Load(object sender, EventArgs e)
@@ -101,71 +105,71 @@ namespace AvisSystem
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
-            this.Hide();
             newAddRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
             newUpdateRental.Show();
+            this.Hide();
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCustomer newAddCustomer = new AddCustomer();
-            this.Hide();
             newAddCustomer.Show();
+            this.Hide();
         }
 
         private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCustomers newManageCustomers = new ManageCustomers();
-            this.Hide();
             newManageCustomers.Show();
+            this.Hide();
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
-            this.Hide();
             newAddVehicle.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-                this.Hide();
+                UpdateVehicles newUpdateVehicles = new UpdateVehicles();                this.Hide();
                 newUpdateVehicles.Show();
+                this.Hide();
         }
 
         private void addRentalToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
-            this.Hide();
             newAddReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             UpdateReservation newUpdateReservation = new UpdateReservation();
-            this.Hide();
             newUpdateReservation.Show();
+            this.Hide();
         }
 
         private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
-            this.Hide();
             newAddPayment.Show();
+            this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePayment newUpdatePayment = new UpdatePayment();
-            this.Hide();
             newUpdatePayment.Show();
+            this.Hide();
         }
 
         private void manageRentalsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -177,7 +181,7 @@ namespace AvisSystem
         {
             
             textBox3.Clear();
-            textBox4.Clear();
+            maskedTextBox2.Clear();
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
@@ -188,36 +192,36 @@ namespace AvisSystem
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
-            this.Hide();
             newAddClaim.Show();
+            this.Hide();
         }
 
         private void updateClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim newUpdateClaim = new UpdateClaim();
-            this.Hide();
             newUpdateClaim.Show();
+            this.Hide();
         }
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBranch newAddBranch = new AddBranch();
-            this.Hide();
             newAddBranch.Show();
+            this.Hide();
         }
 
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
-            this.Hide();
             newUpdateBranch.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
-            this.Hide();
             newAvisMenuForm.Show();
+            this.Hide();
         }
 
         AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vehicleTA = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
@@ -226,7 +230,7 @@ namespace AvisSystem
         {
             try
             {
-                vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(textBox4.Text),comboBox3.Text);
+                vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill employees table
@@ -253,6 +257,37 @@ namespace AvisSystem
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
+        }
+
+        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            signUp.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            manageEmp.Show();
+            this.Hide();
         }
     }
     

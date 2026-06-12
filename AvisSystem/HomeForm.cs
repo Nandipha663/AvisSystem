@@ -17,6 +17,8 @@ namespace AvisSystem
         {
             InitializeComponent();
             main = this;
+            label1.Text = DateTime.Now.ToShortTimeString();
+            label2.Text = DateTime.Now.ToShortDateString();
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -28,6 +30,7 @@ namespace AvisSystem
         {
             HomeForm homeform = new HomeForm();
 
+            manageEmployeesToolStripMenuItem.Enabled = false;
             fileToolStripMenuItem.Enabled = true;
 
             loginToolStripMenuItem.Enabled = true;
@@ -38,19 +41,29 @@ namespace AvisSystem
 
         private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

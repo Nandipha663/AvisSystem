@@ -15,6 +15,9 @@ namespace AvisSystem
         public AddPayment()
         {
             InitializeComponent();
+            label8.Click += panel1_Click;
+            label9.Click += panel1_Click;
+            pictureBox2.Click += panel1_Click;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -44,108 +47,109 @@ namespace AvisSystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             LoginForm loginform = new LoginForm();
             loginform.Show();
+            this.Hide();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
             homeform.Show();
+            this.Hide();
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCustomer newAddCustomer = new AddCustomer();
-            this.Hide();
             newAddCustomer.Show();
+            this.Hide();
         }
 
         private void viewUpdateCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 ManageCustomers newManageCustomers = new ManageCustomers();
-                this.Hide();
                 newManageCustomers.Show();
+                this.Hide();
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 AddVehicle newAddVehicle = new AddVehicle();
-                this.Hide();
                 newAddVehicle.Show();
+                this.Hide();
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-            this.Hide();
             newUpdateVehicles.Show();
+            this.Hide();
         }
 
         private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();    
-            this.Hide();
             newAddReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateReservation newUpdateReservations = new UpdateReservation();
-            this.Hide();
             newUpdateReservations.Show();
+            this.Hide();
 
         }
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
-            this.Hide();
             newAddRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
             newUpdateRental.Show();
+            this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePayment newUpdatePayment = new UpdatePayment();
-            this.Hide();
             newUpdatePayment.Show();
+            this.Hide();
         }
 
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
-            this.Hide();
             newAddClaim.Show();
+            this.Hide();
         }
 
         private void updateClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim newUpdateClaim = new UpdateClaim();
-            this.Hide();
             newUpdateClaim.Show();
+            this.Hide();
         }
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBranch newAddBranch = new AddBranch();
-            this.Hide();
             newAddBranch.Show();
+            this.Hide();
         }
 
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
-            this.Hide();
             newUpdateBranch.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -162,15 +166,15 @@ namespace AvisSystem
         private void button2_Click(object sender, EventArgs e)
         {
             HomeForm newHomeForm = new HomeForm();
-            this.Hide();
             newHomeForm.Show();
+            this.Hide();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
-            this.Hide();
             newAvisMenuForm.Show();
+            this.Hide();
         }
 
         AvisSystem.AvisDSTableAdapters.PAYMENTTableAdapter vehicleTA = new AvisSystem.AvisDSTableAdapters.PAYMENTTableAdapter();
@@ -200,20 +204,27 @@ namespace AvisSystem
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SignUpForm signUp = new SignUpForm();
-            this.Hide();
             signUp.Show();
+            this.Hide();
         }
 
         private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageEmployee manageEmp = new ManageEmployee();
-            this.Hide();
             manageEmp.Show();
+            this.Hide();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
         }
     }
 }

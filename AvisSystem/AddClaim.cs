@@ -15,6 +15,9 @@ namespace AvisSystem
         public AddClaim()
         {
             InitializeComponent();
+            label8.Click += panel1_Click;
+            label9.Click += panel1_Click;
+            pictureBox2.Click += panel1_Click;
 
         }
 
@@ -36,78 +39,78 @@ namespace AvisSystem
         private void addNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
-            this.Hide();
             newAddReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateBookingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateReservation newUpdateReservation = new UpdateReservation();
-            this.Hide();
             newUpdateReservation.Show();
+            this.Hide();
         }
 
         private void addNewRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
-            this.Hide();
             newAddRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
             newUpdateRental.Show();
+            this.Hide();
         }
 
         private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
-            this.Hide();
             newAddVehicle.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-            this.Hide();
             newUpdateVehicles.Show();
+            this.Hide();
         }
 
         private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
-            this.Hide();
             newAddPayment.Show();
+            this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePayment newUpdatePayment = new UpdatePayment();
-            this.Hide();
             newUpdatePayment.Show();
+            this.Hide();
         }
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBranch newAddBranch = new AddBranch();
-            this.Hide();
             newAddBranch.Show();
+            this.Hide();
         }
 
         private void viewUpdateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
-            this.Hide();
             newUpdateBranch.Show();
+            this.Hide();
         }
 
         private void viewUpdateClaimsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim newUpdateClaim = new UpdateClaim();
-            this.Hide();
             newUpdateClaim.Show();
+            this.Hide();
         }
 
         private void AddClaim_Load(object sender, EventArgs e)
@@ -279,15 +282,22 @@ namespace AvisSystem
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SignUpForm signUp = new SignUpForm();
-            this.Hide();
             signUp.Show();
+            this.Hide();
         }
 
         private void manageEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageEmployee manageEmp = new ManageEmployee();
-            this.Hide();
             manageEmp.Show();
+            this.Hide();
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
         }
     }
 }
