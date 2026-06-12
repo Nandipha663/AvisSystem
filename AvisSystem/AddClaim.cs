@@ -130,23 +130,23 @@ namespace AvisSystem
             comboBox2.DataSource = statuses;
 
             comboBox2.SelectedIndex = -1;
-            LoadBookingIDs();
+
+        
+            // Fill BOOKING table
+            this.bookingTableAdapter1.Fill(this.avisDS1.BOOKING);
+
+            // Bind BookingID to comboBox1
+            comboBox1.DataSource = this.avisDS1.BOOKING;
+            comboBox1.DisplayMember = "BookingID";
+            comboBox1.ValueMember = "BookingID";
+
+            comboBox1.SelectedIndex = -1; // optional (no default selection)
+        
+           
         }
-        private void LoadBookingIDs()
-        {
-            try
-            {
-                // Fill the BOOKING table if not already filled
-                if (this.avisDS1.BOOKING.Rows.Count == 0)
-                    dsBook.Fill(this.avisDS1.BOOKING);
-                comboBox1.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to load Booking IDs:\n" + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+      
+        
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -248,7 +248,7 @@ namespace AvisSystem
             
             dateTimePicker1.Value = DateTime.Today;
 
-            this.dsBook.Fill(this.avisDS1.BOOKING);
+            this.bookingTableAdapter1.Fill(this.avisDS1.BOOKING);
             if (comboBox1.DataSource != null)
             {
                 this.BindingContext[comboBox1.DataSource].ResumeBinding();

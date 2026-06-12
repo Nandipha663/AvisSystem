@@ -89,6 +89,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.bookingTableAdapter1 = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -136,7 +137,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -652,6 +653,10 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // bookingTableAdapter1
+            // 
+            this.bookingTableAdapter1.ClearBeforeFill = true;
+            // 
             // AddClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -743,5 +748,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip2;
+        private AvisDSTableAdapters.BOOKINGTableAdapter bookingTableAdapter1;
     }
 }

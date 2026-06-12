@@ -433,18 +433,7 @@ namespace AvisSystem
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Index >= 0)
-            {
-                object cellValue = dataGridView1.CurrentRow.Cells[5].Value;
-                if (cellValue != DBNull.Value && cellValue != null)
-                {
-                    textBox2.Text = cellValue.ToString();
-                }
-                else
-                {
-                    textBox2.Text = "";
-                }
-            }
+            
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
