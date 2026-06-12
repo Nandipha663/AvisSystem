@@ -15,6 +15,9 @@ namespace AvisSystem
         public ManageCustomers()
         {
             InitializeComponent();
+            label5.Click += panel1_Click;
+            label6.Click += panel1_Click;
+            pictureBox2.Click += panel1_Click;
         }
 
         private void ManageCustomers_Load(object sender, EventArgs e)
@@ -36,50 +39,50 @@ namespace AvisSystem
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCustomer newAddCustomer = new AddCustomer();
-            this.Hide();
             newAddCustomer.Show();
+            this.Hide();
         }
 
         private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
-            this.Hide();
             newAddReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateReservation newUpdateReservation = new UpdateReservation();
-            this.Hide();
             newUpdateReservation.Show();
+            this.Hide();
         }
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
-            this.Hide();
             newAddRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental newUpdateRental = new UpdateRental();
-            this.Hide();
             newUpdateRental.Show();
+            this.Hide();
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
-            this.Hide();
             newAddVehicle.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehicleStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-            this.Hide();
             newUpdateVehicles.Show();
+            this.Hide();
 
 
         }
@@ -87,8 +90,8 @@ namespace AvisSystem
         private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
-            this.Hide();
             newAddPayment.Show();
+            this.Hide();
         }
 
         private void viewUpdateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,7 +101,7 @@ namespace AvisSystem
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if(textBox1.Text == "🔍 Search customers...")
+            if (textBox1.Text == "🔍 Search customers...")
             {
                 textBox1.Text = "";
                 textBox1.ForeColor = Color.Black;
@@ -117,71 +120,93 @@ namespace AvisSystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             LoginForm loginform = new LoginForm();
             loginform.Show();
+            this.Hide();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             HomeForm homeform = new HomeForm();
             homeform.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 0)
+                if (comboBox1.Text == "Status")
                 {
-                    cUSTOMERTableAdapter.FillByActive(avisDS.CUSTOMER);
+                    if (string.IsNullOrEmpty(comboBox2.Text))
+                    {
+                        MessageBox.Show("Please select a filter first.");
+                        return;
+                    }
+
+                    if (comboBox2.Text == "Active")
+                    {
+                        cUSTOMERBindingSource.Filter = "Status = 'Active'";
+                    }
+                    else if (comboBox2.Text == "Inactive")
+                    {
+                        cUSTOMERBindingSource.Filter = "Status = 'Inactive'";
+                    }
                 }
-                else if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 1)
+                else if (comboBox1.Text == "Licence Code")
                 {
-                    cUSTOMERTableAdapter.FillByInactive(avisDS.CUSTOMER);
+                    if (string.IsNullOrEmpty(comboBox2.Text))
+                    {
+                        MessageBox.Show("Please select a filter first.");
+                        return;
+                    }
+
+                    if (comboBox2.Text == "B")
+                    {
+                        cUSTOMERBindingSource.Filter = "LicenceCode = 'B'";
+                    }
+                    else if (comboBox2.Text == "C1")
+                    {
+                        cUSTOMERBindingSource.Filter = "LicenceCode = 'C1'";
+                    }
                 }
-                else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 2)
+                else
                 {
-                    cUSTOMERTableAdapter.FillByLicenceB(avisDS.CUSTOMER);
-                }
-                else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 3)
-                {
-                    cUSTOMERTableAdapter.FillByLicenceC1(avisDS.CUSTOMER);
+                    MessageBox.Show("Please select a filter first.");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                    MessageBox.Show("Please select a filter option from both dropdowns.", "Filter Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
-            this.Hide();
             newAddClaim.Show();
+            this.Hide();
         }
 
         private void updateClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim newUpdateClaim = new UpdateClaim();
-            this.Hide();
             newUpdateClaim.Show();
+            this.Hide();
         }
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBranch newAddBranch = new AddBranch();
-            this.Hide();
             newAddBranch.Show();
+            this.Hide();
         }
 
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
-            this.Hide();
             newUpdateBranch.Show();
+            this.Hide();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -192,26 +217,143 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            DataRow cst;
-            cst = avisDS.Update_Customer.NewRow();
-            cst["CustomerID"] = dataGridView1.CurrentRow.Cells[0].Value;
-            cst["FullName"] = dataGridView1.CurrentRow.Cells[1].Value;
-            cst["Address"] = dataGridView1.CurrentRow.Cells[2].Value;
-            cst["ContactNumber"] = dataGridView1.CurrentRow.Cells[3].Value;
-            cst["EmailAddress"] = dataGridView1.CurrentRow.Cells[4].Value;
-            cst["LicenceNumber"] = dataGridView1.CurrentRow.Cells[5].Value;
-            cst["Status"] = dataGridView1.CurrentRow.Cells[6].Value;
-            cst["LicenceCode"]= dataGridView1.CurrentRow.Cells[7].Value;
-            cst["CustomerUsername"]= dataGridView1.CurrentRow.Cells[8].Value;
-            cst["CustomerPassword"] = dataGridView1.CurrentRow.Cells[9].Value;
-            avisDS.Update_Customer.Rows.Add(cst);
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "🔍 Search customers...";
+            textBox1.ForeColor = Color.Gray;
+
             textBox2.Clear();
-            dataGridView2.Rows.Clear();
+            cUSTOMERTableAdapter.Fill(avisDS.CUSTOMER);
+
+            // Reset ComboBoxes
+            comboBox1.SelectedIndex = -1;
+            comboBox2.Items.Clear();
+            comboBox2.Text = "";
+            comboBox2.Enabled = false;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            comboBox2.Text = "";
+            comboBox2.Enabled = true;
+
+            if (comboBox1.Text == "Status")
+            {
+                //load status values form employee table
+                comboBox2.Items.Add("Active");
+                comboBox2.Items.Add("Inactive");
+            }
+            else if (comboBox1.Text == "Licence Code")
+            {
+                comboBox2.Items.Add("B");
+                comboBox2.Items.Add("C1");
+            }
+            else
+            {
+                comboBox2.Items.Add("Select filter first");
+                comboBox2.Enabled = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Remove filter
+                cUSTOMERBindingSource.RemoveFilter();
+
+                // Reset ComboBoxes
+                comboBox1.SelectedIndex = -1;
+                comboBox2.Items.Clear();
+                comboBox2.Text = "";
+                comboBox2.Enabled = false;
+
+                MessageBox.Show("Filters reset successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while resetting filters: " + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show(
+                                  "Are you sure you want to delete this vehicle return record?",
+                                  "Confirm Delete",
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Question
+                                  );
+
+                if (result == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    cUSTOMERTableAdapter.DeleteCustomer(id);
+
+                    MessageBox.Show("Customer Vehicle return record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cUSTOMERTableAdapter.Fill(avisDS.CUSTOMER);
+                    textBox2.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Customer deletion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            try
+            {
+                this.Validate();
+                cUSTOMERBindingSource.EndEdit();
+                cUSTOMERTableAdapter.Update(avisDS.CUSTOMER);
+
+                cUSTOMERTableAdapter.Fill(avisDS.CUSTOMER);
+                MessageBox.Show($"Customer information Updated successfully with:\nCustomer name: {name}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            signUp.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            manageEmp.Show();
+            this.Hide();
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            AIHelpFeature ai = new AIHelpFeature();
+            ai.Show();
+            this.Hide();
         }
     }
 }
