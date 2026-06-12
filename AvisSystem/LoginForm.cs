@@ -12,6 +12,10 @@ namespace AvisSystem
 {
     public partial class LoginForm : Form
     {
+
+        int failedAttempts = 0;
+
+        DateTime? lockoutEndTime = null;
         public LoginForm()
         {
             InitializeComponent();
@@ -42,6 +46,24 @@ namespace AvisSystem
 
             try
             {
+
+                if (lockoutEndTime != null && DateTime.Now < lockoutEndTime)
+                {
+                    TimeSpan remaining =
+                        lockoutEndTime.Value - DateTime.Now;
+
+                    MessageBox.Show(
+                    $"Too many failed attempts.\nTry again in {remaining.Seconds} second(s).",
+                    "Account Locked",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+
+
+
                 AvisDSTableAdapters.EMPLOYEETableAdapter empTA =
                     new AvisDSTableAdapters.EMPLOYEETableAdapter();
 
@@ -56,7 +78,8 @@ namespace AvisSystem
 
                 if (dt.Rows.Count > 0)
                 {
-                    
+                    failedAttempts = 0;
+
                     AvisMenuForm menu = new AvisMenuForm();
                     menu.Show();
 
@@ -66,7 +89,34 @@ namespace AvisSystem
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username or Password");
+                    failedAttempts++;
+
+                    MessageBox.Show(
+                    $"Invalid Username or Password\nAttempt {failedAttempts}/3",
+                    "Login Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                    if (failedAttempts >= 3)
+                    {
+                        lblCountdown.Visible = true;
+
+                        lockoutEndTime = DateTime.Now.AddMinutes(1);
+
+                        button2.Enabled = false;
+
+                        textBox1.Enabled = false;
+
+                        textBox2.Enabled = false;
+
+                        timer1.Start();
+
+                        MessageBox.Show(
+                        "Too many failed attempts.\nLogin disabled for 1 minute.",
+                        "Account Locked",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Stop);
+                    }
                 }
             }
             catch (Exception ex)
@@ -198,6 +248,43 @@ namespace AvisSystem
         private void pictureBox6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (lockoutEndTime != null)
+            {
+                TimeSpan remaining =
+                    lockoutEndTime.Value - DateTime.Now;
+
+                // SHOW COUNTDOWN
+                lblCountdown.Text =
+                    $"Login locked. Try again in {remaining.Seconds} second(s).";
+
+                lblCountdown.Visible = true;
+
+                // UNLOCK WHEN TIME FINISHES
+                if (DateTime.Now >= lockoutEndTime)
+                {
+                    button2.Enabled = true;
+
+                    textBox1.Enabled = true;
+
+                    textBox2.Enabled = true;
+
+                    failedAttempts = 0;
+
+                    timer1.Stop();
+
+                    lblCountdown.Visible = false;
+
+                    MessageBox.Show(
+                    "You may now try logging in again.",
+                    "Login Unlocked",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
