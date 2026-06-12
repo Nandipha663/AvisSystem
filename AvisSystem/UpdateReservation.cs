@@ -384,7 +384,7 @@ namespace AvisSystem
 
         private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageCustomers manageEmp = new ManageEmployee();
+            ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
         }
