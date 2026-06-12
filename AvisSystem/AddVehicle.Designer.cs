@@ -85,11 +85,16 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -228,6 +233,8 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.bRANCHBindingSource;
+            this.comboBox2.DisplayMember = "BranchID";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
@@ -235,6 +242,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(368, 33);
             this.comboBox2.TabIndex = 38;
+            this.comboBox2.ValueMember = "BranchID";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button4
@@ -651,6 +659,20 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS;
+            // 
+            // bRANCHTableAdapter
+            // 
+            this.bRANCHTableAdapter.ClearBeforeFill = true;
+            // 
             // AddVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -672,6 +694,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,5 +757,8 @@
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.TextBox textBox2;
+        private AvisDS avisDS;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource;
+        private AvisDSTableAdapters.BRANCHTableAdapter bRANCHTableAdapter;
     }
 }

@@ -83,11 +83,19 @@
             this.viewUpdateEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
+            this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -269,6 +277,8 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.bOOKINGBindingSource;
+            this.comboBox2.DisplayMember = "BookingID";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
@@ -276,9 +286,12 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(380, 33);
             this.comboBox2.TabIndex = 20;
+            this.comboBox2.ValueMember = "BookingID";
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.bRANCHBindingSource;
+            this.comboBox1.DisplayMember = "BranchID";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -286,6 +299,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(380, 33);
             this.comboBox1.TabIndex = 19;
+            this.comboBox1.ValueMember = "BranchID";
             // 
             // label9
             // 
@@ -623,6 +637,29 @@
             this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
             this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
             // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bOOKINGBindingSource
+            // 
+            this.bOOKINGBindingSource.DataMember = "BOOKING";
+            this.bOOKINGBindingSource.DataSource = this.avisDS;
+            // 
+            // bOOKINGTableAdapter
+            // 
+            this.bOOKINGTableAdapter.ClearBeforeFill = true;
+            // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS;
+            // 
+            // bRANCHTableAdapter
+            // 
+            this.bRANCHTableAdapter.ClearBeforeFill = true;
+            // 
             // AddRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,6 +682,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,5 +745,10 @@
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeesToolStripMenuItem;
+        private AvisDS avisDS;
+        private System.Windows.Forms.BindingSource bOOKINGBindingSource;
+        private AvisDSTableAdapters.BOOKINGTableAdapter bOOKINGTableAdapter;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource;
+        private AvisDSTableAdapters.BRANCHTableAdapter bRANCHTableAdapter;
     }
 }

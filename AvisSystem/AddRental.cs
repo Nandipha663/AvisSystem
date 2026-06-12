@@ -83,6 +83,10 @@ namespace AvisSystem
 
         private void AddRental_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
+            this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
+            // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
+            this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
 
             AvisDSTableAdapters.VEHICLETableAdapter vehicleTA = new AvisDSTableAdapters.VEHICLETableAdapter();
 

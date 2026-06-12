@@ -55,6 +55,8 @@ namespace AvisSystem
 
         private void AddVehicle_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
+            this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
             fileToolStripMenuItem.Enabled = true;
             addVehicleToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = false;
