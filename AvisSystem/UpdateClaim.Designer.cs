@@ -51,7 +51,6 @@
             this.addNewPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -301,20 +300,11 @@
             // manageBranchesToolStripMenuItem
             // 
             this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewBranchToolStripMenuItem,
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
             this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏢 Manage Branches";
-            // 
-            // addNewBranchToolStripMenuItem
-            // 
-            this.addNewBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
-            this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(308, 34);
-            this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
-            this.addNewBranchToolStripMenuItem.Click += new System.EventHandler(this.addNewBranchToolStripMenuItem_Click);
             // 
             // viewUpdateBranchesToolStripMenuItem
             // 
@@ -849,7 +839,6 @@
         private System.Windows.Forms.ToolStripMenuItem addNewPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewBranchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateBranchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageClaimsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewClaimToolStripMenuItem;
