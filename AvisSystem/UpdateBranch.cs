@@ -67,6 +67,8 @@ namespace AvisSystem
             comboBox2.Enabled = true;
 
             dataGridView1.ClearSelection();
+            this.branchTableAdapter1.Fill(this.avisDS1.BRANCH);
+
         }
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,7 +187,7 @@ namespace AvisSystem
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-            branchTableAdapter1.FillByBranchName(this.avisDS1.BRANCH, textBox1.Text);
+          //branchTableAdapter1.FillByBranchName(this.avisDS1BRANCH, textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != "🔍 Search branch...")
             {
                 try
@@ -196,13 +198,13 @@ namespace AvisSystem
                 catch
                 {
                     this.bRANCHBindingSource.Filter = null;
-                    this.branchTableAdapter1.Fill(this.avisDS1.BRANCH);
+                  //this.branchTableAdapter1.Fill(this.avisDS1.BRANCH);
                 }
             }
             else
             {
                 this.bRANCHBindingSource.Filter = null;
-                this.branchTableAdapter1.Fill(this.avisDS1.BRANCH);
+               //his.branchTableAdapter1.Fill(this.avisDS1.BRANCH);
             }
         }
 
