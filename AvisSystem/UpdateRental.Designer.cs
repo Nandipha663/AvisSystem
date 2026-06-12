@@ -696,6 +696,7 @@
             this.label6.Size = new System.Drawing.Size(169, 33);
             this.label6.TabIndex = 1;
             this.label6.Text = "AI Assistant";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox2
             // 
