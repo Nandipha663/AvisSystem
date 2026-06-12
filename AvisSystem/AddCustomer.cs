@@ -232,7 +232,7 @@ namespace AvisSystem
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
-            textBox2.Clear();
+            
             textBox3.Clear();
             textBox4.Clear();
             maskedTextBox3.Clear();
@@ -280,8 +280,7 @@ namespace AvisSystem
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox3.Text, textBox2.Text, comboBox1.Text, textBox12.Text, textBox13.Text);
-                MessageBox.Show("Customer added successfully!");
+            cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox3.Text, comboBox1.Text, textBox12.Text, textBox13.Text);              MessageBox.Show("Customer added successfully!");
         }
     }
 }

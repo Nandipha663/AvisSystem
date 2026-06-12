@@ -8381,7 +8381,9 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"INSERT INTO [dbo].[CUSTOMER] ([FullName], [Address], [ContactNumber], [EmailAddress], [LicenceNumber], [Status], [LicenceCode], [CustomerUsername], [CustomerPassword]) VALUES (@FullName, @Address, @ContactNumber, @EmailAddress, @LicenceNumber, @Status, @LicenceCode, @CustomerUsername, @CustomerPassword);
+            this._commandCollection[7].CommandText = @"INSERT INTO CUSTOMER
+                         (FullName, Address, ContactNumber, EmailAddress, LicenceNumber, LicenceCode, CustomerUsername, CustomerPassword)
+VALUES        (@FullName,@Address,@ContactNumber,@EmailAddress,@LicenceNumber,@LicenceCode,@CustomerUsername,@CustomerPassword); 
 SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber, Status, LicenceCode, CustomerUsername, CustomerPassword FROM CUSTOMER WHERE (CustomerID = SCOPE_IDENTITY())";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8389,7 +8391,6 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmailAddress", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LicenceNumber", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LicenceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LicenceCode", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "LicenceCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerUsername", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerUsername", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerPassword", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8949,7 +8950,7 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertCustomer(string FullName, string Address, string ContactNumber, string EmailAddress, string LicenceNumber, string Status, string LicenceCode, string CustomerUsername, string CustomerPassword) {
+        public virtual int InsertCustomer(string FullName, string Address, string ContactNumber, string EmailAddress, string LicenceNumber, string LicenceCode, string CustomerUsername, string CustomerPassword) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             if ((FullName == null)) {
                 throw new global::System.ArgumentNullException("FullName");
@@ -8981,29 +8982,23 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
             else {
                 command.Parameters[4].Value = ((string)(LicenceNumber));
             }
-            if ((Status == null)) {
-                throw new global::System.ArgumentNullException("Status");
+            if ((LicenceCode == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[5].Value = ((string)(Status));
+                command.Parameters[5].Value = ((string)(LicenceCode));
             }
-            if ((LicenceCode == null)) {
+            if ((CustomerUsername == null)) {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = ((string)(LicenceCode));
+                command.Parameters[6].Value = ((string)(CustomerUsername));
             }
-            if ((CustomerUsername == null)) {
+            if ((CustomerPassword == null)) {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[7].Value = ((string)(CustomerUsername));
-            }
-            if ((CustomerPassword == null)) {
-                command.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[8].Value = ((string)(CustomerPassword));
+                command.Parameters[7].Value = ((string)(CustomerPassword));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
