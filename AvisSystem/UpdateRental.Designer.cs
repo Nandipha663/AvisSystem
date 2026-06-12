@@ -66,7 +66,6 @@
             this.addNewClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateClaimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -240,7 +239,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -248,7 +247,7 @@
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -257,7 +256,7 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -426,21 +425,12 @@
             // manageBranchesToolStripMenuItem
             // 
             this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewBranchToolStripMenuItem,
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
             this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
-            // 
-            // addNewBranchToolStripMenuItem
-            // 
-            this.addNewBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addNewBranchToolStripMenuItem.Name = "addNewBranchToolStripMenuItem";
-            this.addNewBranchToolStripMenuItem.Size = new System.Drawing.Size(308, 34);
-            this.addNewBranchToolStripMenuItem.Text = "Add New Branch";
-            this.addNewBranchToolStripMenuItem.Click += new System.EventHandler(this.addNewBranchToolStripMenuItem_Click);
             // 
             // viewUpdateBranchesToolStripMenuItem
             // 
@@ -801,7 +791,6 @@
         private System.Windows.Forms.ToolStripMenuItem addNewClaimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateClaimsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewBranchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateBranchesToolStripMenuItem;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +51,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblCountdown = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -235,6 +238,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.lblCountdown);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -248,7 +252,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(254, 0);
+            this.panel1.Location = new System.Drawing.Point(290, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 500);
             this.panel1.TabIndex = 12;
@@ -303,16 +307,32 @@
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(68, 0);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(953, 518);
+            this.pictureBox5.Size = new System.Drawing.Size(1026, 518);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblCountdown
+            // 
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountdown.ForeColor = System.Drawing.Color.Red;
+            this.lblCountdown.Location = new System.Drawing.Point(32, 307);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(0, 20);
+            this.lblCountdown.TabIndex = 16;
+            this.lblCountdown.Visible = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 518);
+            this.ClientSize = new System.Drawing.Size(1093, 518);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.menuStrip1);
@@ -359,6 +379,8 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }
 

@@ -38,14 +38,52 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.bRANCHBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.bRANCHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -75,47 +113,28 @@
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
             this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vEHICLETableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
+            this.bookingTableAdapter1 = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -124,15 +143,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 25);
+            this.label1.Size = new System.Drawing.Size(141, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cust_ID:";
+            this.label1.Text = "CustomerID:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 66);
+            this.label3.Location = new System.Drawing.Point(3, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 25);
             this.label3.TabIndex = 2;
@@ -142,7 +161,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 211);
+            this.label4.Location = new System.Drawing.Point(6, 223);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 25);
             this.label4.TabIndex = 3;
@@ -152,7 +171,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 252);
+            this.label5.Location = new System.Drawing.Point(3, 354);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(256, 25);
             this.label5.TabIndex = 4;
@@ -162,7 +181,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 164);
+            this.label7.Location = new System.Drawing.Point(3, 178);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 25);
             this.label7.TabIndex = 6;
@@ -172,58 +191,57 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 103);
+            this.label8.Location = new System.Drawing.Point(6, 134);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 25);
+            this.label8.Size = new System.Drawing.Size(115, 25);
             this.label8.TabIndex = 27;
-            this.label8.Text = "Branch_ID:";
+            this.label8.Text = "BranchID:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 297);
+            this.label10.Location = new System.Drawing.Point(8, 397);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(178, 25);
             this.label10.TabIndex = 9;
             this.label10.Text = "Booking Status:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(281, 297);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 11;
-            // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(281, 66);
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(281, 92);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(157, 20);
+            this.textBox9.Size = new System.Drawing.Size(157, 29);
             this.textBox9.TabIndex = 18;
             // 
             // textBox10
             // 
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.Location = new System.Drawing.Point(281, 25);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(157, 20);
+            this.textBox10.Size = new System.Drawing.Size(157, 29);
             this.textBox10.TabIndex = 19;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.dateTimePicker3);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.maskedTextBox3);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -234,43 +252,360 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(255, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(964, 619);
+            this.groupBox1.Size = new System.Drawing.Size(1115, 722);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Booking";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox4
+            // comboBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(281, 252);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(157, 20);
-            this.textBox4.TabIndex = 22;
+            this.comboBox4.DataSource = this.bRANCHBindingSource2;
+            this.comboBox4.DisplayMember = "BranchID";
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(281, 264);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(157, 32);
+            this.comboBox4.TabIndex = 40;
+            this.comboBox4.ValueMember = "BranchID";
             // 
-            // textBox3
+            // bRANCHBindingSource2
             // 
-            this.textBox3.Location = new System.Drawing.Point(281, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 28;
+            this.bRANCHBindingSource2.DataMember = "BRANCH";
+            this.bRANCHBindingSource2.DataSource = this.avisDS;
             // 
-            // maskedTextBox3
+            // avisDS
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(281, 185);
-            this.maskedTextBox3.Mask = "00/00/0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox3.TabIndex = 25;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // maskedTextBox1
+            // comboBox3
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(281, 143);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(157, 20);
-            this.maskedTextBox1.TabIndex = 23;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.comboBox3.DataSource = this.bRANCHBindingSource1;
+            this.comboBox3.DisplayMember = "BranchID";
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(281, 309);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(157, 32);
+            this.comboBox3.TabIndex = 39;
+            this.comboBox3.ValueMember = "BranchID";
+            // 
+            // bRANCHBindingSource1
+            // 
+            this.bRANCHBindingSource1.DataMember = "BRANCH";
+            this.bRANCHBindingSource1.DataSource = this.avisDS;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Pending",
+            "Reserved ",
+            "Completed",
+            "Rented Out",
+            "Overdue ",
+            "Cancelled"});
+            this.comboBox2.Location = new System.Drawing.Point(281, 397);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(157, 32);
+            this.comboBox2.TabIndex = 38;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker3.Location = new System.Drawing.Point(268, 352);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker3.TabIndex = 37;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 311);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(181, 25);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "DropOff Branch:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(268, 222);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker2.TabIndex = 35;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 271);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(174, 25);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "PickUp Branch:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(268, 178);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 33;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.bRANCHBindingSource;
+            this.comboBox1.DisplayMember = "BranchID";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(281, 134);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 32);
+            this.comboBox1.TabIndex = 32;
+            this.comboBox1.ValueMember = "BranchID";
+            // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(510, 311);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(593, 287);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search Vehicle By Make";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(7, 41);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(169, 29);
+            this.textBox5.TabIndex = 1;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vehicleVinNoDataGridViewTextBoxColumn,
+            this.branchIDDataGridViewTextBoxColumn,
+            this.registrationNoDataGridViewTextBoxColumn,
+            this.makeDataGridViewTextBoxColumn,
+            this.modelDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn1,
+            this.imageDataGridViewImageColumn});
+            this.dataGridView2.DataSource = this.vEHICLEBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 74);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(565, 207);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
+            // 
+            // vehicleVinNoDataGridViewTextBoxColumn
+            // 
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            // 
+            // registrationNoDataGridViewTextBoxColumn
+            // 
+            this.registrationNoDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNo";
+            this.registrationNoDataGridViewTextBoxColumn.HeaderText = "RegistrationNo";
+            this.registrationNoDataGridViewTextBoxColumn.Name = "registrationNoDataGridViewTextBoxColumn";
+            // 
+            // makeDataGridViewTextBoxColumn
+            // 
+            this.makeDataGridViewTextBoxColumn.DataPropertyName = "Make";
+            this.makeDataGridViewTextBoxColumn.HeaderText = "Make";
+            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            // 
+            // imageDataGridViewImageColumn
+            // 
+            this.imageDataGridViewImageColumn.DataPropertyName = "Image";
+            this.imageDataGridViewImageColumn.HeaderText = "Image";
+            this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
+            // 
+            // vEHICLEBindingSource
+            // 
+            this.vEHICLEBindingSource.DataMember = "VEHICLE";
+            this.vEHICLEBindingSource.DataSource = this.avisDS;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(510, 25);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(593, 264);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search for Customer by Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 26);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerID,
+            this.FullName,
+            this.Status,
+            this.LicenceCode,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNumberDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.licenceNumberDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.licenceCodeDataGridViewTextBoxColumn,
+            this.customerUsernameDataGridViewTextBoxColumn,
+            this.customerPasswordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 55);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(564, 190);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "FullName";
+            this.FullName.Name = "FullName";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            // 
+            // LicenceCode
+            // 
+            this.LicenceCode.DataPropertyName = "LicenceCode";
+            this.LicenceCode.HeaderText = "LicenceCode";
+            this.LicenceCode.Name = "LicenceCode";
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // contactNumberDataGridViewTextBoxColumn
+            // 
+            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            // 
+            // licenceNumberDataGridViewTextBoxColumn
+            // 
+            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // licenceCodeDataGridViewTextBoxColumn
+            // 
+            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
+            // 
+            // customerUsernameDataGridViewTextBoxColumn
+            // 
+            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
+            // 
+            // customerPasswordDataGridViewTextBoxColumn
+            // 
+            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
+            // 
+            // cUSTOMERBindingSource
+            // 
+            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
+            this.cUSTOMERBindingSource.DataSource = this.avisDS;
             // 
             // button3
             // 
@@ -279,7 +614,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(11, 501);
+            this.button3.Location = new System.Drawing.Point(11, 604);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 103);
             this.button3.TabIndex = 22;
@@ -292,7 +627,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(181, 501);
+            this.button2.Location = new System.Drawing.Point(181, 604);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 103);
             this.button2.TabIndex = 21;
@@ -305,12 +640,13 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(729, 501);
+            this.button1.Location = new System.Drawing.Point(880, 604);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(229, 103);
             this.button1.TabIndex = 20;
             this.button1.Text = "+ Add Reservation";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -328,7 +664,7 @@
             this.manageBranchesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 619);
+            this.menuStrip1.Size = new System.Drawing.Size(255, 722);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -556,242 +892,76 @@
             this.updateBranchToolStripMenuItem.Text = "View/Update Branches";
             this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(461, 25);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(469, 180);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search for Customer by Name";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustomerID,
-            this.FullName,
-            this.Status,
-            this.LicenceCode,
-            this.customerIDDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.contactNumberDataGridViewTextBoxColumn,
-            this.emailAddressDataGridViewTextBoxColumn,
-            this.licenceNumberDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.licenceCodeDataGridViewTextBoxColumn,
-            this.customerUsernameDataGridViewTextBoxColumn,
-            this.customerPasswordDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 107);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(7, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // CustomerID
-            // 
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "CustomerID";
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.ReadOnly = true;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "FullName";
-            this.FullName.Name = "FullName";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            // 
-            // LicenceCode
-            // 
-            this.LicenceCode.DataPropertyName = "LicenceCode";
-            this.LicenceCode.HeaderText = "LicenceCode";
-            this.LicenceCode.Name = "LicenceCode";
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // contactNumberDataGridViewTextBoxColumn
-            // 
-            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            // 
-            // licenceNumberDataGridViewTextBoxColumn
-            // 
-            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // licenceCodeDataGridViewTextBoxColumn
-            // 
-            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
-            // 
-            // customerUsernameDataGridViewTextBoxColumn
-            // 
-            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
-            // 
-            // customerPasswordDataGridViewTextBoxColumn
-            // 
-            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
-            // 
-            // cUSTOMERBindingSource
-            // 
-            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
-            this.cUSTOMERBindingSource.DataSource = this.avisDS;
-            // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cUSTOMERTableAdapter
             // 
             this.cUSTOMERTableAdapter.ClearBeforeFill = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Location = new System.Drawing.Point(461, 222);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(469, 187);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Search Vehicle By Make and Model";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vehicleVinNoDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
-            this.registrationNoDataGridViewTextBoxColumn,
-            this.makeDataGridViewTextBoxColumn,
-            this.modelDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn1,
-            this.imageDataGridViewImageColumn});
-            this.dataGridView2.DataSource = this.vEHICLEBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 30);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(456, 138);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // vEHICLEBindingSource
-            // 
-            this.vEHICLEBindingSource.DataMember = "VEHICLE";
-            this.vEHICLEBindingSource.DataSource = this.avisDS;
             // 
             // vEHICLETableAdapter
             // 
             this.vEHICLETableAdapter.ClearBeforeFill = true;
             // 
-            // vehicleVinNoDataGridViewTextBoxColumn
+            // bRANCHTableAdapter
             // 
-            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            this.bRANCHTableAdapter.ClearBeforeFill = true;
             // 
-            // branchIDDataGridViewTextBoxColumn
+            // bookingTableAdapter1
             // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            this.bookingTableAdapter1.ClearBeforeFill = true;
             // 
-            // registrationNoDataGridViewTextBoxColumn
+            // panel1
             // 
-            this.registrationNoDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNo";
-            this.registrationNoDataGridViewTextBoxColumn.HeaderText = "RegistrationNo";
-            this.registrationNoDataGridViewTextBoxColumn.Name = "registrationNoDataGridViewTextBoxColumn";
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(1, 599);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(254, 117);
+            this.panel1.TabIndex = 24;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // makeDataGridViewTextBoxColumn
+            // label9
             // 
-            this.makeDataGridViewTextBoxColumn.DataPropertyName = "Make";
-            this.makeDataGridViewTextBoxColumn.HeaderText = "Make";
-            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(4, 49);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(239, 33);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Ask me anything!";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // modelDataGridViewTextBoxColumn
+            // label11
             // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(66, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(169, 33);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "AI Assistant";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // categoryDataGridViewTextBoxColumn
+            // pictureBox2
             // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn1
-            // 
-            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
-            // 
-            // imageDataGridViewImageColumn
-            // 
-            this.imageDataGridViewImageColumn.DataPropertyName = "Image";
-            this.imageDataGridViewImageColumn.HeaderText = "Image";
-            this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // AddBookingReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 619);
+            this.ClientSize = new System.Drawing.Size(1370, 722);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "AddBookingReservation";
@@ -800,16 +970,23 @@
             this.Load += new System.EventHandler(this.AddReservation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -823,16 +1000,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem manageBookingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBookingToolStripMenuItem;
@@ -841,7 +1014,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addBookingToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem viewBookingToolStripItem2;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
@@ -896,5 +1068,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource;
+        private AvisDSTableAdapters.BRANCHTableAdapter bRANCHTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource1;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource2;
+        private AvisDSTableAdapters.BOOKINGTableAdapter bookingTableAdapter1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

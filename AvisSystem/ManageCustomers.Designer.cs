@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomers));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,11 +54,10 @@
             this.addClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateClaimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -75,17 +71,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerUsernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPasswordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             this.updateCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avisDS = new AvisSystem.AvisDS();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,14 +86,22 @@
             this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateCustomerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,10 +117,11 @@
             this.manageVehicleToolStripMenuItem,
             this.processPaymentToolStripMenuItem,
             this.manageClaimsToolStripMenuItem,
-            this.manageBranchesToolStripMenuItem});
+            this.manageBranchesToolStripMenuItem,
+            this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(255, 592);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 592);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -138,15 +133,15 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -174,7 +169,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageCustomersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
             // 
@@ -201,7 +196,7 @@
             this.viewUpdateBookingToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
             // 
             // addBookingToolStripMenuItem
@@ -227,7 +222,7 @@
             this.viewUpdateRentalToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
             // 
             // addRentalToolStripMenuItem
@@ -253,7 +248,7 @@
             this.viewUpdateVehicleStatusToolStripMenuItem});
             this.manageVehicleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehicleToolStripMenuItem.Name = "manageVehicleToolStripMenuItem";
-            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehicleToolStripMenuItem.Text = "🚗 Manage Vehicle";
             // 
             // addVehicleToolStripMenuItem
@@ -279,7 +274,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addPaymentToolStripMenuItem
@@ -304,7 +299,7 @@
             this.updateClaimToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addClaimToolStripMenuItem
@@ -328,21 +323,11 @@
             // manageBranchesToolStripMenuItem
             // 
             this.manageBranchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addBranchToolStripMenuItem,
             this.updateBranchToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
-            // 
-            // addBranchToolStripMenuItem
-            // 
-            this.addBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.addBranchToolStripMenuItem.Name = "addBranchToolStripMenuItem";
-            this.addBranchToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
-            this.addBranchToolStripMenuItem.Text = "Add Branch";
-            this.addBranchToolStripMenuItem.Click += new System.EventHandler(this.addBranchToolStripMenuItem_Click);
             // 
             // updateBranchToolStripMenuItem
             // 
@@ -355,26 +340,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(259, 91);
+            this.groupBox1.Location = new System.Drawing.Point(259, 107);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(790, 212);
+            this.groupBox1.Size = new System.Drawing.Size(911, 347);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registered Customers";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "B",
-            "C1"});
-            this.comboBox2.Location = new System.Drawing.Point(676, 63);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 13;
             // 
             // dataGridView1
             // 
@@ -392,29 +367,47 @@
             this.customerUsernameDataGridViewTextBoxColumn,
             this.customerPasswordDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.cUSTOMERBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(785, 162);
+            this.dataGridView1.Size = new System.Drawing.Size(905, 328);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "B",
+            "C1"});
+            this.comboBox2.Location = new System.Drawing.Point(798, 70);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(157, 33);
+            this.comboBox2.TabIndex = 13;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(262, 42);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(260, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 15);
+            this.label1.Size = new System.Drawing.Size(249, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter Customer Name:";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(265, 64);
+            this.textBox1.Location = new System.Drawing.Point(265, 70);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
+            this.textBox1.Size = new System.Drawing.Size(324, 31);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "🔍 Search customers...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -423,40 +416,44 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(259, 284);
+            this.groupBox2.Location = new System.Drawing.Point(259, 460);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(796, 280);
+            this.groupBox2.Size = new System.Drawing.Size(911, 132);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Customers";
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(609, 211);
+            this.button4.Location = new System.Drawing.Point(693, 60);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 47);
+            this.button4.Size = new System.Drawing.Size(212, 64);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Update Customer";
+            this.button4.Text = "Save Changes";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.BackColor = System.Drawing.Color.LightCyan;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(181, 211);
+            this.button3.Location = new System.Drawing.Point(159, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 52);
             this.button3.TabIndex = 4;
@@ -466,52 +463,56 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.BackColor = System.Drawing.Color.LightCyan;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(20, 211);
+            this.button1.Location = new System.Drawing.Point(22, 74);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 52);
+            this.button1.Size = new System.Drawing.Size(133, 52);
             this.button1.TabIndex = 2;
-            this.button1.Text = "🗑️  Delete Customer";
+            this.button1.Text = "🗑️  Delete";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 25);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(234, 21);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
+            this.textBox2.Size = new System.Drawing.Size(308, 31);
             this.textBox2.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(17, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 15);
+            this.label2.Size = new System.Drawing.Size(218, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Selected Customer:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(258, 9);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(258, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 25);
+            this.label3.Size = new System.Drawing.Size(308, 42);
             this.label3.TabIndex = 5;
             this.label3.Text = "Search Customer";
             // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(838, 35);
+            this.button5.Location = new System.Drawing.Point(961, 55);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 50);
+            this.button5.Size = new System.Drawing.Size(203, 48);
             this.button5.TabIndex = 9;
             this.button5.Text = "Filter";
             this.button5.UseVisualStyleBackColor = false;
@@ -519,139 +520,55 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(490, 35);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(631, 42);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 15);
+            this.label13.Size = new System.Drawing.Size(107, 25);
             this.label13.TabIndex = 10;
             this.label13.Text = "Filter By:";
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(673, 42);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(793, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
+            this.label4.Size = new System.Drawing.Size(79, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "Value:";
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Status",
-            "LicenceCode"});
-            this.comboBox1.Location = new System.Drawing.Point(493, 64);
+            "Licence Code"});
+            this.comboBox1.Location = new System.Drawing.Point(635, 70);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(157, 33);
             this.comboBox1.TabIndex = 12;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // dataGridView2
+            // button2
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn1,
-            this.fullNameDataGridViewTextBoxColumn1,
-            this.addressDataGridViewTextBoxColumn1,
-            this.contactNumberDataGridViewTextBoxColumn1,
-            this.emailAddressDataGridViewTextBoxColumn1,
-            this.licenceNumberDataGridViewTextBoxColumn1,
-            this.statusDataGridViewTextBoxColumn1,
-            this.licenceCodeDataGridViewTextBoxColumn1,
-            this.customerUsernameDataGridViewTextBoxColumn1,
-            this.customerPasswordDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.updateCustomerBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 58);
-            this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.Size = new System.Drawing.Size(745, 150);
-            this.dataGridView2.TabIndex = 10;
-            // 
-            // customerIDDataGridViewTextBoxColumn1
-            // 
-            this.customerIDDataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn1.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn1.Name = "customerIDDataGridViewTextBoxColumn1";
-            // 
-            // fullNameDataGridViewTextBoxColumn1
-            // 
-            this.fullNameDataGridViewTextBoxColumn1.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.Name = "fullNameDataGridViewTextBoxColumn1";
-            // 
-            // addressDataGridViewTextBoxColumn1
-            // 
-            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-            // 
-            // contactNumberDataGridViewTextBoxColumn1
-            // 
-            this.contactNumberDataGridViewTextBoxColumn1.DataPropertyName = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn1.HeaderText = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn1.Name = "contactNumberDataGridViewTextBoxColumn1";
-            // 
-            // emailAddressDataGridViewTextBoxColumn1
-            // 
-            this.emailAddressDataGridViewTextBoxColumn1.DataPropertyName = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn1.HeaderText = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn1.Name = "emailAddressDataGridViewTextBoxColumn1";
-            // 
-            // licenceNumberDataGridViewTextBoxColumn1
-            // 
-            this.licenceNumberDataGridViewTextBoxColumn1.DataPropertyName = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn1.HeaderText = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn1.Name = "licenceNumberDataGridViewTextBoxColumn1";
-            // 
-            // statusDataGridViewTextBoxColumn1
-            // 
-            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
-            // 
-            // licenceCodeDataGridViewTextBoxColumn1
-            // 
-            this.licenceCodeDataGridViewTextBoxColumn1.DataPropertyName = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn1.HeaderText = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn1.Name = "licenceCodeDataGridViewTextBoxColumn1";
-            // 
-            // customerUsernameDataGridViewTextBoxColumn1
-            // 
-            this.customerUsernameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn1.HeaderText = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn1.Name = "customerUsernameDataGridViewTextBoxColumn1";
-            // 
-            // customerPasswordDataGridViewTextBoxColumn1
-            // 
-            this.customerPasswordDataGridViewTextBoxColumn1.DataPropertyName = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn1.HeaderText = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn1.Name = "customerPasswordDataGridViewTextBoxColumn1";
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.LightCyan;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(959, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 37);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Reset Filter";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // updateCustomerBindingSource
             // 
@@ -733,12 +650,85 @@
             // 
             this.cUSTOMERTableAdapter.ClearBeforeFill = true;
             // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpEmployeeToolStripMenuItem,
+            this.viewUpdateEmployeesToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUpEmployeeToolStripMenuItem
+            // 
+            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
+            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
+            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
+            // 
+            // viewUpdateEmployeesToolStripMenuItem
+            // 
+            this.viewUpdateEmployeesToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateEmployeesToolStripMenuItem.Name = "viewUpdateEmployeesToolStripMenuItem";
+            this.viewUpdateEmployeesToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
+            this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
+            this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(2, 475);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(254, 117);
+            this.panel1.TabIndex = 24;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(4, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(239, 33);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Ask me anything!";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(66, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 33);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "AI Assistant";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1036, 592);
+            this.ClientSize = new System.Drawing.Size(1170, 592);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
@@ -760,10 +750,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateCustomerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -811,7 +803,6 @@
         private System.Windows.Forms.ToolStripMenuItem addClaimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateClaimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBranchesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addBranchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateBranchToolStripMenuItem;
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource cUSTOMERBindingSource;
@@ -826,17 +817,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn licenceCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerUsernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerPasswordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactNumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenceNumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenceCodeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerUsernameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPasswordDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource updateCustomerBindingSource;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeesToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
