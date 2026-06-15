@@ -33,15 +33,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pickUpBranchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dropOffBranchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pickUpDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PickUpBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DropOffBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoiceAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avisDS = new AvisSystem.AvisDS();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -80,13 +83,15 @@
             this.manageBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateBranchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
@@ -94,9 +99,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -114,15 +117,18 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bookingIDDataGridViewTextBoxColumn,
             this.customerIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
             this.vehicleVinNoDataGridViewTextBoxColumn,
-            this.pickUpBranchDataGridViewTextBoxColumn,
-            this.dropOffBranchDataGridViewTextBoxColumn,
             this.bookingDateDataGridViewTextBoxColumn,
             this.pickUpDateDataGridViewTextBoxColumn,
             this.expectedReturnDateDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.invoiceAmountDataGridViewTextBoxColumn});
+            this.FullName,
+            this.Position,
+            this.PickUpBranchName,
+            this.DropOffBranchName,
+            this.BranchName,
+            this.invoiceAmountDataGridViewTextBoxColumn,
+            this.EmployeeID});
             this.dataGridView1.DataSource = this.bOOKINGBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
@@ -145,32 +151,12 @@
             this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
             this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
             // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            // 
             // vehicleVinNoDataGridViewTextBoxColumn
             // 
             this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
             this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
             this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
             this.vehicleVinNoDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // pickUpBranchDataGridViewTextBoxColumn
-            // 
-            this.pickUpBranchDataGridViewTextBoxColumn.DataPropertyName = "PickUp Branch";
-            this.pickUpBranchDataGridViewTextBoxColumn.HeaderText = "PickUp Branch";
-            this.pickUpBranchDataGridViewTextBoxColumn.Name = "pickUpBranchDataGridViewTextBoxColumn";
-            this.pickUpBranchDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dropOffBranchDataGridViewTextBoxColumn
-            // 
-            this.dropOffBranchDataGridViewTextBoxColumn.DataPropertyName = "DropOff Branch";
-            this.dropOffBranchDataGridViewTextBoxColumn.HeaderText = "DropOff Branch";
-            this.dropOffBranchDataGridViewTextBoxColumn.Name = "dropOffBranchDataGridViewTextBoxColumn";
-            this.dropOffBranchDataGridViewTextBoxColumn.Width = 150;
             // 
             // bookingDateDataGridViewTextBoxColumn
             // 
@@ -199,12 +185,48 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "FullName";
+            this.FullName.Name = "FullName";
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            // 
+            // PickUpBranchName
+            // 
+            this.PickUpBranchName.DataPropertyName = "PickUpBranchName";
+            this.PickUpBranchName.HeaderText = "PickUpBranchName";
+            this.PickUpBranchName.Name = "PickUpBranchName";
+            // 
+            // DropOffBranchName
+            // 
+            this.DropOffBranchName.DataPropertyName = "DropOffBranchName";
+            this.DropOffBranchName.HeaderText = "DropOffBranchName";
+            this.DropOffBranchName.Name = "DropOffBranchName";
+            // 
+            // BranchName
+            // 
+            this.BranchName.DataPropertyName = "BranchName";
+            this.BranchName.HeaderText = "BranchName";
+            this.BranchName.Name = "BranchName";
+            // 
             // invoiceAmountDataGridViewTextBoxColumn
             // 
             this.invoiceAmountDataGridViewTextBoxColumn.DataPropertyName = "Invoice Amount";
             this.invoiceAmountDataGridViewTextBoxColumn.HeaderText = "Invoice Amount";
             this.invoiceAmountDataGridViewTextBoxColumn.Name = "invoiceAmountDataGridViewTextBoxColumn";
             this.invoiceAmountDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.DataPropertyName = "EmployeeID";
+            this.EmployeeID.HeaderText = "EmployeeID";
+            this.EmployeeID.Name = "EmployeeID";
             // 
             // bOOKINGBindingSource
             // 
@@ -235,9 +257,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(265, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 25);
+            this.label1.Size = new System.Drawing.Size(182, 25);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Enter Reservation_ID:";
+            this.label1.Text = "Enter Customer ";
             // 
             // textBox1
             // 
@@ -375,7 +397,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -383,7 +405,7 @@
             this.loginToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // logoutToolStripMenuItem
@@ -391,7 +413,7 @@
             this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -400,7 +422,7 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -411,7 +433,7 @@
             this.viewUpdateCustomersToolStripMenuItem});
             this.manageCustomersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             // 
             // addCustomerToolStripMenuItem
@@ -437,7 +459,7 @@
             this.viewUpdateBookingToolStripMenuItem});
             this.manageReservationToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
-            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageReservationToolStripMenuItem.Text = "📅 Manage Booking";
             this.manageReservationToolStripMenuItem.Click += new System.EventHandler(this.manageReservationToolStripMenuItem_Click);
             // 
@@ -464,7 +486,7 @@
             this.viewUpdateRentalToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBookingToolStripMenuItem.Text = "🔑 Manage Rental";
             // 
             // addRentalToolStripMenuItem
@@ -490,7 +512,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -516,7 +538,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             // 
             // addPaymentToolStripMenuItem
@@ -542,7 +564,7 @@
             this.viewUpdateClaimsToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addNewClaimToolStripMenuItem
@@ -568,7 +590,7 @@
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
             // 
             // addNewBranchToolStripMenuItem
@@ -587,15 +609,41 @@
             this.viewUpdateBranchesToolStripMenuItem.Text = "View/Update Branches";
             this.viewUpdateBranchesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBranchesToolStripMenuItem_Click);
             // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpEmployeeToolStripMenuItem,
+            this.viewUpdateEmployeeToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
+            // 
+            // signUpEmployeeToolStripMenuItem
+            // 
+            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
+            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
+            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
+            // 
+            // viewUpdateEmployeeToolStripMenuItem
+            // 
+            this.viewUpdateEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
+            this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
+            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(258, -1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(295, 37);
+            this.label3.Size = new System.Drawing.Size(243, 37);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Search Reservation";
+            this.label3.Text = "Search Booking";
             // 
             // label13
             // 
@@ -658,10 +706,6 @@
             this.button5.Text = "Filter";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // bOOKINGTableAdapter
-            // 
-            this.bOOKINGTableAdapter.ClearBeforeFill = true;
             // 
             // dateTimePicker1
             // 
@@ -739,31 +783,9 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // manageEmployeesToolStripMenuItem
+            // bOOKINGTableAdapter
             // 
-            this.manageEmployeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.signUpEmployeeToolStripMenuItem,
-            this.viewUpdateEmployeeToolStripMenuItem});
-            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
-            // 
-            // signUpEmployeeToolStripMenuItem
-            // 
-            this.signUpEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.signUpEmployeeToolStripMenuItem.Name = "signUpEmployeeToolStripMenuItem";
-            this.signUpEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.signUpEmployeeToolStripMenuItem.Text = "Sign Up Employee";
-            this.signUpEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpEmployeeToolStripMenuItem_Click);
-            // 
-            // viewUpdateEmployeeToolStripMenuItem
-            // 
-            this.viewUpdateEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
-            this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
-            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
+            this.bOOKINGTableAdapter.ClearBeforeFill = true;
             // 
             // UpdateReservation
             // 
@@ -855,17 +877,9 @@
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource bOOKINGBindingSource;
         private AvisDSTableAdapters.BOOKINGTableAdapter bOOKINGTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pickUpBranchDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropOffBranchDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pickUpDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button6;
@@ -876,5 +890,19 @@
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeeToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pickUpDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PickUpBranchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DropOffBranchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
     }
 }

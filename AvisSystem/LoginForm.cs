@@ -72,14 +72,25 @@ namespace AvisSystem
                     textBox2.Text
                 );
 
+                // Check if any rows were returned
                 if (dt.Rows.Count > 0)
                 {
+                    // THIS IS WHERE YOU GET THE ROW
+                    DataRow row = dt.Rows[0];  // ← This gets the first row from the result
+
+                    // NOW you can use 'row'
+                    UserSession.EmployeeID = Convert.ToInt32(row["EmployeeID"]);
+                    UserSession.FullName = row["Fullname"].ToString();
+                    UserSession.Position = row["Position"]?.ToString() ?? "";
+                    UserSession.IsLoggedIn = true;
+
                     failedAttempts = 0;
 
                     AvisMenuForm menu = new AvisMenuForm();
                     menu.Show();
 
-                    MessageBox.Show("WELCOME!\nLogin Successful","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"WELCOME {UserSession.FullName}!\nLogin Successful",
+                                   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();
                 }

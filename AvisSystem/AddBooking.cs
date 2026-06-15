@@ -350,7 +350,35 @@ private void label2_Click(object sender, EventArgs e)
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), Convert.ToInt32(comboBox1.Text), textBox9.Text, comboBox4.Text, comboBox3.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text), Convert.ToDateTime(dateTimePicker3.Text), textBox3.Text);
+
+            // GET EMPLOYEE DETAILS FROM SESSION
+            int employeeID = UserSession.EmployeeID;
+            string employeeName = UserSession.FullName;
+            string employeePosition = UserSession.Position;
+
+            // Check if user is logged in
+            if (!UserSession.IsLoggedIn)
+            {
+                MessageBox.Show("You must be logged in to create a booking.",
+                               "Not Logged In", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox9.Text.ToString(),dateTimePicker1.Value,dateTimePicker2.Value,dateTimePicker3.Value,employeeName, employeePosition,comboBox4.Text.ToString(),comboBox3.Text.ToString(),comboBox1.Text.ToString(),Convert.ToDecimal(textBox3.Text),employeeID);
+
+            bookingTableAdapter1.InsertBooking(
+    Convert.ToInt32(textBox10.Text),     // CustomerID
+    textBox9.Text,                       // VehicleVinNo (no ToString needed)
+    dateTimePicker1.Value,               // Booking Date
+    dateTimePicker2.Value,               // PickUp Date
+    dateTimePicker3.Value,               // Return Date
+    employeeName,                        // CreatedByEmployeeName
+    employeePosition,                    // CreatedByPosition
+    comboBox4.Text,                      // PickUp Branch (no ToString needed)
+    comboBox3.Text,                      // DropOff Branch (no ToString needed)
+    comboBox1.Text,                      // BranchID (FIXED)
+    Convert.ToDecimal(textBox3.Text),    // TotalAmount
+    employeeID                           // CreatedByEmployeeID
+);
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
