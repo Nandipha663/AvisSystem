@@ -351,6 +351,22 @@ private void label2_Click(object sender, EventArgs e)
         private void button1_Click(object sender, EventArgs e)
         {
             bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), Convert.ToInt32(comboBox1.Text), textBox9.Text, comboBox4.Text, comboBox3.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text), Convert.ToDateTime(dateTimePicker3.Text), textBox3.Text);
+
+            string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
+            // Find the Vehicle form and set the pending highlight
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is UpdateVehicles vehicleForm)
+                {
+                    vehicleForm.SetPendingHighlight(vehicleVin);
+                    break;
+                }
+            }
+
+            // Update vehicle status to Unavailable
+           
+            vEHICLETableAdapter.UpdateStatus(vehicleVin);
+
             MessageBox.Show("Booking Added Successfully");
 
         }
