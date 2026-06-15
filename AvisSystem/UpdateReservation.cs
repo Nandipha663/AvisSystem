@@ -52,7 +52,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 bOOKINGBindingSource.EndEdit();
-                bOOKINGTableAdapter.Update(avisDS.BOOKING);
+                //bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
                 MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
@@ -384,7 +384,7 @@ namespace AvisSystem
 
         private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageCustomers manageEmp = new ManageEmployee();
+            ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
         }

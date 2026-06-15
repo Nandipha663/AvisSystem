@@ -96,7 +96,6 @@
             this.loginToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
             this.loginToolStripMenuItem.Text = "Login";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -267,7 +266,6 @@
             this.pictureBox6.Size = new System.Drawing.Size(125, 103);
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox1
             // 

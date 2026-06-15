@@ -396,7 +396,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 vEHICLEBindingSource.EndEdit();
-                vEHICLETableAdapter.Update(avisDS.VEHICLE);
+                //vEHICLETableAdapter.Update(avisDS.VEHICLE);
 
                 vEHICLETableAdapter.Fill(avisDS.VEHICLE);
                 MessageBox.Show($"Vehicle Updated:\nVVN {id}");

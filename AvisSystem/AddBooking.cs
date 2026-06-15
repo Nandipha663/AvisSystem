@@ -12,6 +12,10 @@ namespace AvisSystem
 {
     public partial class AddBookingReservation : Form
     {
+
+        // Add this flag at the class level
+        private bool isFormLoading = true;
+
         public AddBookingReservation()
         {
             InitializeComponent();
@@ -32,21 +36,35 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox9.Clear  ();
-            textBox10.Clear ();
-            comboBox1.SelectedIndex = 0;
-            dateTimePicker1.Text = DateTime.Now.ToString();
-            dateTimePicker2.Text= DateTime.Now.ToString();
-            dateTimePicker3.Text= DateTime.Now.ToString();
-            comboBox2.Text="";
-            comboBox3.SelectedIndex= 0;
-            comboBox4.SelectedIndex = 0;
+            isFormLoading = true;  // Prevent events during clearing
+
+            textBox9.Clear();
+            textBox10.Clear();
             textBox1.Clear();
-            textBox5.Clear();
+            //textBox5.Clear();
+
+            // Use -1 instead of 0 to clear selection
+            comboBox1.SelectedIndex = -1;
+            //comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            comboBox4.SelectedIndex = -1;
+
+            // Reset date pickers
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker3.Value = DateTime.Now;
+
+            // Reset vehicle filter
+            this.vEHICLEBindingSource.Filter = "1 = 0";
+
+            isFormLoading = false;
         }
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
+            // Set flag to true when loading starts
+            isFormLoading = true;
+
             // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
             this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
             // TODO: This line of code loads data into the 'avisDS.VEHICLE' table. You can move, or remove it, as needed.
@@ -58,6 +76,20 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
+
+
+            // Step 1: Configure comboboxes (this calls your ConfigureBranchComboBoxes method)
+            ConfigureBranchComboBoxes();
+
+            // Step 2: Initially show NO vehicles until a branch is selected
+            this.vEHICLEBindingSource.Filter = "1 = 0";
+
+            // Make CustomerID textbox read-only
+            textBox10.ReadOnly = true;
+
+            // Set flag to false when loading is complete
+            isFormLoading = false;
+
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,27 +231,128 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            vEHICLETableAdapter.FillByMake(avisDS.VEHICLE,textBox5.Text);
+            //vEHICLETableAdapter.FillByMake(avisDS.VEHICLE,textBox5.Text);
+            // Don't search while form is loading
+            if (isFormLoading) return;
+
+            // Only search if a pickup branch is selected
+            if (comboBox4.SelectedIndex == -1 || comboBox4.SelectedValue == null)
+            {
+                return;
+            }
+
+            string selectedBranchName = comboBox4.Text;
+
+            // Validate branch name
+            if (string.IsNullOrEmpty(selectedBranchName) || selectedBranchName == "System.Data.DataRowView")
+            {
+                return;
+            }
+
+            /*string searchTerm = textBox5.Text.Trim().Replace("'", "''");
+
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                // No search term - show all available vehicles at the branch
+                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
+            }
+            else
+            {
+                // Search within the branch's available vehicles by Make or Model
+                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available' AND (Make LIKE '%{searchTerm}%' OR Model LIKE '%{searchTerm}%')";
+            }*/
         }
 
-        private void label2_Click(object sender, EventArgs e)
+private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBox9.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                // Validate branch selection
+                if (comboBox4.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a pickup branch first.", "No Branch Selected",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Validate vehicle status
+                string vehicleStatus = dataGridView2.CurrentRow.Cells[6].Value?.ToString() ?? "";
+                if (vehicleStatus != "Available")
+                {
+                    MessageBox.Show($"This vehicle is {vehicleStatus}. Only available vehicles can be selected.",
+                                   "Vehicle Not Available", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }else
+                {
+                    textBox9.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+                    textBox9.BackColor = Color.LightGreen;
+                }
+
+                    // Get dates
+                    DateTime pickupDate = dateTimePicker2.Value.Date;  // Use .Date to ignore time
+                DateTime returnDate = dateTimePicker3.Value.Date;  // Use .Date to ignore time
+
+                // Validate dates
+                if (pickupDate > returnDate)
+                {
+                    MessageBox.Show("Return date cannot be before pickup date.", "Invalid Dates",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Calculate days
+                int numberOfDays = (returnDate - pickupDate).Days;
+
+                // Same day = 1 day
+                if (numberOfDays == 0)
+                {
+                    numberOfDays = 1;
+                }
+
+                // Get daily rate (make sure column index is correct)
+                decimal dailyRate = 0;
+                if (dataGridView2.CurrentRow.Cells[8].Value != null &&
+                    dataGridView2.CurrentRow.Cells[8].Value != DBNull.Value)
+                {
+                    dailyRate = Convert.ToDecimal(dataGridView2.CurrentRow.Cells[8].Value);
+                }
+                else
+                {
+                    // Fallback rate if cell is empty
+                    dailyRate = 500.00m;
+                }
+
+                // Calculate total
+                decimal totalPrice = dailyRate * numberOfDays;
+
+                // Display results
+                textBox3.Text = totalPrice.ToString("N2");
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), Convert.ToInt32(comboBox1.Text), textBox9.Text, comboBox4.Text, comboBox3.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text), Convert.ToDateTime(dateTimePicker3.Text), comboBox2.Text);
+            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), Convert.ToInt32(comboBox1.Text), textBox9.Text, comboBox4.Text, comboBox3.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text), Convert.ToDateTime(dateTimePicker3.Text), textBox3.Text);
             MessageBox.Show("Booking Added Successfully");
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -242,6 +375,107 @@ namespace AvisSystem
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
+        }
+
+
+
+
+
+
+        // Add this method to configure branch comboboxes with filtering
+        private void ConfigureBranchComboBoxes()
+        {
+
+            // Temporarily remove data source to prevent auto-selection
+            comboBox4.DataSource = null;
+            comboBox3.DataSource = null;
+            comboBox1.DataSource = null;
+
+            // Create filtered views for pickup branches (only where pickUpAvailable = 'Yes')
+            DataView pickupBranchesView = new DataView(this.avisDS.BRANCH);
+            pickupBranchesView.RowFilter = "pickUpAvailable = 'Yes'";
+
+            // Create filtered views for dropoff branches (only where dropOffAvailable = 'Yes')
+            DataView dropoffBranchesView = new DataView(this.avisDS.BRANCH);
+            dropoffBranchesView.RowFilter = "dropOffAvailable = 'Yes'";
+
+            // Main BranchID combobox - all branches
+            comboBox1.DataSource = this.avisDS.BRANCH;
+            comboBox1.DisplayMember = "branchName";
+            comboBox1.ValueMember = "BranchID";
+            comboBox1.SelectedIndex = -1;
+
+            // PickUp Branch combobox - ONLY branches that allow pickup
+            comboBox4.DataSource = pickupBranchesView;
+            comboBox4.DisplayMember = "branchName";
+            comboBox4.ValueMember = "BranchID";
+            comboBox4.SelectedIndex = -1;
+
+            // DropOff Branch combobox - ONLY branches that allow dropoff
+            comboBox3.DataSource = dropoffBranchesView;
+            comboBox3.DisplayMember = "branchName";
+            comboBox3.ValueMember = "BranchID";
+            comboBox3.SelectedIndex = -1;
+        }
+
+        // Add this method to filter vehicles by selected branch
+        private void FilterVehiclesBySelectedBranch()
+        {
+            // Skip if form is still loading
+            if (isFormLoading) return;
+
+            // Check if a branch is selected in comboBox4
+            if (comboBox4.SelectedIndex != -1 && comboBox4.SelectedValue != null)
+            {
+                // Get the selected branch name safely
+                string selectedBranchName = comboBox4.Text;
+
+                // Verify we got a valid branch name (not DataRowView)
+                if (string.IsNullOrEmpty(selectedBranchName) || selectedBranchName == "System.Data.DataRowView")
+                {
+                    return;
+                }
+
+                // Filter vehicles by branch name and availability
+                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
+
+                textBox9.Clear();
+
+                if (this.vEHICLEBindingSource.Count == 0)
+                {
+                    MessageBox.Show($"No available vehicles at '{selectedBranchName}'.\nPlease select another branch.",
+                                   "No Vehicles Available",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                this.vEHICLEBindingSource.Filter = "1 = 0";
+            }
+        }
+
+        // Add this to clear filters when resetting the form
+        private void ClearVehicleFilters()
+        {
+            this.vEHICLEBindingSource.Filter = null;
+            //textBox5.Clear();
+            textBox9.Clear();
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Skip event handling while the form is loading
+            if (isFormLoading) return;
+
+            // Skip if no item is selected or if the selected value is null
+            if (comboBox4.SelectedIndex == -1 || comboBox4.SelectedValue == null) return;
+
+            // Filter vehicles based on selected pickup branch
+            FilterVehiclesBySelectedBranch();
+
+            // Clear the vehicle search box when branch changes
+            //textBox5.Clear();
         }
     }
 }

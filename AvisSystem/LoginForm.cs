@@ -60,10 +60,6 @@ namespace AvisSystem
 
                     return;
                 }
-
-
-
-
                 AvisDSTableAdapters.EMPLOYEETableAdapter empTA =
                     new AvisDSTableAdapters.EMPLOYEETableAdapter();
 
@@ -233,21 +229,6 @@ namespace AvisSystem
             SignUpForm signupform = new SignUpForm();
             signupform.Show();
             this.Hide();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
