@@ -60,10 +60,6 @@ namespace AvisSystem
 
                     return;
                 }
-
-
-
-
                 AvisDSTableAdapters.EMPLOYEETableAdapter empTA =
                     new AvisDSTableAdapters.EMPLOYEETableAdapter();
 
@@ -76,14 +72,25 @@ namespace AvisSystem
                     textBox2.Text
                 );
 
+                // Check if any rows were returned
                 if (dt.Rows.Count > 0)
                 {
+                    // THIS IS WHERE YOU GET THE ROW
+                    DataRow row = dt.Rows[0];  // ← This gets the first row from the result
+
+                    // NOW you can use 'row'
+                    UserSession.EmployeeID = Convert.ToInt32(row["EmployeeID"]);
+                    UserSession.FullName = row["Fullname"].ToString();
+                    UserSession.Position = row["Position"]?.ToString() ?? "";
+                    UserSession.IsLoggedIn = true;
+
                     failedAttempts = 0;
 
                     AvisMenuForm menu = new AvisMenuForm();
                     menu.Show();
 
-                    MessageBox.Show("WELCOME!\nLogin Successful","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"WELCOME {UserSession.FullName}!\nLogin Successful",
+                                   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();
                 }
@@ -233,21 +240,6 @@ namespace AvisSystem
             SignUpForm signupform = new SignUpForm();
             signupform.Show();
             this.Hide();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

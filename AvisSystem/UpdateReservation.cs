@@ -52,7 +52,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 bOOKINGBindingSource.EndEdit();
-                bOOKINGTableAdapter.Update(avisDS.BOOKING);
+                //bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
                 MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");

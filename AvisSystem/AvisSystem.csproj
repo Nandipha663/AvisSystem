@@ -193,6 +193,7 @@
     <Compile Include="UpdateVehicles.Designer.cs">
       <DependentUpon>UpdateVehicles.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="AddBranch.resx">
       <DependentUpon>AddBranch.cs</DependentUpon>
     </EmbeddedResource>

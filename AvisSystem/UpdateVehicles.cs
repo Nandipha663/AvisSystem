@@ -1,4 +1,5 @@
 ﻿using AvisSystem.AvisDSTableAdapters;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,53 @@ namespace AvisSystem
 {
     public partial class UpdateVehicles : Form
     {
+
+        private string _pendingHighlightVin = null;
+
         public UpdateVehicles()
         {
             InitializeComponent();
         }
+
+        public void SetPendingHighlight(string vehicleVin)
+        {
+            _pendingHighlightVin = vehicleVin;
+        }
+        // This fires every time the form gets focus (user clicks on it)
+        private void UpdateVehicles_Activated(object sender, EventArgs e)
+        {
+            // Refresh data from database
+            this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+            vEHICLEBindingSource.ResetBindings(false);
+
+            // Highlight if there's a pending VIN
+            if (!string.IsNullOrEmpty(_pendingHighlightVin))
+            {
+                HighlightVehicle(_pendingHighlightVin);
+                _pendingHighlightVin = null; // Clear after highlighting
+            }
+        }
+
+        private void HighlightVehicle(string vehicleVin)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["VehicleVinNo"].Value?.ToString() == vehicleVin)
+                {
+                    // Select the row
+                    row.Selected = true;
+
+                    // Highlight with color
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                    // Scroll to make it visible
+                    dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+
+                }
+            }
+        }
+    
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -396,7 +440,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 vEHICLEBindingSource.EndEdit();
-                vEHICLETableAdapter.Update(avisDS.VEHICLE);
+                //vEHICLETableAdapter.Update(avisDS.VEHICLE);
 
                 vEHICLETableAdapter.Fill(avisDS.VEHICLE);
                 MessageBox.Show($"Vehicle Updated:\nVVN {id}");
@@ -447,6 +491,16 @@ namespace AvisSystem
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Just reload from database
+            this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+            dataGridView1.Refresh();
+
+            MessageBox.Show("Data refreshed!", "Refresh",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
