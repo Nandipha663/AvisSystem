@@ -94,9 +94,7 @@ namespace AvisSystem
 
             vehicleTA.Fill(dt);
 
-            comboBox3.DataSource = dt;
-            comboBox3.DisplayMember = "VehicleVinNo";
-            comboBox3.ValueMember = "VehicleVinNo";
+            ConfigureComboBox1();
 
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
@@ -185,10 +183,8 @@ namespace AvisSystem
         {
             
             textBox3.Clear();
-            maskedTextBox2.Clear();
+           // maskedTextBox2.Clear();
             comboBox1.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
-            comboBox3.SelectedIndex = -1;
             dateTimePicker1.ResetText();
 
         }
@@ -234,7 +230,7 @@ namespace AvisSystem
         {
             try
             {
-                vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
+                //vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill employees table
@@ -292,6 +288,54 @@ namespace AvisSystem
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void ConfigureComboBox1()
+        {
+            // Create filtered views for dropoff branches (only where dropOffAvailable = 'Yes')
+            DataView dropoffBranchesView = new DataView(this.avisDS.BRANCH);
+            dropoffBranchesView.RowFilter = "dropOffAvailable = 'Yes'";
+
+            // DropOff Branch combobox - ONLY branches that allow dropoff
+            comboBox1.DataSource = dropoffBranchesView;
+            comboBox1.DisplayMember = "branchName";
+            comboBox1.ValueMember = "BranchID";
+            comboBox1.SelectedIndex = -1;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            //vehicle description
+            //get the vehicle decription form the vehicle table
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime expectedReturnDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["ExpectedReturnDate"].Value);
+
+            DateTime actualReturnDate = dateTimePicker1.Value.Date;
+
+            int lateDays = (actualReturnDate - expectedReturnDate).Days;
+
+            decimal penaltyPerDay = 500;
+            decimal extraCharge = lateDays > 0
+                ? lateDays * penaltyPerDay
+                : 0;
+
+            textBox4.Text = extraCharge.ToString("0.00");
         }
     }
     
