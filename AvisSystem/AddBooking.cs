@@ -58,6 +58,8 @@ namespace AvisSystem
             this.vEHICLEBindingSource.Filter = "1 = 0";
 
             isFormLoading = false;
+
+            
         }
 
         private void AddReservation_Load(object sender, EventArgs e)
@@ -230,9 +232,17 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-
+            string status = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            if (status == "Inactive")
+            {
+                MessageBox.Show("This customer is inactive. Please select an active customer.",
+                               "Inactive Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }else
+            {
+                textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -366,34 +376,30 @@ private void label2_Click(object sender, EventArgs e)
             // bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox9.Text.ToString(),dateTimePicker1.Value,dateTimePicker2.Value,dateTimePicker3.Value,employeeName, employeePosition,comboBox4.Text.ToString(),comboBox3.Text.ToString(),comboBox1.Text.ToString(),Convert.ToDecimal(textBox3.Text),employeeID);
 
             bookingTableAdapter1.InsertBooking(
-    Convert.ToInt32(textBox10.Text),     // CustomerID
-    textBox9.Text,                       // VehicleVinNo (no ToString needed)
-    dateTimePicker1.Value,               // Booking Date
-    dateTimePicker2.Value,               // PickUp Date
-    dateTimePicker3.Value,               // Return Date
-    employeeName,                        // CreatedByEmployeeName
-    employeePosition,                    // CreatedByPosition
-    comboBox4.Text,                      // PickUp Branch (no ToString needed)
-    comboBox3.Text,                      // DropOff Branch (no ToString needed)
-    comboBox1.Text,                      // BranchID (FIXED)
-    Convert.ToDecimal(textBox3.Text),    // TotalAmount
-    employeeID                           // CreatedByEmployeeID
-);
+    Convert.ToInt32(textBox10.Text),
+    textBox2.Text,
+    textBox9.Text,
+    dateTimePicker1.Value, 
+    dateTimePicker2.Value, 
+    dateTimePicker3.Value,  
+    comboBox4.Text,  
+    comboBox3.Text,  
+    comboBox1.Text,        
+    Convert.ToDecimal(textBox3.Text),
+    employeeID,
+    employeeName,
+    employeePosition
+    );
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is UpdateVehicles vehicleForm)
-                {
-                    vehicleForm.SetPendingHighlight(vehicleVin);
-                    break;
-                }
-            }
+            
 
             // Update vehicle status to Unavailable
-           
-            vEHICLETableAdapter.UpdateStatus(vehicleVin);
+
+            vEHICLETableAdapter.UpdateVehicleStatusAndTime(vehicleVin);
+            UpdateVehicles vehicleForm = new UpdateVehicles();
+            vehicleForm.HighlightVehicleVIN = vehicleVin;
 
             MessageBox.Show("Booking Added Successfully");
 
@@ -521,5 +527,7 @@ private void label2_Click(object sender, EventArgs e)
             // Clear the vehicle search box when branch changes
             //textBox5.Clear();
         }
+
+
     }
 }

@@ -13,54 +13,78 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
+
+   
     public partial class UpdateVehicles : Form
     {
+        public string HighlightVehicleVIN { get; set; }
 
-        private string _pendingHighlightVin = null;
 
         public UpdateVehicles()
         {
             InitializeComponent();
         }
 
-        public void SetPendingHighlight(string vehicleVin)
-        {
-            _pendingHighlightVin = vehicleVin;
-        }
+        
         // This fires every time the form gets focus (user clicks on it)
         private void UpdateVehicles_Activated(object sender, EventArgs e)
         {
             // Refresh data from database
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
-            vEHICLEBindingSource.ResetBindings(false);
 
-            // Highlight if there's a pending VIN
-            if (!string.IsNullOrEmpty(_pendingHighlightVin))
-            {
-                HighlightVehicle(_pendingHighlightVin);
-                _pendingHighlightVin = null; // Clear after highlighting
-            }
+            HighlightMostRecentVehicle();
+
+            
         }
 
-        private void HighlightVehicle(string vehicleVin)
+       
+
+        private void HighlightMostRecentVehicle()
         {
+
+            MessageBox.Show("Method is running");
+
+            DateTime latestTime = DateTime.MinValue;
+            DataGridViewRow latestRow = null;
+
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells["VehicleVinNo"].Value?.ToString() == vehicleVin)
+                MessageBox.Show(
+                    row.Cells["LastUpdated"].Value?.ToString() ?? "NULL");
+            }
+
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.DefaultCellStyle.BackColor = Color.White;
+            }
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["LastUpdated"].Value != DBNull.Value)
                 {
-                    // Select the row
-                    row.Selected = true;
+                    DateTime updateTime =
+                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
 
-                    // Highlight with color
-                    row.DefaultCellStyle.BackColor = Color.LightGreen;
-
-                    // Scroll to make it visible
-                    dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-
+                    if (updateTime > latestTime)
+                    {
+                        latestTime = updateTime;
+                        latestRow = row;
+                    }
                 }
             }
+
+            if (latestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                latestRow.Selected = true;
+                latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex = latestRow.Index;
+            }
         }
-    
+
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -74,12 +98,37 @@ namespace AvisSystem
             label16.Click += panel1_Click;
             pictureBox3.Click += panel1_Click;
         }
+
+        private void HighlightVehicleRow()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null &&
+                    row.Cells[0].Value.ToString() == HighlightVehicleVIN)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                    dataGridView1.ClearSelection();
+                    row.Selected = true;
+
+                    dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+
+                    break;
+                }
+            }
+        }
         private void UpdateVehicles_Load(object sender, EventArgs e)
         {
 
             LoadVehicles();
             // TODO: This line of code loads data into the 'avisDS.VEHICLE' table. You can move, or remove it, as needed.
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+
+            if (!string.IsNullOrEmpty(HighlightVehicleVIN))
+            {
+                HighlightVehicleRow();
+            }
+
             fileToolStripMenuItem.Enabled = true;
             //viewUpdateVehicleToolStripMenuItem.Enabled = false;
             viewUpdateVehicleStatusToolStripMenuItem.Enabled = false;
@@ -353,13 +402,13 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             label5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            label7.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            label9.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            label11.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            label7.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            label9.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            label11.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
             try
             {
-                byte[] imgBytes = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
+                byte[] imgBytes = (byte[])dataGridView1.CurrentRow.Cells[6].Value;
 
                 MemoryStream ms = new MemoryStream(imgBytes);
 
@@ -374,7 +423,7 @@ namespace AvisSystem
 
 
 
-            string status = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            string status = dataGridView1.CurrentRow.Cells[5].Value.ToString();
 
             label2.Text = status;
 
@@ -386,7 +435,7 @@ namespace AvisSystem
             {
                 label2.ForeColor = Color.Red;
             }
-            else if (status == "On Maintenance")
+            else if (status == "Maintenance")
             {
                 label2.ForeColor = Color.Orange;
             }

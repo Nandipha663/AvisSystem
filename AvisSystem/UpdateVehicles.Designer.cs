@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateVehicles));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -44,7 +45,11 @@
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avisDS = new AvisSystem.AvisDS();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,7 +106,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).BeginInit();
@@ -134,6 +138,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fleet";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(12, 301);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(102, 40);
+            this.button7.TabIndex = 21;
+            this.button7.Text = "Refresh";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -223,7 +239,11 @@
             this.modelDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.imageDataGridViewImageColumn});
+            this.BranchName,
+            this.imageDataGridViewImageColumn,
+            this.DailyRate,
+            this.VehicleDescription,
+            this.LastUpdated});
             this.dataGridView1.DataSource = this.vEHICLEBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 19);
             this.dataGridView1.Name = "dataGridView1";
@@ -267,11 +287,35 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
+            // BranchName
+            // 
+            this.BranchName.DataPropertyName = "BranchName";
+            this.BranchName.HeaderText = "BranchName";
+            this.BranchName.Name = "BranchName";
+            // 
             // imageDataGridViewImageColumn
             // 
             this.imageDataGridViewImageColumn.DataPropertyName = "Image";
             this.imageDataGridViewImageColumn.HeaderText = "Image";
             this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
+            // 
+            // DailyRate
+            // 
+            this.DailyRate.DataPropertyName = "DailyRate";
+            this.DailyRate.HeaderText = "DailyRate";
+            this.DailyRate.Name = "DailyRate";
+            // 
+            // VehicleDescription
+            // 
+            this.VehicleDescription.DataPropertyName = "VehicleDescription";
+            this.VehicleDescription.HeaderText = "VehicleDescription";
+            this.VehicleDescription.Name = "VehicleDescription";
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "LastUpdated";
+            this.LastUpdated.Name = "LastUpdated";
             // 
             // vEHICLEBindingSource
             // 
@@ -299,7 +343,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
             this.textBox1.Location = new System.Drawing.Point(418, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 31);
+            this.textBox1.Size = new System.Drawing.Size(333, 31);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "🔍 Search Vehicles...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -846,18 +890,6 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(12, 301);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(102, 40);
-            this.button7.TabIndex = 21;
-            this.button7.Text = "Refresh";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // UpdateVehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -950,14 +982,7 @@
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource vEHICLEBindingSource;
         private AvisDSTableAdapters.VEHICLETableAdapter vEHICLETableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn makeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signUpEmployeeToolStripMenuItem;
@@ -968,5 +993,16 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn makeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
+        private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
     }
 }

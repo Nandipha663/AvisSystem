@@ -38,9 +38,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -85,16 +89,16 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
-            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -145,7 +149,7 @@
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(642, 420);
+            this.button1.Location = new System.Drawing.Point(642, 605);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 76);
             this.button1.TabIndex = 24;
@@ -160,7 +164,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(11, 420);
+            this.button2.Location = new System.Drawing.Point(11, 605);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(196, 76);
             this.button2.TabIndex = 25;
@@ -173,7 +177,7 @@
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(213, 420);
+            this.button3.Location = new System.Drawing.Point(213, 605);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(196, 76);
             this.button3.TabIndex = 26;
@@ -184,6 +188,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox2);
@@ -207,10 +215,31 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(256, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(851, 501);
+            this.groupBox1.Size = new System.Drawing.Size(851, 686);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Vehicle";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(410, 46);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(429, 31);
+            this.textBox4.TabIndex = 42;
+            this.toolTip2.SetToolTip(this.textBox4, "Enter the specific vehicle model (e.g. Corolla, Mustang, X5)");
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 394);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 25);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "Category:";
             // 
             // textBox2
             // 
@@ -234,7 +263,7 @@
             // comboBox2
             // 
             this.comboBox2.DataSource = this.bRANCHBindingSource;
-            this.comboBox2.DisplayMember = "BranchID";
+            this.comboBox2.DisplayMember = "branchName";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
@@ -245,15 +274,25 @@
             this.comboBox2.ValueMember = "BranchID";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(622, 330);
+            this.button4.Location = new System.Drawing.Point(622, 405);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 76);
+            this.button4.Size = new System.Drawing.Size(223, 65);
             this.button4.TabIndex = 37;
             this.button4.Text = "Add an Image";
             this.button4.UseVisualStyleBackColor = false;
@@ -264,7 +303,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(410, 100);
+            this.pictureBox1.Location = new System.Drawing.Point(410, 172);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(435, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,11 +314,12 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(410, 46);
+            this.textBox3.Location = new System.Drawing.Point(13, 422);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(368, 31);
             this.textBox3.TabIndex = 35;
             this.toolTip3.SetToolTip(this.textBox3, "Select the category/class of the vehicle (e.g. Sedan, SUV, Hatchback)");
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // textBox8
             // 
@@ -289,6 +329,7 @@
             this.textBox8.Size = new System.Drawing.Size(366, 31);
             this.textBox8.TabIndex = 34;
             this.toolTip2.SetToolTip(this.textBox8, "Enter the specific vehicle model (e.g. Corolla, Mustang, X5)");
+            this.textBox8.Leave += new System.EventHandler(this.textBox8_Leave);
             // 
             // textBox6
             // 
@@ -298,6 +339,8 @@
             this.textBox6.Size = new System.Drawing.Size(370, 31);
             this.textBox6.TabIndex = 33;
             this.toolTip1.SetToolTip(this.textBox6, "Enter the vehicle manufacturer (e.g. Toyota, BMW, Ford)");
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.textBox6.Leave += new System.EventHandler(this.textBox6_Leave);
             // 
             // textBox1
             // 
@@ -323,6 +366,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(368, 33);
             this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -331,9 +375,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(405, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 25);
+            this.label6.Size = new System.Drawing.Size(223, 25);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Category:";
+            this.label6.Text = "Vehicle Description:";
             // 
             // label3
             // 
@@ -341,9 +385,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(10, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.Size = new System.Drawing.Size(153, 25);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Branch_ID:";
+            this.label3.Text = "BranchName:";
             // 
             // menuStrip1
             // 
@@ -361,7 +405,7 @@
             this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(256, 501);
+            this.menuStrip1.Size = new System.Drawing.Size(256, 686);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -621,7 +665,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(0, 384);
+            this.panel1.Location = new System.Drawing.Point(0, 569);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 117);
             this.panel1.TabIndex = 30;
@@ -659,25 +703,36 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bRANCHBindingSource
-            // 
-            this.bRANCHBindingSource.DataMember = "BRANCH";
-            this.bRANCHBindingSource.DataSource = this.avisDS;
-            // 
             // bRANCHTableAdapter
             // 
             this.bRANCHTableAdapter.ClearBeforeFill = true;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(405, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(128, 25);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Daily Rate:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(410, 107);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(429, 31);
+            this.textBox5.TabIndex = 44;
+            this.toolTip2.SetToolTip(this.textBox5, "Enter the specific vehicle model (e.g. Corolla, Mustang, X5)");
             // 
             // AddVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 501);
+            this.ClientSize = new System.Drawing.Size(1107, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -688,14 +743,14 @@
             this.Load += new System.EventHandler(this.AddVehicle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -760,5 +815,9 @@
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource bRANCHBindingSource;
         private AvisDSTableAdapters.BRANCHTableAdapter bRANCHTableAdapter;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label11;
     }
 }
