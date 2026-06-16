@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Diagnostics.Eventing.Reader;
 
 namespace AvisSystem
 {
@@ -188,6 +189,9 @@ namespace AvisSystem
             textBox3.Clear();
             textBox6.Clear();
             textBox8.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+
             pictureBox1.Image = null;
 
             if (comboBox1.Items.Count > 0)
@@ -225,11 +229,7 @@ namespace AvisSystem
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //take values from the branch id table to this combobox
-            /*for (int i =0; i < BranchDGV.Rows.Counts - 1; i++)
-            {
-                comboBox2.Items.Add(BranchDGV.Rows[i].Cells[0].Value.ToString());
-            }*/
+            
         }
 
         AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter vehicleTA = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
@@ -268,7 +268,7 @@ namespace AvisSystem
 
             try
             {
-                vehicleTA.AddNewVehicle(textBox2.Text.ToString(), Convert.ToInt32(comboBox2.Text), textBox2.Text.ToString(), textBox1.Text.ToString(), textBox6.Text.ToString(), textBox6.Text.ToString(), comboBox1.Text.ToString(), imageBytes);
+                vehicleTA.AddNewVehicle(textBox2.Text, textBox1.Text, textBox6.Text, textBox8.Text, textBox4.Text, comboBox1.Text, comboBox2.Text,imageBytes,Convert.ToDecimal(textBox5.Text),textBox4.Text);
                 MessageBox.Show("Vehicle registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill employees table
@@ -316,6 +316,57 @@ namespace AvisSystem
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            textBox4.Text = textBox6.Text;
+        }
+
+        private void textBox8_Leave(object sender, EventArgs e)
+        {
+            textBox4.Text = textBox8.Text;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "SUV")
+            {
+                textBox5.Text = "800.00";
+            }
+            else if (textBox3.Text == "Van")
+            {
+                textBox5.Text = "650.00";
+            }else if (textBox3.Text == "HatchBack")
+            {
+                textBox5.Text = "550.00";
+            } else if(textBox3.Text == "Sedan")
+            {
+                textBox5.Text = "450.00";
+            } else if (textBox3.Text == "Toyota")
+            {
+                textBox5.Text = "400.00";
+            }else if (textBox3.Text == "Premium")
+            {
+                textBox5.Text = "1200.00";
+            }else if (textBox3.Text == "Luxury")
+            {
+                textBox5.Text = "1800.00";
+            }else
+            {
+                textBox5.Text = "400.00";
+            }
 
         }
     }
