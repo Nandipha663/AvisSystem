@@ -25,39 +25,12 @@ namespace AvisSystem
             InitializeComponent();
         }
 
-        
-        // This fires every time the form gets focus (user clicks on it)
-        private void UpdateVehicles_Activated(object sender, EventArgs e)
+
+
+        private void HighlightMostRecentVehicleUpdate()
         {
-            // Refresh data from database
-            this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
-
-            HighlightMostRecentVehicle();
-
-            
-        }
-
-       
-
-        private void HighlightMostRecentVehicle()
-        {
-
-            MessageBox.Show("Method is running");
-
             DateTime latestTime = DateTime.MinValue;
             DataGridViewRow latestRow = null;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                MessageBox.Show(
-                    row.Cells["LastUpdated"].Value?.ToString() ?? "NULL");
-            }
-
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                row.DefaultCellStyle.BackColor = Color.White;
-            }
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -81,7 +54,8 @@ namespace AvisSystem
                 latestRow.Selected = true;
                 latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
 
-                dataGridView1.FirstDisplayedScrollingRowIndex = latestRow.Index;
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    latestRow.Index;
             }
         }
 
@@ -99,24 +73,6 @@ namespace AvisSystem
             pictureBox3.Click += panel1_Click;
         }
 
-        private void HighlightVehicleRow()
-        {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells[0].Value != null &&
-                    row.Cells[0].Value.ToString() == HighlightVehicleVIN)
-                {
-                    row.DefaultCellStyle.BackColor = Color.LightGreen;
-
-                    dataGridView1.ClearSelection();
-                    row.Selected = true;
-
-                    dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-
-                    break;
-                }
-            }
-        }
         private void UpdateVehicles_Load(object sender, EventArgs e)
         {
 
@@ -124,10 +80,7 @@ namespace AvisSystem
             // TODO: This line of code loads data into the 'avisDS.VEHICLE' table. You can move, or remove it, as needed.
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
 
-            if (!string.IsNullOrEmpty(HighlightVehicleVIN))
-            {
-                HighlightVehicleRow();
-            }
+            HighlightMostRecentVehicleUpdate();
 
             fileToolStripMenuItem.Enabled = true;
             //viewUpdateVehicleToolStripMenuItem.Enabled = false;

@@ -62,6 +62,8 @@ namespace AvisSystem
             
         }
 
+
+        
         private void AddReservation_Load(object sender, EventArgs e)
         {
             // Set flag to true when loading starts
@@ -73,6 +75,9 @@ namespace AvisSystem
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
             // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
             this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
+
+           
+
             fileToolStripMenuItem.Enabled = true;
             addBookingToolStripMenuItem2.Enabled = false;
             loginToolStripMenuItem.Enabled = false;

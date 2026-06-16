@@ -25,14 +25,49 @@ namespace AvisSystem
 
         }
 
+        private void HighlightMostRecentBooking()
+        {
+            DateTime latestTime = DateTime.MinValue;
+            DataGridViewRow latestRow = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["LastUpdated"].Value != DBNull.Value)
+                {
+                    DateTime updateTime =
+                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
+
+                    if (updateTime > latestTime)
+                    {
+                        latestTime = updateTime;
+                        latestRow = row;
+                    }
+                }
+            }
+
+            if (latestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                latestRow.Selected = true;
+                latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    latestRow.Index;
+            }
+        }
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
 
-            dateTimePicker1.Enabled = true;
-            dateTimePicker2.Enabled = true;
+            dateTimePicker1.Enabled = false;
+            comboBox2.Enabled = false;
+            
 
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
             this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
+
+            HighlightMostRecentBooking();
+
             fileToolStripMenuItem.Enabled = true;
             viewUpdateBookingToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = false;
@@ -43,7 +78,7 @@ namespace AvisSystem
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //bOOKINGTableAdapter.FillByBookingID(avisDS.BOOKING, textBox1.Text);
-            bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, Text.Text);
+            bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox1.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,7 +88,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 bOOKINGBindingSource.EndEdit();
-                //bOOKINGTableAdapter.Update(avisDS.BOOKING);
+                bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
                 MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
@@ -155,7 +190,7 @@ namespace AvisSystem
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if(textBox1.Text == "🔍 Search Reservation...")
+            if(textBox1.Text == "🔍 Search for Booking...")
             {
                 textBox1.Text = "";
                 textBox1.ForeColor = Color.Black;
@@ -166,7 +201,7 @@ namespace AvisSystem
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                textBox1.Text = "🔍 Search Reservation...";
+                textBox1.Text = "🔍 Search for Booking...";
                 textBox1.ForeColor = Color.Gray;
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
@@ -218,12 +253,7 @@ namespace AvisSystem
                         MessageBox.Show("Please select a filter first.");
                         return;
                     }
-
-                    if (comboBox2.Text == "Reserved")
-                    {
-                        bOOKINGBindingSource.Filter = "Status = 'Reserved'";
-                    }
-                    else if (comboBox2.Text == "Completed")
+                    else if (comboBox2.Text == "Confirmed")
                     {
                         bOOKINGBindingSource.Filter = "Status = 'Completed'";
                     }
@@ -231,18 +261,11 @@ namespace AvisSystem
                     {
                         bOOKINGBindingSource.Filter = "Status = 'Pending'";
                     }
-                    else if (comboBox2.Text == "Rented Out")
-                    {
-                        bOOKINGBindingSource.Filter = "Status = 'Rented Out'";
-                    }
                     else if (comboBox2.Text == "Cancelled")
                     {
                         bOOKINGBindingSource.Filter = "Status = 'Cancelled'";
                     }
-                    else if (comboBox2.Text == "Overdue")
-                    {
-                        bOOKINGBindingSource.Filter = "Status = 'Overdue'";
-                    }
+                   
 
                 }
                 else if (comboBox1.Text == "Booking Date")
@@ -254,7 +277,7 @@ namespace AvisSystem
                 }
                 else if (comboBox1.Text == "Expected Return Date")
                 {
-                    DateTime date = dateTimePicker2.Value.Date;
+                    DateTime date = dateTimePicker1.Value.Date;
 
                     bOOKINGBindingSource.Filter =
                         $"ExpectedReturnDate >= '{date:yyyy-MM-dd}' AND ExpectedReturnDate < '{date.AddDays(1):yyyy-MM-dd}'";
@@ -309,22 +332,17 @@ namespace AvisSystem
             if (comboBox1.Text == "Status")
             {
                 comboBox2.Enabled = true;
-                comboBox2.Items.Add("Reserved");
+                dateTimePicker1.Enabled = false;
                 comboBox2.Items.Add("Completed");
                 comboBox2.Items.Add("Pending");
                 comboBox2.Items.Add("Cancelled");
-                comboBox2.Items.Add("Overdue");
+                
             }
-            else if (comboBox1.Text == "Booking Date")
+            else if (comboBox1.Text == "Booking Date"  || comboBox1.Text == "Expected return date")
             {
 
                 comboBox2.Enabled = false;
                 dateTimePicker1.Enabled = true;
-            }
-            else if (comboBox1.Text == "Expected return date")
-            {
-                comboBox2.Enabled = false;
-                dateTimePicker2.Enabled = true;
             }
             else
             {
@@ -346,7 +364,7 @@ namespace AvisSystem
                 comboBox2.Text = "";
                 comboBox2.Enabled = false;
                 dateTimePicker1.Enabled = false;
-                dateTimePicker2.Enabled = false;
+                
 
                 MessageBox.Show("Filters reset successfully.");
             }
@@ -365,7 +383,7 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            /*if (e.RowIndex >= 0)
             {
                 object value = dataGridView1.Rows[e.RowIndex].Cells[4].Value;
 
@@ -373,6 +391,16 @@ namespace AvisSystem
                 {
                     textBox2.Text = value.ToString();
                 }
+            }*/
+
+            try
+            {
+                textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
             }
         }
 
