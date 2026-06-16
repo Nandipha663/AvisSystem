@@ -252,11 +252,7 @@ namespace AvisSystem
                 comboBox2.Items.Add("Active");
                 comboBox2.Items.Add("Inactive");
             }
-            else if (comboBox1.Text == "Licence Code")
-            {
-                comboBox2.Items.Add("B");
-                comboBox2.Items.Add("C1");
-            }
+            
             else
             {
                 comboBox2.Items.Add("Select filter first");

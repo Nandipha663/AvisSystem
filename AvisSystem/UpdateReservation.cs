@@ -42,9 +42,8 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            bOOKINGTableAdapter.FillByBookingID(avisDS.BOOKING, textBox1.Text);
+            bOOKINGTableAdapter.FillByCustomerName(avisDS.BOOKING, textBox1.Text);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -366,12 +365,20 @@ namespace AvisSystem
         {
             if (e.RowIndex >= 0)
             {
-                object value = dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+                object value = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
 
                 if (value != null)
                 {
                     textBox2.Text = value.ToString();
                 }
+                object value2 = dataGridView1.Rows[e.RowIndex].Cells[7].Value;
+
+                   if (value2 != null)
+                {
+                    textBox3.Text = value2.ToString();
+                }
+
+
             }
         }
 
@@ -387,6 +394,11 @@ namespace AvisSystem
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

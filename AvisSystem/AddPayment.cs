@@ -37,6 +37,8 @@ namespace AvisSystem
 
         private void AddPayment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
+            this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
             fileToolStripMenuItem.Enabled = true;
 
             loginToolStripMenuItem.Enabled = false;
@@ -156,10 +158,11 @@ namespace AvisSystem
         {
             textBox2.Clear();
             comboBox1.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
-            comboBox3.SelectedIndex = -1;
+            textBox3.Text =""; ;
+
             //comboBox1.Text = "";
-            maskedTextBox2.Clear();
+            // maskedTextBox2.Clear();
+            textBox4.Clear();
             dateTimePicker1.ResetText();
         }
 
@@ -182,7 +185,7 @@ namespace AvisSystem
         {
             try
             {
-                vehicleTA.AddNewPayment(textBox2.Text, Convert.ToInt32(comboBox2.SelectedValue), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), Convert.ToDecimal(maskedTextBox2.Text), comboBox3.SelectedValue.ToString(), textBox1.Text.ToString());
+                //vehicleTA.AddNewPayment(textBox2.Text, Convert.ToInt32(comboBox2.SelectedValue), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), Convert.ToDecimal(maskedTextBox2.Text), comboBox3.SelectedValue.ToString(), textBox1.Text.ToString());
                 MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -225,6 +228,17 @@ namespace AvisSystem
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            bOOKINGTableAdapter.FillByCustomerName(avisDS.BOOKING, textBox2.Text);
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox3.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }
