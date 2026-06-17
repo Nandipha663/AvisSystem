@@ -49,10 +49,10 @@ namespace AvisSystem
             if (result == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                vEHICLE_RETURNTableAdapter.DeleteVehicleReturn(id);
+                //vehicleReturnDetailsTableAdapter.DeleteVehicleReturn(id);
 
                 MessageBox.Show("Vehicle return record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                vEHICLE_RETURNTableAdapter.Fill(avisDS.VEHICLE_RETURN);
+                //vehicleReturnDetailsTableAdapter.Fill(avisDS.VenhicleReturnDetails);
             }
             else
             {
@@ -81,19 +81,19 @@ namespace AvisSystem
 
         public void LoadVehiclesReturn()
         {
-            vEHICLE_RETURNTableAdapter.Fill(avisDS.VEHICLE_RETURN);
+            vehicleReturnDetailsTableAdapter.Fill(avisDS.VehicleReturnDetails);
         }
         private void UpdateRental_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'avisDS.VehicleReturnDetails' table. You can move, or remove it, as needed.
             this.vehicleReturnDetailsTableAdapter.Fill(this.avisDS.VehicleReturnDetails);
-            LoadVehiclesReturn();
+            //LoadVehiclesReturn();
 
             comboBox2.Enabled = false;
             dateTimePicker1.Enabled = false;
 
             // TODO: This line of code loads data into the 'avisDS.VEHICLE_RETURN' table. You can move, or remove it, as needed.
-            this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
+            //this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
             fileToolStripMenuItem.Enabled = true;
             viewUpdateRentalToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = false;
@@ -266,14 +266,16 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            vehicleReturnDetailsTableAdapter.FillByCustName(avisDS.VehicleReturnDetails, textBox1.Text);
+            if (textBox1.Text == "🔍 Search Returned Vehicles...")
+                return;
+                vehicleReturnDetailsTableAdapter.FillByCustName(avisDS.VehicleReturnDetails, textBox1.Text);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
             textBox1.Clear();
-            vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
+            vehicleReturnDetailsTableAdapter.Fill(this.avisDS.VehicleReturnDetails);
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -309,18 +311,18 @@ namespace AvisSystem
 
                     if (comboBox2.Text == "Normal Return")
                     {
-                        vEHICLERETURNBindingSource.Filter = "Charges = 0";
+                        vehicleReturnDetailsBindingSource.Filter = "Charges = 0";
                     }
                     else if (comboBox2.Text == "Damaged / Late Return")
                     {
-                        vEHICLERETURNBindingSource.Filter = "Charges > 0";
+                        vehicleReturnDetailsBindingSource.Filter = "Charges > 0";
                     }
                 }
                 else if (comboBox1.Text == "Return Date")
                 {
                     DateTime date = dateTimePicker1.Value.Date;
 
-                    vEHICLERETURNBindingSource.Filter =
+                    vehicleReturnDetailsBindingSource.Filter =
                         $"ReturnDate >= '{date:yyyy-MM-dd}' AND ReturnDate < '{date.AddDays(1):yyyy-MM-dd}'";
                 }
                 else
@@ -339,7 +341,7 @@ namespace AvisSystem
             try
             {
                 // Remove filter
-                vEHICLERETURNBindingSource.RemoveFilter();
+                vehicleReturnDetailsBindingSource.RemoveFilter();
 
                 // Reset ComboBoxes
                 comboBox1.SelectedIndex = -1;
@@ -358,7 +360,7 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MessageBox.Show("Row selected");
+            //MessageBox.Show("Row selected");
             textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             
@@ -384,6 +386,11 @@ namespace AvisSystem
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
         }
     }
 }

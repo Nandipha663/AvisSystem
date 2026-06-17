@@ -31,14 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateRental));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleReturnDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avisDS = new AvisSystem.AvisDS();
             this.vEHICLERETURNBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,6 +70,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -94,10 +90,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             this.vehicleReturnDetailsTableAdapter = new AvisSystem.AvisDSTableAdapters.VehicleReturnDetailsTableAdapter();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleReturnDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -121,6 +122,7 @@
             this.inspectionReportDataGridViewTextBoxColumn,
             this.chargesDataGridViewTextBoxColumn,
             this.VehicleDescription,
+            this.FullName,
             this.LastUpdated});
             this.dataGridView1.DataSource = this.vehicleReturnDetailsBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,71 +133,8 @@
             this.dataGridView1.Size = new System.Drawing.Size(1104, 347);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // returnIDDataGridViewTextBoxColumn
-            // 
-            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
-            this.returnIDDataGridViewTextBoxColumn.HeaderText = "ReturnID";
-            this.returnIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
-            this.returnIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // BranchName
-            // 
-            this.BranchName.DataPropertyName = "BranchName";
-            this.BranchName.HeaderText = "BranchName";
-            this.BranchName.MinimumWidth = 6;
-            this.BranchName.Name = "BranchName";
-            this.BranchName.Width = 150;
-            // 
-            // vehicleVinNoDataGridViewTextBoxColumn
-            // 
-            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // returnDateDataGridViewTextBoxColumn
-            // 
-            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
-            this.returnDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // inspectionReportDataGridViewTextBoxColumn
-            // 
-            this.inspectionReportDataGridViewTextBoxColumn.DataPropertyName = "Inspection Report";
-            this.inspectionReportDataGridViewTextBoxColumn.HeaderText = "Inspection Report";
-            this.inspectionReportDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.inspectionReportDataGridViewTextBoxColumn.Name = "inspectionReportDataGridViewTextBoxColumn";
-            this.inspectionReportDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // chargesDataGridViewTextBoxColumn
-            // 
-            this.chargesDataGridViewTextBoxColumn.DataPropertyName = "Charges";
-            this.chargesDataGridViewTextBoxColumn.HeaderText = "Charges";
-            this.chargesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.chargesDataGridViewTextBoxColumn.Name = "chargesDataGridViewTextBoxColumn";
-            this.chargesDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // VehicleDescription
-            // 
-            this.VehicleDescription.DataPropertyName = "VehicleDescription";
-            this.VehicleDescription.HeaderText = "VehicleDescription";
-            this.VehicleDescription.MinimumWidth = 6;
-            this.VehicleDescription.Name = "VehicleDescription";
-            this.VehicleDescription.Width = 150;
-            // 
-            // LastUpdated
-            // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "LastUpdated";
-            this.LastUpdated.MinimumWidth = 6;
-            this.LastUpdated.Name = "LastUpdated";
-            this.LastUpdated.Width = 125;
             // 
             // vehicleReturnDetailsBindingSource
             // 
@@ -593,6 +532,50 @@
             this.groupBox2.Text = "Update Rental";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Green;
+            this.label9.Location = new System.Drawing.Point(959, 17);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 32);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Summary";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(-5, 151);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(299, 38);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Inspection Report:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 95);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(158, 38);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Charges:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(335, 153);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(512, 37);
+            this.textBox3.TabIndex = 15;
+            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -776,49 +759,77 @@
             // 
             this.vehicleReturnDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox3
+            // returnIDDataGridViewTextBoxColumn
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(335, 153);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(512, 37);
-            this.textBox3.TabIndex = 15;
+            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.HeaderText = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
+            this.returnIDDataGridViewTextBoxColumn.Width = 125;
             // 
-            // label7
+            // BranchName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 95);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 39);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Charges:";
+            this.BranchName.DataPropertyName = "BranchName";
+            this.BranchName.HeaderText = "BranchName";
+            this.BranchName.MinimumWidth = 6;
+            this.BranchName.Name = "BranchName";
+            this.BranchName.Width = 150;
             // 
-            // label8
+            // vehicleVinNoDataGridViewTextBoxColumn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(-5, 151);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(311, 39);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Inspection Report:";
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 150;
             // 
-            // label9
+            // returnDateDataGridViewTextBoxColumn
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Green;
-            this.label9.Location = new System.Drawing.Point(959, 17);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 32);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Summary";
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            this.returnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // inspectionReportDataGridViewTextBoxColumn
+            // 
+            this.inspectionReportDataGridViewTextBoxColumn.DataPropertyName = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.HeaderText = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.inspectionReportDataGridViewTextBoxColumn.Name = "inspectionReportDataGridViewTextBoxColumn";
+            this.inspectionReportDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // chargesDataGridViewTextBoxColumn
+            // 
+            this.chargesDataGridViewTextBoxColumn.DataPropertyName = "Charges";
+            this.chargesDataGridViewTextBoxColumn.HeaderText = "Charges";
+            this.chargesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.chargesDataGridViewTextBoxColumn.Name = "chargesDataGridViewTextBoxColumn";
+            this.chargesDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // VehicleDescription
+            // 
+            this.VehicleDescription.DataPropertyName = "VehicleDescription";
+            this.VehicleDescription.HeaderText = "VehicleDescription";
+            this.VehicleDescription.MinimumWidth = 6;
+            this.VehicleDescription.Name = "VehicleDescription";
+            this.VehicleDescription.Width = 150;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "FullName";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.Width = 125;
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "LastUpdated";
+            this.LastUpdated.MinimumWidth = 6;
+            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.Width = 125;
             // 
             // UpdateRental
             // 
@@ -920,6 +931,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vEHICLE_RETURNTableAdapter;
+        private System.Windows.Forms.BindingSource vehicleReturnDetailsBindingSource;
+        private AvisDSTableAdapters.VehicleReturnDetailsTableAdapter vehicleReturnDetailsTableAdapter;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
@@ -927,12 +944,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inspectionReportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
-        private System.Windows.Forms.BindingSource vehicleReturnDetailsBindingSource;
-        private AvisDSTableAdapters.VehicleReturnDetailsTableAdapter vehicleReturnDetailsTableAdapter;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
     }
 }
