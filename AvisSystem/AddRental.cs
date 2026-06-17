@@ -103,7 +103,7 @@ namespace AvisSystem
 
             vehicleTA.Fill(dt);
 
-            ConfigureComboBox1();
+            //ConfigureComboBox1();
 
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
@@ -150,7 +150,7 @@ namespace AvisSystem
 
         private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                UpdateVehicles newUpdateVehicles = new UpdateVehicles();                this.Hide();
+                UpdateVehicles newUpdateVehicles = new UpdateVehicles();
                 newUpdateVehicles.Show();
                 this.Hide();
         }
@@ -190,10 +190,14 @@ namespace AvisSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            textBox1.Clear();
+            textBox2.Clear();
             textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox7.Clear();
            // maskedTextBox2.Clear();
-            comboBox1.SelectedIndex = -1;
+            //comboBox1.SelectedIndex = -1;
             dateTimePicker1.ResetText();
 
         }
@@ -239,7 +243,7 @@ namespace AvisSystem
         {
             try
             {
-               // vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
+                vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(textBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text, Convert.ToDecimal(textBox4.Text), textBox2.Text, textBox7.Text, textBox5.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill employees table
@@ -299,7 +303,7 @@ namespace AvisSystem
             this.Hide();
         }
 
-        private void ConfigureComboBox1()
+       /* private void ConfigureComboBox1()
         {
             // Create filtered views for dropoff branches (only where dropOffAvailable = 'Yes')
             DataView dropoffBranchesView = new DataView(this.avisDS.BRANCH);
@@ -310,7 +314,7 @@ namespace AvisSystem
             comboBox1.DisplayMember = "branchName";
             comboBox1.ValueMember = "BranchID";
             comboBox1.SelectedIndex = -1;
-        }
+        }*/
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -323,17 +327,23 @@ namespace AvisSystem
         }
 
         private bool bookingSelected = false;
+
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
+            //MessageBox.Show("Booking selected! Please choose the return date to calculate any extra charges if applicable.", "Booking Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bookingSelected = false;
             textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox7.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
             string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            string description =
-            vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
 
+            string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
             textBox5.Text = description;
+
+            textBox4.Clear();
+            dateTimePicker1.Value = DateTime.Today;
 
             bookingSelected = true;
         }
@@ -386,6 +396,30 @@ namespace AvisSystem
                 return;
 
             CalculateExtraCharge();
+        }
+
+        private void textBox6_TextChanged_1(object sender, EventArgs e)
+        {
+            bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox6.Text);
+        }
+
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "🔍 Search for Booking...")
+            {
+                textBox6.Text = "";
+                textBox6.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox6.Text))
+            {
+                textBox6.Text = "🔍 Search for Booking...";
+                textBox6.ForeColor = Color.Gray;
+                textBox6.Font = new Font(textBox6.Font, FontStyle.Italic);
+            }
         }
     }
     

@@ -108,7 +108,7 @@
     <Compile Include="AvisDS.cs">
       <DependentUpon>AvisDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AvisDS.Designer.cs">
+    <Compile Include="AvisDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AvisDS.xsd</DependentUpon>
