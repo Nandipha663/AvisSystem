@@ -8,6 +8,7 @@ namespace AvisSystem
 {
     internal static class UserSession
     {
+        //public static string SelectedVehicleVIN { get; set; }
         public static int EmployeeID { get; set; }
         public static string FullName { get; set; }
         public static string Position { get; set; }

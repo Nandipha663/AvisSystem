@@ -76,8 +76,6 @@ namespace AvisSystem
             // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
             this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
 
-           
-
             fileToolStripMenuItem.Enabled = true;
             addBookingToolStripMenuItem2.Enabled = false;
             loginToolStripMenuItem.Enabled = false;
@@ -291,6 +289,7 @@ private void label2_Click(object sender, EventArgs e)
 
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            //UserSession.SelectedVehicleVIN = dataGridView1.CurrentRow.Cells["VehicleDescription"].Value.ToString();
 
             try
             {
