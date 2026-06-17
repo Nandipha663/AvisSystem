@@ -247,6 +247,7 @@ namespace AvisSystem
                 vehicleTableAdapter1.UpdateVehicleStatus("Available", textBox2.Text);
 
                 //update the status of the booking to "Completed"
+                bOOKINGTableAdapter.UpdateStatusBooking("Completed", Convert.ToInt32(textBox1.Text));
 
                 vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(textBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text, Convert.ToDecimal(textBox4.Text), textBox2.Text, textBox7.Text, textBox5.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -335,22 +336,32 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
             //MessageBox.Show("Booking selected! Please choose the return date to calculate any extra charges if applicable.", "Booking Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bookingSelected = false;
-            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            textBox7.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            if (status == "Pending" ||  status == "Completed"  ||  status == "Cancelled")
+            {
+                MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
+                               "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-            string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
-            textBox5.Text = description;
+                string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
+                textBox5.Text = description;
 
-            textBox4.Clear();
-            dateTimePicker1.Value = DateTime.Today;
+                textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                textBox7.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            bookingSelected = true;
+                textBox4.Clear();
+                dateTimePicker1.Value = DateTime.Today;
+
+                bookingSelected = true;
+            }   
         }
 
 
