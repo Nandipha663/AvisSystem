@@ -33,7 +33,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,11 +85,11 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -108,7 +107,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.returnIDDataGridViewTextBoxColumn,
             this.bookingIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
             this.returnDateDataGridViewTextBoxColumn,
             this.inspectionReportDataGridViewTextBoxColumn,
             this.chargesDataGridViewTextBoxColumn,
@@ -133,12 +131,6 @@
             this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
             this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
             this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
             // 
             // returnDateDataGridViewTextBoxColumn
             // 
@@ -657,10 +649,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 22;
             // 
-            // vEHICLE_RETURNTableAdapter
-            // 
-            this.vEHICLE_RETURNTableAdapter.ClearBeforeFill = true;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -707,6 +695,10 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // vEHICLE_RETURNTableAdapter
+            // 
+            this.vEHICLE_RETURNTableAdapter.ClearBeforeFill = true;
             // 
             // UpdateRental
             // 
@@ -799,7 +791,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewUpdateEmployeeToolStripMenuItem;
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource vEHICLERETURNBindingSource;
-        private AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vEHICLE_RETURNTableAdapter;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
@@ -812,5 +803,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vEHICLE_RETURNTableAdapter;
     }
 }

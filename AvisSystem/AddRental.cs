@@ -84,6 +84,15 @@ namespace AvisSystem
         private void AddRental_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
+
+
+
+
+
+
+
+
+
             this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
             this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
@@ -230,7 +239,7 @@ namespace AvisSystem
         {
             try
             {
-                //vehicleTA.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
+               // vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(comboBox2.Text), Convert.ToInt32(comboBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text.ToString(), Convert.ToDecimal(maskedTextBox2.Text),comboBox3.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill employees table
@@ -313,29 +322,70 @@ namespace AvisSystem
 
         }
 
+        private bool bookingSelected = false;
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            bookingSelected = false;
             textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-            //vehicle description
-            //get the vehicle decription form the vehicle table
+            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            string description =
+            vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
+
+            textBox5.Text = description;
+
+            bookingSelected = true;
+        }
+
+
+        private void CalculateExtraCharge()
+        {
+            DateTime expectedReturnDate =
+                Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+
+            DateTime actualReturnDate =
+                dateTimePicker1.Value.Date;
+
+            int lateDays =
+                (actualReturnDate - expectedReturnDate).Days;
+
+            string vin =
+                dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            string category = vehicleTableAdapter1.GetCatByVIN(vin).ToString();
+
+            decimal penaltyPerDay = 0;
+
+            if (category == "SUV")
+                penaltyPerDay = 800;
+            else if (category == "Van")
+                penaltyPerDay = 650;
+            else if (category == "Hatchback")
+                penaltyPerDay = 450;
+            else if (category == "Sedan")
+                penaltyPerDay = 550;
+            else if (category == "Premium")
+                penaltyPerDay = 1200;
+            else if (category == "Luxury")
+                penaltyPerDay = 1800;
+            else if (category == "Compact")
+                penaltyPerDay = 350;
+            else
+                penaltyPerDay = 400;
+
+            decimal extraCharge =
+                lateDays > 0 ? lateDays * penaltyPerDay : 0;
+
+            textBox4.Text = extraCharge.ToString("0.00");
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            DateTime expectedReturnDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["ExpectedReturnDate"].Value);
+            if (!bookingSelected)
+                return;
 
-            DateTime actualReturnDate = dateTimePicker1.Value.Date;
-
-            int lateDays = (actualReturnDate - expectedReturnDate).Days;
-
-            decimal penaltyPerDay = 500;
-            decimal extraCharge = lateDays > 0
-                ? lateDays * penaltyPerDay
-                : 0;
-
-            textBox4.Text = extraCharge.ToString("0.00");
+            CalculateExtraCharge();
         }
     }
     
