@@ -77,7 +77,6 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //bOOKINGTableAdapter.FillByBookingID(avisDS.BOOKING, textBox1.Text);
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox1.Text);
         }
 

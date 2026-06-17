@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -185,9 +186,19 @@ namespace AvisSystem
         {
             try
             {
-                //vehicleTA.AddNewPayment(textBox2.Text, Convert.ToInt32(comboBox2.SelectedValue), comboBox2.SelectedValue.ToString(), dateTimePicker1.Value.ToString("yyyy-MM-dd"), Convert.ToDecimal(maskedTextBox2.Text), comboBox3.SelectedValue.ToString(), textBox1.Text.ToString());
-                MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                decimal amount;
+                amount= decimal.Parse(textBox4.Text);
 
+                paymentTableAdapter1.AddNewPayment(Convert.ToInt32(textBox3.Text), comboBox1.Text, dateTimePicker1.Value.ToString("yyyy-MM-dd"), amount, textBox1.Text, textBox5.Text);
+                
+                string vvn = dataGridView1.CurrentRow.Cells[3].Value.ToString(); // Get the selected vehicle vin
+                                                                                  // Find the Booking form and set the pending highlight
+                VEHICLETableAdapter vehAdapt = new VEHICLETableAdapter();
+                vehAdapt.UpdateStatusandTime(vvn);
+
+                int bookingid = Convert.ToInt32(textBox3.Text); // Get the selected booking ID)
+                bOOKINGTableAdapter.UpdateBookingStatus(bookingid); // Update the booking status to "Completed"
+                MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Refill Payment table
                 UpdatePayment pay = Application.OpenForms["UpdatePayment"] as UpdatePayment;
@@ -232,13 +243,24 @@ namespace AvisSystem
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-            bOOKINGTableAdapter.FillByCustomerName(avisDS.BOOKING, textBox2.Text);
+            bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox2.Text);
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBox3.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+           
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            textBox5.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString(); 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox2.Text);
         }
     }
 }

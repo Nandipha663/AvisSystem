@@ -276,14 +276,7 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) ||
-                textBox1.Text == "🔍 Search Payment...")
-            {
-                pAYMENTTableAdapter.Fill(avisDS.PAYMENT);
-                return;
-            }
-
-            pAYMENTTableAdapter.FillByBookingID(avisDS.PAYMENT, textBox1.Text);
+            pAYMENTTableAdapter.FillByCustomerName(avisDS.PAYMENT, textBox1.Text);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,15 +337,8 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                object value = dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-
-                if (value != null)
-                {
-                    textBox2.Text = value.ToString();
-                }
-            }
+            textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -377,6 +363,7 @@ namespace AvisSystem
         {
             textBox1.Text  = "🔍 Search Payment...";
             textBox2.Clear();
+            textBox3.Clear();
 
             // Reset ComboBoxes
             comboBox1.SelectedIndex = -1;
@@ -635,6 +622,11 @@ namespace AvisSystem
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
