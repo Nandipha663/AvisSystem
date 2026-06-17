@@ -1,4 +1,5 @@
 ﻿using AvisSystem.AvisDSTableAdapters;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,6 +85,8 @@ namespace AvisSystem
         }
         private void UpdateRental_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS.VehicleReturnDetails' table. You can move, or remove it, as needed.
+            this.vehicleReturnDetailsTableAdapter.Fill(this.avisDS.VehicleReturnDetails);
             LoadVehiclesReturn();
 
             comboBox2.Enabled = false;
@@ -185,7 +188,7 @@ namespace AvisSystem
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (textBox1.Text == "🔍 Search Rental...")
+            if (textBox1.Text == "🔍 Search Returned Vehicles...")
             {
                 textBox1.Text = "";
                 textBox1.ForeColor = Color.Black;
@@ -196,7 +199,7 @@ namespace AvisSystem
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                textBox1.Text = "🔍 Search Rental...";
+                textBox1.Text = "🔍 Search Returned Vehicles...";
                 textBox1.ForeColor = Color.Gray;
                 textBox1.Font = new Font(textBox1.Font, FontStyle.Italic);
             }
@@ -263,14 +266,7 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) ||
-                textBox1.Text == "🔍 Search Rental...")
-            {
-                vEHICLE_RETURNTableAdapter.Fill(avisDS.VEHICLE_RETURN);
-                return;
-            }
-
-            //vEHICLE_RETURNTableAdapter.FillByBookingID(avisDS.VEHICLE_RETURN,textBox1.Text);
+            vehicleReturnDetailsTableAdapter.FillByCustName(avisDS.VehicleReturnDetails, textBox1.Text);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -288,7 +284,7 @@ namespace AvisSystem
                 comboBox2.Enabled = true;
                 comboBox2.Items.Add("Normal Return");
                 comboBox2.Items.Add("Damaged / Late Return");
-            }else if (comboBox1.Text == "Date") {
+            }else if (comboBox1.Text == "Return Date") {
 
                 comboBox2.Enabled = false;
                 dateTimePicker1.Enabled = true; 
@@ -320,7 +316,7 @@ namespace AvisSystem
                         vEHICLERETURNBindingSource.Filter = "Charges > 0";
                     }
                 }
-                else if (comboBox1.Text == "Date")
+                else if (comboBox1.Text == "Return Date")
                 {
                     DateTime date = dateTimePicker1.Value.Date;
 
@@ -362,15 +358,10 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                object value = dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-
-                if (value != null)
-                {
-                    textBox2.Text = value.ToString();
-                }
-            }
+            MessageBox.Show("Row selected");
+            textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
