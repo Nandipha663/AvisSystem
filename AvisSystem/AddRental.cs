@@ -243,6 +243,11 @@ namespace AvisSystem
         {
             try
             {
+                //UPDATE VEHICLE STATUS
+                vehicleTableAdapter1.UpdateVehicleStatus("Available", textBox2.Text);
+
+                //update the status of the booking to "Completed"
+
                 vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(textBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text, Convert.ToDecimal(textBox4.Text), textBox2.Text, textBox7.Text, textBox5.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
