@@ -634,7 +634,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -670,7 +670,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
-            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.manageCustomerToolStripMenuItem.Text = "👥 Manage Customers";
             // 
             // addCustomerToolStripMenuItem
@@ -696,7 +696,7 @@
             this.viewUpdateRentalToolStripMenuItem1});
             this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(243, 34);
+            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(305, 34);
             this.manageRentalsToolStripMenuItem1.Text = "📅 Manage Bookings";
             this.manageRentalsToolStripMenuItem1.Click += new System.EventHandler(this.manageRentalsToolStripMenuItem1_Click);
             // 
@@ -723,23 +723,23 @@
             this.viewUpdateRentalToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Returned Vehicles";
             // 
             // addRentalToolStripMenuItem
             // 
             this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
+            this.addRentalToolStripMenuItem.Text = "Add Returned Vehicle";
             this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
             // 
             // viewUpdateRentalToolStripMenuItem
             // 
             this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
-            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
+            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Returned Vehicles";
             this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
             // manageVehiclesToolStripMenuItem
@@ -749,7 +749,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -775,7 +775,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payments";
             // 
             // addPaymentToolStripMenuItem
@@ -801,7 +801,7 @@
             this.updateClaimToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addClaimToolStripMenuItem
@@ -828,16 +828,16 @@
             this.updateBranchToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.manageBranchesToolStripMenuItem.Text = "🏛️ Branches";
             // 
             // updateBranchToolStripMenuItem
             // 
             this.updateBranchToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.updateBranchToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.updateBranchToolStripMenuItem.Name = "updateBranchToolStripMenuItem";
-            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(308, 34);
-            this.updateBranchToolStripMenuItem.Text = "View/Update Branches";
+            this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.updateBranchToolStripMenuItem.Text = "View Active Branches";
             this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
             // menuStrip1
@@ -858,7 +858,7 @@
             this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(256, 609);
+            this.menuStrip1.Size = new System.Drawing.Size(327, 609);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -870,7 +870,7 @@
             this.viewUpdateEmployeesToolStripMenuItem});
             this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
             // 
             // signUpEmployeeToolStripMenuItem

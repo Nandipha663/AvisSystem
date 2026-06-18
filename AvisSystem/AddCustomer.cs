@@ -282,5 +282,19 @@ namespace AvisSystem
         {
             cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox3.Text, comboBox1.Text, textBox12.Text, textBox13.Text);              MessageBox.Show("Customer added successfully!");
         }
+
+        private void signUpNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            signUp.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateEmplToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            manageEmp.Show();
+            this.Hide();
+        }
     }
 }

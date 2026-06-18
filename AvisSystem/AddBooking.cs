@@ -52,7 +52,7 @@ namespace AvisSystem
             comboBox4.SelectedIndex = -1;
 
             // Reset date pickers
-            dateTimePicker1.Value = DateTime.Now;
+            textBox4.Clear();
             dateTimePicker2.Value = DateTime.Now;
             dateTimePicker3.Value = DateTime.Now;
 
@@ -77,6 +77,8 @@ namespace AvisSystem
             this.vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
             // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
             this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
+
+            textBox4.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
             fileToolStripMenuItem.Enabled = true;
             addBookingToolStripMenuItem2.Enabled = false;
@@ -385,7 +387,7 @@ private void label2_Click(object sender, EventArgs e)
     Convert.ToInt32(textBox10.Text),
     textBox2.Text,
     textBox9.Text,
-    dateTimePicker1.Value, 
+    DateTime.Parse(textBox4.Text),
     dateTimePicker2.Value, 
     dateTimePicker3.Value,  
     comboBox4.Text,  
@@ -537,6 +539,18 @@ private void label2_Click(object sender, EventArgs e)
             //textBox5.Clear();
         }
 
+        private void signUpNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUp = new SignUpForm();
+            signUp.Show();
+            this.Hide();
+        }
 
+        private void viewUpdateEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageEmployee manageEmp = new ManageEmployee();
+            manageEmp.Show();
+            this.Hide();
+        }
     }
 }

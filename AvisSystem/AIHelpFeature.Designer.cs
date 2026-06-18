@@ -88,7 +88,7 @@
             this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(256, 474);
+            this.menuStrip1.Size = new System.Drawing.Size(325, 474);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,7 +100,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -136,7 +136,7 @@
             this.viewUpdateCustomerToolStripMenuItem});
             this.manageTransactionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageTransactionsToolStripMenuItem.Name = "manageTransactionsToolStripMenuItem";
-            this.manageTransactionsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageTransactionsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.manageTransactionsToolStripMenuItem.Text = "👥  Manage Customer";
             // 
             // addPaymentToolStripMenuItem
@@ -162,7 +162,7 @@
             this.viewUpdateBookingToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
             // 
             // addBookingToolStripMenuItem
@@ -188,23 +188,23 @@
             this.viewUpdateRentalStatusToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Rentals";
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Returned vehicles";
             // 
             // addRentalToolStripMenuItem
             // 
             this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(348, 34);
-            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
+            this.addRentalToolStripMenuItem.Text = "Add Returned Vehicle";
             this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
             // 
             // viewUpdateRentalStatusToolStripMenuItem
             // 
             this.viewUpdateRentalStatusToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.viewUpdateRentalStatusToolStripMenuItem.Name = "viewUpdateRentalStatusToolStripMenuItem";
-            this.viewUpdateRentalStatusToolStripMenuItem.Size = new System.Drawing.Size(348, 34);
-            this.viewUpdateRentalStatusToolStripMenuItem.Text = "View/Update Rental Status";
+            this.viewUpdateRentalStatusToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
+            this.viewUpdateRentalStatusToolStripMenuItem.Text = "View/Update Returned Vehicles";
             this.viewUpdateRentalStatusToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalStatusToolStripMenuItem_Click);
             // 
             // manageVehiclesToolStripMenuItem
@@ -214,7 +214,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -240,7 +240,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payment";
             this.processPaymentToolStripMenuItem.Click += new System.EventHandler(this.processPaymentToolStripMenuItem_Click);
             // 
@@ -267,7 +267,7 @@
             this.viewUpdateClaimsToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addNewClaimToolStripMenuItem
@@ -292,15 +292,15 @@
             this.viewUpdateBranchesToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
-            this.manageBranchesToolStripMenuItem.Text = "🏛️ Manage Branches";
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageBranchesToolStripMenuItem.Text = "🏛️ Branches";
             // 
             // viewUpdateBranchesToolStripMenuItem
             // 
             this.viewUpdateBranchesToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.viewUpdateBranchesToolStripMenuItem.Name = "viewUpdateBranchesToolStripMenuItem";
-            this.viewUpdateBranchesToolStripMenuItem.Size = new System.Drawing.Size(308, 34);
-            this.viewUpdateBranchesToolStripMenuItem.Text = "View/Update Branches";
+            this.viewUpdateBranchesToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.viewUpdateBranchesToolStripMenuItem.Text = "View Active Branches";
             this.viewUpdateBranchesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBranchesToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
@@ -310,7 +310,7 @@
             this.viewUpdateEmployeeToolStripMenuItem});
             this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
             // 
             // signUpEmployeeToolStripMenuItem
@@ -336,13 +336,14 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(256, 0);
+            this.panel1.Location = new System.Drawing.Point(325, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(722, 79);
+            this.panel1.Size = new System.Drawing.Size(653, 79);
             this.panel1.TabIndex = 5;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
@@ -354,6 +355,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
@@ -365,6 +367,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(55, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -379,9 +382,9 @@
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(256, 421);
+            this.panel3.Location = new System.Drawing.Point(325, 421);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(722, 53);
+            this.panel3.Size = new System.Drawing.Size(653, 53);
             this.panel3.TabIndex = 6;
             // 
             // textBox1
@@ -394,7 +397,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(583, 50);
+            this.textBox1.Size = new System.Drawing.Size(514, 50);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Type your question here...";
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
@@ -407,7 +410,7 @@
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(585, 3);
+            this.button1.Location = new System.Drawing.Point(516, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 50);
             this.button1.TabIndex = 0;
@@ -421,9 +424,9 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(256, 79);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(325, 79);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(722, 342);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(653, 342);
             this.flowLayoutPanel1.TabIndex = 7;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);

@@ -262,5 +262,10 @@ namespace AvisSystem
         {
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox2.Text);
         }
+
+        private void manageRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
