@@ -230,6 +230,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(290, 31);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "🔍 Search Payments...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
@@ -508,7 +509,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(260, 374);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(830, 208);
+            this.groupBox2.Size = new System.Drawing.Size(830, 188);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Transaction";
@@ -518,6 +519,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(230, 109);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(266, 26);
             this.textBox3.TabIndex = 8;
             // 
@@ -544,13 +546,14 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(609, 98);
+            this.button2.Location = new System.Drawing.Point(609, 36);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 45);
+            this.button2.Size = new System.Drawing.Size(211, 79);
             this.button2.TabIndex = 5;
             this.button2.Text = "Generate Invoice";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
@@ -560,7 +563,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(20, 154);
+            this.button3.Location = new System.Drawing.Point(20, 134);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 54);
             this.button3.TabIndex = 4;
@@ -575,7 +578,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(609, 149);
+            this.button1.Location = new System.Drawing.Point(609, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 53);
             this.button1.TabIndex = 2;
@@ -588,18 +591,19 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(230, 56);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(266, 31);
             this.textBox2.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 20);
+            this.label2.Size = new System.Drawing.Size(250, 31);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Selected Payment:";
+            this.label2.Text = "Selected Payment";
             // 
             // label3
             // 
@@ -692,10 +696,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(705, 80);
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(579, 80);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(326, 20);
             this.dateTimePicker1.TabIndex = 23;
             // 
             // pAYMENTTableAdapter
