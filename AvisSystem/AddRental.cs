@@ -340,32 +340,32 @@ namespace AvisSystem
         {
             //MessageBox.Show("Booking selected! Please choose the return date to calculate any extra charges if applicable.", "Booking Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bookingSelected = false;
-            if (textBox6.Text == "🔍 Search for Booking...")
-                return;
-
+            if (textBox6.Text == "🔍 Search for Booking..."  || textBox6.Text != "🔍 Search for Booking...")
+            {
                 string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-            if (status == "Pending" ||  status == "Completed"  ||  status == "Cancelled")
-            {
-                MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
-                               "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                if (status == "Pending" || status == "Completed" || status == "Cancelled")
+                {
+                    MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
+                                   "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-                string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
-                textBox5.Text = description;
+                    string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
+                    textBox5.Text = description;
 
-                textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                textBox7.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    textBox2.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    textBox7.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-                textBox4.Clear();
-                dateTimePicker1.Value = DateTime.Today;
+                    textBox4.Clear();
+                    dateTimePicker1.Value = DateTime.Today;
 
-                bookingSelected = true;
-            }   
+                    bookingSelected = true;
+                }
+            }       
         }
 
 

@@ -12828,18 +12828,19 @@ SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVin
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"INSERT INTO [VEHICLE RETURN]
-                         (BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, LastUpdated, BranchName, VehicleDescription, LastUpdated)
-VALUES        (@BookingID,@ReturnDate,@Inspection_Report,@Charges,@VehicleVinNo, GETDATE(),@BranchName,@VehicleDescription);  
+                         (BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated)
+VALUES        (@BookingID,@ReturnDate,@Inspection_Report,@Charges,@VehicleVinNo,@BranchName,@VehicleDescription, GETDATE()); 
 
 
 
 SELECT ReturnID,
        BookingID,
-       BranchID,
        ReturnDate,
        [Inspection Report],
        Charges,
        VehicleVinNo,
+       BranchName,
+       VehicleDescription,
        LastUpdated
 FROM [VEHICLE RETURN]
 WHERE ReturnID = SCOPE_IDENTITY()";

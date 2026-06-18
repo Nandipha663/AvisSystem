@@ -108,7 +108,7 @@
     <Compile Include="AvisDS.cs">
       <DependentUpon>AvisDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AvisDS1.Designer.cs">
+    <Compile Include="AvisDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AvisDS.xsd</DependentUpon>
@@ -274,6 +274,7 @@
     <None Include="AvisDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>AvisDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="AvisDS.xss">
       <DependentUpon>AvisDS.xsd</DependentUpon>
