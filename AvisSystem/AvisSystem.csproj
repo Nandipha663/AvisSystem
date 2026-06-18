@@ -274,7 +274,6 @@
     <None Include="AvisDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>AvisDS1.Designer.cs</LastGenOutput>
     </None>
     <None Include="AvisDS.xss">
       <DependentUpon>AvisDS.xsd</DependentUpon>
