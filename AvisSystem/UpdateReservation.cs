@@ -320,6 +320,7 @@ namespace AvisSystem
             textBox1.Text = "🔍 Search Reservation...";
             textBox1.ForeColor = Color.Gray;
             textBox2.Clear();
+            textBox3.Clear();
             bOOKINGTableAdapter.Fill(avisDS.BOOKING);
 
         }
@@ -363,6 +364,8 @@ namespace AvisSystem
                 comboBox2.Text = "";
                 comboBox2.Enabled = false;
                 dateTimePicker1.Enabled = false;
+                textBox2.Clear();
+                textBox3.Clear();
                 
 
                 MessageBox.Show("Filters reset successfully.");
@@ -391,9 +394,11 @@ namespace AvisSystem
                     textBox2.Text = value.ToString();
                 }
             }*/
-
-            try
+            if (textBox1.Text == "🔍 Search for Booking...")
+                return;
+                try
             {
+
                 textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             }
