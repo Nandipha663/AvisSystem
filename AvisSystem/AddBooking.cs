@@ -38,6 +38,8 @@ namespace AvisSystem
         {
             isFormLoading = true;  // Prevent events during clearing
 
+            textBox2.Clear();
+            textBox3.Clear();
             textBox9.Clear();
             textBox10.Clear();
             textBox1.Clear();
