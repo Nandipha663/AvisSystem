@@ -20,10 +20,42 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
+        private void HighlightNewestCustomer()
+        {
+            int highestID = 0;
+            DataGridViewRow newestRow = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+
+                    if (id > highestID)
+                    {
+                        highestID = id;
+                        newestRow = row;
+                    }
+                }
+            }
+
+            if (newestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                newestRow.Selected = true;
+                newestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    newestRow.Index;
+            }
+        }
         private void ManageCustomers_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'avisDS.CUSTOMER' table. You can move, or remove it, as needed.
             this.cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
+
+            HighlightNewestCustomer();
             fileToolStripMenuItem.Enabled = true;
             viewUpdateCustomerToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = false;

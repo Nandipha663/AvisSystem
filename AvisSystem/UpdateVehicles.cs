@@ -115,7 +115,9 @@ namespace AvisSystem
 
         private void viewUpdateVehicleStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            UpdateVehicles vehicle = new UpdateVehicles();
+            vehicle.Show();
+            this.Hide();
         }
 
         private void manageCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,12 +162,14 @@ namespace AvisSystem
 
         private void addVehicleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+            AddRental rental = new AddRental();
+            rental.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateVehicles newUpdateVehicles = new UpdateVehicles();
+            UpdateRental newUpdateVehicles = new UpdateRental();
             newUpdateVehicles.Show();
             this.Hide();
         }

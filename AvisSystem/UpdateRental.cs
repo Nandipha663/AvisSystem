@@ -83,11 +83,46 @@ namespace AvisSystem
         {
             vehicleReturnDetailsTableAdapter.Fill(avisDS.VehicleReturnDetails);
         }
+
+        private void HighlightMostRecentReturnedVehicleUpdate()
+        {
+            DateTime latestTime = DateTime.MinValue;
+            DataGridViewRow latestRow = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["LastUpdated"].Value != DBNull.Value)
+                {
+                    DateTime updateTime =
+                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
+
+                    if (updateTime > latestTime)
+                    {
+                        latestTime = updateTime;
+                        latestRow = row;
+                    }
+                }
+            }
+
+            if (latestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                latestRow.Selected = true;
+                latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    latestRow.Index;
+                
+            }
+        }
         private void UpdateRental_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'avisDS.VehicleReturnDetails' table. You can move, or remove it, as needed.
             this.vehicleReturnDetailsTableAdapter.Fill(this.avisDS.VehicleReturnDetails);
             //LoadVehiclesReturn();
+
+            HighlightMostRecentReturnedVehicleUpdate();
 
             comboBox2.Enabled = false;
             dateTimePicker1.Enabled = false;
@@ -266,6 +301,10 @@ namespace AvisSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+                return;
+
             if (textBox1.Text == "🔍 Search Returned Vehicles...")
                 return;
                 vehicleReturnDetailsTableAdapter.FillByCustName(avisDS.VehicleReturnDetails, textBox1.Text);
