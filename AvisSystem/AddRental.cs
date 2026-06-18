@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -245,6 +246,10 @@ namespace AvisSystem
         {
             try
             {
+
+                //Update the pick up branch
+                vehicleTableAdapter1.UpdatePickUpBranch(dataGridView1.CurrentRow.Cells[11].Value.ToString(), textBox2.Text);
+
                 //UPDATE VEHICLE STATUS
                 vehicleTableAdapter1.UpdateVehicleStatus("Available", textBox2.Text);
 
