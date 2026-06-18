@@ -12766,10 +12766,9 @@ SELECT PaymentID, BookingID, PaymentType, PaymentDate, PaymentAmount, PaymentDes
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdated", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VEHICLE RETURN] ([ReturnID], [BookingID], [ReturnDate], [Inspection Report], [Charges], [VehicleVinNo], [BranchName], [VehicleDescription], [LastUpdated]) VALUES (@ReturnID, @BookingID, @ReturnDate, @Inspection_Report, @Charges, @VehicleVinNo, @BranchName, @VehicleDescription, @LastUpdated);
-SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated FROM [VEHICLE RETURN] WHERE (ReturnID = @ReturnID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VEHICLE RETURN] ([BookingID], [ReturnDate], [Inspection Report], [Charges], [VehicleVinNo], [BranchName], [VehicleDescription], [LastUpdated]) VALUES (@BookingID, @ReturnDate, @Inspection_Report, @Charges, @VehicleVinNo, @BranchName, @VehicleDescription, @LastUpdated);
+SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated FROM [VEHICLE RETURN] WHERE (ReturnID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inspection_Report", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inspection Report", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12780,10 +12779,9 @@ SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVin
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastUpdated", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdated", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [VEHICLE RETURN] SET [ReturnID] = @ReturnID, [BookingID] = @BookingID, [ReturnDate] = @ReturnDate, [Inspection Report] = @Inspection_Report, [Charges] = @Charges, [VehicleVinNo] = @VehicleVinNo, [BranchName] = @BranchName, [VehicleDescription] = @VehicleDescription, [LastUpdated] = @LastUpdated WHERE (([ReturnID] = @Original_ReturnID) AND ([BookingID] = @Original_BookingID) AND ([ReturnDate] = @Original_ReturnDate) AND ((@IsNull_Inspection_Report = 1 AND [Inspection Report] IS NULL) OR ([Inspection Report] = @Original_Inspection_Report)) AND ([Charges] = @Original_Charges) AND ((@IsNull_VehicleVinNo = 1 AND [VehicleVinNo] IS NULL) OR ([VehicleVinNo] = @Original_VehicleVinNo)) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ((@IsNull_LastUpdated = 1 AND [LastUpdated] IS NULL) OR ([LastUpdated] = @Original_LastUpdated)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [VEHICLE RETURN] SET [BookingID] = @BookingID, [ReturnDate] = @ReturnDate, [Inspection Report] = @Inspection_Report, [Charges] = @Charges, [VehicleVinNo] = @VehicleVinNo, [BranchName] = @BranchName, [VehicleDescription] = @VehicleDescription, [LastUpdated] = @LastUpdated WHERE (([ReturnID] = @Original_ReturnID) AND ([BookingID] = @Original_BookingID) AND ([ReturnDate] = @Original_ReturnDate) AND ((@IsNull_Inspection_Report = 1 AND [Inspection Report] IS NULL) OR ([Inspection Report] = @Original_Inspection_Report)) AND ([Charges] = @Original_Charges) AND ((@IsNull_VehicleVinNo = 1 AND [VehicleVinNo] IS NULL) OR ([VehicleVinNo] = @Original_VehicleVinNo)) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ((@IsNull_LastUpdated = 1 AND [LastUpdated] IS NULL) OR ([LastUpdated] = @Original_LastUpdated)));
 SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated FROM [VEHICLE RETURN] WHERE (ReturnID = @ReturnID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inspection_Report", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inspection Report", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12806,6 +12804,7 @@ SELECT ReturnID, BookingID, ReturnDate, [Inspection Report], Charges, VehicleVin
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastUpdated", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdated", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastUpdated", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastUpdated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12981,40 +12980,39 @@ WHERE ReturnID = SCOPE_IDENTITY()";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ReturnID, int BookingID, System.DateTime ReturnDate, string Inspection_Report, decimal Charges, string VehicleVinNo, string BranchName, string VehicleDescription, global::System.Nullable<global::System.DateTime> LastUpdated) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ReturnID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(BookingID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(ReturnDate));
+        public virtual int Insert(int BookingID, System.DateTime ReturnDate, string Inspection_Report, decimal Charges, string VehicleVinNo, string BranchName, string VehicleDescription, global::System.Nullable<global::System.DateTime> LastUpdated) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(BookingID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(ReturnDate));
             if ((Inspection_Report == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Inspection_Report));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Inspection_Report));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Charges));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Charges));
             if ((VehicleVinNo == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(VehicleVinNo));
+            }
+            if ((BranchName == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(VehicleVinNo));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(BranchName));
             }
-            if ((BranchName == null)) {
+            if ((VehicleDescription == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(BranchName));
-            }
-            if ((VehicleDescription == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(VehicleDescription));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(VehicleDescription));
             }
             if ((LastUpdated.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(LastUpdated.Value));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(LastUpdated.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13037,7 +13035,6 @@ WHERE ReturnID = SCOPE_IDENTITY()";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int ReturnID, 
                     int BookingID, 
                     System.DateTime ReturnDate, 
                     string Inspection_Report, 
@@ -13054,85 +13051,86 @@ WHERE ReturnID = SCOPE_IDENTITY()";
                     string Original_VehicleVinNo, 
                     string Original_BranchName, 
                     string Original_VehicleDescription, 
-                    global::System.Nullable<global::System.DateTime> Original_LastUpdated) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ReturnID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(BookingID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(ReturnDate));
+                    global::System.Nullable<global::System.DateTime> Original_LastUpdated, 
+                    int ReturnID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(BookingID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(ReturnDate));
             if ((Inspection_Report == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Inspection_Report));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Inspection_Report));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Charges));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Charges));
             if ((VehicleVinNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(VehicleVinNo));
+            }
+            if ((BranchName == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(VehicleVinNo));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(BranchName));
             }
-            if ((BranchName == null)) {
+            if ((VehicleDescription == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(BranchName));
-            }
-            if ((VehicleDescription == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(VehicleDescription));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(VehicleDescription));
             }
             if ((LastUpdated.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(LastUpdated.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(LastUpdated.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ReturnID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_BookingID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_ReturnDate));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ReturnID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_BookingID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_ReturnDate));
             if ((Original_Inspection_Report == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Inspection_Report));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Inspection_Report));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_Charges));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Charges));
             if ((Original_VehicleVinNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_VehicleVinNo));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_VehicleVinNo));
             }
             if ((Original_BranchName == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_BranchName));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_BranchName));
             }
             if ((Original_VehicleDescription == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_VehicleDescription));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_VehicleDescription));
             }
             if ((Original_LastUpdated.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_LastUpdated.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_LastUpdated.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(ReturnID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13171,7 +13169,7 @@ WHERE ReturnID = SCOPE_IDENTITY()";
                     string Original_BranchName, 
                     string Original_VehicleDescription, 
                     global::System.Nullable<global::System.DateTime> Original_LastUpdated) {
-            return this.Update(Original_ReturnID, BookingID, ReturnDate, Inspection_Report, Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated, Original_ReturnID, Original_BookingID, Original_ReturnDate, Original_Inspection_Report, Original_Charges, Original_VehicleVinNo, Original_BranchName, Original_VehicleDescription, Original_LastUpdated);
+            return this.Update(BookingID, ReturnDate, Inspection_Report, Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated, Original_ReturnID, Original_BookingID, Original_ReturnDate, Original_Inspection_Report, Original_Charges, Original_VehicleVinNo, Original_BranchName, Original_VehicleDescription, Original_LastUpdated, Original_ReturnID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
