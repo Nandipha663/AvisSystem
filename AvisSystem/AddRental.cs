@@ -195,6 +195,8 @@ namespace AvisSystem
             textBox3.Clear();
             textBox4.Clear();
             textBox5.Clear();
+            textBox6.Text = "🔍 Search for Booking...";
+            textBox6.ForeColor = Color.Gray;
             textBox7.Clear();
            // maskedTextBox2.Clear();
             //comboBox1.SelectedIndex = -1;
@@ -338,8 +340,10 @@ namespace AvisSystem
         {
             //MessageBox.Show("Booking selected! Please choose the return date to calculate any extra charges if applicable.", "Booking Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bookingSelected = false;
+            if (textBox6.Text == "🔍 Search for Booking...")
+                return;
 
-            string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
             if (status == "Pending" ||  status == "Completed"  ||  status == "Cancelled")
             {
                 MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
