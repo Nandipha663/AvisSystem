@@ -371,43 +371,45 @@ namespace AvisSystem
 
         private void CalculateExtraCharge()
         {
-            DateTime expectedReturnDate =
-                Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+            try
+            {
+                DateTime expectedReturnDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
 
-            DateTime actualReturnDate =
-                dateTimePicker1.Value.Date;
+                DateTime actualReturnDate = dateTimePicker1.Value.Date;
 
-            int lateDays =
-                (actualReturnDate - expectedReturnDate).Days;
+                int lateDays = (actualReturnDate - expectedReturnDate).Days;
 
-            string vin =
-                dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-            string category = vehicleTableAdapter1.GetCatByVIN(vin).ToString();
+                string category = vehicleTableAdapter1.GetCatByVIN(vin).ToString();
 
-            decimal penaltyPerDay = 0;
+                decimal penaltyPerDay = 0;
 
-            if (category == "SUV")
-                penaltyPerDay = 800;
-            else if (category == "Van")
-                penaltyPerDay = 650;
-            else if (category == "Hatchback")
-                penaltyPerDay = 450;
-            else if (category == "Sedan")
-                penaltyPerDay = 550;
-            else if (category == "Premium")
-                penaltyPerDay = 1200;
-            else if (category == "Luxury")
-                penaltyPerDay = 1800;
-            else if (category == "Compact")
-                penaltyPerDay = 350;
-            else
-                penaltyPerDay = 400;
+                if (category == "SUV")
+                    penaltyPerDay = 800;
+                else if (category == "Van")
+                    penaltyPerDay = 650;
+                else if (category == "Hatchback")
+                    penaltyPerDay = 450;
+                else if (category == "Sedan")
+                    penaltyPerDay = 550;
+                else if (category == "Premium")
+                    penaltyPerDay = 1200;
+                else if (category == "Luxury")
+                    penaltyPerDay = 1800;
+                else if (category == "Compact")
+                    penaltyPerDay = 350;
+                else
+                    penaltyPerDay = 400;
 
-            decimal extraCharge =
-                lateDays > 0 ? lateDays * penaltyPerDay : 0;
+                decimal extraCharge =
+                    lateDays > 0 ? lateDays * penaltyPerDay : 0;
 
-            textBox4.Text = extraCharge.ToString("0.00");
+                textBox4.Text = extraCharge.ToString("0.00");
+            }catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while calculating extra charges: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
