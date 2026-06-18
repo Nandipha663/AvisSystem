@@ -367,9 +367,11 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //MessageBox.Show("Row selected");
-            textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            if (textBox1.Text == "🔍 Search Returned Vehicles..."  || textBox1.Text != "🔍 Search Returned Vehicles...")
+            {
+                textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            }
             
         }
 

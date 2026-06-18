@@ -395,8 +395,32 @@ namespace AvisSystem
                 }
             }*/
             if (textBox1.Text == "🔍 Search for Booking...")
-                return;
+            {
                 try
+                {
+
+                    textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+            }
+               /* try
             {
 
                 textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
@@ -405,7 +429,7 @@ namespace AvisSystem
             catch (Exception ex)
             {
                 MessageBox.Show("Error:" + ex.Message);
-            }
+            }*/
         }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)

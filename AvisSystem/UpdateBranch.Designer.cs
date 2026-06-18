@@ -63,6 +63,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pickUpAvailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dropOffAvailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS1 = new AvisSystem.AvisDS();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -76,25 +87,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS1 = new AvisSystem.AvisDS();
             this.branchTableAdapter1 = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pickUpAvailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dropOffAvailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -429,6 +429,88 @@
             this.dataGridView1.Size = new System.Drawing.Size(1099, 373);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            this.branchIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // branchNameDataGridViewTextBoxColumn
+            // 
+            this.branchNameDataGridViewTextBoxColumn.DataPropertyName = "branchName";
+            this.branchNameDataGridViewTextBoxColumn.HeaderText = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.Name = "branchNameDataGridViewTextBoxColumn";
+            this.branchNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.branchNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            this.locationDataGridViewTextBoxColumn.DataPropertyName = "location";
+            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.locationDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // contactNoDataGridViewTextBoxColumn
+            // 
+            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "contactNo";
+            this.contactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
+            this.contactNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contactNoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // openingTimeDataGridViewTextBoxColumn
+            // 
+            this.openingTimeDataGridViewTextBoxColumn.DataPropertyName = "openingTime";
+            this.openingTimeDataGridViewTextBoxColumn.HeaderText = "OpeningTime";
+            this.openingTimeDataGridViewTextBoxColumn.Name = "openingTimeDataGridViewTextBoxColumn";
+            this.openingTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.openingTimeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // closingTimeDataGridViewTextBoxColumn
+            // 
+            this.closingTimeDataGridViewTextBoxColumn.DataPropertyName = "closingTime";
+            this.closingTimeDataGridViewTextBoxColumn.HeaderText = "ClosingTime";
+            this.closingTimeDataGridViewTextBoxColumn.Name = "closingTimeDataGridViewTextBoxColumn";
+            this.closingTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.closingTimeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pickUpAvailableDataGridViewTextBoxColumn
+            // 
+            this.pickUpAvailableDataGridViewTextBoxColumn.DataPropertyName = "pickUpAvailable";
+            this.pickUpAvailableDataGridViewTextBoxColumn.HeaderText = "PickUpAvailable";
+            this.pickUpAvailableDataGridViewTextBoxColumn.Name = "pickUpAvailableDataGridViewTextBoxColumn";
+            this.pickUpAvailableDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pickUpAvailableDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dropOffAvailableDataGridViewTextBoxColumn
+            // 
+            this.dropOffAvailableDataGridViewTextBoxColumn.DataPropertyName = "dropOffAvailable";
+            this.dropOffAvailableDataGridViewTextBoxColumn.HeaderText = "DropOffAvailable";
+            this.dropOffAvailableDataGridViewTextBoxColumn.Name = "dropOffAvailableDataGridViewTextBoxColumn";
+            this.dropOffAvailableDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dropOffAvailableDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // branchEmailDataGridViewTextBoxColumn
+            // 
+            this.branchEmailDataGridViewTextBoxColumn.DataPropertyName = "branchEmail";
+            this.branchEmailDataGridViewTextBoxColumn.HeaderText = "BranchEmail";
+            this.branchEmailDataGridViewTextBoxColumn.Name = "branchEmailDataGridViewTextBoxColumn";
+            this.branchEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.branchEmailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS1;
+            // 
+            // avisDS1
+            // 
+            this.avisDS1.DataSetName = "AvisDS";
+            this.avisDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label13
             // 
@@ -581,90 +663,9 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // bRANCHBindingSource
-            // 
-            this.bRANCHBindingSource.DataMember = "BRANCH";
-            this.bRANCHBindingSource.DataSource = this.avisDS1;
-            // 
-            // avisDS1
-            // 
-            this.avisDS1.DataSetName = "AvisDS";
-            this.avisDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // branchTableAdapter1
             // 
             this.branchTableAdapter1.ClearBeforeFill = true;
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BranchID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            this.branchIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // branchNameDataGridViewTextBoxColumn
-            // 
-            this.branchNameDataGridViewTextBoxColumn.DataPropertyName = "branchName";
-            this.branchNameDataGridViewTextBoxColumn.HeaderText = "BranchName";
-            this.branchNameDataGridViewTextBoxColumn.Name = "branchNameDataGridViewTextBoxColumn";
-            this.branchNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.branchNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // locationDataGridViewTextBoxColumn
-            // 
-            this.locationDataGridViewTextBoxColumn.DataPropertyName = "location";
-            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
-            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.locationDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // contactNoDataGridViewTextBoxColumn
-            // 
-            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "contactNo";
-            this.contactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo";
-            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
-            this.contactNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contactNoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // openingTimeDataGridViewTextBoxColumn
-            // 
-            this.openingTimeDataGridViewTextBoxColumn.DataPropertyName = "openingTime";
-            this.openingTimeDataGridViewTextBoxColumn.HeaderText = "OpeningTime";
-            this.openingTimeDataGridViewTextBoxColumn.Name = "openingTimeDataGridViewTextBoxColumn";
-            this.openingTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.openingTimeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // closingTimeDataGridViewTextBoxColumn
-            // 
-            this.closingTimeDataGridViewTextBoxColumn.DataPropertyName = "closingTime";
-            this.closingTimeDataGridViewTextBoxColumn.HeaderText = "ClosingTime";
-            this.closingTimeDataGridViewTextBoxColumn.Name = "closingTimeDataGridViewTextBoxColumn";
-            this.closingTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.closingTimeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pickUpAvailableDataGridViewTextBoxColumn
-            // 
-            this.pickUpAvailableDataGridViewTextBoxColumn.DataPropertyName = "pickUpAvailable";
-            this.pickUpAvailableDataGridViewTextBoxColumn.HeaderText = "PickUpAvailable";
-            this.pickUpAvailableDataGridViewTextBoxColumn.Name = "pickUpAvailableDataGridViewTextBoxColumn";
-            this.pickUpAvailableDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pickUpAvailableDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dropOffAvailableDataGridViewTextBoxColumn
-            // 
-            this.dropOffAvailableDataGridViewTextBoxColumn.DataPropertyName = "dropOffAvailable";
-            this.dropOffAvailableDataGridViewTextBoxColumn.HeaderText = "DropOffAvailable";
-            this.dropOffAvailableDataGridViewTextBoxColumn.Name = "dropOffAvailableDataGridViewTextBoxColumn";
-            this.dropOffAvailableDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dropOffAvailableDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // branchEmailDataGridViewTextBoxColumn
-            // 
-            this.branchEmailDataGridViewTextBoxColumn.DataPropertyName = "branchEmail";
-            this.branchEmailDataGridViewTextBoxColumn.HeaderText = "BranchEmail";
-            this.branchEmailDataGridViewTextBoxColumn.Name = "branchEmailDataGridViewTextBoxColumn";
-            this.branchEmailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.branchEmailDataGridViewTextBoxColumn.Width = 150;
             // 
             // UpdateBranch
             // 
@@ -696,11 +697,11 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

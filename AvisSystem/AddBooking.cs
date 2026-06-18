@@ -496,6 +496,7 @@ private void label2_Click(object sender, EventArgs e)
                 this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
 
                 textBox9.Clear();
+                textBox3.Clear();
 
                 if (this.vEHICLEBindingSource.Count == 0)
                 {
@@ -503,7 +504,9 @@ private void label2_Click(object sender, EventArgs e)
                                    "No Vehicles Available",
                                    MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
+                    comboBox4.SelectedIndex = -1;
                 }
+                
             }
             else
             {

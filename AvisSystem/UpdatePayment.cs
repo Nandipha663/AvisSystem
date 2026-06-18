@@ -338,11 +338,13 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if (textBox1.Text == "🔍 Search Payments...")
-                return;
+            if (textBox1.Text == "🔍 Search Payments..." || textBox1.Text != "🔍 Search Payments...")
+            {
+                textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox3.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            }
 
-            textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox3.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString(); 
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

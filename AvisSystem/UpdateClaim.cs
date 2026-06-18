@@ -430,33 +430,33 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if (textBox1.Text == "🔍 Search for a claim...")
-                return;
-
+            if (textBox1.Text == "🔍 Search for a claim..." || textBox1.Text != "🔍 Search for a claim...")
+            {
                 if (e.RowIndex < 0) return;
 
-            try
-            {
-                DataRowView selectedRowView = (DataRowView)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                AvisDS.CLAIMRow selectedClaim = (AvisDS.CLAIMRow)selectedRowView.Row;
-
-                DataTable bottomTable = (DataTable)dataGridView2.DataSource;
-
-                foreach (DataRow row in bottomTable.Rows)
+                try
                 {
-                    if (Convert.ToInt32(row["ClaimID"]) == selectedClaim.ClaimID)
+                    DataRowView selectedRowView = (DataRowView)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                    AvisDS.CLAIMRow selectedClaim = (AvisDS.CLAIMRow)selectedRowView.Row;
+
+                    DataTable bottomTable = (DataTable)dataGridView2.DataSource;
+
+                    foreach (DataRow row in bottomTable.Rows)
                     {
-                        MessageBox.Show($"Claim ID {selectedClaim.ClaimID} has already been added to the update list below.",
-                                        " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        if (Convert.ToInt32(row["ClaimID"]) == selectedClaim.ClaimID)
+                        {
+                            MessageBox.Show($"Claim ID {selectedClaim.ClaimID} has already been added to the update list below.",
+                                            " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
+                    bottomTable.ImportRow(selectedClaim);
                 }
-                bottomTable.ImportRow(selectedClaim);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }    
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

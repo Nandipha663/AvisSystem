@@ -393,6 +393,15 @@ namespace AvisSystem
             this.Hide();
             newSignUpForm.Show();
         }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (textBox1.Text == "🔍 Search branch..." || textBox1.Text != "🔍 Search branch...")
+            {
+                string location = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox2.Text = location;
+            }
+        }
     }
     
 }
