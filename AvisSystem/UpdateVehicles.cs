@@ -354,6 +354,9 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (textBox1.Text == "🔍 Search Vehicles...")
+                return;
+
             label5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             label7.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             label9.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -361,7 +364,7 @@ namespace AvisSystem
 
             try
             {
-                byte[] imgBytes = (byte[])dataGridView1.CurrentRow.Cells[6].Value;
+                byte[] imgBytes = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
 
                 MemoryStream ms = new MemoryStream(imgBytes);
 
@@ -380,11 +383,11 @@ namespace AvisSystem
 
             label2.Text = status;
 
-            if (status == "Available" || status == "Rented" || status == "Reserved")
+            if (status == "Available")
             {
                 label2.ForeColor = Color.Green;
             }
-            else if (status == "Unavailable")
+            else if (status == "Reserved" || status == "Rented")
             {
                 label2.ForeColor = Color.Red;
             }
