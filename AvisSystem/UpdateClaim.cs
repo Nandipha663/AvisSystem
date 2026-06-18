@@ -270,48 +270,38 @@ namespace AvisSystem
         {
             try
             {
-                List<string> filterList = new List<string>();
-
-                if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != "🔍 Search for a claim...")
+                if (comboBox1.Text == "Claim Status")
                 {
-                    string searchText = textBox1.Text.Replace("'", "''");
-                    filterList.Add($"ClaimType LIKE '%{searchText}%'");
-                }
-
-                if (comboBox1.SelectedItem != null && comboBox2.SelectedItem != null)
-                {
-                    string columnName = comboBox1.SelectedItem.ToString().Trim();
-                    string selectedValue = comboBox2.SelectedItem.ToString().Replace("'", "''");
-
-                    if (columnName == "ClaimDate")
+                    if (string.IsNullOrWhiteSpace(comboBox2.Text))
                     {
-                        if (DateTime.TryParse(selectedValue, out DateTime parsedDate))
-                        {
-                            filterList.Add($"[{columnName}] = #{parsedDate:MM/dd/yyyy}#");
-                        }
-                        else
-                        {
-                            filterList.Add($"[{columnName}] = '{selectedValue}'");
-                        }
+                        MessageBox.Show("Please select a payment type first.");
+                        return;
                     }
-                    else
-                    {
-                        filterList.Add($"[{columnName}] = '{selectedValue}'");
-                    }
+
+                    cLAIMBindingSource.Filter =
+                        $"ClaimStatus = '{comboBox2.Text}'";
                 }
-                if (filterList.Count > 0)
+                else if (comboBox1.Text == "Date")
                 {
-                    this.cLAIMBindingSource.Filter = string.Join(" AND ", filterList);
+                    if (dateTimePicker1.CustomFormat == " ")
+                    {
+                        MessageBox.Show("Please select a date first.");
+                        return;
+                    }
+
+                    DateTime date = dateTimePicker1.Value.Date;
+
+                    cLAIMBindingSource.Filter =
+                        $"ClaimDate >= #{date:yyyy-MM-dd}# AND ClaimDate < #{date.AddDays(1):yyyy-MM-dd}#";
                 }
                 else
                 {
-                    this.cLAIMBindingSource.RemoveFilter();
+                    MessageBox.Show("Please select a filter category first.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error applying filter: {ex.Message}", ""
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -422,6 +412,7 @@ namespace AvisSystem
                 comboBox2.Items.Clear();
                 comboBox2.Text = "";
                 comboBox2.Enabled = false;
+                dateTimePicker1.Enabled = false;
 
                 MessageBox.Show("Filters reset successfully.");
             }
@@ -439,7 +430,10 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if (e.RowIndex < 0) return;
+            if (textBox1.Text == "🔍 Search for a claim...")
+                return;
+
+                if (e.RowIndex < 0) return;
 
             try
             {
@@ -491,6 +485,28 @@ namespace AvisSystem
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+
+            if (comboBox1.Text == "Claim Status")
+            {
+                comboBox2.Enabled = true;
+                comboBox2.Items.Add("Approved");
+                comboBox2.Items.Add("Rejected");
+            }
+            else if (comboBox1.Text == "Claim Date")
+            {
+                comboBox2.Enabled = false;
+                dateTimePicker1.Enabled = true;
+            }
+            else
+            {
+                comboBox2.Items.Add("Select filter first");
+                comboBox2.Enabled = false;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
