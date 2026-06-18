@@ -274,7 +274,14 @@ namespace AvisSystem
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
-            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.Items.Clear();
+            comboBox2.Text = "";
+            comboBox2.Enabled = false;
+            dateTimePicker1.Enabled = false;
+
             vehicleReturnDetailsTableAdapter.Fill(this.avisDS.VehicleReturnDetails);
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
