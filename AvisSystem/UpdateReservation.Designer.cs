@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateReservation));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,6 +106,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
+            this.AlertStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -136,14 +137,16 @@
             this.Position,
             this.statusDataGridViewTextBoxColumn,
             this.invoiceAmountDataGridViewTextBoxColumn,
-            this.LastUpdated});
+            this.LastUpdated,
+            this.AlertStatus});
             this.dataGridView1.DataSource = this.bOOKINGBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1007, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(952, 290);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // bookingIDDataGridViewTextBoxColumn
@@ -176,8 +179,8 @@
             // bookingDateDataGridViewTextBoxColumn
             // 
             this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking Date";
-            dataGridViewCellStyle1.Format = "d";
-            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "d";
+            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking Date";
             this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
             this.bookingDateDataGridViewTextBoxColumn.Width = 150;
@@ -185,8 +188,8 @@
             // pickUpDateDataGridViewTextBoxColumn
             // 
             this.pickUpDateDataGridViewTextBoxColumn.DataPropertyName = "PickUp Date";
-            dataGridViewCellStyle2.Format = "d";
-            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "d";
+            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.pickUpDateDataGridViewTextBoxColumn.HeaderText = "PickUp Date";
             this.pickUpDateDataGridViewTextBoxColumn.Name = "pickUpDateDataGridViewTextBoxColumn";
             this.pickUpDateDataGridViewTextBoxColumn.Width = 150;
@@ -194,8 +197,8 @@
             // expectedReturnDateDataGridViewTextBoxColumn
             // 
             this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
-            dataGridViewCellStyle3.Format = "d";
-            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "d";
+            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
             this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
             this.expectedReturnDateDataGridViewTextBoxColumn.Width = 150;
@@ -273,7 +276,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(328, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 309);
+            this.groupBox1.Size = new System.Drawing.Size(958, 309);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reservations";
@@ -832,6 +835,12 @@
             // 
             this.bOOKINGTableAdapter.ClearBeforeFill = true;
             // 
+            // AlertStatus
+            // 
+            this.AlertStatus.HeaderText = "Alert Status";
+            this.AlertStatus.Name = "AlertStatus";
+            this.AlertStatus.ReadOnly = true;
+            // 
             // UpdateReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -951,5 +960,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn invoiceAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AlertStatus;
     }
 }

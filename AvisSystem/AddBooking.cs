@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -213,7 +214,7 @@ namespace AvisSystem
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
+            ReAssignVehicle newAddBranch = new ReAssignVehicle();
             this.Hide();
             newAddBranch.Show();
         }
@@ -405,7 +406,7 @@ private void label2_Click(object sender, EventArgs e)
 
             // Update vehicle status to Unavailable
 
-            vEHICLETableAdapter.UpdateVehicleStatusAndTime(vehicleVin);
+            vEHICLETableAdapter.UpdateVehicleTime(vehicleVin);
             UpdateVehicles vehicleForm = new UpdateVehicles();
             vehicleForm.HighlightVehicleVIN = vehicleVin;
 
@@ -477,44 +478,114 @@ private void label2_Click(object sender, EventArgs e)
         }
 
         // Add this method to filter vehicles by selected branch
+        /* private void FilterVehiclesBySelectedBranch()
+         {
+             // Skip if form is still loading
+             if (isFormLoading) return;
+
+             // Check if a branch is selected in comboBox4
+             if (comboBox4.SelectedIndex != -1 && comboBox4.SelectedValue != null)
+             {
+                 // Get the selected branch name safely
+                 string selectedBranchName = comboBox4.Text;
+
+                 // Verify we got a valid branch name (not DataRowView)
+                 if (string.IsNullOrEmpty(selectedBranchName) || selectedBranchName == "System.Data.DataRowView")
+                 {
+                     return;
+                 }
+
+                 // Filter vehicles by branch name and availability
+                 this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
+
+                 textBox9.Clear();
+                 textBox3.Clear();
+
+                 if (this.vEHICLEBindingSource.Count == 0)
+                 {
+                     MessageBox.Show($"No available vehicles at '{selectedBranchName}'.\nPlease select another branch.",
+                                    "No Vehicles Available",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                     comboBox4.SelectedIndex = -1;
+                 }
+
+             }
+             else
+             {
+                 this.vEHICLEBindingSource.Filter = "1 = 0";
+             }
+         }*/
+
+
         private void FilterVehiclesBySelectedBranch()
         {
-            // Skip if form is still loading
             if (isFormLoading) return;
 
-            // Check if a branch is selected in comboBox4
-            if (comboBox4.SelectedIndex != -1 && comboBox4.SelectedValue != null)
+            // STEP 1: Validate inputs
+            if (comboBox4.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(comboBox4.Text) ||
+                dateTimePicker2.Value == null ||
+                dateTimePicker3.Value == null)
             {
-                // Get the selected branch name safely
-                string selectedBranchName = comboBox4.Text;
-
-                // Verify we got a valid branch name (not DataRowView)
-                if (string.IsNullOrEmpty(selectedBranchName) || selectedBranchName == "System.Data.DataRowView")
-                {
-                    return;
-                }
-
-                // Filter vehicles by branch name and availability
-                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
-
-                textBox9.Clear();
-                textBox3.Clear();
-
-                if (this.vEHICLEBindingSource.Count == 0)
-                {
-                    MessageBox.Show($"No available vehicles at '{selectedBranchName}'.\nPlease select another branch.",
-                                   "No Vehicles Available",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.Information);
-                    comboBox4.SelectedIndex = -1;
-                }
-                
+                vEHICLEBindingSource.Filter = "1 = 0";
+                return;
             }
-            else
+
+            string selectedBranch = comboBox4.Text;
+            DateTime PickUpDate = dateTimePicker2.Value.Date;
+            DateTime DropOffDate = dateTimePicker3.Value.Date;
+
+            // STEP 2: Get vehicles in branch first
+            DataTable allVehicles = vEHICLETableAdapter.GetData();
+           
+
+            // STEP 3: Get booked vehicles that overlap dates
+            
+            DataTable bookedVehicles = bookingTableAdapter1.GetOverlappingVehicles( DropOffDate, PickUpDate );
+
+            HashSet<string> bookedVinNos = new HashSet<string>();
+
+            foreach (DataRow row in bookedVehicles.Rows)
             {
-                this.vEHICLEBindingSource.Filter = "1 = 0";
+                bookedVinNos.Add(row["VehicleVinNo"].ToString());
+            }
+
+            // STEP 4: Filter manually (important change)
+            DataTable filtered = allVehicles.Clone();
+
+            foreach (DataRow vehicle in allVehicles.Rows)
+            {
+                string vin = vehicle["VehicleVinNo"].ToString();
+                string branch = vehicle["BranchName"].ToString();
+                string status = vehicle["Status"].ToString();
+
+                if (branch == selectedBranch &&
+                    status == "Available" &&
+                    !bookedVinNos.Contains(vin))
+                {
+                    filtered.ImportRow(vehicle);
+                }
+            }
+
+            // STEP 5: Show result in grid
+            dataGridView2.DataSource = filtered;
+
+            // STEP 6: UI feedback
+            textBox9.Clear();
+            textBox3.Clear();
+
+            if (filtered.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "No vehicles available for selected branch and dates.",
+                    "No Availability",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
+
 
         // Add this to clear filters when resetting the form
         private void ClearVehicleFilters()
@@ -551,6 +622,16 @@ private void label2_Click(object sender, EventArgs e)
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            FilterVehiclesBySelectedBranch();
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            FilterVehiclesBySelectedBranch();
         }
     }
 }

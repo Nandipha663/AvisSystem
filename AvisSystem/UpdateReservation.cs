@@ -56,6 +56,8 @@ namespace AvisSystem
                     latestRow.Index;
             }
         }
+
+       
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
 
@@ -65,6 +67,18 @@ namespace AvisSystem
 
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
             this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
+           
+
+
+            if (!dataGridView1.Columns.Contains("AlertStatus"))
+            {
+                DataGridViewTextBoxColumn alertCol = new DataGridViewTextBoxColumn();
+                alertCol.Name = "AlertStatus";
+                alertCol.HeaderText = "Alert Status";
+                alertCol.ReadOnly = true;
+
+                dataGridView1.Columns.Add(alertCol);
+            }
 
             HighlightMostRecentBooking();
 
@@ -73,6 +87,79 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
+        }
+
+       
+        private string GetBookingAlert(int currentBookingID,
+                               string vin,
+                               DateTime returnDate,
+                               string status)
+        {
+
+            
+
+            bool isOverdue =
+                status == "Confirmed" &&
+                returnDate < DateTime.Today;
+
+            bool futureCustomerWaiting = false;
+            bool needsReassignment = false;
+
+            foreach (DataRow booking in avisDS.BOOKING.Rows)
+            {
+
+                int otherBookingID =
+                    Convert.ToInt32(booking["BookingID"]);
+
+                // Skip the booking currently being checked
+                if (otherBookingID == currentBookingID)
+                    continue;
+
+                string otherVin =
+                    booking["VehicleVinNo"].ToString();
+
+                string otherStatus =
+                    booking["Status"].ToString();
+
+                DateTime otherPickupDate =
+                    Convert.ToDateTime(booking["PickUp Date"]);
+
+
+                if (otherVin == vin && otherStatus == "Confirmed")
+                {
+                    if (otherPickupDate <= DateTime.Today.AddDays(1))
+                    {
+                        needsReassignment = true;
+                    }
+                }
+
+
+                // Same vehicle?
+                if (otherVin == vin)
+                {
+                    // Another confirmed booking waiting?
+                    if (otherStatus == "Confirmed" &&
+                        otherPickupDate > DateTime.Today)
+                    {
+                        futureCustomerWaiting = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isOverdue && futureCustomerWaiting)
+                return "OVERDUE - CUSTOMER WAITING";
+
+            if (isOverdue)
+                return "OVERDUE BOOKING";
+
+            if (needsReassignment)
+                return "REASSIGN VEHICLE";
+
+            if (futureCustomerWaiting)
+                return "UPCOMING BOOKING";
+
+            return "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -222,7 +309,7 @@ namespace AvisSystem
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
+            ReAssignVehicle newAddBranch = new ReAssignVehicle();
             this.Hide();
             newAddBranch.Show();
         }
@@ -253,6 +340,10 @@ namespace AvisSystem
                         return;
                     }
                     else if (comboBox2.Text == "Confirmed")
+                    {
+                        bOOKINGBindingSource.Filter = "Status = 'Confirmed'";
+                    }
+                    else if (comboBox2.Text == "Completed")
                     {
                         bOOKINGBindingSource.Filter = "Status = 'Completed'";
                     }
@@ -336,6 +427,7 @@ namespace AvisSystem
                 comboBox2.Items.Add("Completed");
                 comboBox2.Items.Add("Pending");
                 comboBox2.Items.Add("Cancelled");
+                comboBox2.Items.Add("Confirmed");
                 
             }
             else if (comboBox1.Text == "Booking Date"  || comboBox1.Text == "Expected return date")
@@ -444,6 +536,58 @@ namespace AvisSystem
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                int bookingID = Convert.ToInt32(row.Cells[0].Value);
+
+                string vin =
+                    row.Cells[3].Value?.ToString();
+
+                string status =
+                    row.Cells[13].Value?.ToString();
+
+                DateTime returnDate;
+
+                if (!DateTime.TryParse(
+                        row.Cells[6].Value?.ToString(),
+                        out returnDate))
+                {
+                    continue;
+                }
+
+                string alert =
+                    GetBookingAlert(
+                        bookingID,
+                        vin,
+                        returnDate,
+                        status);
+
+                row.Cells["AlertStatus"].Value = alert;
+
+                if (alert == "OVERDUE - CUSTOMER WAITING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.OrangeRed;
+                }
+                else if (alert == "OVERDUE BOOKING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightCoral;
+                }
+                else if (alert == "UPCOMING BOOKING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Khaki;
+
+                }
+                else if (alert == "REASSIGN VEHICLE")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Gold;
+                }
+            }
         }
     }
 }

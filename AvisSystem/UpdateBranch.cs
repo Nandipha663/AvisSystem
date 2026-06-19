@@ -73,7 +73,7 @@ namespace AvisSystem
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
+            ReAssignVehicle newAddBranch = new ReAssignVehicle();
             this.Hide();
             newAddBranch.Show();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AvisSystem
 {
-    public partial class AddBranch : Form
+    public partial class ReAssignVehicle : Form
     {
-        public AddBranch()
+        public ReAssignVehicle()
         {
             InitializeComponent();
         }
