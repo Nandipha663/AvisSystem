@@ -166,12 +166,44 @@ namespace AvisSystem
             eMPLOYEETableAdapter.Fill(avisDS.EMPLOYEE);
         }
 
+        private void HighlightNewestEmployee()
+        {
+            int highestID = 0;
+            DataGridViewRow newestRow = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+
+                    if (id > highestID)
+                    {
+                        highestID = id;
+                        newestRow = row;
+                    }
+                }
+            }
+
+            if (newestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                newestRow.Selected = true;
+                newestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    newestRow.Index;
+            }
+        }
         private void ManageEmployee_Load(object sender, EventArgs e)
         {
 
             dataGridView1.DataSource = eMPLOYEEBindingSource;
 
             LoadEmployees();
+
+            HighlightNewestEmployee();
 
             // TODO: This line of code loads data into the 'avisDS.EMPLOYEE' table. You can move, or remove it, as needed.
             //this.eMPLOYEETableAdapter.Fill(this.avisDS.EMPLOYEE);

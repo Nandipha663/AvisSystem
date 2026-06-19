@@ -203,10 +203,10 @@ namespace AvisSystem
                 //Refill Payment table
                 UpdatePayment pay = Application.OpenForms["UpdatePayment"] as UpdatePayment;
 
-                if (pay != null)
+                /*if (pay != null)
                 {
                     pay.LoadPayments(); // refresh open form
-                }
+                }*/
             }
             catch (Exception ex)
             {
