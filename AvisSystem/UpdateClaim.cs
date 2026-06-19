@@ -24,6 +24,38 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
+        private void HighlightRecentBooking()
+        {
+            DateTime latestTime = DateTime.MinValue;
+            DataGridViewRow latestRow = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["LastUpdated"].Value != DBNull.Value)
+                {
+                    DateTime updateTime =
+                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
+
+                    if (updateTime > latestTime)
+                    {
+                        latestTime = updateTime;
+                        latestRow = row;
+                    }
+                }
+            }
+
+            if (latestRow != null)
+            {
+                dataGridView1.ClearSelection();
+
+                latestRow.Selected = true;
+                latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                dataGridView1.FirstDisplayedScrollingRowIndex =
+                    latestRow.Index;
+            }
+        }
+
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
@@ -51,7 +83,10 @@ namespace AvisSystem
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
 
-            this.claimTableAdapter1.Fill(this.avisDS1.CLAIM);
+            this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
+            dataGridView1.Refresh();
+            HighlightRecentBooking();
+
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -68,9 +103,13 @@ namespace AvisSystem
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
 
             dataGridView1.ClearSelection();
-            DataTable emptyClaimTable = this.avisDS1.CLAIM.Clone();
+            DataTable emptyClaimTable = this.avisDS.CLAIM.Clone();
             dataGridView2.DataSource = emptyClaimTable;
+
         }
+    
+            
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem == null)
@@ -88,9 +127,9 @@ namespace AvisSystem
             comboBox2.Items.Clear();
             comboBox2.Text = string.Empty;
 
-            if (this.avisDS1.CLAIM.Rows.Count == 0)
+            if (this.avisDS.CLAIM.Rows.Count == 0)
             {
-                this.claimTableAdapter1.Fill(this.avisDS1.CLAIM);
+                this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
             }
             string selected = comboBox1.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selected))
@@ -99,7 +138,7 @@ namespace AvisSystem
             if (selected.Equals("ClaimStatus", StringComparison.OrdinalIgnoreCase))
             {
                 var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-                foreach (DataRow r in avisDS1.CLAIM.Rows)
+                foreach (DataRow r in avisDS.CLAIM.Rows)
                 {
                     var val = r["ClaimStatus"];
                     if (val != DBNull.Value)
@@ -118,7 +157,7 @@ namespace AvisSystem
             else if (selected.Equals("ClaimDate", StringComparison.OrdinalIgnoreCase))
             {
                 var set = new HashSet<DateTime>();
-                foreach (DataRow r in avisDS1.CLAIM.Rows)
+                foreach (DataRow r in avisDS.CLAIM.Rows)
                 {
                     var val = r["ClaimDate"];
                     if (val != DBNull.Value)
@@ -140,7 +179,7 @@ namespace AvisSystem
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            claimTableAdapter1.FillByClaimType(this.avisDS1.CLAIM, textBox1.Text);
+            claimTableAdapter1.FillByClaimType(this.avisDS.CLAIM, textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != "🔍 Search for a claim...")
             {
                 try
@@ -151,13 +190,13 @@ namespace AvisSystem
                 catch
                 {
                     this.cLAIMBindingSource.Filter = null;
-                    this.claimTableAdapter1.Fill(this.avisDS1.CLAIM);
+                    this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
                 }
             }
             else
             {
                 this.cLAIMBindingSource.Filter = null;
-                this.claimTableAdapter1.Fill(this.avisDS1.CLAIM);
+                this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
             }
         }
         private void textBox1_Enter(object sender, EventArgs e)
@@ -274,7 +313,7 @@ namespace AvisSystem
                 {
                     if (string.IsNullOrWhiteSpace(comboBox2.Text))
                     {
-                        MessageBox.Show("Please select a payment type first.");
+                        MessageBox.Show("Please select a claim status first.");
                         return;
                     }
 
@@ -321,7 +360,7 @@ namespace AvisSystem
                 {
                     DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                     cLAIMBindingSource.RemoveCurrent();
-                    this.claimTableAdapter1.Update(this.avisDS1.CLAIM);
+                    this.claimTableAdapter1.Update(this.avisDS.CLAIM);
                 }
                 catch
                 {
@@ -349,7 +388,7 @@ namespace AvisSystem
                 {
                     int claimID = Convert.ToInt32(editedRow["ClaimID"]);
 
-                    AvisDS.CLAIMRow originalRow = avisDS1.CLAIM.FindByClaimID(claimID);
+                    AvisDS.CLAIMRow originalRow = avisDS.CLAIM.FindByClaimID(claimID);
 
                     if (originalRow != null)
                     {
@@ -357,17 +396,17 @@ namespace AvisSystem
                         originalRow.ClaimDate = Convert.ToDateTime(editedRow["ClaimDate"]);
                         originalRow.ClaimType = editedRow["ClaimType"].ToString();
                         originalRow.ClaimStatus = editedRow["ClaimStatus"].ToString();
-                        originalRow.ResponsibleParty = editedRow["ResponsibleParty"].ToString();
+                        originalRow.LastUpdated = Convert.ToDateTime(editedRow["LastUpdated"]);
                     }
                 }
-                this.claimTableAdapter1.Update(this.avisDS1.CLAIM);
+                this.claimTableAdapter1.Update(this.avisDS.CLAIM);
 
                 MessageBox.Show("Claims are successfully updated!",
                                 "", MessageBoxButtons.OK);
 
                 bottomTable.Rows.Clear();
 
-                this.claimTableAdapter1.Fill(this.avisDS1.CLAIM);
+                this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
             }
             catch (Exception ex)
             {
@@ -454,7 +493,7 @@ namespace AvisSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while adding the claim to the update list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occurred while adding the claim to the updated list: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }    
         }

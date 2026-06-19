@@ -12,12 +12,18 @@ namespace AvisSystem
 {
     public partial class AddClaim : Form
     {
+        // Guard flag to prevent event triggers during a systematic form reset
+        private bool isFormLoading = true;
+
         public AddClaim()
         {
             InitializeComponent();
             label8.Click += panel1_Click;
             label9.Click += panel1_Click;
             pictureBox2.Click += panel1_Click;
+
+            dataGridView1.RowHeaderMouseDoubleClick += dataGridView1_RowHeaderMouseDoubleClick;
+            textBox5.TextChanged += textBox5_TextChanged;
 
         }
 
@@ -115,39 +121,52 @@ namespace AvisSystem
 
         private void AddClaim_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'avisDS1.CLAIM' table. You can move, or remove it, as needed.
-            this.cLAIMTableAdapter.Fill(this.avisDS1.CLAIM);
+            isFormLoading = true;
+
+            // Load master claims reference collection from the database
+            this.cLAIMTableAdapter.Fill(this.avisDS.CLAIM);
+
+            // Populate your DataGridView using the updated joined VEHICLE_RETURN main query
+            this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
+
+            // Establish standard menu item navigation states
             addNewClaimToolStripMenuItem.Enabled = false;
             fileToolStripMenuItem.Enabled = true;
             loginToolStripMenuItem.Enabled = false;
             logoutToolStripMenuItem.Enabled = true;
 
-            var statuses = this.avisDS1.CLAIM
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add(""); // Add an empty option at index 0
+            comboBox1.Items.Add("Tyre & Rim Damage");
+            comboBox1.Items.Add("Bodywork");
+            comboBox1.Items.Add("Windscreen & Glass");
+            comboBox1.Items.Add("Theft & Hijacking");
+            comboBox1.Items.Add("Collision");
+
+            comboBox1.SelectedIndex = -1;
+
+            // Initialize claim status choice dropdown states
+            var statuses = this.avisDS.CLAIM
                                .AsEnumerable()
-                               .Select(row => row["CLaimStatus"].ToString())
+                               .Select(row => row["ClaimStatus"].ToString())
                                .Distinct()
                                .ToList();
+
+            if (!statuses.Contains("Open"))
+            {
+                statuses.Insert(0, "Open");
+            }
+
+            comboBox2.DataSource = null;
             comboBox2.DataSource = statuses;
 
+            // FIX: Setting SelectedIndex to -1 forces a DataSource ComboBox to be empty on load
             comboBox2.SelectedIndex = -1;
 
-        
-            // Fill BOOKING table
-            this.bookingTableAdapter1.Fill(this.avisDS1.BOOKING);
-
-            // Bind BookingID to comboBox1
-            comboBox1.DataSource = this.avisDS1.BOOKING;
-            comboBox1.DisplayMember = "BookingID";
-            comboBox1.ValueMember = "BookingID";
-
-            comboBox1.SelectedIndex = -1; // optional (no default selection)
-        
-           
+            isFormLoading = false;
         }
-      
-        
-        
-
+     
         private void button2_Click(object sender, EventArgs e)
         {
             AvisMenuForm newAvisMenuForm = new AvisMenuForm();
@@ -157,115 +176,96 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-         //   comboBox1.SelectedValue = DBNull.Value;
-         //   comboBox1.SelectedIndex = -1;
-
-           // comboBox2.SelectedIndex = -1;
-
-          //  textBox1.Clear();
-          // dateTimePicker1.Value = DateTime.Today;
-          //  textBox2.Clear();
-          //  textBox3.Clear();
-
-         //   this.dsBook.Fill(this.avisDS1.BOOKING);
          ClearForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedValue == null)
+            if (string.IsNullOrEmpty(textBox4.Text.Trim()))
             {
-                MessageBox.Show("Please select a Booking ID before adding a claim.",
-                                " ",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select an existing return record from the grid first.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Please specify an active Claim Status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int bookingID = Convert.ToInt32(comboBox1.SelectedValue);
-            try
-            {
-             //  dsBook.FillByBookingID(this.avisDS1.BOOKING, bookingID);
-
-                MessageBox.Show($"Claim added for Booking ID: {bookingID}",
-                                " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error adding claim:\n" + ex.Message,
-                                "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (comboBox2.SelectedValue == null)
-            {
-                MessageBox.Show("Please select a Claim Status.",
-                                " ",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            int bookingID = Convert.ToInt32(textBox4.Text.Trim());
             string claimStatus = comboBox2.SelectedItem.ToString();
+            string claimType = comboBox1.SelectedItem.ToString();
+
             try
             {
                 int nextClaimID = GetNextCLAIMID();
-                string claimType = textBox2.Text.Trim();
                 string claimDescription = textBox1.Text.Trim();
-                string responsibleParty = textBox3.Text.Trim();
                 DateTime claimDate = dateTimePicker1.Value;
 
-                this.cLAIMTableAdapter.Fill(this.avisDS1.CLAIM);
+                this.cLAIMTableAdapter.Fill(this.avisDS.CLAIM);
 
-                AvisDS.CLAIMRow newRow = this.avisDS1.CLAIM.NewCLAIMRow();
-               // newRow["ClaimID"] = nextClaimID;
+                AvisDS.CLAIMRow newRow = this.avisDS.CLAIM.NewCLAIMRow();
+
                 newRow.BookingID = bookingID;
                 newRow.ClaimStatus = claimStatus;
                 newRow.ClaimDescription = claimDescription;
                 newRow.ClaimType = claimType;
-                newRow.ResponsibleParty= responsibleParty;
                 newRow.ClaimDate = claimDate;
+                newRow.LastUpdated = DateTime.Now;
 
-                this.avisDS1.CLAIM.AddCLAIMRow(newRow);
-                this.cLAIMTableAdapter.Update(this.avisDS1.CLAIM);
-                MessageBox.Show("Claim successfully added to the database!",
-                                " ",
-                                MessageBoxButtons.OK);
-                ClearForm(); 
+
+                this.avisDS.CLAIM.AddCLAIMRow(newRow);
+                this.cLAIMTableAdapter.Update(this.avisDS.CLAIM);
+
+                MessageBox.Show("Claim filed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving claim:\n" + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error occurred while executing database update operations:\n" + ex.Message,
+                                "SQL Write Fault", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ClearForm()
         {
-           // comboBox1.SelectedValue = DBNull.Value;
-           // comboBox1.SelectedIndex = -1;
+            isFormLoading = true;
+            // Clear standard input text boxes
+            textBox1.Clear();
+            textBox5.Clear();
 
-           // comboBox2.SelectedIndex = -1;
+            // Clear tracking variables and auto-populated read-only outputs
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox2.Clear();
+            textBox7.Clear();
+            textBox6.Clear();
+            textBox3.Clear();
+            textBox8.Clear();
 
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            
             dateTimePicker1.Value = DateTime.Today;
 
-            this.bookingTableAdapter1.Fill(this.avisDS1.BOOKING);
-            if (comboBox1.DataSource != null)
+            // Refresh the main vehicle return table view dataset
+            this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
+
+            if (comboBox1.Items.Count > 0)
             {
-                this.BindingContext[comboBox1.DataSource].ResumeBinding();
+                comboBox1.SelectedIndex = 0;
             }
 
-            comboBox1.SelectedIndex = -1;
-
+            // Reset data-bound Claim Statuses ComboBox back to completely empty
             comboBox2.SelectedIndex = -1;
+            dataGridView1.ClearSelection();
 
+            isFormLoading = false;
         }
         private int GetNextCLAIMID()
         {
-            if (this.avisDS1.CLAIM.Rows.Count == 0)
+            if (this.avisDS.CLAIM.Rows.Count == 0)
                 return 1;
 
             // Find the maximum ClaimID and add 1
-            int maxId = this.avisDS1.CLAIM
+            int maxId = this.avisDS.CLAIM
                 .AsEnumerable()
                 .Select(row => row.Field<int>("ClaimID"))
                 .DefaultIfEmpty(0)
@@ -303,6 +303,58 @@ namespace AvisSystem
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            if (isFormLoading) return;
+
+            string searchString = textBox5.Text.Trim();
+
+            try
+            {
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    // NOW WORKS PERFECTLY: Call the search query on your main VEHICLE RETURN adapter
+                    this.vEHICLE_RETURNTableAdapter.FillByCustName(this.avisDS.VEHICLE_RETURN, searchString);
+                }
+                else
+                {
+                    // Fall back to complete catalog load if the search box is cleared out
+                    this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Filter Search Error: " + ex.Message, "Warning Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex >= 0) // Prevents error crashes if header rows are clicked
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                // Map your columns safely from the grid layout into your form text boxes
+                if (row.Cells[1].Value != DBNull.Value)
+                    textBox4.Text = row.Cells[1].Value.ToString();
+
+                if (row.Cells[0].Value != DBNull.Value)
+                    textBox3.Text = row.Cells[0].Value.ToString();
+
+                if (row.Cells[2].Value != DBNull.Value)
+                    textBox2.Text = row.Cells[2].Value.ToString();
+
+                if (row.Cells[4].Value != DBNull.Value)
+                    textBox7.Text = row.Cells[4].Value.ToString();
+
+                if (row.Cells[5].Value != DBNull.Value)
+                    textBox6.Text = row.Cells[5].Value.ToString();
+
+                if (row.Cells[9].Value != DBNull.Value)
+                    textBox8.Text = row.Cells[9].Value.ToString();
+            }
         }
     }
 }

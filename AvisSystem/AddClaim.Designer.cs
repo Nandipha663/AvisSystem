@@ -59,6 +59,31 @@
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerFullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chargesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vEHICLERETURNBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -71,15 +96,13 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cLAIMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS1 = new AvisSystem.AvisDS();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.dsBook = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
+            this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLAIMTableAdapter = new AvisSystem.AvisDSTableAdapters.CLAIMTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -89,11 +112,15 @@
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.bookingTableAdapter1 = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
+            this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -116,7 +143,7 @@
             this.manageEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(294, 503);
+            this.menuStrip1.Size = new System.Drawing.Size(294, 749);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -223,7 +250,7 @@
             // 
             this.addNewRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addNewRentalToolStripMenuItem.Name = "addNewRentalToolStripMenuItem";
-            this.addNewRentalToolStripMenuItem.Size = new System.Drawing.Size(326, 34);
+            this.addNewRentalToolStripMenuItem.Size = new System.Drawing.Size(386, 34);
             this.addNewRentalToolStripMenuItem.Text = "Add New Vehicle Return";
             this.addNewRentalToolStripMenuItem.Click += new System.EventHandler(this.addNewRentalToolStripMenuItem_Click);
             // 
@@ -249,7 +276,7 @@
             // 
             this.addNewVehicleToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.addNewVehicleToolStripMenuItem.Name = "addNewVehicleToolStripMenuItem";
-            this.addNewVehicleToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
+            this.addNewVehicleToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.addNewVehicleToolStripMenuItem.Text = "Add New Vehicle";
             this.addNewVehicleToolStripMenuItem.Click += new System.EventHandler(this.addNewVehicleToolStripMenuItem_Click);
             // 
@@ -358,6 +385,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -379,17 +415,236 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(294, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(745, 503);
+            this.groupBox1.Size = new System.Drawing.Size(1026, 749);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Claim";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(358, 380);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(312, 31);
+            this.textBox8.TabIndex = 55;
+            this.toolTip3.SetToolTip(this.textBox8, "Identify the party responsible for the reported claim or damage.");
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(363, 352);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(223, 25);
+            this.label13.TabIndex = 54;
+            this.label13.Text = "Vehicle Description:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(28, 291);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(237, 25);
+            this.label12.TabIndex = 53;
+            this.label12.Text = "Customers FullName:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(27, 319);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(312, 31);
+            this.textBox7.TabIndex = 52;
+            this.toolTip3.SetToolTip(this.textBox7, "Identify the party responsible for the reported claim or damage.");
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(22, 380);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(312, 31);
+            this.textBox6.TabIndex = 51;
+            this.toolTip3.SetToolTip(this.textBox6, "Identify the party responsible for the reported claim or damage.");
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(22, 352);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(150, 25);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Branchname:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Location = new System.Drawing.Point(358, 109);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(656, 226);
+            this.groupBox2.TabIndex = 49;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search By Customer Name";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.returnIDDataGridViewTextBoxColumn,
+            this.bookingIDDataGridViewTextBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn,
+            this.customerFullNameDataGridViewTextBoxColumn,
+            this.branchNameDataGridViewTextBoxColumn,
+            this.inspectionReportDataGridViewTextBoxColumn,
+            this.chargesDataGridViewTextBoxColumn,
+            this.vehicleVinNoDataGridViewTextBoxColumn,
+            this.vehicleDescriptionDataGridViewTextBoxColumn,
+            this.expectedReturnDateDataGridViewTextBoxColumn,
+            this.lastUpdatedDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.vEHICLERETURNBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 68);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(640, 150);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // returnIDDataGridViewTextBoxColumn
+            // 
+            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.HeaderText = "ReturnID";
+            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
+            this.returnIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            this.bookingIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            this.returnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // customerFullNameDataGridViewTextBoxColumn
+            // 
+            this.customerFullNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerFullName";
+            this.customerFullNameDataGridViewTextBoxColumn.HeaderText = "CustomerFullName";
+            this.customerFullNameDataGridViewTextBoxColumn.Name = "customerFullNameDataGridViewTextBoxColumn";
+            this.customerFullNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // branchNameDataGridViewTextBoxColumn
+            // 
+            this.branchNameDataGridViewTextBoxColumn.DataPropertyName = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.HeaderText = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.Name = "branchNameDataGridViewTextBoxColumn";
+            this.branchNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // inspectionReportDataGridViewTextBoxColumn
+            // 
+            this.inspectionReportDataGridViewTextBoxColumn.DataPropertyName = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.HeaderText = "Inspection Report";
+            this.inspectionReportDataGridViewTextBoxColumn.Name = "inspectionReportDataGridViewTextBoxColumn";
+            this.inspectionReportDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // chargesDataGridViewTextBoxColumn
+            // 
+            this.chargesDataGridViewTextBoxColumn.DataPropertyName = "Charges";
+            this.chargesDataGridViewTextBoxColumn.HeaderText = "Charges";
+            this.chargesDataGridViewTextBoxColumn.Name = "chargesDataGridViewTextBoxColumn";
+            this.chargesDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // vehicleVinNoDataGridViewTextBoxColumn
+            // 
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // vehicleDescriptionDataGridViewTextBoxColumn
+            // 
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // expectedReturnDateDataGridViewTextBoxColumn
+            // 
+            this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastUpdatedDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
+            this.lastUpdatedDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // vEHICLERETURNBindingSource
+            // 
+            this.vEHICLERETURNBindingSource.DataMember = "VEHICLE RETURN";
+            this.vEHICLERETURNBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(10, 31);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(261, 31);
+            this.textBox5.TabIndex = 0;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(24, 170);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(154, 25);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "Customer_ID:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.AcceptsReturn = true;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(22, 137);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(317, 30);
+            this.textBox4.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.textBox4, "Describe the claim, damage, or incident related to the vehicle.");
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(121, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(262, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -401,7 +656,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(213, 27);
+            this.label7.Location = new System.Drawing.Point(354, 27);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(349, 73);
             this.label7.TabIndex = 45;
@@ -412,7 +667,7 @@
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(27, 310);
+            this.dateTimePicker1.Location = new System.Drawing.Point(22, 443);
             this.dateTimePicker1.MinDate = new System.DateTime(2026, 6, 9, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(312, 31);
@@ -423,10 +678,10 @@
             // 
             this.textBox1.AcceptsReturn = true;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(22, 236);
+            this.textBox1.Location = new System.Drawing.Point(22, 510);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 30);
+            this.textBox1.Size = new System.Drawing.Size(322, 85);
             this.textBox1.TabIndex = 43;
             this.toolTip1.SetToolTip(this.textBox1, "Describe the claim, damage, or incident related to the vehicle.");
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -434,9 +689,10 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(403, 310);
+            this.textBox3.Location = new System.Drawing.Point(27, 257);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(303, 31);
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(312, 31);
             this.textBox3.TabIndex = 42;
             this.toolTip3.SetToolTip(this.textBox3, "Identify the party responsible for the reported claim or damage.");
             // 
@@ -444,18 +700,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(398, 282);
+            this.label6.Location = new System.Drawing.Point(22, 232);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(211, 25);
+            this.label6.Size = new System.Drawing.Size(124, 25);
             this.label6.TabIndex = 41;
-            this.label6.Text = "Responsible Party:";
+            this.label6.Text = "Return_ID:";
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(563, 408);
+            this.button1.Location = new System.Drawing.Point(844, 654);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(170, 83);
             this.button1.TabIndex = 40;
@@ -468,7 +724,7 @@
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(279, 408);
+            this.button2.Location = new System.Drawing.Point(420, 654);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 83);
             this.button2.TabIndex = 39;
@@ -483,7 +739,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(22, 408);
+            this.button3.Location = new System.Drawing.Point(22, 654);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(182, 83);
             this.button3.TabIndex = 38;
@@ -494,9 +750,10 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(403, 148);
+            this.textBox2.Location = new System.Drawing.Point(22, 198);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(303, 31);
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(317, 31);
             this.textBox2.TabIndex = 37;
             this.toolTip2.SetToolTip(this.textBox2, "Choose the appropriate claim type (e.g. Accident, Theft, Damage).");
             // 
@@ -507,27 +764,22 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(403, 233);
+            this.comboBox2.Location = new System.Drawing.Point(358, 538);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(303, 33);
+            this.comboBox2.Size = new System.Drawing.Size(317, 33);
             this.comboBox2.TabIndex = 34;
             this.comboBox2.ValueMember = "ClaimStatus";
             // 
             // cLAIMBindingSource
             // 
             this.cLAIMBindingSource.DataMember = "CLAIM";
-            this.cLAIMBindingSource.DataSource = this.avisDS1;
-            // 
-            // avisDS1
-            // 
-            this.avisDS1.DataSetName = "AvisDS";
-            this.avisDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cLAIMBindingSource.DataSource = this.avisDS;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(398, 194);
+            this.label5.Location = new System.Drawing.Point(363, 510);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(152, 25);
             this.label5.TabIndex = 33;
@@ -537,7 +789,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(398, 109);
+            this.label4.Location = new System.Drawing.Point(363, 432);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 25);
             this.label4.TabIndex = 32;
@@ -547,7 +799,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 282);
+            this.label3.Location = new System.Drawing.Point(24, 415);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 31;
@@ -557,7 +809,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 194);
+            this.label2.Location = new System.Drawing.Point(17, 482);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(204, 25);
             this.label2.TabIndex = 30;
@@ -565,21 +817,13 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.bOOKINGBindingSource;
-            this.comboBox1.DisplayMember = "BookingID";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 148);
+            this.comboBox1.Location = new System.Drawing.Point(358, 460);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(317, 33);
             this.comboBox1.TabIndex = 29;
-            this.comboBox1.ValueMember = "BookingID";
-            // 
-            // bOOKINGBindingSource
-            // 
-            this.bOOKINGBindingSource.DataMember = "BOOKING";
-            this.bOOKINGBindingSource.DataSource = this.avisDS1;
             // 
             // label1
             // 
@@ -591,9 +835,10 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Booking_ID:";
             // 
-            // dsBook
+            // bOOKINGBindingSource
             // 
-            this.dsBook.ClearBeforeFill = true;
+            this.bOOKINGBindingSource.DataMember = "BOOKING";
+            this.bOOKINGBindingSource.DataSource = this.avisDS;
             // 
             // cLAIMTableAdapter
             // 
@@ -606,7 +851,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(0, 386);
+            this.panel1.Location = new System.Drawing.Point(0, 632);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 117);
             this.panel1.TabIndex = 31;
@@ -648,12 +893,16 @@
             // 
             this.bookingTableAdapter1.ClearBeforeFill = true;
             // 
+            // vEHICLE_RETURNTableAdapter
+            // 
+            this.vEHICLE_RETURNTableAdapter.ClearBeforeFill = true;
+            // 
             // AddClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1039, 503);
+            this.ClientSize = new System.Drawing.Size(1320, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -666,9 +915,13 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEHICLERETURNBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLAIMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -721,8 +974,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource bOOKINGBindingSource;
-        private AvisDS avisDS1;
-        private AvisDSTableAdapters.BOOKINGTableAdapter dsBook;
+        private AvisDS avisDS;
         private System.Windows.Forms.BindingSource cLAIMBindingSource;
         private AvisDSTableAdapters.CLAIMTableAdapter cLAIMTableAdapter;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -739,5 +991,30 @@
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip2;
         private AvisDSTableAdapters.BOOKINGTableAdapter bookingTableAdapter1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.BindingSource vEHICLERETURNBindingSource;
+        private AvisDSTableAdapters.VEHICLE_RETURNTableAdapter vEHICLE_RETURNTableAdapter;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerFullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspectionReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chargesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
     }
 }

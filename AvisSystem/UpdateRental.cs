@@ -68,7 +68,7 @@ namespace AvisSystem
             {
                 this.Validate();
                 vEHICLERETURNBindingSource.EndEdit();
-                vEHICLE_RETURNTableAdapter.Update(avisDS.VEHICLE_RETURN);
+              //  vEHICLE_RETURNTableAdapter.Update(avisDS.VEHICLE_RETURN);
 
                 vEHICLE_RETURNTableAdapter.Fill(avisDS.VEHICLE_RETURN);
                 MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
