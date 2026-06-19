@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +67,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.employeeTableAdapter1 = new AvisSystem.AvisDSTableAdapters.EMPLOYEETableAdapter();
+            this.avisDS1 = new AvisSystem.AvisDS();
+            this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -77,6 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -231,6 +238,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.bRANCHBindingSource;
+            this.comboBox1.DisplayMember = "branchName";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.Gray;
             this.comboBox1.FormattingEnabled = true;
@@ -238,7 +247,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(280, 37);
             this.comboBox1.TabIndex = 23;
-            this.comboBox1.Text = "          BranchID";
+            this.comboBox1.ValueMember = "branchName";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Enter += new System.EventHandler(this.comboBox1_Enter);
             this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
@@ -523,6 +532,24 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // employeeTableAdapter1
+            // 
+            this.employeeTableAdapter1.ClearBeforeFill = true;
+            // 
+            // avisDS1
+            // 
+            this.avisDS1.DataSetName = "AvisDS";
+            this.avisDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bRANCHBindingSource
+            // 
+            this.bRANCHBindingSource.DataMember = "BRANCH";
+            this.bRANCHBindingSource.DataSource = this.avisDS1;
+            // 
+            // bRANCHTableAdapter
+            // 
+            this.bRANCHTableAdapter.ClearBeforeFill = true;
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,6 +576,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,5 +621,9 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private AvisDSTableAdapters.EMPLOYEETableAdapter employeeTableAdapter1;
+        private AvisDS avisDS1;
+        private System.Windows.Forms.BindingSource bRANCHBindingSource;
+        private AvisDSTableAdapters.BRANCHTableAdapter bRANCHTableAdapter;
     }
 }

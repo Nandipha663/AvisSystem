@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using Org.BouncyCastle.Tls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -235,7 +237,7 @@ namespace AvisSystem
             
             textBox3.Clear();
             textBox4.Clear();
-            maskedTextBox3.Clear();
+            maskedTextBox1.Clear();
             comboBox1.Text= "";
             if (comboBox1.SelectedIndex > -1)
                 comboBox1.Text = "";
@@ -277,11 +279,37 @@ namespace AvisSystem
         {
             cUSTOMERTableAdapter.FillByFullName(avisDS.CUSTOMER, textBox3.Text);
         }
+        private bool CustomerExists()
+        {
+            var adapter = cUSTOMERTableAdapter;
 
+            int count = Convert.ToInt32(
+                adapter.CheckDuplicateCustomer(
+                    maskedTextBox1.Text.Trim(),
+                    textBox14.Text.Trim(),
+                    textBox12.Text.Trim()));
+
+            return count > 0;
+        }
         private void button2_Click_1(object sender, EventArgs e)
         {
-            cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox3.Text, comboBox1.Text, textBox12.Text, textBox13.Text);              MessageBox.Show("Customer added successfully!");
+            if (CustomerExists())
+            {
+                MessageBox.Show(
+                    "The License Number, Email Address, or Username already exists.",
+                    "Duplicate Entry",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // Insert customer
+            cUSTOMERTableAdapter.InsertCustomer(textBox1.Text, textBox9.Text, textBox4.Text, textBox14.Text, maskedTextBox1.Text, comboBox1.Text, textBox12.Text, textBox13.Text); MessageBox.Show("Customer added successfully!");
+
+            MessageBox.Show("Customer added successfully.");
         }
+
 
         private void signUpNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -295,6 +323,11 @@ namespace AvisSystem
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
         }
     }
 }

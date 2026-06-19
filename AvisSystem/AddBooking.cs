@@ -86,7 +86,7 @@ namespace AvisSystem
             logoutToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
 
-
+     
             // Step 1: Configure comboboxes (this calls your ConfigureBranchComboBoxes method)
             ConfigureBranchComboBoxes();
 

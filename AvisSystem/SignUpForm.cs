@@ -54,6 +54,8 @@ namespace AvisSystem
         AvisSystem.AvisDS avisDS = new AvisSystem.AvisDS();
         private void SignUpForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'avisDS1.BRANCH' table. You can move, or remove it, as needed.
+            this.bRANCHTableAdapter.Fill(this.avisDS1.BRANCH);
 
             //employeeTA.Fill(avisDS.EMPLOYEE);
 
@@ -384,10 +386,26 @@ namespace AvisSystem
 
             }
         }
+        private bool EmployeeExists()
+        {
+            var adapter = employeeTableAdapter1;
 
+            return (int)adapter.CheckEmployeeDuplicate(
+                textBox2.Text.Trim(),
+                textBox1.Text.Trim()) > 0;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (EmployeeExists())
+            {
+                MessageBox.Show(
+                    "The email address or username already exists.",
+                    "Duplicate Entry",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
+                return;
+            }
             ValidateRegistration();
             EmptySpaces();
 
