@@ -137,7 +137,6 @@ namespace AvisSystem
 
             comboBox1.DataSource = null;
             comboBox1.Items.Clear();
-            comboBox1.Items.Add(""); // Add an empty option at index 0
             comboBox1.Items.Add("Tyre & Rim Damage");
             comboBox1.Items.Add("Bodywork");
             comboBox1.Items.Add("Windscreen & Glass");
@@ -220,6 +219,8 @@ namespace AvisSystem
 
                 MessageBox.Show("Claim filed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearForm();
+                // Pass the new claim ID to the UpdateClaim form
+                UpdateClaim updateClaimForm = new UpdateClaim();
             }
             catch (Exception ex)
             {
@@ -243,7 +244,7 @@ namespace AvisSystem
             textBox3.Clear();
             textBox8.Clear();
 
-            dateTimePicker1.Value = DateTime.Today;
+            dateTimePicker1.Value = DateTime.Now;
 
             // Refresh the main vehicle return table view dataset
             this.vEHICLE_RETURNTableAdapter.Fill(this.avisDS.VEHICLE_RETURN);

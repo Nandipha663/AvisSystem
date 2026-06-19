@@ -16,44 +16,13 @@ namespace AvisSystem
 {
     public partial class UpdateClaim : Form
     {
+
         public UpdateClaim()
         {
             InitializeComponent();
             label5.Click += panel1_Click;
             label6.Click += panel1_Click;
             pictureBox2.Click += panel1_Click;
-        }
-
-        private void HighlightRecentBooking()
-        {
-            DateTime latestTime = DateTime.MinValue;
-            DataGridViewRow latestRow = null;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells["LastUpdated"].Value != DBNull.Value)
-                {
-                    DateTime updateTime =
-                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
-
-                    if (updateTime > latestTime)
-                    {
-                        latestTime = updateTime;
-                        latestRow = row;
-                    }
-                }
-            }
-
-            if (latestRow != null)
-            {
-                dataGridView1.ClearSelection();
-
-                latestRow.Selected = true;
-                latestRow.DefaultCellStyle.BackColor = Color.LightGreen;
-
-                dataGridView1.FirstDisplayedScrollingRowIndex =
-                    latestRow.Index;
-            }
         }
 
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +44,7 @@ namespace AvisSystem
             DataTable bottomTable = (DataTable)dataGridView2.DataSource;
             bottomTable.Clear();
         }
+
         private void UpdateClaim_Load(object sender, EventArgs e)
         {
             viewUpdateClaimsToolStripMenuItem.Enabled = false;
@@ -84,8 +54,8 @@ namespace AvisSystem
             exitToolStripMenuItem.Enabled = true;
 
             this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
+            dataGridView1.DataSource = cLAIMBindingSource1;
             dataGridView1.Refresh();
-            HighlightRecentBooking();
 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -107,9 +77,7 @@ namespace AvisSystem
             dataGridView2.DataSource = emptyClaimTable;
 
         }
-    
-            
-        
+      
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem == null)
@@ -185,11 +153,11 @@ namespace AvisSystem
                 try
                 {
                     string txt = textBox1.Text.Replace("'", "''");
-                    this.cLAIMBindingSource.Filter = $"ClaimType LIKE '%{txt}%'";
+                    this.cLAIMBindingSource1.Filter = $"ClaimType LIKE '%{txt}%'";
                 }
                 catch
                 {
-                    this.cLAIMBindingSource.Filter = null;
+                    this.cLAIMBindingSource1.Filter = null;
                     this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
                 }
             }
@@ -309,7 +277,7 @@ namespace AvisSystem
         {
             try
             {
-                if (comboBox1.Text == "Claim Status")
+                if (comboBox1.Text == "ClaimStatus")
                 {
                     if (string.IsNullOrWhiteSpace(comboBox2.Text))
                     {
@@ -317,10 +285,10 @@ namespace AvisSystem
                         return;
                     }
 
-                    cLAIMBindingSource.Filter =
+                    cLAIMBindingSource1.Filter =
                         $"ClaimStatus = '{comboBox2.Text}'";
                 }
-                else if (comboBox1.Text == "Date")
+                else if (comboBox1.Text == "ClaimDate")
                 {
                     if (dateTimePicker1.CustomFormat == " ")
                     {
@@ -330,7 +298,7 @@ namespace AvisSystem
 
                     DateTime date = dateTimePicker1.Value.Date;
 
-                    cLAIMBindingSource.Filter =
+                    cLAIMBindingSource1.Filter =
                         $"ClaimDate >= #{date:yyyy-MM-dd}# AND ClaimDate < #{date.AddDays(1):yyyy-MM-dd}#";
                 }
                 else
@@ -348,28 +316,50 @@ namespace AvisSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Get the ClaimID from the selected row
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            int claimID = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+            // Confirm deletion
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to permanently delete the selected claim record?",
-                "",
+                $"Are you sure you want to permanently delete Claim ID: {claimID}?",
+                "Confirm Delete",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
+
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                    cLAIMBindingSource.RemoveCurrent();
-                    this.claimTableAdapter1.Update(this.avisDS.CLAIM);
+                    this.claimTableAdapter1.DeleteQuery(claimID);
+
+                    this.claimTableAdapter1.Fill(this.avisDS.CLAIM);
+
+                    // Clear the selected row highlight
+                    dataGridView1.ClearSelection();
+
+                    // Clear any data in the bottom grid
+                    DataTable bottomTable = (DataTable)dataGridView2.DataSource;
+                    if (bottomTable != null)
+                    {
+                        bottomTable.Clear();
+                    }
+
+                    MessageBox.Show($"Claim record {claimID} deleted successfully.",
+                                    "Success",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while deleting the record: ", "",
-                                     MessageBoxButtons.OK);
+                    MessageBox.Show($"An error occurred while deleting the record:\n{ex.Message}",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -527,13 +517,13 @@ namespace AvisSystem
         {
             comboBox2.Items.Clear();
 
-            if (comboBox1.Text == "Claim Status")
+            if (comboBox1.Text == "ClaimStatus")
             {
                 comboBox2.Enabled = true;
                 comboBox2.Items.Add("Approved");
                 comboBox2.Items.Add("Rejected");
             }
-            else if (comboBox1.Text == "Claim Date")
+            else if (comboBox1.Text == "ClaimDate")
             {
                 comboBox2.Enabled = false;
                 dateTimePicker1.Enabled = true;
