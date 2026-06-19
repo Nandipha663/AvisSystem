@@ -556,16 +556,24 @@ namespace AvisSystem
                     row.Cells[3].Value?.ToString();
 
                 DateTime pickUpDate = Convert.ToDateTime(row.Cells[5].Value);
+                string bookingStatus = row.Cells[13].Value.ToString();
 
-                
+
                 if (pickUpDate.Date == DateTime.Today)
                 {
-                    vehicleTableAdapter1.UpdateVehicleStatus("Rented Out", vin);
+                    if (bookingStatus == "Confirmed")
+                    {
+                        vehicleTableAdapter1.UpdateVehicleStatus( "Rented Out", vin);
+                    }
+                    else if (bookingStatus == "Cancelled" || bookingStatus == "Pending")
+                    {
+                        vehicleTableAdapter1.UpdateVehicleStatus( "Available", vin);
+                    }
                 }
 
 
                 string status =
-                    row.Cells[13].Value?.ToString();
+                        row.Cells[13].Value?.ToString();
 
                 DateTime returnDate;
 
