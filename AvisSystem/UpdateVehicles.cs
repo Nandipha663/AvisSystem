@@ -231,9 +231,7 @@ namespace AvisSystem
 
         private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReAssignVehicle newAddBranch = new ReAssignVehicle();
-            newAddBranch.Show();
-            this.Hide();
+            
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)

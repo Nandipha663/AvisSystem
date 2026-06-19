@@ -7963,7 +7963,7 @@ namespace AvisSystem.AvisDSTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        BookingID, CustomerID, CustomerFullName, VehicleVinNo, [Booking Date], [PickUp Date], ExpectedReturnDate, Status, [Invoice Amount], PickUpBranchName, DropOffBranchName, BranchName, EmployeeID, FullName, Position,
@@ -8065,11 +8065,18 @@ VALUES
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "UPDATE BOOKING\r\nSET          Status = @Status, LastUpdated = GETDATE()\r\nWHERE  (B" +
-                "ookingID = @BookingID)";
+            this._commandCollection[8].CommandText = "UPDATE       BOOKING\r\nSET                VehicleVinNo = @NewVin\r\nWHERE        (Bo" +
+                "okingID = @BookingID)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewVin", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "UPDATE BOOKING\r\nSET          Status = @Status, LastUpdated = GETDATE()\r\nWHERE  (B" +
+                "ookingID = @BookingID)";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8394,8 +8401,38 @@ VALUES
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateStatusBooking(string Status, int BookingID) {
+        public virtual int UpdateBookingVehicle(string NewVin, int BookingID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            if ((NewVin == null)) {
+                throw new global::System.ArgumentNullException("NewVin");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(NewVin));
+            }
+            command.Parameters[1].Value = ((int)(BookingID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateStatusBooking(string Status, int BookingID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             if ((Status == null)) {
                 throw new global::System.ArgumentNullException("Status");
             }
@@ -10933,7 +10970,7 @@ SELECT InsuranceID, VehicleVinNo, InsuranceName, InsuranceAmount, InsurancePacka
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[16];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        VehicleVinNo, RegistrationNo, Make, Model, Category, Status, Image," +
@@ -10964,60 +11001,90 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT BranchName, Category, DailyRate, Image, LastUpdated, Make, Model, Registra" +
-                "tionNo, Status, VehicleDescription, VehicleVinNo FROM VEHICLE WHERE (Make LIKE @" +
-                "Make + \'%\')";
+            this._commandCollection[3].CommandText = "SELECT        Make, Model, Category\r\nFROM            VEHICLE\r\nWHERE        (Vehic" +
+                "leVinNo = @Vin)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vin", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT BranchName, Category, DailyRate, Image, LastUpdated, Make, Model, Registra" +
-                "tionNo, Status, VehicleDescription, VehicleVinNo FROM VEHICLE WHERE (VehicleVinN" +
-                "o LIKE @VehicleVinNo + \'%\')";
+            this._commandCollection[4].CommandText = "SELECT        VehicleVinNo, RegistrationNo, Make, Model, Category, Status, Image," +
+                " BranchName, DailyRate, VehicleDescription, LastUpdated\r\nFROM            VEHICLE" +
+                "\r\nWHERE        (VehicleVinNo = @vin)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vin", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT Category\r\n\r\nFROM VEHICLE\r\n\r\nWHERE VehicleVinNo = @VehicleVinNo";
+            this._commandCollection[5].CommandText = "SELECT        VehicleVinNo, Make, Model, Category, Status, RegistrationNo\r\nFROM  " +
+                "          VEHICLE\r\nWHERE        (Make = @Make) AND (Model = @Model) AND (Categor" +
+                "y = @Category) AND (Status = \'Available\') AND (VehicleVinNo <> @VehicleVinNo)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT VehicleDescription\r\n\r\nFROM VEHICLE\r\n\r\nWHERE VehicleVinNo = @VehicleVinNo";
+            this._commandCollection[6].CommandText = "SELECT        VehicleVinNo, Make, Model, Category, Status, RegistrationNo\r\nFROM  " +
+                "          VEHICLE\r\nWHERE        (Status = \'Available\') AND (VehicleVinNo <> @Veh" +
+                "icleVinNo)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE       VEHICLE\r\nSET                PickUpBranch = @PickUpBranch, LastUpdate" +
-                "d = GETDATE()\r\nWHERE        (VehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[7].CommandText = "SELECT BranchName, Category, DailyRate, Image, LastUpdated, Make, Model, Registra" +
+                "tionNo, Status, VehicleDescription, VehicleVinNo FROM VEHICLE WHERE (Make LIKE @" +
+                "Make + \'%\')";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickUpBranch", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PickUpBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "UPDATE       VEHICLE\r\nSET                Status = \'Unavailable\'\r\nWHERE        (Ve" +
-                "hicleVinNo = @VehicleVinNo)";
+            this._commandCollection[8].CommandText = "SELECT BranchName, Category, DailyRate, Image, LastUpdated, Make, Model, Registra" +
+                "tionNo, Status, VehicleDescription, VehicleVinNo FROM VEHICLE WHERE (VehicleVinN" +
+                "o LIKE @VehicleVinNo + \'%\')";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "UPDATE       VEHICLE\r\nSET                Status = \'Rented Out\', LastUpdated = GET" +
-                "DATE()\r\nWHERE        (VehicleVinNo = @VehicleVinNo)  \r\n";
+            this._commandCollection[9].CommandText = "SELECT Category\r\n\r\nFROM VEHICLE\r\n\r\nWHERE VehicleVinNo = @VehicleVinNo";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "UPDATE VEHICLE\r\nSET          Status = @Status, LastUpdated = GETDATE()\r\nWHERE  (V" +
-                "ehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[10].CommandText = "SELECT VehicleDescription\r\n\r\nFROM VEHICLE\r\n\r\nWHERE VehicleVinNo = @VehicleVinNo";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = "UPDATE       VEHICLE\r\nSET                LastUpdated = GETDATE()\r\nWHERE        (V" +
-                "ehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[11].CommandText = "UPDATE       VEHICLE\r\nSET                PickUpBranch = @PickUpBranch, LastUpdate" +
+                "d = GETDATE()\r\nWHERE        (VehicleVinNo = @VehicleVinNo)";
             this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickUpBranch", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PickUpBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[12].Connection = this.Connection;
+            this._commandCollection[12].CommandText = "UPDATE       VEHICLE\r\nSET                Status = \'Unavailable\'\r\nWHERE        (Ve" +
+                "hicleVinNo = @VehicleVinNo)";
+            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[13].Connection = this.Connection;
+            this._commandCollection[13].CommandText = "UPDATE       VEHICLE\r\nSET                Status = \'Rented Out\', LastUpdated = GET" +
+                "DATE()\r\nWHERE        (VehicleVinNo = @VehicleVinNo)  \r\n";
+            this._commandCollection[13].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[14] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[14].Connection = this.Connection;
+            this._commandCollection[14].CommandText = "UPDATE VEHICLE\r\nSET          Status = @Status, LastUpdated = GETDATE()\r\nWHERE  (V" +
+                "ehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[14].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[15] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[15].Connection = this.Connection;
+            this._commandCollection[15].CommandText = "UPDATE       VEHICLE\r\nSET                LastUpdated = GETDATE()\r\nWHERE        (V" +
+                "ehicleVinNo = @VehicleVinNo)";
+            this._commandCollection[15].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleVinNo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleVinNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11048,8 +11115,188 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByMake(AvisDS.VEHICLEDataTable dataTable, string Make) {
+        public virtual int FillBy(AvisDS.VEHICLEDataTable dataTable, string Vin) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Vin == null)) {
+                throw new global::System.ArgumentNullException("Vin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Vin));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLEDataTable GetVehicleDetails(string Vin) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Vin == null)) {
+                throw new global::System.ArgumentNullException("Vin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Vin));
+            }
+            AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(AvisDS.VEHICLEDataTable dataTable, string vin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((vin == null)) {
+                throw new global::System.ArgumentNullException("vin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(vin));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLEDataTable GetDetailsOfVehicle(string vin) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((vin == null)) {
+                throw new global::System.ArgumentNullException("vin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(vin));
+            }
+            AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(AvisDS.VEHICLEDataTable dataTable, string Make, string Model, string Category, string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((Make == null)) {
+                throw new global::System.ArgumentNullException("Make");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Make));
+            }
+            if ((Model == null)) {
+                throw new global::System.ArgumentNullException("Model");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Model));
+            }
+            if ((Category == null)) {
+                throw new global::System.ArgumentNullException("Category");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Category));
+            }
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(VehicleVinNo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLEDataTable GetSimilarVehicles(string Make, string Model, string Category, string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((Make == null)) {
+                throw new global::System.ArgumentNullException("Make");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Make));
+            }
+            if ((Model == null)) {
+                throw new global::System.ArgumentNullException("Model");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Model));
+            }
+            if ((Category == null)) {
+                throw new global::System.ArgumentNullException("Category");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Category));
+            }
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(VehicleVinNo));
+            }
+            AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy3(AvisDS.VEHICLEDataTable dataTable, string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.VEHICLEDataTable GetAvailableVehicles(string VehicleVinNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((VehicleVinNo == null)) {
+                throw new global::System.ArgumentNullException("VehicleVinNo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(VehicleVinNo));
+            }
+            AvisDS.VEHICLEDataTable dataTable = new AvisDS.VEHICLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMake(AvisDS.VEHICLEDataTable dataTable, string Make) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((Make == null)) {
                 throw new global::System.ArgumentNullException("Make");
             }
@@ -11068,7 +11315,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual AvisDS.VEHICLEDataTable GetDataBy2(string Make) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((Make == null)) {
                 throw new global::System.ArgumentNullException("Make");
             }
@@ -11085,7 +11332,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByVVN(AvisDS.VEHICLEDataTable dataTable, string VehicleVinNo) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[8];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11104,7 +11351,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual AvisDS.VEHICLEDataTable GetDataBy11(string VehicleVinNo) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[8];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11232,7 +11479,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual string GetCatByVIN(string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11266,7 +11513,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual string GetVehicleDescrByVIN(string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11301,7 +11548,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdatePickUpBranch(object PickUpBranch, string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
             if ((PickUpBranch == null)) {
                 throw new global::System.ArgumentNullException("PickUpBranch");
             }
@@ -11336,7 +11583,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateStatus(string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11365,7 +11612,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateStatusandTime(string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[13];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }
@@ -11394,7 +11641,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateVehicleStatus(string Status, string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[14];
             if ((Status == null)) {
                 throw new global::System.ArgumentNullException("Status");
             }
@@ -11429,7 +11676,7 @@ SELECT VehicleVinNo, RegistrationNo, Make, Model, Category, Status, BranchName, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateVehicleTime(string VehicleVinNo) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[15];
             if ((VehicleVinNo == null)) {
                 throw new global::System.ArgumentNullException("VehicleVinNo");
             }

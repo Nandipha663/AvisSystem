@@ -20,7 +20,7 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -63,7 +63,8 @@ namespace AvisSystem
 
             dateTimePicker1.Enabled = false;
             comboBox2.Enabled = false;
-            
+            button7.Visible = false;
+
 
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
             this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
@@ -96,7 +97,9 @@ namespace AvisSystem
                                string status)
         {
 
-            
+            if (status != "Confirmed")
+                return "";
+
 
             bool isOverdue =
                 status == "Confirmed" &&
@@ -167,7 +170,7 @@ namespace AvisSystem
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox1.Text);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             try
@@ -199,7 +202,7 @@ namespace AvisSystem
             homeform.Show();
         }
 
-        private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
@@ -218,7 +221,7 @@ namespace AvisSystem
             newUpdateReservation.Show();
         }
 
-        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 AddCustomer newAddCustomer = new AddCustomer();
                 this.Hide();
@@ -232,7 +235,7 @@ namespace AvisSystem
             newManageCustomers.Show();
         }
 
-        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
             this.Hide();
@@ -246,7 +249,7 @@ namespace AvisSystem
             newUpdateRental.Show();
         }
 
-        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
             this.Hide();
@@ -260,7 +263,7 @@ namespace AvisSystem
             newUpdateVehicles.Show();
         }
 
-        private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
             this.Hide();
@@ -293,7 +296,7 @@ namespace AvisSystem
             }
         }
 
-        private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
             this.Hide();
@@ -307,11 +310,9 @@ namespace AvisSystem
             newUpdateClaim.Show();
         }
 
-        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReAssignVehicle newAddBranch = new ReAssignVehicle();
-            this.Hide();
-            newAddBranch.Show();
+            
         }
 
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -321,14 +322,14 @@ namespace AvisSystem
             newUpdateBranch.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -383,7 +384,7 @@ namespace AvisSystem
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
                                   "Are you sure you want to delete this vehicle return record?",
@@ -406,7 +407,7 @@ namespace AvisSystem
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             textBox1.Text = "🔍 Search Reservation...";
             textBox1.ForeColor = Color.Gray;
@@ -416,7 +417,7 @@ namespace AvisSystem
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
 
@@ -443,7 +444,7 @@ namespace AvisSystem
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             try
             {
@@ -512,16 +513,16 @@ namespace AvisSystem
                     MessageBox.Show("Error:" + ex.Message);
                 }
             }
-               /* try
-            {
+            string alert = dataGridView1.CurrentRow.Cells["AlertStatus"].Value?.ToString();
 
-                textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            }
-            catch (Exception ex)
+            if (alert == "REASSIGN VEHICLE")
             {
-                MessageBox.Show("Error:" + ex.Message);
-            }*/
+                button7.Visible = true;
+            }
+            else
+            {
+                button7.Visible = false;
+            }
         }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -538,7 +539,7 @@ namespace AvisSystem
             this.Hide();
         }
 
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -562,11 +563,12 @@ namespace AvisSystem
                 }
 
                 string alert =
-                    GetBookingAlert(
-                        bookingID,
-                        vin,
-                        returnDate,
-                        status);
+                    GetBookingAlert( bookingID, vin, returnDate, status);
+
+                if (string.IsNullOrEmpty(alert))
+                {
+                    continue;
+                }
 
                 row.Cells["AlertStatus"].Value = alert;
 
@@ -588,6 +590,25 @@ namespace AvisSystem
                     row.DefaultCellStyle.BackColor = Color.Gold;
                 }
             }
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            int bookingID =
+        Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            string vin =
+                dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            DateTime pickUp = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value);
+            DateTime dropOff = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value);
+
+            ReAssignVehicle frm =
+                new ReAssignVehicle(bookingID, vin, pickUp, dropOff);
+
+            frm.ShowDialog();
+
+            bOOKINGTableAdapter.Fill(avisDS.BOOKING);
         }
     }
 }
