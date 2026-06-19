@@ -20,7 +20,7 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -56,15 +56,30 @@ namespace AvisSystem
                     latestRow.Index;
             }
         }
+
+       
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
 
             dateTimePicker1.Enabled = false;
             comboBox2.Enabled = false;
-            
+            button7.Visible = false;
+
 
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
             this.bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
+           
+
+
+            if (!dataGridView1.Columns.Contains("AlertStatus"))
+            {
+                DataGridViewTextBoxColumn alertCol = new DataGridViewTextBoxColumn();
+                alertCol.Name = "AlertStatus";
+                alertCol.HeaderText = "Alert Status";
+                alertCol.ReadOnly = true;
+
+                dataGridView1.Columns.Add(alertCol);
+            }
 
             HighlightMostRecentBooking();
 
@@ -75,12 +90,87 @@ namespace AvisSystem
             exitToolStripMenuItem.Enabled = true;
         }
 
+       
+        private string GetBookingAlert(int currentBookingID,
+                               string vin,
+                               DateTime returnDate,
+                               string status)
+        {
+
+            if (status != "Confirmed")
+                return "";
+
+
+            bool isOverdue =
+                status == "Confirmed" &&
+                returnDate < DateTime.Today;
+
+            bool futureCustomerWaiting = false;
+            bool needsReassignment = false;
+
+            foreach (DataRow booking in avisDS.BOOKING.Rows)
+            {
+
+                int otherBookingID =
+                    Convert.ToInt32(booking["BookingID"]);
+
+                // Skip the booking currently being checked
+                if (otherBookingID == currentBookingID)
+                    continue;
+
+                string otherVin =
+                    booking["VehicleVinNo"].ToString();
+
+                string otherStatus =
+                    booking["Status"].ToString();
+
+                DateTime otherPickupDate =
+                    Convert.ToDateTime(booking["PickUp Date"]);
+
+
+                if (otherVin == vin && otherStatus == "Confirmed")
+                {
+                    if (otherPickupDate <= DateTime.Today.AddDays(1))
+                    {
+                        needsReassignment = true;
+                    }
+                }
+
+
+                // Same vehicle?
+                if (otherVin == vin)
+                {
+                    // Another confirmed booking waiting?
+                    if (otherStatus == "Confirmed" &&
+                        otherPickupDate > DateTime.Today)
+                    {
+                        futureCustomerWaiting = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isOverdue && futureCustomerWaiting)
+                return "OVERDUE - CUSTOMER WAITING";
+
+            if (isOverdue)
+                return "OVERDUE BOOKING";
+
+            if (needsReassignment)
+                return "REASSIGN VEHICLE";
+
+            if (futureCustomerWaiting)
+                return "UPCOMING BOOKING";
+
+            return "";
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox1.Text);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             try
@@ -112,7 +202,7 @@ namespace AvisSystem
             homeform.Show();
         }
 
-        private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
@@ -131,7 +221,7 @@ namespace AvisSystem
             newUpdateReservation.Show();
         }
 
-        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 AddCustomer newAddCustomer = new AddCustomer();
                 this.Hide();
@@ -145,7 +235,7 @@ namespace AvisSystem
             newManageCustomers.Show();
         }
 
-        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental newAddRental = new AddRental();
             this.Hide();
@@ -159,7 +249,7 @@ namespace AvisSystem
             newUpdateRental.Show();
         }
 
-        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle newAddVehicle = new AddVehicle();
             this.Hide();
@@ -173,7 +263,7 @@ namespace AvisSystem
             newUpdateVehicles.Show();
         }
 
-        private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment newAddPayment = new AddPayment();
             this.Hide();
@@ -206,7 +296,7 @@ namespace AvisSystem
             }
         }
 
-        private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
             this.Hide();
@@ -220,11 +310,9 @@ namespace AvisSystem
             newUpdateClaim.Show();
         }
 
-        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
-            this.Hide();
-            newAddBranch.Show();
+            
         }
 
         private void viewUpdateBranchesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,14 +322,14 @@ namespace AvisSystem
             newUpdateBranch.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
             this.Hide();
             newAvisMenuForm.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -253,6 +341,10 @@ namespace AvisSystem
                         return;
                     }
                     else if (comboBox2.Text == "Confirmed")
+                    {
+                        bOOKINGBindingSource.Filter = "Status = 'Confirmed'";
+                    }
+                    else if (comboBox2.Text == "Completed")
                     {
                         bOOKINGBindingSource.Filter = "Status = 'Completed'";
                     }
@@ -292,7 +384,7 @@ namespace AvisSystem
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
                                   "Are you sure you want to delete this vehicle return record?",
@@ -315,7 +407,7 @@ namespace AvisSystem
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             textBox1.Text = "🔍 Search Reservation...";
             textBox1.ForeColor = Color.Gray;
@@ -325,7 +417,7 @@ namespace AvisSystem
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
 
@@ -336,6 +428,7 @@ namespace AvisSystem
                 comboBox2.Items.Add("Completed");
                 comboBox2.Items.Add("Pending");
                 comboBox2.Items.Add("Cancelled");
+                comboBox2.Items.Add("Confirmed");
                 
             }
             else if (comboBox1.Text == "Booking Date"  || comboBox1.Text == "Expected return date")
@@ -351,7 +444,7 @@ namespace AvisSystem
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             try
             {
@@ -420,16 +513,16 @@ namespace AvisSystem
                     MessageBox.Show("Error:" + ex.Message);
                 }
             }
-               /* try
-            {
+            string alert = dataGridView1.CurrentRow.Cells["AlertStatus"].Value?.ToString();
 
-                textBox2.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            }
-            catch (Exception ex)
+            if (alert == "REASSIGN VEHICLE")
             {
-                MessageBox.Show("Error:" + ex.Message);
-            }*/
+                button7.Visible = true;
+            }
+            else
+            {
+                button7.Visible = false;
+            }
         }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -444,6 +537,78 @@ namespace AvisSystem
             ManageEmployee manageEmp = new ManageEmployee();
             manageEmp.Show();
             this.Hide();
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                int bookingID = Convert.ToInt32(row.Cells[0].Value);
+
+                string vin =
+                    row.Cells[3].Value?.ToString();
+
+                string status =
+                    row.Cells[13].Value?.ToString();
+
+                DateTime returnDate;
+
+                if (!DateTime.TryParse(
+                        row.Cells[6].Value?.ToString(),
+                        out returnDate))
+                {
+                    continue;
+                }
+
+                string alert =
+                    GetBookingAlert( bookingID, vin, returnDate, status);
+
+                if (string.IsNullOrEmpty(alert))
+                {
+                    continue;
+                }
+
+                row.Cells["AlertStatus"].Value = alert;
+
+                if (alert == "OVERDUE - CUSTOMER WAITING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.OrangeRed;
+                }
+                else if (alert == "OVERDUE BOOKING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightCoral;
+                }
+                else if (alert == "UPCOMING BOOKING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Khaki;
+
+                }
+                else if (alert == "REASSIGN VEHICLE")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Gold;
+                }
+            }
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            int bookingID =
+        Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            string vin =
+                dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            DateTime pickUp = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value);
+            DateTime dropOff = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value);
+
+            ReAssignVehicle frm =
+                new ReAssignVehicle(bookingID, vin, pickUp, dropOff);
+
+            frm.ShowDialog();
+
+            bOOKINGTableAdapter.Fill(avisDS.BOOKING);
         }
     }
 }

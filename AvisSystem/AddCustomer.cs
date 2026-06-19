@@ -219,9 +219,7 @@ namespace AvisSystem
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
-            this.Hide();
-            newAddBranch.Show();
+           
         }
 
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)

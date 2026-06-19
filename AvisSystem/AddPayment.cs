@@ -143,9 +143,7 @@ namespace AvisSystem
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBranch newAddBranch = new AddBranch();
-            newAddBranch.Show();
-            this.Hide();
+            
         }
 
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,7 +192,7 @@ namespace AvisSystem
                 string vvn = dataGridView1.CurrentRow.Cells[3].Value.ToString(); // Get the selected vehicle vin
                                                                                   // Find the Booking form and set the pending highlight
                 VEHICLETableAdapter vehAdapt = new VEHICLETableAdapter();
-                vehAdapt.UpdateStatusandTime(vvn);
+                vehAdapt.UpdateVehicleTime(vvn);
 
                 int bookingid = Convert.ToInt32(textBox3.Text); // Get the selected booking ID)
                 bOOKINGTableAdapter.UpdateBookingStatus(bookingid); // Update the booking status to "Completed"
