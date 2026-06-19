@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,6 +61,10 @@ namespace AvisSystem
        
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
+
+
+            
+
 
             dateTimePicker1.Enabled = false;
             comboBox2.Enabled = false;
@@ -549,6 +554,15 @@ namespace AvisSystem
 
                 string vin =
                     row.Cells[3].Value?.ToString();
+
+                DateTime pickUpDate = Convert.ToDateTime(row.Cells[5].Value);
+
+                
+                if (pickUpDate.Date == DateTime.Today)
+                {
+                    vehicleTableAdapter1.UpdateVehicleStatus("Rented Out", vin);
+                }
+
 
                 string status =
                     row.Cells[13].Value?.ToString();
