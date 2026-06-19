@@ -9172,7 +9172,7 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimSt" +
@@ -9180,10 +9180,15 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT BookingID, ClaimDate, ClaimDescription, ClaimID, ClaimStatus, ClaimType, L" +
-                "astUpdated, ResponsibleParty FROM CLAIM WHERE (ClaimType LIKE @ClaimType + \'%\')";
+            this._commandCollection[1].CommandText = "DELETE FROM CLAIM\r\nWHERE        (ClaimID = @ClaimID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClaimType", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ClaimType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClaimID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClaimID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT BookingID, ClaimDate, ClaimDescription, ClaimID, ClaimStatus, ClaimType, L" +
+                "astUpdated, ResponsibleParty FROM CLAIM WHERE (ClaimType LIKE @ClaimType + \'%\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClaimType", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ClaimType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9215,7 +9220,7 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByClaimType(AvisDS.CLAIMDataTable dataTable, string ClaimType) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((ClaimType == null)) {
                 throw new global::System.ArgumentNullException("ClaimType");
             }
@@ -9234,7 +9239,7 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual AvisDS.CLAIMDataTable GetDataBy(string ClaimType) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((ClaimType == null)) {
                 throw new global::System.ArgumentNullException("ClaimType");
             }
@@ -9503,6 +9508,30 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int BookingID, string ClaimDescription, System.DateTime ClaimDate, string ClaimType, string ClaimStatus, string ResponsibleParty, global::System.Nullable<global::System.DateTime> LastUpdated, int Original_ClaimID, int Original_BookingID, string Original_ClaimDescription, System.DateTime Original_ClaimDate, string Original_ClaimType, string Original_ClaimStatus, string Original_ResponsibleParty, global::System.Nullable<global::System.DateTime> Original_LastUpdated) {
             return this.Update(BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, ResponsibleParty, LastUpdated, Original_ClaimID, Original_BookingID, Original_ClaimDescription, Original_ClaimDate, Original_ClaimType, Original_ClaimStatus, Original_ResponsibleParty, Original_LastUpdated, Original_ClaimID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int ClaimID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(ClaimID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
