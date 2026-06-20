@@ -386,17 +386,17 @@ namespace AvisSystem
 
             }
         }
-        private bool EmployeeExists()
+        /*private bool EmployeeExists()
         {
             var adapter = employeeTableAdapter1;
 
             return (int)adapter.CheckEmployeeDuplicate(
                 textBox2.Text.Trim(),
                 textBox1.Text.Trim()) > 0;
-        }
+        }*/
         private void button1_Click(object sender, EventArgs e)
         {
-            if (EmployeeExists())
+            /*if (EmployeeExists())
             {
                 MessageBox.Show(
                     "The email address or username already exists.",
@@ -405,13 +405,13 @@ namespace AvisSystem
                     MessageBoxIcon.Warning);
 
                 return;
-            }
+            }*/
             ValidateRegistration();
             EmptySpaces();
 
             try
             {
-                employeeTA.AddNewEmployee(Convert.ToInt32(comboBox1.Text), textBox5.Text.ToString(), textBox2.Text.ToString(), comboBox2.Text.ToString(), textBox6.Text.ToString(), textBox1.Text.ToString(), textBox3.Text.ToString());
+                employeeTA.AddNewEmployee(textBox5.Text, textBox2.Text, comboBox2.Text, textBox6.Text, textBox1.Text, textBox3.Text, comboBox1.Text);
 
                 //Refill employees table
                 ManageEmployee empForm = Application.OpenForms["ManageEmployee"] as ManageEmployee;

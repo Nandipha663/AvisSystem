@@ -14,6 +14,10 @@ namespace AvisSystem
 {
     public partial class AddRental : Form
     {
+
+        private bool bookingSelected = false;
+        private bool usePickerDate = false;
+
         public AddRental()
         {
             InitializeComponent();
@@ -85,14 +89,6 @@ namespace AvisSystem
         private void AddRental_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'avisDS.BRANCH' table. You can move, or remove it, as needed.
-
-
-
-
-
-
-
-
 
             this.bRANCHTableAdapter.Fill(this.avisDS.BRANCH);
             // TODO: This line of code loads data into the 'avisDS.BOOKING' table. You can move, or remove it, as needed.
@@ -199,9 +195,9 @@ namespace AvisSystem
             textBox6.Text = "🔍 Search for Booking...";
             textBox6.ForeColor = Color.Gray;
             textBox7.Clear();
-           // maskedTextBox2.Clear();
-            //comboBox1.SelectedIndex = -1;
             dateTimePicker1.ResetText();
+
+            bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
 
         }
 
@@ -257,6 +253,17 @@ namespace AvisSystem
                 vehiclE_RETURNTableAdapter1.AddNewVR(Convert.ToInt32(textBox1.Text), dateTimePicker1.Value.ToString("yyyy-MM-dd"), textBox3.Text, Convert.ToDecimal(textBox4.Text), textBox2.Text, textBox7.Text, textBox5.Text);
                 MessageBox.Show("Vehicle return record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Text = "🔍 Search for Booking...";
+                textBox6.ForeColor = Color.Gray;
+                dateTimePicker1.ResetText();
+                textBox7.Clear();
+                bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
+
                 //Refill employees table
                 UpdateRental Return = Application.OpenForms["UpdateRental"] as UpdateRental;
 
@@ -267,7 +274,7 @@ namespace AvisSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while registering the employee: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while adding a new vehicle returned: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -337,7 +344,7 @@ namespace AvisSystem
 
         }
 
-        private bool bookingSelected = false;
+        
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -346,7 +353,7 @@ namespace AvisSystem
             if (textBox6.Text == "🔍 Search for Booking..."  || textBox6.Text != "🔍 Search for Booking...")
             {
                 string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                if (status == "Pending" || status == "Completed" || status == "Cancelled")
+                if (status != "Confirmed")
                 {
                     MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
                                    "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -354,6 +361,10 @@ namespace AvisSystem
                 }
                 else
                 {
+
+                    bookingSelected = true;
+                    usePickerDate = false;
+
                     string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
                     string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
@@ -366,7 +377,8 @@ namespace AvisSystem
                     textBox4.Clear();
                     dateTimePicker1.Value = DateTime.Today;
 
-                    bookingSelected = true;
+                    CalculateExtraCharge();
+                    
                 }
             }       
         }
@@ -376,42 +388,46 @@ namespace AvisSystem
         {
             try
             {
-                DateTime expectedReturnDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+                if (!bookingSelected ||
+                    dataGridView1.CurrentRow == null ||
+                    dataGridView1.CurrentRow.Cells[7].Value == null)
+                {
+                    textBox4.Text = "0.00";
+                    return;
+                }
 
-                DateTime actualReturnDate = dateTimePicker1.Value.Date;
+                DateTime expectedReturnDate =
+                    Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value).Date;
+
+                DateTime actualReturnDate =
+                    usePickerDate ? dateTimePicker1.Value.Date : DateTime.Today;
 
                 int lateDays = (actualReturnDate - expectedReturnDate).Days;
 
+                if (lateDays < 0)
+                    lateDays = 0;
+
                 string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-                string category = vehicleTableAdapter1.GetCatByVIN(vin).ToString();
+                string category = vehicleTableAdapter1.GetCatByVIN(vin)?.ToString();
 
-                decimal penaltyPerDay = 0;
+                decimal penaltyPerDay = 400;
 
-                if (category == "SUV")
-                    penaltyPerDay = 800;
-                else if (category == "Van")
-                    penaltyPerDay = 650;
-                else if (category == "Hatchback")
-                    penaltyPerDay = 450;
-                else if (category == "Sedan")
-                    penaltyPerDay = 550;
-                else if (category == "Premium")
-                    penaltyPerDay = 1200;
-                else if (category == "Luxury")
-                    penaltyPerDay = 1800;
-                else if (category == "Compact")
-                    penaltyPerDay = 350;
-                else
-                    penaltyPerDay = 400;
+                if (category == "SUV") penaltyPerDay = 800;
+                else if (category == "Van") penaltyPerDay = 650;
+                else if (category == "Hatchback") penaltyPerDay = 450;
+                else if (category == "Sedan") penaltyPerDay = 550;
+                else if (category == "Premium") penaltyPerDay = 1200;
+                else if (category == "Luxury") penaltyPerDay = 1800;
+                else if (category == "Compact") penaltyPerDay = 350;
 
-                decimal extraCharge =
-                    lateDays > 0 ? lateDays * penaltyPerDay : 0;
+                decimal extraCharge = lateDays * penaltyPerDay;
 
                 textBox4.Text = extraCharge.ToString("0.00");
-            }catch (Exception ex)
+            }
+            catch
             {
-                MessageBox.Show("An error occurred while calculating extra charges: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox4.Text = "0.00";
             }
         }
 
@@ -420,6 +436,7 @@ namespace AvisSystem
             if (!bookingSelected)
                 return;
 
+            usePickerDate = true;
             CalculateExtraCharge();
         }
 

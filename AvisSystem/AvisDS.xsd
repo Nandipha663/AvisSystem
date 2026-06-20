@@ -223,7 +223,7 @@ WHERE        (BookingID = @BookingID)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBookingVehicle" Modifier="Public" Name="UpdateBookingVehicle" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="UpdateBookingVehicle">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBookingVehicle" Modifier="Public" Name="UpdateBookingVehicle" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateBookingVehicle">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       BOOKING
@@ -236,7 +236,7 @@ WHERE        (BookingID = @BookingID)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateStatusBooking" Modifier="Public" Name="UpdateStatusBooking" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateStatusBooking">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateStatusBooking" Modifier="Public" Name="UpdateStatusBooking" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="UpdateStatusBooking">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE BOOKING
@@ -418,7 +418,7 @@ SELECT ClaimID, BookingID, ClaimDescription, ClaimDate, ClaimType, ClaimStatus, 
               <Mapping SourceColumn="LastUpdated" DataSetColumn="LastUpdated" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM CLAIM
@@ -429,7 +429,7 @@ WHERE        (ClaimID = @ClaimID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.CLAIM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByClaimType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByClaimType" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByClaimType">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.CLAIM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByClaimType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillByClaimType" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByClaimType">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT BookingID, ClaimDate, ClaimDescription, ClaimID, ClaimStatus, ClaimType, LastUpdated, ResponsibleParty FROM CLAIM WHERE (ClaimType LIKE @ClaimType + '%')</CommandText>
@@ -533,7 +533,7 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
               <Mapping SourceColumn="CustomerPassword" DataSetColumn="CustomerPassword" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckDuplicateCustomer" Modifier="Public" Name="CheckDuplicateCustomer" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="CheckDuplicateCustomer">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckDuplicateCustomer" Modifier="Public" Name="CheckDuplicateCustomer" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CheckDuplicateCustomer">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -549,7 +549,7 @@ WHERE        (LicenceNumber = @Param1) OR
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCustomer" Modifier="Public" Name="DeleteCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteCustomer">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCustomer" Modifier="Public" Name="DeleteCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteCustomer">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM CUSTOMER
@@ -570,7 +570,7 @@ WHERE        (Status = 'Active')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.CUSTOMER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFullName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillByFullName" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByFullName">
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.CUSTOMER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFullName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy11" GeneratorSourceName="FillByFullName" GetMethodModifier="Public" GetMethodName="GetDataBy11" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="FillByFullName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber, Status, LicenceCode, CustomerUsername, CustomerPassword
@@ -633,74 +633,6 @@ SELECT CustomerID, FullName, Address, ContactNumber, EmailAddress, LicenceNumber
                 </InsertCommand>
               </DbSource>
             </Sources>
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INSURANCETableAdapter" GeneratorDataComponentClassName="INSURANCETableAdapter" Name="INSURANCE" UserDataComponentName="INSURANCETableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.INSURANCE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[INSURANCE] WHERE (([InsuranceID] = @Original_InsuranceID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([InsuranceName] = @Original_InsuranceName) AND ([InsuranceAmount] = @Original_InsuranceAmount) AND ([InsurancePackage] = @Original_InsurancePackage) AND ([CoveragePackage] = @Original_CoveragePackage))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsuranceID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_VehicleVinNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VehicleVinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsuranceName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceName" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_InsuranceAmount" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InsuranceAmount" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsurancePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsurancePackage" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CoveragePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CoveragePackage" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[INSURANCE] ([InsuranceID], [VehicleVinNo], [InsuranceName], [InsuranceAmount], [InsurancePackage], [CoveragePackage]) VALUES (@InsuranceID, @VehicleVinNo, @InsuranceName, @InsuranceAmount, @InsurancePackage, @CoveragePackage);
-SELECT InsuranceID, VehicleVinNo, InsuranceName, InsuranceAmount, InsurancePackage, CoveragePackage FROM INSURANCE WHERE (InsuranceID = @InsuranceID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsuranceID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@VehicleVinNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VehicleVinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsuranceName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceName" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@InsuranceAmount" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InsuranceAmount" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsurancePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsurancePackage" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CoveragePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CoveragePackage" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT InsuranceID, VehicleVinNo, InsuranceName, InsuranceAmount, InsurancePackage, CoveragePackage FROM dbo.INSURANCE</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[INSURANCE] SET [InsuranceID] = @InsuranceID, [VehicleVinNo] = @VehicleVinNo, [InsuranceName] = @InsuranceName, [InsuranceAmount] = @InsuranceAmount, [InsurancePackage] = @InsurancePackage, [CoveragePackage] = @CoveragePackage WHERE (([InsuranceID] = @Original_InsuranceID) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([InsuranceName] = @Original_InsuranceName) AND ([InsuranceAmount] = @Original_InsuranceAmount) AND ([InsurancePackage] = @Original_InsurancePackage) AND ([CoveragePackage] = @Original_CoveragePackage));
-SELECT InsuranceID, VehicleVinNo, InsuranceName, InsuranceAmount, InsurancePackage, CoveragePackage FROM INSURANCE WHERE (InsuranceID = @InsuranceID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsuranceID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@VehicleVinNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VehicleVinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsuranceName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceName" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@InsuranceAmount" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InsuranceAmount" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InsurancePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsurancePackage" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CoveragePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CoveragePackage" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsuranceID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_VehicleVinNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VehicleVinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsuranceName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsuranceName" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_InsuranceAmount" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InsuranceAmount" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_InsurancePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InsurancePackage" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CoveragePackage" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CoveragePackage" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="InsuranceID" DataSetColumn="InsuranceID" />
-              <Mapping SourceColumn="VehicleVinNo" DataSetColumn="VehicleVinNo" />
-              <Mapping SourceColumn="InsuranceName" DataSetColumn="InsuranceName" />
-              <Mapping SourceColumn="InsuranceAmount" DataSetColumn="InsuranceAmount" />
-              <Mapping SourceColumn="InsurancePackage" DataSetColumn="InsurancePackage" />
-              <Mapping SourceColumn="CoveragePackage" DataSetColumn="CoveragePackage" />
-            </Mappings>
-            <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VEHICLETableAdapter" GeneratorDataComponentClassName="VEHICLETableAdapter" Name="VEHICLE" UserDataComponentName="VEHICLETableAdapter">
             <MainSource>
@@ -863,11 +795,11 @@ WHERE VehicleVinNo = @VehicleVinNo</CommandText>
               <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePickUpBranch" Modifier="Public" Name="UpdatePickUpBranch" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdatePickUpBranch">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>UPDATE       VEHICLE
-SET                PickUpBranch = @PickUpBranch, LastUpdated = GETDATE()
-WHERE        (VehicleVinNo = @VehicleVinNo)</CommandText>
+                    <CommandText>UPDATE VEHICLE
+SET          BranchName = @BranchName, LastUpdated = GETDATE()
+WHERE  (VehicleVinNo = @VehicleVinNo)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="PickUpBranch" ColumnName="PickUpBranch" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@PickUpBranch" Precision="0" Scale="0" Size="1024" SourceColumn="PickUpBranch" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="BranchName" ColumnName="BranchName" DataSourceName="GroupPmb3.dbo.VEHICLE" DataTypeServer="nvarchar(100)" DbType="String" Direction="Input" ParameterName="@BranchName" Precision="0" ProviderType="NVarChar" Scale="0" Size="100" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="VehicleVinNo" ColumnName="VehicleVinNo" DataSourceName="GroupPmb3.dbo.VEHICLE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@VehicleVinNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="VehicleVinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -922,174 +854,6 @@ WHERE        (VehicleVinNo = @VehicleVinNo)</CommandText>
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
-              </DbSource>
-            </Sources>
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EMPLOYEETableAdapter" GeneratorDataComponentClassName="EMPLOYEETableAdapter" Name="EMPLOYEE" UserDataComponentName="EMPLOYEETableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [EMPLOYEE] WHERE (([EmployeeID] = @Original_EmployeeID) AND ([BranchID] = @Original_BranchID) AND ([Fullname] = @Original_Fullname) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_Position = 1 AND [Position] IS NULL) OR ([Position] = @Original_Position)) AND ((@IsNull_ContactNumber = 1 AND [ContactNumber] IS NULL) OR ([ContactNumber] = @Original_ContactNumber)) AND ((@IsNull_EmploymentStatus = 1 AND [EmploymentStatus] IS NULL) OR ([EmploymentStatus] = @Original_EmploymentStatus)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BranchID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmailAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Position" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmploymentStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Username" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Password" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [EMPLOYEE] ([BranchID], [Fullname], [EmailAddress], [Position], [ContactNumber], [EmploymentStatus], [Username], [Password]) VALUES (@BranchID, @Fullname, @EmailAddress, @Position, @ContactNumber, @EmploymentStatus, @Username, @Password);
-SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password FROM EMPLOYEE WHERE (EmployeeID = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BranchID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        EMPLOYEE.*
-FROM            EMPLOYEE</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [EMPLOYEE] SET [BranchID] = @BranchID, [Fullname] = @Fullname, [EmailAddress] = @EmailAddress, [Position] = @Position, [ContactNumber] = @ContactNumber, [EmploymentStatus] = @EmploymentStatus, [Username] = @Username, [Password] = @Password WHERE (([EmployeeID] = @Original_EmployeeID) AND ([BranchID] = @Original_BranchID) AND ([Fullname] = @Original_Fullname) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_Position = 1 AND [Position] IS NULL) OR ([Position] = @Original_Position)) AND ((@IsNull_ContactNumber = 1 AND [ContactNumber] IS NULL) OR ([ContactNumber] = @Original_ContactNumber)) AND ((@IsNull_EmploymentStatus = 1 AND [EmploymentStatus] IS NULL) OR ([EmploymentStatus] = @Original_EmploymentStatus)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)));
-SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password FROM EMPLOYEE WHERE (EmployeeID = @EmployeeID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BranchID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BranchID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmailAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Position" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmploymentStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Username" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Password" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="EmployeeID" ColumnName="EmployeeID" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="EmployeeID" DataSetColumn="EmployeeID" />
-              <Mapping SourceColumn="BranchID" DataSetColumn="BranchID" />
-              <Mapping SourceColumn="Fullname" DataSetColumn="Fullname" />
-              <Mapping SourceColumn="EmailAddress" DataSetColumn="EmailAddress" />
-              <Mapping SourceColumn="Position" DataSetColumn="Position" />
-              <Mapping SourceColumn="ContactNumber" DataSetColumn="ContactNumber" />
-              <Mapping SourceColumn="EmploymentStatus" DataSetColumn="EmploymentStatus" />
-              <Mapping SourceColumn="Username" DataSetColumn="Username" />
-              <Mapping SourceColumn="Password" DataSetColumn="Password" />
-            </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewEmployee" Modifier="Public" Name="AddNewEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddNewEmployee">
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>INSERT INTO EMPLOYEE
-                         (BranchID, Fullname, EmailAddress, Position, ContactNumber, Username, Password)
-VALUES        (@BranchID,@Fullname,@EmailAddress,@Position,@ContactNumber,@Username,@Password);  
-SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password FROM EMPLOYEE WHERE (EmployeeID = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="BranchID" ColumnName="BranchID" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BranchID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="BranchID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Fullname" ColumnName="Fullname" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="EmailAddress" ColumnName="EmailAddress" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Position" ColumnName="Position" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="ContactNumber" ColumnName="ContactNumber" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Username" ColumnName="Username" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Password" ColumnName="Password" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckEmployeeDuplicate" Modifier="Public" Name="CheckEmployeeDuplicate" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="CheckEmployeeDuplicate">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        COUNT(*) AS Expr1
-FROM            EMPLOYEE
-WHERE        (EmailAddress = @Param1) OR
-                         (Username = @Param2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="EmailAddress" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@Param1" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="Username" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Param2" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteEmployee" Modifier="Public" Name="DeleteEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteEmployee">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>DELETE FROM EMPLOYEE
-WHERE        (EmployeeID = @EmployeeID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="EmployeeID" ColumnName="EmployeeID" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFullName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillByFullName" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByFullName">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT EmployeeID, BranchID, Fullname, EmailAddress, Position,
-       ContactNumber, EmploymentStatus, Username, Password
-
-FROM EMPLOYEE
-
-WHERE Fullname LIKE @Fullname + '%'</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Fullname" ColumnName="Fullname" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByLogin" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillByLogin" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByLogin">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        EmployeeID, BranchID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password
-FROM            EMPLOYEE
-WHERE        (Username = @Username) AND (Password = @Password)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="Username" ColumnName="Username" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Password" ColumnName="Password" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -1263,8 +1027,8 @@ FROM            [VEHICLE RETURN] AS vr INNER JOIN
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [VEHICLE RETURN]
-                         (BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated)
-VALUES        (@BookingID,@ReturnDate,@Inspection_Report,@Charges,@VehicleVinNo,@BranchName,@VehicleDescription, GETDATE()); 
+                  (BookingID, ReturnDate, [Inspection Report], Charges, VehicleVinNo, BranchName, VehicleDescription, LastUpdated)
+VALUES (@BookingID,@ReturnDate,@Inspection_Report,@Charges,@VehicleVinNo,@BranchName,@VehicleDescription, GETDATE());   
 
 
 
@@ -1355,6 +1119,161 @@ FROM     [VEHICLE RETURN] INNER JOIN
 WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="FullName" ColumnName="FullName" DataSourceName="GroupPmb3.dbo.CUSTOMER" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@FullName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="FullName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EMPLOYEETableAdapter" GeneratorDataComponentClassName="EMPLOYEETableAdapter" Name="EMPLOYEE" UserDataComponentName="EMPLOYEETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [EMPLOYEE] WHERE (([EmployeeID] = @Original_EmployeeID) AND ([Fullname] = @Original_Fullname) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_Position = 1 AND [Position] IS NULL) OR ([Position] = @Original_Position)) AND ((@IsNull_ContactNumber = 1 AND [ContactNumber] IS NULL) OR ([ContactNumber] = @Original_ContactNumber)) AND ((@IsNull_EmploymentStatus = 1 AND [EmploymentStatus] IS NULL) OR ([EmploymentStatus] = @Original_EmploymentStatus)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmailAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Position" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmploymentStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Username" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Password" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BranchName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_BranchName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [EMPLOYEE] ([Fullname], [EmailAddress], [Position], [ContactNumber], [EmploymentStatus], [Username], [Password], [BranchName]) VALUES (@Fullname, @EmailAddress, @Position, @ContactNumber, @EmploymentStatus, @Username, @Password, @BranchName);
+SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName FROM EMPLOYEE WHERE (EmployeeID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BranchName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName
+FROM     EMPLOYEE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [EMPLOYEE] SET [Fullname] = @Fullname, [EmailAddress] = @EmailAddress, [Position] = @Position, [ContactNumber] = @ContactNumber, [EmploymentStatus] = @EmploymentStatus, [Username] = @Username, [Password] = @Password, [BranchName] = @BranchName WHERE (([EmployeeID] = @Original_EmployeeID) AND ([Fullname] = @Original_Fullname) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_Position = 1 AND [Position] IS NULL) OR ([Position] = @Original_Position)) AND ((@IsNull_ContactNumber = 1 AND [ContactNumber] IS NULL) OR ([ContactNumber] = @Original_ContactNumber)) AND ((@IsNull_EmploymentStatus = 1 AND [EmploymentStatus] IS NULL) OR ([EmploymentStatus] = @Original_EmploymentStatus)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)));
+SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName FROM EMPLOYEE WHERE (EmployeeID = @EmployeeID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BranchName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmailAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Position" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EmploymentStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EmploymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EmploymentStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Username" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Password" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BranchName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_BranchName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EmployeeID" ColumnName="EmployeeID" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EmployeeID" DataSetColumn="EmployeeID" />
+              <Mapping SourceColumn="Fullname" DataSetColumn="Fullname" />
+              <Mapping SourceColumn="EmailAddress" DataSetColumn="EmailAddress" />
+              <Mapping SourceColumn="Position" DataSetColumn="Position" />
+              <Mapping SourceColumn="ContactNumber" DataSetColumn="ContactNumber" />
+              <Mapping SourceColumn="EmploymentStatus" DataSetColumn="EmploymentStatus" />
+              <Mapping SourceColumn="Username" DataSetColumn="Username" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="BranchName" DataSetColumn="BranchName" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewEmployee" Modifier="Public" Name="AddNewEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="AddNewEmployee">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO EMPLOYEE
+                  (Fullname, EmailAddress, Position, ContactNumber, Username, Password, BranchName)
+
+VALUES (@Fullname,@EmailAddress,@Position,@ContactNumber,@Username,@Password,@BranchName); 
+
+SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName FROM EMPLOYEE WHERE (EmployeeID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fullname" ColumnName="Fullname" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@Fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="EmailAddress" ColumnName="EmailAddress" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@EmailAddress" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="EmailAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Position" ColumnName="Position" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Position" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ContactNumber" ColumnName="ContactNumber" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@ContactNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="ContactNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Username" ColumnName="Username" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Password" ColumnName="Password" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="BranchName" ColumnName="BranchName" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@BranchName" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="BranchName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteEmployee" Modifier="Public" Name="DeleteEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteEmployee">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM EMPLOYEE
+WHERE  (EmployeeID = @EmployeeID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="EmployeeID" ColumnName="EmployeeID" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EmployeeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EmployeeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFullName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillByFullName" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByFullName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName
+FROM     EMPLOYEE
+WHERE  (Fullname LIKE @FullName + '%')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="FullName" ColumnName="Fullname" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@FullName" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="Fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb3ConnectionString (Settings)" DbObjectName="GroupPmb3.dbo.EMPLOYEE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByLogin" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByLogin" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByLogin">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentStatus, Username, Password, BranchName
+FROM     EMPLOYEE
+WHERE  (Username = @Username) AND (Password = @Password)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Username" ColumnName="Username" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Username" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Password" ColumnName="Password" DataSourceName="GroupPmb3.dbo.EMPLOYEE" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -1524,7 +1443,7 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LastUpdated" msprop:Generator_UserColumnName="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_UserColumnName="LastUpdated" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1598,48 +1517,6 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="INSURANCE" msprop:Generator_RowEvHandlerName="INSURANCERowChangeEventHandler" msprop:Generator_RowDeletedName="INSURANCERowDeleted" msprop:Generator_RowDeletingName="INSURANCERowDeleting" msprop:Generator_RowEvArgName="INSURANCERowChangeEvent" msprop:Generator_TablePropName="INSURANCE" msprop:Generator_RowChangedName="INSURANCERowChanged" msprop:Generator_UserTableName="INSURANCE" msprop:Generator_RowChangingName="INSURANCERowChanging" msprop:Generator_RowClassName="INSURANCERow" msprop:Generator_TableClassName="INSURANCEDataTable" msprop:Generator_TableVarName="tableINSURANCE">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="InsuranceID" msprop:Generator_ColumnPropNameInTable="InsuranceIDColumn" msprop:Generator_ColumnPropNameInRow="InsuranceID" msprop:Generator_UserColumnName="InsuranceID" msprop:Generator_ColumnVarNameInTable="columnInsuranceID">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="VehicleVinNo" msprop:Generator_ColumnPropNameInTable="VehicleVinNoColumn" msprop:Generator_ColumnPropNameInRow="VehicleVinNo" msprop:Generator_UserColumnName="VehicleVinNo" msprop:Generator_ColumnVarNameInTable="columnVehicleVinNo">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="InsuranceName" msprop:Generator_ColumnPropNameInTable="InsuranceNameColumn" msprop:Generator_ColumnPropNameInRow="InsuranceName" msprop:Generator_UserColumnName="InsuranceName" msprop:Generator_ColumnVarNameInTable="columnInsuranceName">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="InsuranceAmount" msprop:Generator_ColumnPropNameInTable="InsuranceAmountColumn" msprop:Generator_ColumnPropNameInRow="InsuranceAmount" msprop:Generator_UserColumnName="InsuranceAmount" msprop:Generator_ColumnVarNameInTable="columnInsuranceAmount" type="xs:decimal" />
-              <xs:element name="InsurancePackage" msprop:Generator_ColumnPropNameInTable="InsurancePackageColumn" msprop:Generator_ColumnPropNameInRow="InsurancePackage" msprop:Generator_UserColumnName="InsurancePackage" msprop:Generator_ColumnVarNameInTable="columnInsurancePackage">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CoveragePackage" msprop:Generator_ColumnPropNameInTable="CoveragePackageColumn" msprop:Generator_ColumnPropNameInRow="CoveragePackage" msprop:Generator_UserColumnName="CoveragePackage" msprop:Generator_ColumnVarNameInTable="columnCoveragePackage">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="VEHICLE" msprop:Generator_RowEvHandlerName="VEHICLERowChangeEventHandler" msprop:Generator_RowDeletedName="VEHICLERowDeleted" msprop:Generator_RowDeletingName="VEHICLERowDeleting" msprop:Generator_RowEvArgName="VEHICLERowChangeEvent" msprop:Generator_TablePropName="VEHICLE" msprop:Generator_RowChangedName="VEHICLERowChanged" msprop:Generator_UserTableName="VEHICLE" msprop:Generator_RowChangingName="VEHICLERowChanging" msprop:Generator_RowClassName="VEHICLERow" msprop:Generator_TableClassName="VEHICLEDataTable" msprop:Generator_TableVarName="tableVEHICLE">
           <xs:complexType>
             <xs:sequence>
@@ -1702,63 +1579,6 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_UserColumnName="LastUpdated" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="EMPLOYEE" msprop:Generator_RowEvHandlerName="EMPLOYEERowChangeEventHandler" msprop:Generator_RowDeletedName="EMPLOYEERowDeleted" msprop:Generator_RowDeletingName="EMPLOYEERowDeleting" msprop:Generator_RowEvArgName="EMPLOYEERowChangeEvent" msprop:Generator_TablePropName="EMPLOYEE" msprop:Generator_RowChangedName="EMPLOYEERowChanged" msprop:Generator_UserTableName="EMPLOYEE" msprop:Generator_RowChangingName="EMPLOYEERowChanging" msprop:Generator_RowClassName="EMPLOYEERow" msprop:Generator_TableClassName="EMPLOYEEDataTable" msprop:Generator_TableVarName="tableEMPLOYEE">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="EmployeeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_UserColumnName="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" type="xs:int" />
-              <xs:element name="BranchID" msprop:Generator_ColumnPropNameInTable="BranchIDColumn" msprop:Generator_ColumnPropNameInRow="BranchID" msprop:Generator_UserColumnName="BranchID" msprop:Generator_ColumnVarNameInTable="columnBranchID" type="xs:int" />
-              <xs:element name="Fullname" msprop:Generator_ColumnPropNameInTable="FullnameColumn" msprop:Generator_ColumnPropNameInRow="Fullname" msprop:Generator_UserColumnName="Fullname" msprop:Generator_ColumnVarNameInTable="columnFullname">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="EmailAddress" msprop:Generator_ColumnPropNameInTable="EmailAddressColumn" msprop:Generator_ColumnPropNameInRow="EmailAddress" msprop:Generator_UserColumnName="EmailAddress" msprop:Generator_ColumnVarNameInTable="columnEmailAddress" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_UserColumnName="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ContactNumber" msprop:Generator_ColumnPropNameInTable="ContactNumberColumn" msprop:Generator_ColumnPropNameInRow="ContactNumber" msprop:Generator_UserColumnName="ContactNumber" msprop:Generator_ColumnVarNameInTable="columnContactNumber" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="EmploymentStatus" msprop:Generator_ColumnPropNameInTable="EmploymentStatusColumn" msprop:Generator_ColumnPropNameInRow="EmploymentStatus" msprop:Generator_UserColumnName="EmploymentStatus" msprop:Generator_ColumnVarNameInTable="columnEmploymentStatus" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_UserColumnName="Username" msprop:Generator_ColumnVarNameInTable="columnUsername" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_UserColumnName="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1916,6 +1736,69 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EMPLOYEE" msprop:Generator_RowEvHandlerName="EMPLOYEERowChangeEventHandler" msprop:Generator_RowDeletedName="EMPLOYEERowDeleted" msprop:Generator_RowDeletingName="EMPLOYEERowDeleting" msprop:Generator_RowEvArgName="EMPLOYEERowChangeEvent" msprop:Generator_TablePropName="EMPLOYEE" msprop:Generator_RowChangedName="EMPLOYEERowChanged" msprop:Generator_RowChangingName="EMPLOYEERowChanging" msprop:Generator_TableClassName="EMPLOYEEDataTable" msprop:Generator_RowClassName="EMPLOYEERow" msprop:Generator_TableVarName="tableEMPLOYEE" msprop:Generator_UserTableName="EMPLOYEE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="Fullname" msprop:Generator_ColumnPropNameInRow="Fullname" msprop:Generator_ColumnPropNameInTable="FullnameColumn" msprop:Generator_ColumnVarNameInTable="columnFullname" msprop:Generator_UserColumnName="Fullname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmailAddress" msprop:Generator_ColumnPropNameInRow="EmailAddress" msprop:Generator_ColumnPropNameInTable="EmailAddressColumn" msprop:Generator_ColumnVarNameInTable="columnEmailAddress" msprop:Generator_UserColumnName="EmailAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Position" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_UserColumnName="Position" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactNumber" msprop:Generator_ColumnPropNameInRow="ContactNumber" msprop:Generator_ColumnPropNameInTable="ContactNumberColumn" msprop:Generator_ColumnVarNameInTable="columnContactNumber" msprop:Generator_UserColumnName="ContactNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmploymentStatus" msprop:Generator_ColumnPropNameInRow="EmploymentStatus" msprop:Generator_ColumnPropNameInTable="EmploymentStatusColumn" msprop:Generator_ColumnVarNameInTable="columnEmploymentStatus" msprop:Generator_UserColumnName="EmploymentStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Username" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnVarNameInTable="columnUsername" msprop:Generator_UserColumnName="Username" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_UserColumnName="Password" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BranchName" msprop:Generator_ColumnPropNameInRow="BranchName" msprop:Generator_ColumnPropNameInTable="BranchNameColumn" msprop:Generator_ColumnVarNameInTable="columnBranchName" msprop:Generator_UserColumnName="BranchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1934,17 +1817,9 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
       <xs:selector xpath=".//mstns:CUSTOMER" />
       <xs:field xpath="mstns:CustomerID" />
     </xs:unique>
-    <xs:unique name="INSURANCE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:INSURANCE" />
-      <xs:field xpath="mstns:InsuranceID" />
-    </xs:unique>
     <xs:unique name="VEHICLE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:VEHICLE" />
       <xs:field xpath="mstns:VehicleVinNo" />
-    </xs:unique>
-    <xs:unique name="EMPLOYEE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:EMPLOYEE" />
-      <xs:field xpath="mstns:EmployeeID" />
     </xs:unique>
     <xs:unique name="PAYMENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:PAYMENT" />
@@ -1962,13 +1837,15 @@ WHERE  (CUSTOMER.FullName LIKE @FullName + '%')</CommandText>
       <xs:selector xpath=".//mstns:VehicleReturnDetails" />
       <xs:field xpath="mstns:ReturnID" />
     </xs:unique>
+    <xs:unique name="EMPLOYEE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EMPLOYEE" />
+      <xs:field xpath="mstns:EmployeeID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
       <msdata:Relationship name="FK_BOOKING_CUSTOMER" msdata:parent="CUSTOMER" msdata:child="BOOKING" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserParentTable="CUSTOMER" msprop:Generator_UserChildTable="BOOKING" msprop:Generator_RelationVarName="relationFK_BOOKING_CUSTOMER" msprop:Generator_ChildPropName="GetBOOKINGRows" msprop:Generator_ParentPropName="CUSTOMERRow" msprop:Generator_UserRelationName="FK_BOOKING_CUSTOMER" />
       <msdata:Relationship name="FK_BOOKING_VEHICLE" msdata:parent="VEHICLE" msdata:child="BOOKING" msdata:parentkey="VehicleVinNo" msdata:childkey="VehicleVinNo" msprop:Generator_UserParentTable="VEHICLE" msprop:Generator_UserChildTable="BOOKING" msprop:Generator_RelationVarName="relationFK_BOOKING_VEHICLE" msprop:Generator_ChildPropName="GetBOOKINGRows" msprop:Generator_ParentPropName="VEHICLERow" msprop:Generator_UserRelationName="FK_BOOKING_VEHICLE" />
-      <msdata:Relationship name="fk_vehicle_vin" msdata:parent="VEHICLE" msdata:child="INSURANCE" msdata:parentkey="VehicleVinNo" msdata:childkey="VehicleVinNo" msprop:Generator_UserParentTable="VEHICLE" msprop:Generator_UserChildTable="INSURANCE" msprop:Generator_RelationVarName="relationfk_vehicle_vin" msprop:Generator_ChildPropName="GetINSURANCERows" msprop:Generator_ParentPropName="VEHICLERow" msprop:Generator_UserRelationName="fk_vehicle_vin" />
-      <msdata:Relationship name="FK_EMPLOYEE_BRANCH" msdata:parent="BRANCH" msdata:child="EMPLOYEE" msdata:parentkey="BranchID" msdata:childkey="BranchID" msprop:Generator_UserParentTable="BRANCH" msprop:Generator_UserChildTable="EMPLOYEE" msprop:Generator_RelationVarName="relationFK_EMPLOYEE_BRANCH" msprop:Generator_ChildPropName="GetEMPLOYEERows" msprop:Generator_ParentPropName="BRANCHRow" msprop:Generator_UserRelationName="FK_EMPLOYEE_BRANCH" />
       <msdata:Relationship name="FK_VehicleReturn_Booking1" msdata:parent="BOOKING" msdata:child="VEHICLE_x0020_RETURN" msdata:parentkey="BookingID" msdata:childkey="BookingID" msprop:Generator_UserParentTable="BOOKING" msprop:Generator_UserChildTable="VEHICLE RETURN" msprop:Generator_RelationVarName="relationFK_VehicleReturn_Booking1" msprop:Generator_ChildPropName="GetVEHICLE_RETURNRows" msprop:Generator_UserRelationName="FK_VehicleReturn_Booking1" msprop:Generator_ParentPropName="BOOKINGRow" />
       <msdata:Relationship name="FK_VehicleReturn_Vehicle1" msdata:parent="VEHICLE" msdata:child="VEHICLE_x0020_RETURN" msdata:parentkey="VehicleVinNo" msdata:childkey="VehicleVinNo" msprop:Generator_UserParentTable="VEHICLE" msprop:Generator_UserChildTable="VEHICLE RETURN" msprop:Generator_RelationVarName="relationFK_VehicleReturn_Vehicle1" msprop:Generator_ChildPropName="GetVEHICLE_RETURNRows" msprop:Generator_UserRelationName="FK_VehicleReturn_Vehicle1" msprop:Generator_ParentPropName="VEHICLERow" />
       <msdata:Relationship name="FK_BOOKING_CUSTOMER1" msdata:parent="CUSTOMER" msdata:child="VEHICLE_x0020_RETURN" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserParentTable="CUSTOMER" msprop:Generator_UserChildTable="VEHICLE RETURN" msprop:Generator_RelationVarName="relationFK_BOOKING_CUSTOMER1" msprop:Generator_ChildPropName="GetVEHICLE_RETURNRows" msprop:Generator_ParentPropName="CUSTOMERRow" msprop:Generator_UserRelationName="FK_BOOKING_CUSTOMER1" />

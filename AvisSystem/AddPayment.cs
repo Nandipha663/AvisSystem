@@ -198,6 +198,15 @@ namespace AvisSystem
                 bOOKINGTableAdapter.UpdateBookingStatus(bookingid); // Update the booking status to "Completed"
                 MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                textBox1.Clear();
+                                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                comboBox1.SelectedIndex = -1;
+                dateTimePicker1.ResetText();
+                bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
                 //Refill Payment table
                 UpdatePayment pay = Application.OpenForms["UpdatePayment"] as UpdatePayment;
 
@@ -251,9 +260,21 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            textBox5.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString(); 
+
+            string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            if (status != "Pending")
+            {
+                MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
+                               "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            }
+                 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

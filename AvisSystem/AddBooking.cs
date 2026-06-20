@@ -410,6 +410,20 @@ private void label2_Click(object sender, EventArgs e)
 
             MessageBox.Show("Booking Added Successfully");
 
+            textBox3.Clear();
+            textBox9.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox10.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            comboBox4.SelectedIndex = -1;
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker3.Value = DateTime.Now;
+
+            cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
+            vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+
         }
 
         private void label9_Click(object sender, EventArgs e)
