@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace AvisSystem
 {
@@ -177,6 +178,15 @@ namespace AvisSystem
 
         private void Button3_Click(object sender, EventArgs e)
         {
+
+            string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            string vin = dataGridView1.CurrentRow.Cells["VehicleVinNo"].Value.ToString();
+
+            if (bookingStatus == "Cancelled")
+            {
+                vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+            }
+
             string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             try
             {

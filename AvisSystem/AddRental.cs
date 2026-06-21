@@ -350,14 +350,19 @@ namespace AvisSystem
         {
             //MessageBox.Show("Booking selected! Please choose the return date to calculate any extra charges if applicable.", "Booking Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bookingSelected = false;
+            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             if (textBox6.Text == "🔍 Search for Booking..."  || textBox6.Text != "🔍 Search for Booking...")
             {
                 string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                string vehStatus = vehicleTableAdapter1.GetStatusByVIN(vin).ToString();
                 if (status != "Confirmed")
                 {
                     MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
                                    "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
+                }else if(vehStatus != "Rented Out")
+                {
+                    MessageBox.Show("The Vehicle Associated with this booking is currently " + vehStatus + ".Please Select a booking with a vehicle that is rented out", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -365,7 +370,7 @@ namespace AvisSystem
                     bookingSelected = true;
                     usePickerDate = false;
 
-                    string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
 
                     string description = vehicleTableAdapter1.GetVehicleDescrByVIN(vin).ToString();
                     textBox5.Text = description;
@@ -378,7 +383,7 @@ namespace AvisSystem
                     dateTimePicker1.Value = DateTime.Today;
 
                     CalculateExtraCharge();
-                    
+
                 }
             }       
         }

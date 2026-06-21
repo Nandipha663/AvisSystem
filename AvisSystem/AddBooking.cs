@@ -422,7 +422,8 @@ private void label2_Click(object sender, EventArgs e)
             dateTimePicker3.Value = DateTime.Now;
 
             cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
-            vEHICLETableAdapter.Fill(this.avisDS.VEHICLE);
+            // Reset vehicle filter
+            this.vEHICLEBindingSource.Filter = "1 = 0";
 
         }
 

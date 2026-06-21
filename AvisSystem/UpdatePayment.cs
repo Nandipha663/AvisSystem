@@ -526,7 +526,7 @@ namespace AvisSystem
 
                 doc.Add(new Paragraph(
                     "Invoice Number: "
-                    + row["PaymentID"], normalFont));
+                    + row["InvoiceID"], normalFont));
 
                 doc.Add(new Paragraph(
                     "Invoice Date: "

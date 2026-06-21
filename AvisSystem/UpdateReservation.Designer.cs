@@ -29,11 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateReservation));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pickUpDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PickUpBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DropOffBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlertStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avisDS = new AvisSystem.AvisDS();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -91,23 +108,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
-            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pickUpDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PickUpBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DropOffBranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlertStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleTableAdapter1 = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
@@ -150,6 +150,122 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            this.bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            // 
+            // CustomerFullName
+            // 
+            this.CustomerFullName.DataPropertyName = "CustomerFullName";
+            this.CustomerFullName.HeaderText = "CustomerFullName";
+            this.CustomerFullName.Name = "CustomerFullName";
+            this.CustomerFullName.Width = 150;
+            // 
+            // vehicleVinNoDataGridViewTextBoxColumn
+            // 
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bookingDateDataGridViewTextBoxColumn
+            // 
+            this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking Date";
+            dataGridViewCellStyle1.Format = "d";
+            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking Date";
+            this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
+            this.bookingDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pickUpDateDataGridViewTextBoxColumn
+            // 
+            this.pickUpDateDataGridViewTextBoxColumn.DataPropertyName = "PickUp Date";
+            dataGridViewCellStyle2.Format = "d";
+            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pickUpDateDataGridViewTextBoxColumn.HeaderText = "PickUp Date";
+            this.pickUpDateDataGridViewTextBoxColumn.Name = "pickUpDateDataGridViewTextBoxColumn";
+            this.pickUpDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // expectedReturnDateDataGridViewTextBoxColumn
+            // 
+            this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
+            dataGridViewCellStyle3.Format = "d";
+            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // PickUpBranchName
+            // 
+            this.PickUpBranchName.DataPropertyName = "PickUpBranchName";
+            this.PickUpBranchName.HeaderText = "PickUpBranchName";
+            this.PickUpBranchName.Name = "PickUpBranchName";
+            // 
+            // DropOffBranchName
+            // 
+            this.DropOffBranchName.DataPropertyName = "DropOffBranchName";
+            this.DropOffBranchName.HeaderText = "DropOffBranchName";
+            this.DropOffBranchName.Name = "DropOffBranchName";
+            // 
+            // BranchName
+            // 
+            this.BranchName.DataPropertyName = "BranchName";
+            this.BranchName.HeaderText = "BranchName";
+            this.BranchName.Name = "BranchName";
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.DataPropertyName = "EmployeeID";
+            this.EmployeeID.HeaderText = "EmployeeID";
+            this.EmployeeID.Name = "EmployeeID";
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "FullName";
+            this.FullName.Name = "FullName";
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // invoiceAmountDataGridViewTextBoxColumn
+            // 
+            this.invoiceAmountDataGridViewTextBoxColumn.DataPropertyName = "Invoice Amount";
+            this.invoiceAmountDataGridViewTextBoxColumn.HeaderText = "Invoice Amount";
+            this.invoiceAmountDataGridViewTextBoxColumn.Name = "invoiceAmountDataGridViewTextBoxColumn";
+            this.invoiceAmountDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "LastUpdated";
+            this.LastUpdated.Name = "LastUpdated";
+            // 
+            // AlertStatus
+            // 
+            this.AlertStatus.HeaderText = "Alert Status";
+            this.AlertStatus.Name = "AlertStatus";
+            this.AlertStatus.ReadOnly = true;
+            this.AlertStatus.Width = 200;
             // 
             // bOOKINGBindingSource
             // 
@@ -219,10 +335,11 @@
             // 
             // button7
             // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(741, 45);
+            this.button7.Location = new System.Drawing.Point(736, 45);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(205, 85);
+            this.button7.Size = new System.Drawing.Size(210, 85);
             this.button7.TabIndex = 14;
             this.button7.Text = "Reassign Vehicle";
             this.button7.UseVisualStyleBackColor = true;
@@ -295,7 +412,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(794, 143);
+            this.button3.Location = new System.Drawing.Point(736, 142);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(210, 64);
             this.button3.TabIndex = 8;
@@ -739,122 +856,6 @@
             // bOOKINGTableAdapter
             // 
             this.bOOKINGTableAdapter.ClearBeforeFill = true;
-            // 
-            // bookingIDDataGridViewTextBoxColumn
-            // 
-            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
-            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
-            this.bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            // 
-            // CustomerFullName
-            // 
-            this.CustomerFullName.DataPropertyName = "CustomerFullName";
-            this.CustomerFullName.HeaderText = "CustomerFullName";
-            this.CustomerFullName.Name = "CustomerFullName";
-            this.CustomerFullName.Width = 150;
-            // 
-            // vehicleVinNoDataGridViewTextBoxColumn
-            // 
-            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bookingDateDataGridViewTextBoxColumn
-            // 
-            this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking Date";
-            dataGridViewCellStyle7.Format = "d";
-            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking Date";
-            this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
-            this.bookingDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pickUpDateDataGridViewTextBoxColumn
-            // 
-            this.pickUpDateDataGridViewTextBoxColumn.DataPropertyName = "PickUp Date";
-            dataGridViewCellStyle8.Format = "d";
-            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.pickUpDateDataGridViewTextBoxColumn.HeaderText = "PickUp Date";
-            this.pickUpDateDataGridViewTextBoxColumn.Name = "pickUpDateDataGridViewTextBoxColumn";
-            this.pickUpDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // expectedReturnDateDataGridViewTextBoxColumn
-            // 
-            this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
-            dataGridViewCellStyle9.Format = "d";
-            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
-            this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
-            this.expectedReturnDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // PickUpBranchName
-            // 
-            this.PickUpBranchName.DataPropertyName = "PickUpBranchName";
-            this.PickUpBranchName.HeaderText = "PickUpBranchName";
-            this.PickUpBranchName.Name = "PickUpBranchName";
-            // 
-            // DropOffBranchName
-            // 
-            this.DropOffBranchName.DataPropertyName = "DropOffBranchName";
-            this.DropOffBranchName.HeaderText = "DropOffBranchName";
-            this.DropOffBranchName.Name = "DropOffBranchName";
-            // 
-            // BranchName
-            // 
-            this.BranchName.DataPropertyName = "BranchName";
-            this.BranchName.HeaderText = "BranchName";
-            this.BranchName.Name = "BranchName";
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.DataPropertyName = "EmployeeID";
-            this.EmployeeID.HeaderText = "EmployeeID";
-            this.EmployeeID.Name = "EmployeeID";
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "FullName";
-            this.FullName.Name = "FullName";
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "Position";
-            this.Position.Name = "Position";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // invoiceAmountDataGridViewTextBoxColumn
-            // 
-            this.invoiceAmountDataGridViewTextBoxColumn.DataPropertyName = "Invoice Amount";
-            this.invoiceAmountDataGridViewTextBoxColumn.HeaderText = "Invoice Amount";
-            this.invoiceAmountDataGridViewTextBoxColumn.Name = "invoiceAmountDataGridViewTextBoxColumn";
-            this.invoiceAmountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // LastUpdated
-            // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "LastUpdated";
-            this.LastUpdated.Name = "LastUpdated";
-            // 
-            // AlertStatus
-            // 
-            this.AlertStatus.HeaderText = "Alert Status";
-            this.AlertStatus.Name = "AlertStatus";
-            this.AlertStatus.ReadOnly = true;
-            this.AlertStatus.Width = 200;
             // 
             // vehicleTableAdapter1
             // 

@@ -261,7 +261,7 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            string status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            string status = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             if (status != "Pending")
             {
                 MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
