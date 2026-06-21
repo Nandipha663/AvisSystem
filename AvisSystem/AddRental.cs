@@ -360,7 +360,7 @@ namespace AvisSystem
                     MessageBox.Show("Only Confirmed bookings can be selected for this operation!. Please select a confirmed.",
                                    "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }else if(vehStatus != "Rented Out")
+                }else if(vehStatus != "Rented")
                 {
                     MessageBox.Show("The Vehicle Associated with this booking is currently " + vehStatus + ".Please Select a booking with a vehicle that is rented out", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

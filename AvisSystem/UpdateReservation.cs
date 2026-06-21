@@ -573,7 +573,7 @@ namespace AvisSystem
                 {
                     if (bookingStatus == "Confirmed")
                     {
-                        vehicleTableAdapter1.UpdateVehicleStatus( "Rented Out", vin);
+                        vehicleTableAdapter1.UpdateVehicleStatus( "Rented", vin);
                     }
                     else if (bookingStatus == "Cancelled" || bookingStatus == "Pending")
                     {
