@@ -416,7 +416,7 @@ namespace AvisSystem
 
         //GENERATING AN INVOICE
         //Get Invoice Details
-        private DataTable GetInvoiceData(int paymentID)
+        private DataTable GetInvoiceData(int PaymentID)
         {
             string conn =
             @"Data Source=146.230.177.46;Initial Catalog=GroupPmb3;User ID=GroupPmb3;Password=tt9d2h;TrustServerCertificate=True;Encrypt=False";
@@ -463,7 +463,7 @@ namespace AvisSystem
                     new SqlDataAdapter(query, con);
 
                 da.SelectCommand.Parameters.AddWithValue(
-                    "@PaymentID", paymentID);
+                    "@PaymentID", PaymentID);
 
                 DataTable dt = new DataTable();
 
@@ -526,7 +526,7 @@ namespace AvisSystem
 
                 doc.Add(new Paragraph(
                     "Invoice Number: "
-                    + row["InvoiceID"], normalFont));
+                    + row["PaymentID"], normalFont));
 
                 doc.Add(new Paragraph(
                     "Invoice Date: "

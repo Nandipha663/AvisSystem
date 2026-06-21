@@ -552,5 +552,20 @@ namespace AvisSystem
             MessageBox.Show("Data refreshed!", "Refresh",
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
