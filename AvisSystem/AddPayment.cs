@@ -192,10 +192,17 @@ namespace AvisSystem
                 string vvn = dataGridView1.CurrentRow.Cells[3].Value.ToString(); // Get the selected vehicle vin
                                                                                   // Find the Booking form and set the pending highlight
                 VEHICLETableAdapter vehAdapt = new VEHICLETableAdapter();
-                vehAdapt.UpdateVehicleTime(vvn);
+                //Update vehicle status to Reserved after payment is made
+                vehAdapt.UpdateStatusandTime("Reserved",vvn);
 
                 int bookingid = Convert.ToInt32(textBox3.Text); // Get the selected booking ID)
                 bOOKINGTableAdapter.UpdateBookingStatus(bookingid); // Update the booking status to "Completed"
+
+                //Update the status of Refund status if the payment description is refund
+                if (textBox1.Text.ToLower().Contains("refund"))
+                {
+                    bOOKINGTableAdapter.UpdateRefundStatus(bookingid);
+                }
                 MessageBox.Show("transaction recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 

@@ -554,6 +554,8 @@ namespace AvisSystem
             this.Hide();
         }
 
+
+        //changing status of the booking once the date arrives and changing the status of the vehicle to rented or available based on the booking status
         private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -641,6 +643,61 @@ namespace AvisSystem
             frm.ShowDialog();
 
             bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            /*if the booking status is pending,change booking status to cancelled
+             * if booking status is confirmed, change booking status to cancelled and update vehicle status to available
+             * record refund
+             * refund status should be pending and once the refund payment has been recorded for that booking , the refund status should be updated to refund is being processed
+             * on payment table we should record refund payment and make the status to be pending
+             */
+
+            string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            string vin = dataGridView1.CurrentRow.Cells["VehicleVinNo"].Value.ToString();
+
+            DialogResult result = MessageBox.Show(
+                                 "Are you sure you want to cancel this booking?",
+                                 "Confirm Cancelation",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question
+                                 );
+
+            if (result == DialogResult.Yes)
+            {
+                if (bookingStatus == "Pending")
+                {
+                    dataGridView1.CurrentRow.Cells[13].Value = "Cancelled";
+
+                }
+                else if (bookingStatus == "Confirmed")
+                {
+                    dataGridView1.CurrentRow.Cells[13].Value = "Cancelled";
+                    vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+
+                    //check if refund is elligible based on the pick up date and current date
+                    DateTime pickupDateTime = Convert.ToDateTime( dataGridView1.CurrentRow.Cells["PickupDateTime"].Value );
+
+                    DateTime currentDateTime = DateTime.Now;
+
+                    TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
+
+                    if (timeUntilPickup.TotalHours >= 24)
+                    {
+                        dataGridView1.CurrentRow.Cells[15].Value = "Eligible";
+                    }
+                    else
+                    {
+                        dataGridView1.CurrentRow.Cells[15].Value = "Not eligible";
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Booking Cancelation Terminated.", "Termination", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }

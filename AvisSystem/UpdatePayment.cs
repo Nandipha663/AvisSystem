@@ -427,7 +427,9 @@ namespace AvisSystem
 
                 SELECT
 
+                
                 PAYMENT.PaymentID,
+                PAYMENT.InvoiceID,
                 PAYMENT.PaymentDate,
                 PAYMENT.PaymentAmount,
                 PAYMENT.PaymentType,
@@ -440,6 +442,9 @@ namespace AvisSystem
                 BOOKING.BookingID,
                 BOOKING.[PickUp Date] AS PickUpDate,
                 BOOKING.ExpectedReturnDate AS ReturnDate,
+                BOOKING.PickUpBranchName As PickUpBranch,
+                BOOKING.DropOffBranchName AS DropOffBranch,
+                BOOKING.[Booking Date] AS BookingDate,
 
                 VEHICLE.VehicleVinNo,
                 VEHICLE.Make,
@@ -489,18 +494,21 @@ namespace AvisSystem
             save.Title = "Save Invoice";
             save.FileName = "AVIS_Invoice.pdf";
 
-            if (save.ShowDialog() == DialogResult.OK)
+            if (save.ShowDialog() != DialogResult.OK)
             {
-                Document doc =
-                    new Document(PageSize.A4, 40, 40, 40, 40);
+                return;
+            }
 
-                PdfWriter.GetInstance(doc,
-                    new FileStream(save.FileName, FileMode.Create));
+            Document doc =
+                   new Document(PageSize.A4, 40, 40, 40, 40);
 
-                doc.Open();
+            PdfWriter.GetInstance(doc,
+                new FileStream(save.FileName, FileMode.Create));
 
-                DataRow row = dt.Rows[0];
+            doc.Open();
 
+            DataRow row = dt.Rows[0];
+               
                 iTextSharp.text.Font titleFont =
                     FontFactory.GetFont(
                         FontFactory.HELVETICA_BOLD, 22);
@@ -526,7 +534,7 @@ namespace AvisSystem
 
                 doc.Add(new Paragraph(
                     "Invoice Number: "
-                    + row["PaymentID"], normalFont));
+                    + row["InvoiceID"], normalFont));
 
                 doc.Add(new Paragraph(
                     "Invoice Date: "
@@ -575,6 +583,22 @@ namespace AvisSystem
                     "Return Date: "
                     + Convert.ToDateTime(
                         row["ReturnDate"]).ToShortDateString(),
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Booking Date: "
+                    + Convert.ToDateTime(
+                        row["BookingDate"]).ToShortDateString(),
+                    normalFont));
+
+                doc.Add(new Paragraph(
+                    "Pick Up Branch: "
+                    + row["PickUpBranch"],
+                     normalFont));
+
+                doc.Add(new Paragraph(
+                    "Drop Off Branch: "
+                    + row["DropOffBranch"],
                     normalFont));
 
                 doc.Add(new Paragraph(" "));
@@ -636,18 +660,17 @@ namespace AvisSystem
 
                 System.Diagnostics.Process.Start(
                     save.FileName);
-            }
+            
 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            int paymentID = Convert.ToInt32(pAYMENTTableAdapter.GetLastPaymentID());
+            int paymentID = Convert.ToInt32( pAYMENTTableAdapter.GetLastPaymentID());
+
             DataTable dt = GetInvoiceData(paymentID);
+
             ExportInvoicePdf(dt);
-
-            MessageBox.Show("Invoice Generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

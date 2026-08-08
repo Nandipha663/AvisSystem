@@ -380,15 +380,15 @@ private void label2_Click(object sender, EventArgs e)
                                "Not Logged In", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox9.Text.ToString(),dateTimePicker1.Value,dateTimePicker2.Value,dateTimePicker3.Value,employeeName, employeePosition,comboBox4.Text.ToString(),comboBox3.Text.ToString(),comboBox1.Text.ToString(),Convert.ToDecimal(textBox3.Text),employeeID);
-
+            DateTime PickUpDate = dateTimePicker2.Value.Date + dateTimePicker4.Value.TimeOfDay;
+            DateTime ReturnDate = dateTimePicker3.Value.Date + dateTimePicker1.Value.TimeOfDay;
             bookingTableAdapter1.InsertBooking(
     Convert.ToInt32(textBox10.Text),
     textBox2.Text,
     textBox9.Text,
     DateTime.Parse(textBox4.Text),
-    dateTimePicker2.Value, 
-    dateTimePicker3.Value,  
+    PickUpDate, 
+    ReturnDate,  
     comboBox4.Text,  
     comboBox3.Text,  
     comboBox1.Text,        
@@ -400,9 +400,6 @@ private void label2_Click(object sender, EventArgs e)
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
-            
-
-            // Update vehicle status to Unavailable
 
             vEHICLETableAdapter.UpdateVehicleTime(vehicleVin);
             UpdateVehicles vehicleForm = new UpdateVehicles();
