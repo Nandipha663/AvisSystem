@@ -195,7 +195,7 @@ namespace AvisSystem
                 bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
-                MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
+                MessageBox.Show($"Booking Updated with:\nBooking ID: {id}");
             }
             catch (Exception ex)
             {
@@ -402,7 +402,7 @@ namespace AvisSystem
         private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                  "Are you sure you want to delete this vehicle return record?",
+                                  "Are you sure you want to delete this booking record?",
                                   "Confirm Delete",
                                   MessageBoxButtons.YesNo,
                                   MessageBoxIcon.Question
@@ -655,7 +655,7 @@ namespace AvisSystem
              */
 
             string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            string vin = dataGridView1.CurrentRow.Cells["VehicleVinNo"].Value.ToString();
+            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
             DialogResult result = MessageBox.Show(
                                  "Are you sure you want to cancel this booking?",
