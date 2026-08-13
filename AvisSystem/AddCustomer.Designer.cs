@@ -37,11 +37,24 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -81,28 +94,18 @@
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpNewEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUSTOMERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
             this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -186,13 +189,23 @@
             this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(327, 0);
+            this.groupBox1.Location = new System.Drawing.Point(338, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1043, 593);
+            this.groupBox1.Size = new System.Drawing.Size(1032, 593);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Customer";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(215, 201);
+            this.maskedTextBox1.Mask = "000000000ABC";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(182, 29);
+            this.maskedTextBox1.TabIndex = 44;
+            this.toolTip1.SetToolTip(this.maskedTextBox1, "Last 3 values are alphabets.");
             // 
             // textBox4
             // 
@@ -257,6 +270,77 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // contactNumberDataGridViewTextBoxColumn
+            // 
+            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
+            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            // 
+            // licenceNumberDataGridViewTextBoxColumn
+            // 
+            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
+            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // licenceCodeDataGridViewTextBoxColumn
+            // 
+            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
+            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
+            // 
+            // customerUsernameDataGridViewTextBoxColumn
+            // 
+            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
+            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
+            // 
+            // customerPasswordDataGridViewTextBoxColumn
+            // 
+            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
+            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
+            // 
+            // cUSTOMERBindingSource
+            // 
+            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
+            this.cUSTOMERBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -284,7 +368,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(763, 493);
+            this.button2.Location = new System.Drawing.Point(752, 493);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 66);
             this.button2.TabIndex = 34;
@@ -297,7 +381,7 @@
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(392, 493);
+            this.button3.Location = new System.Drawing.Point(387, 493);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(170, 66);
             this.button3.TabIndex = 33;
@@ -391,10 +475,11 @@
             this.processPaymentsToolStripMenuItem,
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
-            this.manageEmployeesToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem,
+            this.manageInspectionRecordsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(327, 593);
+            this.menuStrip1.Size = new System.Drawing.Size(338, 593);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -406,7 +491,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.fileToolStripMenuItem.Text = "User";
             // 
             // loginToolStripMenuItem
@@ -443,7 +528,7 @@
             this.viewUpdateCustomerToolStripMenuItem1});
             this.manageCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
-            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageCustomerToolStripMenuItem.Text = "👥 Manage  Customers";
             // 
             // addNewCustomerToolStripMenuItem
@@ -469,7 +554,7 @@
             this.viewUpdateReservationToolStripMenuItem});
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Bookings";
             // 
             // addReservationToolStripMenuItem
@@ -495,7 +580,7 @@
             this.viewUpdateRentalsToolStripMenuItem});
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Returned Vehicles";
             // 
             // addNewRentalToolStripMenuItem
@@ -521,7 +606,7 @@
             this.viewUpdateVehiclesToolStripMenuItem});
             this.manageVehiclesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageVehiclesToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addNewVehicleToolStripMenuItem
@@ -547,7 +632,7 @@
             this.viewUpdatePaymentToolStripMenuItem});
             this.processPaymentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentsToolStripMenuItem.Name = "processPaymentsToolStripMenuItem";
-            this.processPaymentsToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.processPaymentsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.processPaymentsToolStripMenuItem.Text = "💰 Process Payments";
             // 
             // addNewPaymentToolStripMenuItem
@@ -573,7 +658,7 @@
             this.updateClaimToolStripMenuItem});
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addClaimToolStripMenuItem
@@ -600,7 +685,7 @@
             this.updateBranchToolStripMenuItem});
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Branches";
             // 
             // updateBranchToolStripMenuItem
@@ -619,7 +704,7 @@
             this.viewUpdateEmplToolStripMenuItem});
             this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
             // 
             // signUpNewEmployeeToolStripMenuItem
@@ -638,90 +723,35 @@
             this.viewUpdateEmplToolStripMenuItem.Text = "View/Update Employees";
             this.viewUpdateEmplToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmplToolStripMenuItem_Click);
             // 
-            // customerIDDataGridViewTextBoxColumn
+            // manageInspectionRecordsToolStripMenuItem
             // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInspectionRecordToolStripMenuItem,
+            this.viewInspectionDetailsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
+            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
             // 
-            // fullNameDataGridViewTextBoxColumn
+            // addInspectionRecordToolStripMenuItem
             // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
+            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
             // 
-            // addressDataGridViewTextBoxColumn
+            // viewInspectionDetailsToolStripMenuItem
             // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // contactNumberDataGridViewTextBoxColumn
-            // 
-            this.contactNumberDataGridViewTextBoxColumn.DataPropertyName = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.HeaderText = "ContactNumber";
-            this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
-            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            // 
-            // licenceNumberDataGridViewTextBoxColumn
-            // 
-            this.licenceNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.HeaderText = "LicenceNumber";
-            this.licenceNumberDataGridViewTextBoxColumn.Name = "licenceNumberDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // licenceCodeDataGridViewTextBoxColumn
-            // 
-            this.licenceCodeDataGridViewTextBoxColumn.DataPropertyName = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.HeaderText = "LicenceCode";
-            this.licenceCodeDataGridViewTextBoxColumn.Name = "licenceCodeDataGridViewTextBoxColumn";
-            // 
-            // customerUsernameDataGridViewTextBoxColumn
-            // 
-            this.customerUsernameDataGridViewTextBoxColumn.DataPropertyName = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.HeaderText = "CustomerUsername";
-            this.customerUsernameDataGridViewTextBoxColumn.Name = "customerUsernameDataGridViewTextBoxColumn";
-            // 
-            // customerPasswordDataGridViewTextBoxColumn
-            // 
-            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "CustomerPassword";
-            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
-            // 
-            // cUSTOMERBindingSource
-            // 
-            this.cUSTOMERBindingSource.DataMember = "CUSTOMER";
-            this.cUSTOMERBindingSource.DataSource = this.avisDS;
-            // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
+            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
+            this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
             // 
             // cUSTOMERTableAdapter
             // 
             this.cUSTOMERTableAdapter.ClearBeforeFill = true;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(215, 201);
-            this.maskedTextBox1.Mask = "000000000ABC";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(182, 29);
-            this.maskedTextBox1.TabIndex = 44;
-            this.toolTip1.SetToolTip(this.maskedTextBox1, "Last 3 values are alphabets.");
             // 
             // AddCustomer
             // 
@@ -740,10 +770,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cUSTOMERBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -817,5 +847,8 @@
         private System.Windows.Forms.ToolStripMenuItem signUpNewEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateEmplToolStripMenuItem;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
     }
 }

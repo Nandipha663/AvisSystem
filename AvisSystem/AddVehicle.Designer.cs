@@ -84,6 +84,9 @@
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -149,7 +152,7 @@
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(573, 605);
+            this.button1.Location = new System.Drawing.Point(560, 605);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 76);
             this.button1.TabIndex = 24;
@@ -213,9 +216,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(325, 0);
+            this.groupBox1.Location = new System.Drawing.Point(338, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 686);
+            this.groupBox1.Size = new System.Drawing.Size(769, 686);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Vehicle";
@@ -235,7 +238,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(336, 80);
+            this.label11.Location = new System.Drawing.Point(323, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 25);
             this.label11.TabIndex = 43;
@@ -256,7 +259,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(-59, 394);
+            this.label9.Location = new System.Drawing.Point(-72, 394);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 25);
             this.label9.TabIndex = 41;
@@ -311,7 +314,7 @@
             this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(553, 405);
+            this.button4.Location = new System.Drawing.Point(540, 405);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(223, 65);
             this.button4.TabIndex = 37;
@@ -326,7 +329,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(410, 172);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(366, 227);
+            this.pictureBox1.Size = new System.Drawing.Size(353, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 36;
             this.pictureBox1.TabStop = false;
@@ -335,7 +338,7 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(-56, 422);
+            this.textBox3.Location = new System.Drawing.Point(-69, 422);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(368, 31);
             this.textBox3.TabIndex = 35;
@@ -394,7 +397,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(336, 18);
+            this.label6.Location = new System.Drawing.Point(323, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(223, 25);
             this.label6.TabIndex = 29;
@@ -423,10 +426,11 @@
             this.processPaymentToolStripMenuItem,
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
-            this.manageEmployeesToolStripMenuItem});
+            this.manageEmployeesToolStripMenuItem,
+            this.manageInspectionRecordsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(325, 686);
+            this.menuStrip1.Size = new System.Drawing.Size(338, 686);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -439,7 +443,7 @@
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.fileToolStripMenuItem.Text = "User";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
@@ -477,7 +481,7 @@
             this.manageCustomersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageCustomersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageCustomersToolStripMenuItem.Text = "👥 Manage Customers";
             // 
             // viewUpdateCustomersToolStripMenuItem
@@ -504,7 +508,7 @@
             this.manageBookingToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBookingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
-            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBookingToolStripMenuItem.Text = "📅  Manage Bookings";
             // 
             // addBookingToolStripMenuItem
@@ -530,7 +534,7 @@
             this.manageRentalsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageRentalsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
-            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Returned vehicles";
             // 
             // addRentalToolStripMenuItem
@@ -557,7 +561,7 @@
             this.manageVehicleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageVehicleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageVehicleToolStripMenuItem.Name = "manageVehicleToolStripMenuItem";
-            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageVehicleToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageVehicleToolStripMenuItem.Text = "🚗 Manage Vehicles";
             // 
             // addVehicleToolStripMenuItem
@@ -584,7 +588,7 @@
             this.processPaymentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.processPaymentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.processPaymentToolStripMenuItem.Name = "processPaymentToolStripMenuItem";
-            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.processPaymentToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.processPaymentToolStripMenuItem.Text = "💰 Process Payments";
             this.processPaymentToolStripMenuItem.Click += new System.EventHandler(this.processPaymentToolStripMenuItem_Click);
             // 
@@ -612,7 +616,7 @@
             this.manageClaimsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageClaimsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageClaimsToolStripMenuItem.Name = "manageClaimsToolStripMenuItem";
-            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageClaimsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageClaimsToolStripMenuItem.Text = "📝 Manage Claims";
             // 
             // addClaimToolStripMenuItem
@@ -640,7 +644,7 @@
             this.manageBranchesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBranchesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageBranchesToolStripMenuItem.Name = "manageBranchesToolStripMenuItem";
-            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageBranchesToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBranchesToolStripMenuItem.Text = "🏛️ Branches";
             // 
             // updateBranchToolStripMenuItem
@@ -660,7 +664,7 @@
             this.manageEmployeesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageEmployeesToolStripMenuItem.Text = "👥 Manage Employees";
             // 
             // signUpEmployeeToolStripMenuItem
@@ -678,6 +682,33 @@
             this.viewUpdateEmployeesToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
             this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
             this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
+            // 
+            // manageInspectionRecordsToolStripMenuItem
+            // 
+            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInspectionRecordToolStripMenuItem,
+            this.viewInspectionDetailsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
+            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
+            // 
+            // addInspectionRecordToolStripMenuItem
+            // 
+            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
+            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
+            // 
+            // viewInspectionDetailsToolStripMenuItem
+            // 
+            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
+            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
+            this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -819,5 +850,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
     }
 }

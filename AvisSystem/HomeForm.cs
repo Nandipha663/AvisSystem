@@ -67,5 +67,10 @@ namespace AvisSystem
         {
 
         }
+
+        private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

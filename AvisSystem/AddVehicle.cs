@@ -367,5 +367,19 @@ namespace AvisSystem
             }
 
         }
+
+        private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddInspection newAddInspection = new AddInspection();
+            this.Hide();
+            newAddInspection.Show();
+        }
+
+        private void viewInspectionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageInspection manageInspection = new ManageInspection();
+            this.Hide();
+            manageInspection.Show();
+        }
     }
 }
