@@ -293,6 +293,8 @@ private void label2_Click(object sender, EventArgs e)
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //UserSession.SelectedVehicleVIN = dataGridView1.CurrentRow.Cells["VehicleDescription"].Value.ToString();
+            textBox5.Text= dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            textBox6.Text= dataGridView2.CurrentRow.Cells[4].Value.ToString();
 
             try
             {
@@ -382,25 +384,10 @@ private void label2_Click(object sender, EventArgs e)
             }
             DateTime PickUpDate = dateTimePicker2.Value.Date + dateTimePicker4.Value.TimeOfDay;
             DateTime ReturnDate = dateTimePicker3.Value.Date + dateTimePicker1.Value.TimeOfDay;
-            bookingTableAdapter1.InsertBooking(
-    Convert.ToInt32(textBox10.Text),
-    textBox2.Text,
-    textBox9.Text,
-    DateTime.Parse(textBox4.Text),
-    PickUpDate, 
-    ReturnDate,  
-    comboBox4.Text,  
-    comboBox3.Text,  
-    comboBox1.Text,        
-    Convert.ToDecimal(textBox3.Text),
-    employeeID,
-    employeeName,
-    employeePosition
-    );
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
-
+            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox2.Text, textBox9.Text, Convert.ToDateTime(textBox4.Text), dateTimePicker2.Value, dateTimePicker3.Value, Convert.ToDecimal(textBox3.Text), comboBox4.Text, comboBox3.Text, comboBox4.Text, textBox5.Text, textBox6.Text);
             vEHICLETableAdapter.UpdateVehicleTime(vehicleVin);
             UpdateVehicles vehicleForm = new UpdateVehicles();
             vehicleForm.HighlightVehicleVIN = vehicleVin;
@@ -656,6 +643,16 @@ private void label2_Click(object sender, EventArgs e)
             ManageInspection newManageInspection = new ManageInspection();
             this.Hide();
             newManageInspection.Show();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

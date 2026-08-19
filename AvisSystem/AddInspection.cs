@@ -19,7 +19,31 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(radioButton1.Checked)
+            {
+                textBox9.Clear();
+                textBox10.Clear();
+                textBox11.Clear();
+                textBox12.Clear();
+                maskedTextBox1.Clear();
+                textBox14.Clear();
+                textBox15.Clear();
+                textBox16.Clear();
 
+                dateTimePicker2.Value = DateTime.Now;
+            }
+            else if(radioButton2.Checked)
+            {
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
+                maskedTextBox2.Clear();
+                textBox8.Clear();
+                dateTimePicker1.Value = DateTime.Now;
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -44,44 +68,44 @@ namespace AvisSystem
 
         private void viewUpdateCustomerToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            ManageCustomers newManageCustomers = new ManageCustomers();
-            this.Hide();
-            newManageCustomers.Show();
+            ManageCustomers ManageCustomers = new ManageCustomers();
+            ManageCustomers.Show();
+           this.Hide();
         }
 
         private void addReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBookingReservation newAddReservation = new AddBookingReservation();
+            AddBookingReservation AddReservation = new AddBookingReservation();
+            AddReservation.Show();
             this.Hide();
-            newAddReservation.Show();
         }
 
         private void viewUpdateReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateReservation newUpdateReservation = new UpdateReservation();
+            UpdateReservation UpdateReservation = new UpdateReservation();
             this.Hide();
-            newUpdateReservation.Show();
+            UpdateReservation.Show();
         }
 
         private void addNewRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRental newAddRental = new AddRental();
+            AddRental AddRental = new AddRental();
             this.Hide();
-            newAddRental.Show();
+            AddRental.Show();
         }
 
         private void viewUpdateRentalsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateRental newUpdateRental = new UpdateRental();
+            UpdateRental UpdateRental = new UpdateRental();
             this.Hide();
-            newUpdateRental.Show();
+           UpdateRental.Show();
         }
 
         private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddVehicle newAddVehicle = new AddVehicle();
+            AddVehicle AddVehicle = new AddVehicle();
             this.Hide();
-            newAddVehicle.Show();
+            AddVehicle.Show();
         }
 
         private void viewUpdateVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,30 +117,30 @@ namespace AvisSystem
 
         private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddPayment newAddPayment = new AddPayment();
+            AddPayment AddPayment = new AddPayment();
             this.Hide();
-            newAddPayment.Show();
+            AddPayment.Show();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdatePayment newUpdatePayment = new UpdatePayment();
+            UpdatePayment UpdatePayment = new UpdatePayment();
             this.Hide();
-            newUpdatePayment.Show();
+            UpdatePayment.Show();
         }
 
         private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            LoginForm newLoginForm = new LoginForm();
+            LoginForm LoginForm = new LoginForm();
             this.Hide();
-            newLoginForm.Show();
+            LoginForm.Show();
         }
 
         private void logoutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            HomeForm newHomeForm = new HomeForm();
+            HomeForm HomeForm = new HomeForm();
             this.Hide();
-            newHomeForm.Show();
+            HomeForm.Show();
         }
 
         private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -128,16 +152,16 @@ namespace AvisSystem
 
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddClaim newAddClaim = new AddClaim();
+            AddClaim AddClaim = new AddClaim();
             this.Hide();
-            newAddClaim.Show();
+            AddClaim.Show();
         }
 
         private void updateClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateClaim newUpdateClaim = new UpdateClaim();
+            UpdateClaim UpdateClaim = new UpdateClaim();
             this.Hide();
-            newUpdateClaim.Show();
+            UpdateClaim.Show();
 
         }
 
@@ -182,6 +206,16 @@ namespace AvisSystem
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
