@@ -21,20 +21,6 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
 
         private void AddPayment_Load(object sender, EventArgs e)
         {
@@ -260,10 +246,6 @@ namespace AvisSystem
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox2.Text);
         }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           
-        }
 
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -287,11 +269,6 @@ namespace AvisSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             bOOKINGTableAdapter.FillByCustName(avisDS.BOOKING, textBox2.Text);
-        }
-
-        private void manageRentalsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)

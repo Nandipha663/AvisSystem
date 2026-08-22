@@ -34,8 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.avisDS = new AvisSystem.AvisDS();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -94,6 +92,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bOOKINGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.vehicleTableAdapter1 = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,13 +117,13 @@
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlertStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -158,19 +158,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(952, 290);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // bOOKINGBindingSource
-            // 
-            this.bOOKINGBindingSource.DataMember = "BOOKING";
-            this.bOOKINGBindingSource.DataSource = this.avisDS;
-            // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -457,7 +446,6 @@
             this.manageReservationToolStripMenuItem.Name = "manageReservationToolStripMenuItem";
             this.manageReservationToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageReservationToolStripMenuItem.Text = "📅 Manage Booking";
-            this.manageReservationToolStripMenuItem.Click += new System.EventHandler(this.manageReservationToolStripMenuItem_Click);
             // 
             // addReservationToolStripMenuItem
             // 
@@ -786,6 +774,16 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // bOOKINGBindingSource
+            // 
+            this.bOOKINGBindingSource.DataMember = "BOOKING";
+            this.bOOKINGBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bOOKINGTableAdapter
             // 
             this.bOOKINGTableAdapter.ClearBeforeFill = true;
@@ -956,8 +954,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UpdateReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -966,6 +962,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

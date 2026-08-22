@@ -67,15 +67,15 @@
             this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Make = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -157,7 +157,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Location = new System.Drawing.Point(6, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 25);
             this.label1.TabIndex = 0;
@@ -167,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 512);
+            this.label3.Location = new System.Drawing.Point(7, 514);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 25);
             this.label3.TabIndex = 2;
@@ -177,7 +177,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 244);
+            this.label4.Location = new System.Drawing.Point(13, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 25);
             this.label4.TabIndex = 3;
@@ -187,7 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1, 422);
+            this.label5.Location = new System.Drawing.Point(3, 407);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(256, 25);
             this.label5.TabIndex = 4;
@@ -197,7 +197,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 198);
+            this.label7.Location = new System.Drawing.Point(7, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 25);
             this.label7.TabIndex = 6;
@@ -207,7 +207,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 149);
+            this.label8.Location = new System.Drawing.Point(6, 124);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(185, 25);
             this.label8.TabIndex = 27;
@@ -225,7 +225,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(263, 48);
+            this.textBox10.Location = new System.Drawing.Point(263, 34);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(200, 29);
@@ -280,7 +280,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(263, 595);
+            this.textBox6.Location = new System.Drawing.Point(263, 606);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(200, 29);
@@ -290,7 +290,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 599);
+            this.label16.Location = new System.Drawing.Point(6, 610);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(168, 25);
             this.label16.TabIndex = 52;
@@ -300,17 +300,16 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 556);
+            this.label15.Location = new System.Drawing.Point(5, 564);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(161, 25);
             this.label15.TabIndex = 51;
             this.label15.Text = "Vehicle Make:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(263, 556);
+            this.textBox5.Location = new System.Drawing.Point(263, 560);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(200, 29);
@@ -320,7 +319,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 467);
+            this.label14.Location = new System.Drawing.Point(5, 463);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(252, 25);
             this.label14.TabIndex = 49;
@@ -330,7 +329,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 289);
+            this.label13.Location = new System.Drawing.Point(11, 264);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(148, 25);
             this.label13.TabIndex = 48;
@@ -340,7 +339,7 @@
             // 
             this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker4.Location = new System.Drawing.Point(263, 285);
+            this.dateTimePicker4.Location = new System.Drawing.Point(263, 264);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.ShowUpDown = true;
             this.dateTimePicker4.Size = new System.Drawing.Size(200, 29);
@@ -350,7 +349,7 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(263, 463);
+            this.dateTimePicker1.Location = new System.Drawing.Point(263, 459);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
@@ -359,7 +358,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(263, 194);
+            this.textBox4.Location = new System.Drawing.Point(263, 172);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(200, 29);
@@ -368,7 +367,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(263, 636);
+            this.textBox3.Location = new System.Drawing.Point(263, 647);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(200, 29);
@@ -379,9 +378,9 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(769, 629);
+            this.button1.Location = new System.Drawing.Point(729, 626);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 103);
+            this.button1.Size = new System.Drawing.Size(246, 90);
             this.button1.TabIndex = 20;
             this.button1.Text = "+ Add Reservation";
             this.button1.UseVisualStyleBackColor = false;
@@ -391,7 +390,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 638);
+            this.label10.Location = new System.Drawing.Point(7, 651);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(98, 25);
             this.label10.TabIndex = 43;
@@ -400,7 +399,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(263, 98);
+            this.textBox2.Location = new System.Drawing.Point(263, 80);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(200, 29);
@@ -410,7 +409,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 102);
+            this.label12.Location = new System.Drawing.Point(6, 80);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(232, 25);
             this.label12.TabIndex = 41;
@@ -422,7 +421,7 @@
             this.comboBox4.DisplayMember = "BranchID";
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(263, 329);
+            this.comboBox4.Location = new System.Drawing.Point(263, 311);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(200, 32);
             this.comboBox4.TabIndex = 40;
@@ -445,7 +444,7 @@
             this.comboBox3.DisplayMember = "BranchID";
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(263, 376);
+            this.comboBox3.Location = new System.Drawing.Point(263, 356);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(200, 32);
             this.comboBox3.TabIndex = 39;
@@ -459,7 +458,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(263, 418);
+            this.dateTimePicker3.Location = new System.Drawing.Point(263, 407);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 29);
             this.dateTimePicker3.TabIndex = 37;
@@ -469,7 +468,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 383);
+            this.label6.Location = new System.Drawing.Point(3, 356);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(181, 25);
             this.label6.TabIndex = 36;
@@ -479,7 +478,7 @@
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(263, 241);
+            this.dateTimePicker2.Location = new System.Drawing.Point(263, 219);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 29);
             this.dateTimePicker2.TabIndex = 35;
@@ -489,12 +488,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 336);
+            this.label2.Location = new System.Drawing.Point(6, 311);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(174, 25);
             this.label2.TabIndex = 34;
             this.label2.Text = "PickUp Branch:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // comboBox1
             // 
@@ -502,12 +500,11 @@
             this.comboBox1.DisplayMember = "BranchID";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(263, 142);
+            this.comboBox1.Location = new System.Drawing.Point(263, 124);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 32);
             this.comboBox1.TabIndex = 32;
             this.comboBox1.ValueMember = "BranchID";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // bRANCHBindingSource
             // 
@@ -529,18 +526,19 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vehicleVinNoDataGridViewTextBoxColumn,
-            this.BranchName,
+            this.Make,
+            this.Model,
             this.registrationNoDataGridViewTextBoxColumn,
-            this.makeDataGridViewTextBoxColumn,
-            this.modelDataGridViewTextBoxColumn,
+            this.vehicleVinNoDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
+            this.BranchName,
+            this.DailyRate,
             this.statusDataGridViewTextBoxColumn1,
             this.imageDataGridViewImageColumn,
-            this.DailyRate,
             this.LastUpdated});
             this.dataGridView2.DataSource = this.vEHICLEBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -550,12 +548,36 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
             // 
+            // Make
+            // 
+            this.Make.DataPropertyName = "Make";
+            this.Make.HeaderText = "Make";
+            this.Make.Name = "Make";
+            // 
+            // Model
+            // 
+            this.Model.DataPropertyName = "Model";
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            // 
+            // registrationNoDataGridViewTextBoxColumn
+            // 
+            this.registrationNoDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNo";
+            this.registrationNoDataGridViewTextBoxColumn.HeaderText = "RegistrationNo";
+            this.registrationNoDataGridViewTextBoxColumn.Name = "registrationNoDataGridViewTextBoxColumn";
+            // 
             // vehicleVinNoDataGridViewTextBoxColumn
             // 
             this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
             this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
             this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
             this.vehicleVinNoDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             // 
             // BranchName
             // 
@@ -564,29 +586,11 @@
             this.BranchName.Name = "BranchName";
             this.BranchName.Width = 200;
             // 
-            // registrationNoDataGridViewTextBoxColumn
+            // DailyRate
             // 
-            this.registrationNoDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNo";
-            this.registrationNoDataGridViewTextBoxColumn.HeaderText = "RegistrationNo";
-            this.registrationNoDataGridViewTextBoxColumn.Name = "registrationNoDataGridViewTextBoxColumn";
-            // 
-            // makeDataGridViewTextBoxColumn
-            // 
-            this.makeDataGridViewTextBoxColumn.DataPropertyName = "Make";
-            this.makeDataGridViewTextBoxColumn.HeaderText = "Make";
-            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.DailyRate.DataPropertyName = "DailyRate";
+            this.DailyRate.HeaderText = "DailyRate";
+            this.DailyRate.Name = "DailyRate";
             // 
             // statusDataGridViewTextBoxColumn1
             // 
@@ -599,12 +603,6 @@
             this.imageDataGridViewImageColumn.DataPropertyName = "Image";
             this.imageDataGridViewImageColumn.HeaderText = "Image";
             this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
-            // 
-            // DailyRate
-            // 
-            this.DailyRate.DataPropertyName = "DailyRate";
-            this.DailyRate.HeaderText = "DailyRate";
-            this.DailyRate.Name = "DailyRate";
             // 
             // LastUpdated
             // 
@@ -763,9 +761,9 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(6, 702);
+            this.button3.Location = new System.Drawing.Point(510, 629);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 41);
+            this.button3.Size = new System.Drawing.Size(171, 41);
             this.button3.TabIndex = 22;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
@@ -776,7 +774,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(229, 702);
+            this.button2.Location = new System.Drawing.Point(510, 675);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 41);
             this.button2.TabIndex = 21;
@@ -1100,7 +1098,6 @@
             this.panel1.Size = new System.Drawing.Size(254, 117);
             this.panel1.TabIndex = 24;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label9
             // 
@@ -1112,7 +1109,6 @@
             this.label9.Size = new System.Drawing.Size(239, 33);
             this.label9.TabIndex = 2;
             this.label9.Text = "Ask me anything!";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label11
             // 
@@ -1124,7 +1120,6 @@
             this.label11.Size = new System.Drawing.Size(169, 33);
             this.label11.TabIndex = 1;
             this.label11.Text = "AI Assistant";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // pictureBox2
             // 
@@ -1258,16 +1253,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn makeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signUpNewEmployeeToolStripMenuItem;
@@ -1283,5 +1268,15 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Make;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
     }
 }

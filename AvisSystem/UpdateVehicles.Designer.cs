@@ -140,7 +140,7 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fleet";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+       
             // 
             // button7
             // 
@@ -450,7 +450,7 @@
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
             this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageCustomerToolStripMenuItem.Text = "👥 Manage Customer";
-            this.manageCustomerToolStripMenuItem.Click += new System.EventHandler(this.manageCustomerToolStripMenuItem_Click);
+       
             // 
             // addCustomerToolStripMenuItem
             // 
@@ -691,7 +691,7 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vehicle information Summary";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_1);
+        
             // 
             // button6
             // 
@@ -816,7 +816,7 @@
             this.label2.Size = new System.Drawing.Size(79, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Status";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+       
             // 
             // pictureBox1
             // 
@@ -828,7 +828,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+          
             // 
             // button4
             // 

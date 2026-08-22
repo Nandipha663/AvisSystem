@@ -14,7 +14,7 @@ namespace AvisSystem
     public partial class AddBookingReservation : Form
     {
 
-        // Add this flag at the class level
+        
         private bool isFormLoading = true;
 
         public AddBookingReservation()
@@ -30,11 +30,6 @@ namespace AvisSystem
             throw new NotImplementedException();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             isFormLoading = true;  // Prevent events during clearing
@@ -44,11 +39,8 @@ namespace AvisSystem
             textBox9.Clear();
             textBox10.Clear();
             textBox1.Clear();
-            //textBox5.Clear();
-
-            // Use -1 instead of 0 to clear selection
+      
             comboBox1.SelectedIndex = -1;
-            //comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
 
@@ -61,8 +53,6 @@ namespace AvisSystem
             this.vEHICLEBindingSource.Filter = "1 = 0";
 
             isFormLoading = false;
-
-            
         }
 
 
@@ -128,8 +118,6 @@ namespace AvisSystem
            UpdateReservation newUpdateReservation = new UpdateReservation();
             this.Hide();
             newUpdateReservation.Show();
-
-
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -212,11 +200,6 @@ namespace AvisSystem
             newUpdateClaim.Show();
         }
 
-        private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void updateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
@@ -270,24 +253,6 @@ namespace AvisSystem
             {
                 return;
             }
-
-            /*string searchTerm = textBox5.Text.Trim().Replace("'", "''");
-
-            if (string.IsNullOrWhiteSpace(searchTerm))
-            {
-                // No search term - show all available vehicles at the branch
-                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
-            }
-            else
-            {
-                // Search within the branch's available vehicles by Make or Model
-                this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available' AND (Make LIKE '%{searchTerm}%' OR Model LIKE '%{searchTerm}%')";
-            }*/
-        }
-
-private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -307,7 +272,7 @@ private void label2_Click(object sender, EventArgs e)
                 }
 
                 // Validate vehicle status
-                string vehicleStatus = dataGridView2.CurrentRow.Cells[6].Value?.ToString() ?? "";
+                string vehicleStatus = dataGridView2.CurrentRow.Cells[7].Value?.ToString() ?? "";
                 if (vehicleStatus != "Available")
                 {
                     MessageBox.Show($"This vehicle is {vehicleStatus}. Only available vehicles can be selected.",
@@ -315,7 +280,7 @@ private void label2_Click(object sender, EventArgs e)
                     return;
                 }else
                 {
-                    textBox9.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+                    textBox9.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
                     textBox9.BackColor = Color.LightGreen;
                 }
 
@@ -342,10 +307,10 @@ private void label2_Click(object sender, EventArgs e)
 
                 // Get daily rate (make sure column index is correct)
                 decimal dailyRate = 0;
-                if (dataGridView2.CurrentRow.Cells[8].Value != null &&
-                    dataGridView2.CurrentRow.Cells[8].Value != DBNull.Value)
+                if (dataGridView2.CurrentRow.Cells[6].Value != null &&
+                    dataGridView2.CurrentRow.Cells[6].Value != DBNull.Value)
                 {
-                    dailyRate = Convert.ToDecimal(dataGridView2.CurrentRow.Cells[8].Value);
+                    dailyRate = Convert.ToDecimal(dataGridView2.CurrentRow.Cells[6].Value);
                 }
                 else
                 {
@@ -387,7 +352,7 @@ private void label2_Click(object sender, EventArgs e)
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
-            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox2.Text, textBox9.Text, Convert.ToDateTime(textBox4.Text), dateTimePicker2.Value, dateTimePicker3.Value, Convert.ToDecimal(textBox3.Text), comboBox4.Text, comboBox3.Text, comboBox4.Text, textBox5.Text, textBox6.Text);
+            
             vEHICLETableAdapter.UpdateVehicleTime(vehicleVin);
             UpdateVehicles vehicleForm = new UpdateVehicles();
             vehicleForm.HighlightVehicleVIN = vehicleVin;
@@ -395,6 +360,8 @@ private void label2_Click(object sender, EventArgs e)
             MessageBox.Show("Booking Added Successfully");
 
             textBox3.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
             textBox9.Clear();
             textBox1.Clear();
             textBox2.Clear();
@@ -411,32 +378,12 @@ private void label2_Click(object sender, EventArgs e)
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Click(object sender, EventArgs e)
         {
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
         }
-
-
-
-
-
 
         // Add this method to configure branch comboboxes with filtering
         private void ConfigureBranchComboBoxes()
@@ -473,47 +420,6 @@ private void label2_Click(object sender, EventArgs e)
             comboBox3.ValueMember = "BranchID";
             comboBox3.SelectedIndex = -1;
         }
-
-        // Add this method to filter vehicles by selected branch
-        /* private void FilterVehiclesBySelectedBranch()
-         {
-             // Skip if form is still loading
-             if (isFormLoading) return;
-
-             // Check if a branch is selected in comboBox4
-             if (comboBox4.SelectedIndex != -1 && comboBox4.SelectedValue != null)
-             {
-                 // Get the selected branch name safely
-                 string selectedBranchName = comboBox4.Text;
-
-                 // Verify we got a valid branch name (not DataRowView)
-                 if (string.IsNullOrEmpty(selectedBranchName) || selectedBranchName == "System.Data.DataRowView")
-                 {
-                     return;
-                 }
-
-                 // Filter vehicles by branch name and availability
-                 this.vEHICLEBindingSource.Filter = $"BranchName = '{selectedBranchName}' AND Status = 'Available'";
-
-                 textBox9.Clear();
-                 textBox3.Clear();
-
-                 if (this.vEHICLEBindingSource.Count == 0)
-                 {
-                     MessageBox.Show($"No available vehicles at '{selectedBranchName}'.\nPlease select another branch.",
-                                    "No Vehicles Available",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                     comboBox4.SelectedIndex = -1;
-                 }
-
-             }
-             else
-             {
-                 this.vEHICLEBindingSource.Filter = "1 = 0";
-             }
-         }*/
-
 
         private void FilterVehiclesBySelectedBranch()
         {
@@ -643,16 +549,6 @@ private void label2_Click(object sender, EventArgs e)
             ManageInspection newManageInspection = new ManageInspection();
             this.Hide();
             newManageInspection.Show();
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

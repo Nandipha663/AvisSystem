@@ -7605,8 +7605,9 @@ FROM            BOOKING";
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"INSERT INTO BOOKING
-                         (CustomerID, CustomerFullName, VehicleVinNo, [Booking Date], [PickUp Date], ExpectedReturnDate, [Invoice Amount], PickUpBranchName, DropOffBranchName, BranchName, Vehicle_make, Vehicle_model)
-VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp_Date,@ExpectedReturnDate,@Invoice_Amount,@PickUpBranchName,@DropOffBranchName,@BranchName,@Vehicle_make,@Vehicle_model)";
+                         (CustomerID, CustomerFullName, VehicleVinNo, [Booking Date], [PickUp Date], ExpectedReturnDate, [Invoice Amount], PickUpBranchName, DropOffBranchName, BranchName, Vehicle_make, Vehicle_model, Position, FullName, 
+                         EmployeeID, LastUpdated, RefundStatus, Status)
+VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp_Date,@ExpectedReturnDate,@Invoice_Amount,@PickUpBranchName,@DropOffBranchName,@BranchName,@Vehicle_make,@Vehicle_model,,,,,,)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerFullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerFullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -316,7 +316,7 @@ namespace AvisSystem
             try
             {
                 DialogResult result = MessageBox.Show(
-                                  "Are you sure you want to delete this vehicle return record?",
+                                  "Are you sure you want to delete this customer record?",
                                   "Confirm Delete",
                                   MessageBoxButtons.YesNo,
                                   MessageBoxIcon.Question

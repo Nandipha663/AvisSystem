@@ -202,7 +202,7 @@
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
-            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
+            
             // 
             // viewUpdateCustomersToolStripMenuItem
             // 
@@ -210,7 +210,7 @@
             this.viewUpdateCustomersToolStripMenuItem.Name = "viewUpdateCustomersToolStripMenuItem";
             this.viewUpdateCustomersToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.viewUpdateCustomersToolStripMenuItem.Text = "View/Update Customers";
-            this.viewUpdateCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomersToolStripMenuItem_Click);
+       
             // 
             // manageBookingToolStripMenuItem
             // 
@@ -221,7 +221,7 @@
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
             this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
-            this.manageBookingToolStripMenuItem.Click += new System.EventHandler(this.manageBookingToolStripMenuItem_Click);
+           
             // 
             // addNewBookingToolStripMenuItem
             // 
@@ -669,6 +669,7 @@
             this.textBox4.Size = new System.Drawing.Size(317, 30);
             this.textBox4.TabIndex = 47;
             this.toolTip1.SetToolTip(this.textBox4, "Describe the claim, damage, or incident related to the vehicle.");
+       
             // 
             // pictureBox1
             // 
@@ -714,7 +715,7 @@
             this.textBox1.Size = new System.Drawing.Size(322, 85);
             this.textBox1.TabIndex = 43;
             this.toolTip1.SetToolTip(this.textBox1, "Describe the claim, damage, or incident related to the vehicle.");
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // textBox3
             // 

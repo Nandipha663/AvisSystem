@@ -195,7 +195,7 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Customer";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+          
             // 
             // maskedTextBox1
             // 
@@ -268,7 +268,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(674, 261);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+           
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -449,7 +449,7 @@
             this.label11.Size = new System.Drawing.Size(121, 25);
             this.label11.TabIndex = 27;
             this.label11.Text = "Password:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+        
             // 
             // label10
             // 
@@ -537,7 +537,7 @@
             this.addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
             this.addNewCustomerToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
             this.addNewCustomerToolStripMenuItem.Text = "Add Customer";
-            this.addNewCustomerToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomerToolStripMenuItem_Click_1);
+          
             // 
             // viewUpdateCustomerToolStripMenuItem1
             // 

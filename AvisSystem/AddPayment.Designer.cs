@@ -430,7 +430,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(367, 33);
             this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+        
             // 
             // label5
             // 
@@ -582,7 +582,7 @@
             this.manageRentalsToolStripMenuItem.Name = "manageRentalsToolStripMenuItem";
             this.manageRentalsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageRentalsToolStripMenuItem.Text = "🔑 Manage Returned Vehicles";
-            this.manageRentalsToolStripMenuItem.Click += new System.EventHandler(this.manageRentalsToolStripMenuItem_Click);
+         
             // 
             // addRentalToolStripMenuItem
             // 

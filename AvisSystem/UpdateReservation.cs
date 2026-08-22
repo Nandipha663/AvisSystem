@@ -23,11 +23,6 @@ namespace AvisSystem
             pictureBox2.Click += panel1_Click;
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void HighlightMostRecentBooking()
         {
             DateTime latestTime = DateTime.MinValue;
@@ -38,10 +33,10 @@ namespace AvisSystem
                 if (row.Cells["LastUpdated"].Value != DBNull.Value)
                 {
                     DateTime updateTime =
-                        Convert.ToDateTime(row.Cells["LastUpdated"].Value);
+                        Convert.ToDateTime(row.Cells[18].Value);
 
                     if (updateTime > latestTime)
-                    {
+                    { 
                         latestTime = updateTime;
                         latestRow = row;
                     }
@@ -63,12 +58,7 @@ namespace AvisSystem
        
         private void UpdateReservation_Load(object sender, EventArgs e)
         {
-
-
-            
-
-
-            dateTimePicker1.Enabled = false;
+             dateTimePicker1.Enabled = false;
             comboBox2.Enabled = false;
             button7.Visible = false;
 
@@ -180,7 +170,7 @@ namespace AvisSystem
         private void Button3_Click(object sender, EventArgs e)
         {
 
-            string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            string bookingStatus = dataGridView1.CurrentRow.Cells[15].Value.ToString();
             string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
             if (bookingStatus == "Cancelled")
@@ -188,7 +178,7 @@ namespace AvisSystem
                 vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
             }
 
-            string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             try
             {
                 this.Validate();
@@ -223,11 +213,6 @@ namespace AvisSystem
             AddBookingReservation newAddReservation = new AddBookingReservation();
             this.Hide();
             newAddReservation.Show();
-        }
-
-        private void manageReservationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -414,12 +399,12 @@ namespace AvisSystem
                 int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
                 bOOKINGTableAdapter.DeleteBooking(id);
 
-                MessageBox.Show("Vehicle return record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Booking record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
             }
             else
             {
-                MessageBox.Show("Vehicle Return record deletion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Booking recording deletion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -494,15 +479,6 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            /*if (e.RowIndex >= 0)
-            {
-                object value = dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-
-                if (value != null)
-                {
-                    textBox2.Text = value.ToString();
-                }
-            }*/
             if (textBox1.Text == "🔍 Search for Booking...")
             {
                 try
@@ -568,7 +544,7 @@ namespace AvisSystem
                 string vin =
                     row.Cells[3].Value?.ToString();
 
-                DateTime pickUpDate = Convert.ToDateTime(row.Cells[5].Value);
+                DateTime pickUpDate = Convert.ToDateTime(row.Cells[7].Value);
                 string bookingStatus = row.Cells[13].Value.ToString();
 
 
@@ -635,8 +611,8 @@ namespace AvisSystem
             string vin =
                 dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-            DateTime pickUp = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value);
-            DateTime dropOff = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value);
+            DateTime pickUp = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+            DateTime dropOff = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value);
 
             ReAssignVehicle frm =
                 new ReAssignVehicle(bookingID, vin, pickUp, dropOff);
@@ -655,7 +631,7 @@ namespace AvisSystem
              * on payment table we should record refund payment and make the status to be pending
              */
 
-            string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            string bookingStatus = dataGridView1.CurrentRow.Cells[15 ].Value.ToString();
             string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
             DialogResult result = MessageBox.Show(
@@ -669,12 +645,12 @@ namespace AvisSystem
             {
                 if (bookingStatus == "Pending")
                 {
-                    dataGridView1.CurrentRow.Cells[13].Value = "Cancelled";
+                    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
 
                 }
                 else if (bookingStatus == "Confirmed")
                 {
-                    dataGridView1.CurrentRow.Cells[13].Value = "Cancelled";
+                    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
                     vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
                 }
                 else if (bookingStatus == "Completed")
@@ -683,19 +659,19 @@ namespace AvisSystem
                 }
 
                 //check if refund is elligible based on the pick up date and current date
-                DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["PickupDateTime"].Value);
+                DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
 
                     DateTime currentDateTime = DateTime.Now;
 
                     TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
 
-                    if (timeUntilPickup.TotalHours >= 24)
+                if (timeUntilPickup.TotalHours >= 24)
                     {
-                        dataGridView1.CurrentRow.Cells[15].Value = "Eligible";
+                        dataGridView1.CurrentRow.Cells[17].Value = "Eligible";
                     }
                     else
                     {
-                        dataGridView1.CurrentRow.Cells[15].Value = "Not eligible";
+                        dataGridView1.CurrentRow.Cells[17].Value = "Not eligible";
                     }
                 
             }

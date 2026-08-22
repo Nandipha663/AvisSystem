@@ -19,46 +19,6 @@ namespace AvisSystem
             InitializeComponent();
         }
 
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-            //Mask this to 13 digits
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox12_TextChanged(object sender, EventArgs e)
-        {
-            //Uniquely auto-generated
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -104,20 +64,6 @@ namespace AvisSystem
             newAvisMenuForm.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewUpdateCustomerToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void viewUpdateCustomerToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
@@ -253,25 +199,6 @@ namespace AvisSystem
             newAvisMenuForm.Show();
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void textBox3_TextChanged_1(object sender, EventArgs e)
         {

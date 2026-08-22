@@ -27,21 +27,6 @@ namespace AvisSystem
 
         }
 
-        private void manageBookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewUpdateCustomersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void addNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation newAddReservation = new AddBookingReservation();
@@ -98,10 +83,6 @@ namespace AvisSystem
             this.Hide();
         }
 
-        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void viewUpdateBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -273,10 +254,6 @@ namespace AvisSystem
             return maxId + 1;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void signUpEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {

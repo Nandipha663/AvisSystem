@@ -58,13 +58,6 @@ namespace AvisSystem
                     latestRow.Index;
             }
         }
-
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
         public void LoadVehicles()
         {
             vEHICLETableAdapter.Fill(avisDS.VEHICLE);
@@ -118,11 +111,6 @@ namespace AvisSystem
             UpdateVehicles vehicle = new UpdateVehicles();
             vehicle.Show();
             this.Hide();
-        }
-
-        private void manageCustomerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,21 +188,7 @@ namespace AvisSystem
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void addNewClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim newAddClaim = new AddClaim();
@@ -229,11 +203,6 @@ namespace AvisSystem
             this.Hide();
         }
 
-        private void addNewBranchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateBranch newUpdateBranch = new UpdateBranch();
@@ -241,10 +210,6 @@ namespace AvisSystem
             this.Hide();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -356,7 +321,7 @@ namespace AvisSystem
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (textBox1.Text == "🔍 Search Vehicles..."   || textBox1.Text != "🔍 Search Vehicles...")
+            if (textBox1.Text == "🔍 Search Vehicles..." || textBox1.Text != "🔍 Search Vehicles...")
             {
                 label5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 label7.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -401,49 +366,6 @@ namespace AvisSystem
                     label2.ForeColor = Color.DarkRed;
                 }
             }
-
-           /* label5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            label7.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            label9.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            label11.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
-            try
-            {
-                byte[] imgBytes = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
-
-                MemoryStream ms = new MemoryStream(imgBytes);
-
-                pictureBox1.Image = Image.FromStream(ms);
-            }
-            catch
-            {
-                MessageBox.Show("Image could not be loaded.");
-            }
-
-            //pictureBox1.Image = Image.FromFile(dataGridView1.CurrentRow.Cells[7].Value.ToString());
-
-
-
-            string status = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-
-            label2.Text = status;
-
-            if (status == "Available")
-            {
-                label2.ForeColor = Color.Green;
-            }
-            else if (status == "Reserved" || status == "Rented")
-            {
-                label2.ForeColor = Color.Red;
-            }
-            else if (status == "Maintenance")
-            {
-                label2.ForeColor = Color.Orange;
-            }
-            else if (status == "Out of Service")
-            {
-                label2.ForeColor = Color.DarkRed;
-            }*/
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -551,21 +473,6 @@ namespace AvisSystem
 
             MessageBox.Show("Data refreshed!", "Refresh",
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
