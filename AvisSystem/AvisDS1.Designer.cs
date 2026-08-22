@@ -4450,9 +4450,9 @@ namespace AvisSystem {
             
             private global::System.Data.DataColumn columnExpectedReturnDate;
             
-            private global::System.Data.DataColumn columnDepositAmount;
-            
             private global::System.Data.DataColumn columnRentalStatus;
+            
+            private global::System.Data.DataColumn columnDepositAmount;
             
             private global::System.Data.DataColumn columnVehicleMakeModel;
             
@@ -4571,17 +4571,17 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DepositAmountColumn {
+            public global::System.Data.DataColumn RentalStatusColumn {
                 get {
-                    return this.columnDepositAmount;
+                    return this.columnRentalStatus;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RentalStatusColumn {
+            public global::System.Data.DataColumn DepositAmountColumn {
                 get {
-                    return this.columnRentalStatus;
+                    return this.columnDepositAmount;
                 }
             }
             
@@ -4630,7 +4630,7 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow AddRENTALRow(BOOKINGRow parentBOOKINGRowByFK_Rental_Booking, CUSTOMERRow parentCUSTOMERRowByFK_Rental_Customer, string CustomerName, VEHICLERow parentVEHICLERowByFK_Rental_Vehicle, EMPLOYEERow parentEMPLOYEERowByFK_Rental_Employee, string EmployeeName, System.DateTime PickupDate, System.DateTime StartDate, System.DateTime ExpectedReturnDate, decimal DepositAmount, string RentalStatus, string VehicleMakeModel) {
+            public RENTALRow AddRENTALRow(BOOKINGRow parentBOOKINGRowByFK_Rental_Booking, CUSTOMERRow parentCUSTOMERRowByFK_Rental_Customer, string CustomerName, VEHICLERow parentVEHICLERowByFK_Rental_Vehicle, EMPLOYEERow parentEMPLOYEERowByFK_Rental_Employee, string EmployeeName, System.DateTime PickupDate, System.DateTime StartDate, System.DateTime ExpectedReturnDate, string RentalStatus, decimal DepositAmount, string VehicleMakeModel) {
                 RENTALRow rowRENTALRow = ((RENTALRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4643,8 +4643,8 @@ namespace AvisSystem {
                         PickupDate,
                         StartDate,
                         ExpectedReturnDate,
-                        DepositAmount,
                         RentalStatus,
+                        DepositAmount,
                         VehicleMakeModel};
                 if ((parentBOOKINGRowByFK_Rental_Booking != null)) {
                     columnValuesArray[1] = parentBOOKINGRowByFK_Rental_Booking[0];
@@ -4697,8 +4697,8 @@ namespace AvisSystem {
                 this.columnPickupDate = base.Columns["PickupDate"];
                 this.columnStartDate = base.Columns["StartDate"];
                 this.columnExpectedReturnDate = base.Columns["ExpectedReturnDate"];
-                this.columnDepositAmount = base.Columns["DepositAmount"];
                 this.columnRentalStatus = base.Columns["RentalStatus"];
+                this.columnDepositAmount = base.Columns["DepositAmount"];
                 this.columnVehicleMakeModel = base.Columns["VehicleMakeModel"];
             }
             
@@ -4725,10 +4725,10 @@ namespace AvisSystem {
                 base.Columns.Add(this.columnStartDate);
                 this.columnExpectedReturnDate = new global::System.Data.DataColumn("ExpectedReturnDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpectedReturnDate);
-                this.columnDepositAmount = new global::System.Data.DataColumn("DepositAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepositAmount);
                 this.columnRentalStatus = new global::System.Data.DataColumn("RentalStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRentalStatus);
+                this.columnDepositAmount = new global::System.Data.DataColumn("DepositAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepositAmount);
                 this.columnVehicleMakeModel = new global::System.Data.DataColumn("VehicleMakeModel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVehicleMakeModel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -4885,8 +4885,6 @@ namespace AvisSystem {
             
             private global::System.Data.DataColumn columnEmployeeID;
             
-            private global::System.Data.DataColumn columnEmployeeName;
-            
             private global::System.Data.DataColumn columnRentalID;
             
             private global::System.Data.DataColumn columnOdometerReading;
@@ -4904,6 +4902,8 @@ namespace AvisSystem {
             private global::System.Data.DataColumn columnInspectionNotes;
             
             private global::System.Data.DataColumn columnBranchName;
+            
+            private global::System.Data.DataColumn columnEmployeeName;
             
             private global::System.Data.DataColumn columnVehicleMakeModel;
             
@@ -4953,14 +4953,6 @@ namespace AvisSystem {
             public global::System.Data.DataColumn EmployeeIDColumn {
                 get {
                     return this.columnEmployeeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn EmployeeNameColumn {
-                get {
-                    return this.columnEmployeeName;
                 }
             }
             
@@ -5038,6 +5030,14 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmployeeNameColumn {
+                get {
+                    return this.columnEmployeeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn VehicleMakeModelColumn {
                 get {
                     return this.columnVehicleMakeModel;
@@ -5081,12 +5081,11 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Vehicle_InspectionRow AddVehicle_InspectionRow(int EmployeeID, string EmployeeName, int RentalID, decimal OdometerReading, string InspectionType, System.DateTime InspectionDateTime, string FuelLevel, string DamageFound, string DamageDescription, string InspectionNotes, string BranchName, string VehicleMakeModel) {
+            public Vehicle_InspectionRow AddVehicle_InspectionRow(int EmployeeID, int RentalID, decimal OdometerReading, string InspectionType, System.DateTime InspectionDateTime, string FuelLevel, string DamageFound, string DamageDescription, string InspectionNotes, string BranchName, string EmployeeName, string VehicleMakeModel) {
                 Vehicle_InspectionRow rowVehicle_InspectionRow = ((Vehicle_InspectionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         EmployeeID,
-                        EmployeeName,
                         RentalID,
                         OdometerReading,
                         InspectionType,
@@ -5096,6 +5095,7 @@ namespace AvisSystem {
                         DamageDescription,
                         InspectionNotes,
                         BranchName,
+                        EmployeeName,
                         VehicleMakeModel};
                 rowVehicle_InspectionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVehicle_InspectionRow);
@@ -5128,7 +5128,6 @@ namespace AvisSystem {
             internal void InitVars() {
                 this.columnInspectionCode = base.Columns["InspectionCode"];
                 this.columnEmployeeID = base.Columns["EmployeeID"];
-                this.columnEmployeeName = base.Columns["EmployeeName"];
                 this.columnRentalID = base.Columns["RentalID"];
                 this.columnOdometerReading = base.Columns["OdometerReading"];
                 this.columnInspectionType = base.Columns["InspectionType"];
@@ -5138,6 +5137,7 @@ namespace AvisSystem {
                 this.columnDamageDescription = base.Columns["DamageDescription"];
                 this.columnInspectionNotes = base.Columns["InspectionNotes"];
                 this.columnBranchName = base.Columns["BranchName"];
+                this.columnEmployeeName = base.Columns["EmployeeName"];
                 this.columnVehicleMakeModel = base.Columns["VehicleMakeModel"];
             }
             
@@ -5148,8 +5148,6 @@ namespace AvisSystem {
                 base.Columns.Add(this.columnInspectionCode);
                 this.columnEmployeeID = new global::System.Data.DataColumn("EmployeeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeID);
-                this.columnEmployeeName = new global::System.Data.DataColumn("EmployeeName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmployeeName);
                 this.columnRentalID = new global::System.Data.DataColumn("RentalID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRentalID);
                 this.columnOdometerReading = new global::System.Data.DataColumn("OdometerReading", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -5168,6 +5166,8 @@ namespace AvisSystem {
                 base.Columns.Add(this.columnInspectionNotes);
                 this.columnBranchName = new global::System.Data.DataColumn("BranchName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranchName);
+                this.columnEmployeeName = new global::System.Data.DataColumn("EmployeeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployeeName);
                 this.columnVehicleMakeModel = new global::System.Data.DataColumn("VehicleMakeModel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVehicleMakeModel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -5179,7 +5179,6 @@ namespace AvisSystem {
                 this.columnInspectionCode.ReadOnly = true;
                 this.columnInspectionCode.Unique = true;
                 this.columnEmployeeID.AllowDBNull = false;
-                this.columnEmployeeName.MaxLength = 100;
                 this.columnRentalID.AllowDBNull = false;
                 this.columnOdometerReading.AllowDBNull = false;
                 this.columnInspectionType.AllowDBNull = false;
@@ -5194,6 +5193,7 @@ namespace AvisSystem {
                 this.columnInspectionNotes.AllowDBNull = false;
                 this.columnInspectionNotes.MaxLength = 50;
                 this.columnBranchName.MaxLength = 100;
+                this.columnEmployeeName.MaxLength = 100;
                 this.columnVehicleMakeModel.MaxLength = 100;
             }
             
@@ -7934,22 +7934,6 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal DepositAmount {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableRENTAL.DepositAmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepositAmount\' in table \'RENTAL\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRENTAL.DepositAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string RentalStatus {
                 get {
                     try {
@@ -7961,6 +7945,22 @@ namespace AvisSystem {
                 }
                 set {
                     this[this.tableRENTAL.RentalStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal DepositAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRENTAL.DepositAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DepositAmount\' in table \'RENTAL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRENTAL.DepositAmountColumn] = value;
                 }
             }
             
@@ -8086,18 +8086,6 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepositAmountNull() {
-                return this.IsNull(this.tableRENTAL.DepositAmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepositAmountNull() {
-                this[this.tableRENTAL.DepositAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRentalStatusNull() {
                 return this.IsNull(this.tableRENTAL.RentalStatusColumn);
             }
@@ -8106,6 +8094,18 @@ namespace AvisSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRentalStatusNull() {
                 this[this.tableRENTAL.RentalStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDepositAmountNull() {
+                return this.IsNull(this.tableRENTAL.DepositAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDepositAmountNull() {
+                this[this.tableRENTAL.DepositAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8154,22 +8154,6 @@ namespace AvisSystem {
                 }
                 set {
                     this[this.tableVehicle_Inspection.EmployeeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string EmployeeName {
-                get {
-                    try {
-                        return ((string)(this[this.tableVehicle_Inspection.EmployeeNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeName\' in table \'Vehicle Inspection\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVehicle_Inspection.EmployeeNameColumn] = value;
                 }
             }
             
@@ -8279,6 +8263,22 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EmployeeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableVehicle_Inspection.EmployeeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeName\' in table \'Vehicle Inspection\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle_Inspection.EmployeeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string VehicleMakeModel {
                 get {
                     try {
@@ -8295,18 +8295,6 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmployeeNameNull() {
-                return this.IsNull(this.tableVehicle_Inspection.EmployeeNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmployeeNameNull() {
-                this[this.tableVehicle_Inspection.EmployeeNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBranchNameNull() {
                 return this.IsNull(this.tableVehicle_Inspection.BranchNameColumn);
             }
@@ -8315,6 +8303,18 @@ namespace AvisSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBranchNameNull() {
                 this[this.tableVehicle_Inspection.BranchNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployeeNameNull() {
+                return this.IsNull(this.tableVehicle_Inspection.EmployeeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployeeNameNull() {
+                this[this.tableVehicle_Inspection.EmployeeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14827,13 +14827,13 @@ SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentSt
             tableMapping.ColumnMappings.Add("PickupDate", "PickupDate");
             tableMapping.ColumnMappings.Add("StartDate", "StartDate");
             tableMapping.ColumnMappings.Add("ExpectedReturnDate", "ExpectedReturnDate");
-            tableMapping.ColumnMappings.Add("DepositAmount", "DepositAmount");
             tableMapping.ColumnMappings.Add("RentalStatus", "RentalStatus");
+            tableMapping.ColumnMappings.Add("DepositAmount", "DepositAmount");
             tableMapping.ColumnMappings.Add("VehicleMakeModel", "VehicleMakeModel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [RENTAL] WHERE (([RentalID] = @Original_RentalID) AND ([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([EmployeeID] = @Original_EmployeeID) AND ((@IsNull_EmployeeName = 1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName)) AND ((@IsNull_PickupDate = 1 AND [PickupDate] IS NULL) OR ([PickupDate] = @Original_PickupDate)) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_ExpectedReturnDate = 1 AND [ExpectedReturnDate] IS NULL) OR ([ExpectedReturnDate] = @Original_ExpectedReturnDate)) AND ((@IsNull_DepositAmount = 1 AND [DepositAmount] IS NULL) OR ([DepositAmount] = @Original_DepositAmount)) AND ((@IsNull_RentalStatus = 1 AND [RentalStatus] IS NULL) OR ([RentalStatus] = @Original_RentalStatus)) AND ((@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([VehicleMakeModel] = @Original_VehicleMakeModel)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [RENTAL] WHERE (([RentalID] = @Original_RentalID) AND ([BookingID] = @Original_BookingID) AND ([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ([VehicleVinNo] = @Original_VehicleVinNo) AND ([EmployeeID] = @Original_EmployeeID) AND ((@IsNull_EmployeeName = 1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName)) AND ((@IsNull_PickupDate = 1 AND [PickupDate] IS NULL) OR ([PickupDate] = @Original_PickupDate)) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_ExpectedReturnDate = 1 AND [ExpectedReturnDate] IS NULL) OR ([ExpectedReturnDate] = @Original_ExpectedReturnDate)) AND ((@IsNull_RentalStatus = 1 AND [RentalStatus] IS NULL) OR ([RentalStatus] = @Original_RentalStatus)) AND ((@IsNull_DepositAmount = 1 AND [DepositAmount] IS NULL) OR ([DepositAmount] = @Original_DepositAmount)) AND ((@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([VehicleMakeModel] = @Original_VehicleMakeModel)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14850,16 +14850,16 @@ SELECT EmployeeID, Fullname, EmailAddress, Position, ContactNumber, EmploymentSt
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExpectedReturnDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DepositAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RentalStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DepositAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleMakeModel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleMakeModel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [RENTAL] ([BookingID], [CustomerID], [CustomerName], [VehicleVinNo], [EmployeeID], [EmployeeName], [PickupDate], [StartDate], [ExpectedReturnDate], [DepositAmount], [RentalStatus], [VehicleMakeModel]) VALUES (@BookingID, @CustomerID, @CustomerName, @VehicleVinNo, @EmployeeID, @EmployeeName, @PickupDate, @StartDate, @ExpectedReturnDate, @DepositAmount, @RentalStatus, @VehicleMakeModel);
-SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, DepositAmount, RentalStatus, VehicleMakeModel FROM RENTAL WHERE (RentalID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [RENTAL] ([BookingID], [CustomerID], [CustomerName], [VehicleVinNo], [EmployeeID], [EmployeeName], [PickupDate], [StartDate], [ExpectedReturnDate], [RentalStatus], [DepositAmount], [VehicleMakeModel]) VALUES (@BookingID, @CustomerID, @CustomerName, @VehicleVinNo, @EmployeeID, @EmployeeName, @PickupDate, @StartDate, @ExpectedReturnDate, @RentalStatus, @DepositAmount, @VehicleMakeModel);
+SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, RentalStatus, DepositAmount, VehicleMakeModel FROM RENTAL WHERE (RentalID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14870,16 +14870,16 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickupDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickupDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentalStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleMakeModel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [RENTAL] SET [BookingID] = @BookingID, [CustomerID] = @CustomerID, [Custom" +
                 "erName] = @CustomerName, [VehicleVinNo] = @VehicleVinNo, [EmployeeID] = @Employe" +
                 "eID, [EmployeeName] = @EmployeeName, [PickupDate] = @PickupDate, [StartDate] = @" +
-                "StartDate, [ExpectedReturnDate] = @ExpectedReturnDate, [DepositAmount] = @Deposi" +
-                "tAmount, [RentalStatus] = @RentalStatus, [VehicleMakeModel] = @VehicleMakeModel " +
+                "StartDate, [ExpectedReturnDate] = @ExpectedReturnDate, [RentalStatus] = @RentalS" +
+                "tatus, [DepositAmount] = @DepositAmount, [VehicleMakeModel] = @VehicleMakeModel " +
                 "WHERE (([RentalID] = @Original_RentalID) AND ([BookingID] = @Original_BookingID)" +
                 " AND ([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerName = 1 AND [C" +
                 "ustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ([Vehicl" +
@@ -14889,13 +14889,13 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                 "[PickupDate] = @Original_PickupDate)) AND ((@IsNull_StartDate = 1 AND [StartDate" +
                 "] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_ExpectedReturnD" +
                 "ate = 1 AND [ExpectedReturnDate] IS NULL) OR ([ExpectedReturnDate] = @Original_E" +
-                "xpectedReturnDate)) AND ((@IsNull_DepositAmount = 1 AND [DepositAmount] IS NULL)" +
-                " OR ([DepositAmount] = @Original_DepositAmount)) AND ((@IsNull_RentalStatus = 1 " +
-                "AND [RentalStatus] IS NULL) OR ([RentalStatus] = @Original_RentalStatus)) AND ((" +
+                "xpectedReturnDate)) AND ((@IsNull_RentalStatus = 1 AND [RentalStatus] IS NULL) O" +
+                "R ([RentalStatus] = @Original_RentalStatus)) AND ((@IsNull_DepositAmount = 1 AND" +
+                " [DepositAmount] IS NULL) OR ([DepositAmount] = @Original_DepositAmount)) AND ((" +
                 "@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([VehicleMakeMod" +
                 "el] = @Original_VehicleMakeModel)));\r\nSELECT RentalID, BookingID, CustomerID, Cu" +
                 "stomerName, VehicleVinNo, EmployeeID, EmployeeName, PickupDate, StartDate, Expec" +
-                "tedReturnDate, DepositAmount, RentalStatus, VehicleMakeModel FROM RENTAL WHERE (" +
+                "tedReturnDate, RentalStatus, DepositAmount, VehicleMakeModel FROM RENTAL WHERE (" +
                 "RentalID = @RentalID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14907,8 +14907,8 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickupDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickupDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentalStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleMakeModel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14925,10 +14925,10 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExpectedReturnDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExpectedReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExpectedReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DepositAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RentalStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DepositAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepositAmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepositAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "DepositAmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleMakeModel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleMakeModel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentalID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14948,8 +14948,8 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, Employ" +
-                "eeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, DepositAmount, Re" +
-                "ntalStatus, VehicleMakeModel\r\nFROM            RENTAL";
+                "eeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, RentalStatus, Dep" +
+                "ositAmount, VehicleMakeModel\r\nFROM            RENTAL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15010,7 +15010,7 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RentalID, int Original_BookingID, int Original_CustomerID, string Original_CustomerName, string Original_VehicleVinNo, int Original_EmployeeID, string Original_EmployeeName, global::System.Nullable<global::System.DateTime> Original_PickupDate, global::System.Nullable<global::System.DateTime> Original_StartDate, global::System.Nullable<global::System.DateTime> Original_ExpectedReturnDate, global::System.Nullable<decimal> Original_DepositAmount, string Original_RentalStatus, string Original_VehicleMakeModel) {
+        public virtual int Delete(int Original_RentalID, int Original_BookingID, int Original_CustomerID, string Original_CustomerName, string Original_VehicleVinNo, int Original_EmployeeID, string Original_EmployeeName, global::System.Nullable<global::System.DateTime> Original_PickupDate, global::System.Nullable<global::System.DateTime> Original_StartDate, global::System.Nullable<global::System.DateTime> Original_ExpectedReturnDate, string Original_RentalStatus, global::System.Nullable<decimal> Original_DepositAmount, string Original_VehicleMakeModel) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RentalID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_BookingID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_CustomerID));
@@ -15061,21 +15061,21 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_DepositAmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_DepositAmount.Value));
-            }
-            else {
+            if ((Original_RentalStatus == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_RentalStatus == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_RentalStatus));
+            }
+            if ((Original_DepositAmount.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_DepositAmount.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_RentalStatus));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_VehicleMakeModel == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
@@ -15105,7 +15105,7 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int BookingID, int CustomerID, string CustomerName, string VehicleVinNo, int EmployeeID, string EmployeeName, global::System.Nullable<global::System.DateTime> PickupDate, global::System.Nullable<global::System.DateTime> StartDate, global::System.Nullable<global::System.DateTime> ExpectedReturnDate, global::System.Nullable<decimal> DepositAmount, string RentalStatus, string VehicleMakeModel) {
+        public virtual int Insert(int BookingID, int CustomerID, string CustomerName, string VehicleVinNo, int EmployeeID, string EmployeeName, global::System.Nullable<global::System.DateTime> PickupDate, global::System.Nullable<global::System.DateTime> StartDate, global::System.Nullable<global::System.DateTime> ExpectedReturnDate, string RentalStatus, global::System.Nullable<decimal> DepositAmount, string VehicleMakeModel) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(BookingID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerID));
             if ((CustomerName == null)) {
@@ -15145,17 +15145,17 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((DepositAmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(DepositAmount.Value));
-            }
-            else {
+            if ((RentalStatus == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((RentalStatus == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(RentalStatus));
+            }
+            if ((DepositAmount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(DepositAmount.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(RentalStatus));
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((VehicleMakeModel == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -15193,8 +15193,8 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                     global::System.Nullable<global::System.DateTime> PickupDate, 
                     global::System.Nullable<global::System.DateTime> StartDate, 
                     global::System.Nullable<global::System.DateTime> ExpectedReturnDate, 
-                    global::System.Nullable<decimal> DepositAmount, 
                     string RentalStatus, 
+                    global::System.Nullable<decimal> DepositAmount, 
                     string VehicleMakeModel, 
                     int Original_RentalID, 
                     int Original_BookingID, 
@@ -15206,8 +15206,8 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                     global::System.Nullable<global::System.DateTime> Original_PickupDate, 
                     global::System.Nullable<global::System.DateTime> Original_StartDate, 
                     global::System.Nullable<global::System.DateTime> Original_ExpectedReturnDate, 
-                    global::System.Nullable<decimal> Original_DepositAmount, 
                     string Original_RentalStatus, 
+                    global::System.Nullable<decimal> Original_DepositAmount, 
                     string Original_VehicleMakeModel, 
                     int RentalID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(BookingID));
@@ -15249,17 +15249,17 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((DepositAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(DepositAmount.Value));
-            }
-            else {
+            if ((RentalStatus == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((RentalStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(RentalStatus));
+            }
+            if ((DepositAmount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(DepositAmount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(RentalStatus));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((VehicleMakeModel == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -15317,21 +15317,21 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_DepositAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_DepositAmount.Value));
-            }
-            else {
+            if ((Original_RentalStatus == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_RentalStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_RentalStatus));
+            }
+            if ((Original_DepositAmount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_DepositAmount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_RentalStatus));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             if ((Original_VehicleMakeModel == null)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
@@ -15372,8 +15372,8 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                     global::System.Nullable<global::System.DateTime> PickupDate, 
                     global::System.Nullable<global::System.DateTime> StartDate, 
                     global::System.Nullable<global::System.DateTime> ExpectedReturnDate, 
-                    global::System.Nullable<decimal> DepositAmount, 
                     string RentalStatus, 
+                    global::System.Nullable<decimal> DepositAmount, 
                     string VehicleMakeModel, 
                     int Original_RentalID, 
                     int Original_BookingID, 
@@ -15385,10 +15385,10 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
                     global::System.Nullable<global::System.DateTime> Original_PickupDate, 
                     global::System.Nullable<global::System.DateTime> Original_StartDate, 
                     global::System.Nullable<global::System.DateTime> Original_ExpectedReturnDate, 
-                    global::System.Nullable<decimal> Original_DepositAmount, 
                     string Original_RentalStatus, 
+                    global::System.Nullable<decimal> Original_DepositAmount, 
                     string Original_VehicleMakeModel) {
-            return this.Update(BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, DepositAmount, RentalStatus, VehicleMakeModel, Original_RentalID, Original_BookingID, Original_CustomerID, Original_CustomerName, Original_VehicleVinNo, Original_EmployeeID, Original_EmployeeName, Original_PickupDate, Original_StartDate, Original_ExpectedReturnDate, Original_DepositAmount, Original_RentalStatus, Original_VehicleMakeModel, Original_RentalID);
+            return this.Update(BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, EmployeeName, PickupDate, StartDate, ExpectedReturnDate, RentalStatus, DepositAmount, VehicleMakeModel, Original_RentalID, Original_BookingID, Original_CustomerID, Original_CustomerName, Original_VehicleVinNo, Original_EmployeeID, Original_EmployeeName, Original_PickupDate, Original_StartDate, Original_ExpectedReturnDate, Original_RentalStatus, Original_DepositAmount, Original_VehicleMakeModel, Original_RentalID);
         }
     }
     
@@ -15515,7 +15515,6 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             tableMapping.DataSetTable = "Vehicle Inspection";
             tableMapping.ColumnMappings.Add("InspectionCode", "InspectionCode");
             tableMapping.ColumnMappings.Add("EmployeeID", "EmployeeID");
-            tableMapping.ColumnMappings.Add("EmployeeName", "EmployeeName");
             tableMapping.ColumnMappings.Add("RentalID", "RentalID");
             tableMapping.ColumnMappings.Add("OdometerReading", "OdometerReading");
             tableMapping.ColumnMappings.Add("InspectionType", "InspectionType");
@@ -15525,16 +15524,15 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             tableMapping.ColumnMappings.Add("DamageDescription", "DamageDescription");
             tableMapping.ColumnMappings.Add("InspectionNotes", "InspectionNotes");
             tableMapping.ColumnMappings.Add("BranchName", "BranchName");
+            tableMapping.ColumnMappings.Add("EmployeeName", "EmployeeName");
             tableMapping.ColumnMappings.Add("VehicleMakeModel", "VehicleMakeModel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Vehicle Inspection] WHERE (([InspectionCode] = @Original_InspectionCode) AND ([EmployeeID] = @Original_EmployeeID) AND ((@IsNull_EmployeeName = 1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName)) AND ([RentalID] = @Original_RentalID) AND ([OdometerReading] = @Original_OdometerReading) AND ([InspectionType] = @Original_InspectionType) AND ([InspectionDateTime] = @Original_InspectionDateTime) AND ([FuelLevel] = @Original_FuelLevel) AND ([DamageFound] = @Original_DamageFound) AND ([DamageDescription] = @Original_DamageDescription) AND ([InspectionNotes] = @Original_InspectionNotes) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)) AND ((@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([VehicleMakeModel] = @Original_VehicleMakeModel)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Vehicle Inspection] WHERE (([InspectionCode] = @Original_InspectionCode) AND ([EmployeeID] = @Original_EmployeeID) AND ([RentalID] = @Original_RentalID) AND ([OdometerReading] = @Original_OdometerReading) AND ([InspectionType] = @Original_InspectionType) AND ([InspectionDateTime] = @Original_InspectionDateTime) AND ([FuelLevel] = @Original_FuelLevel) AND ([DamageFound] = @Original_DamageFound) AND ([DamageDescription] = @Original_DamageDescription) AND ([InspectionNotes] = @Original_InspectionNotes) AND ((@IsNull_BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName)) AND ((@IsNull_EmployeeName = 1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName)) AND ((@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([VehicleMakeModel] = @Original_VehicleMakeModel)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmployeeName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdometerReading", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OdometerReading", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15545,15 +15543,16 @@ SELECT RentalID, BookingID, CustomerID, CustomerName, VehicleVinNo, EmployeeID, 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionNotes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BranchName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BranchName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmployeeName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleMakeModel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleMakeModel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle Inspection] ([EmployeeID], [EmployeeName], [RentalID], [OdometerReading], [InspectionType], [InspectionDateTime], [FuelLevel], [DamageFound], [DamageDescription], [InspectionNotes], [BranchName], [VehicleMakeModel]) VALUES (@EmployeeID, @EmployeeName, @RentalID, @OdometerReading, @InspectionType, @InspectionDateTime, @FuelLevel, @DamageFound, @DamageDescription, @InspectionNotes, @BranchName, @VehicleMakeModel);
-SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, VehicleMakeModel FROM [Vehicle Inspection] WHERE (InspectionCode = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle Inspection] ([EmployeeID], [RentalID], [OdometerReading], [InspectionType], [InspectionDateTime], [FuelLevel], [DamageFound], [DamageDescription], [InspectionNotes], [BranchName], [EmployeeName], [VehicleMakeModel]) VALUES (@EmployeeID, @RentalID, @OdometerReading, @InspectionType, @InspectionDateTime, @FuelLevel, @DamageFound, @DamageDescription, @InspectionNotes, @BranchName, @EmployeeName, @VehicleMakeModel);
+SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, EmployeeName, VehicleMakeModel FROM [Vehicle Inspection] WHERE (InspectionCode = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdometerReading", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OdometerReading", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InspectionType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15563,31 +15562,31 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DamageDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DamageDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InspectionNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleMakeModel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Vehicle Inspection] SET [EmployeeID] = @EmployeeID, [EmployeeName] = @Emp" +
-                "loyeeName, [RentalID] = @RentalID, [OdometerReading] = @OdometerReading, [Inspec" +
-                "tionType] = @InspectionType, [InspectionDateTime] = @InspectionDateTime, [FuelLe" +
-                "vel] = @FuelLevel, [DamageFound] = @DamageFound, [DamageDescription] = @DamageDe" +
-                "scription, [InspectionNotes] = @InspectionNotes, [BranchName] = @BranchName, [Ve" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Vehicle Inspection] SET [EmployeeID] = @EmployeeID, [RentalID] = @RentalI" +
+                "D, [OdometerReading] = @OdometerReading, [InspectionType] = @InspectionType, [In" +
+                "spectionDateTime] = @InspectionDateTime, [FuelLevel] = @FuelLevel, [DamageFound]" +
+                " = @DamageFound, [DamageDescription] = @DamageDescription, [InspectionNotes] = @" +
+                "InspectionNotes, [BranchName] = @BranchName, [EmployeeName] = @EmployeeName, [Ve" +
                 "hicleMakeModel] = @VehicleMakeModel WHERE (([InspectionCode] = @Original_Inspect" +
-                "ionCode) AND ([EmployeeID] = @Original_EmployeeID) AND ((@IsNull_EmployeeName = " +
-                "1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName)) AND " +
-                "([RentalID] = @Original_RentalID) AND ([OdometerReading] = @Original_OdometerRea" +
-                "ding) AND ([InspectionType] = @Original_InspectionType) AND ([InspectionDateTime" +
-                "] = @Original_InspectionDateTime) AND ([FuelLevel] = @Original_FuelLevel) AND ([" +
-                "DamageFound] = @Original_DamageFound) AND ([DamageDescription] = @Original_Damag" +
-                "eDescription) AND ([InspectionNotes] = @Original_InspectionNotes) AND ((@IsNull_" +
-                "BranchName = 1 AND [BranchName] IS NULL) OR ([BranchName] = @Original_BranchName" +
+                "ionCode) AND ([EmployeeID] = @Original_EmployeeID) AND ([RentalID] = @Original_R" +
+                "entalID) AND ([OdometerReading] = @Original_OdometerReading) AND ([InspectionTyp" +
+                "e] = @Original_InspectionType) AND ([InspectionDateTime] = @Original_InspectionD" +
+                "ateTime) AND ([FuelLevel] = @Original_FuelLevel) AND ([DamageFound] = @Original_" +
+                "DamageFound) AND ([DamageDescription] = @Original_DamageDescription) AND ([Inspe" +
+                "ctionNotes] = @Original_InspectionNotes) AND ((@IsNull_BranchName = 1 AND [Branc" +
+                "hName] IS NULL) OR ([BranchName] = @Original_BranchName)) AND ((@IsNull_Employee" +
+                "Name = 1 AND [EmployeeName] IS NULL) OR ([EmployeeName] = @Original_EmployeeName" +
                 ")) AND ((@IsNull_VehicleMakeModel = 1 AND [VehicleMakeModel] IS NULL) OR ([Vehic" +
                 "leMakeModel] = @Original_VehicleMakeModel)));\r\nSELECT InspectionCode, EmployeeID" +
-                ", EmployeeName, RentalID, OdometerReading, InspectionType, InspectionDateTime, F" +
-                "uelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, VehicleMa" +
+                ", RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, Dama" +
+                "geFound, DamageDescription, InspectionNotes, BranchName, EmployeeName, VehicleMa" +
                 "keModel FROM [Vehicle Inspection] WHERE (InspectionCode = @InspectionCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdometerReading", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OdometerReading", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InspectionType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15597,11 +15596,10 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DamageDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DamageDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InspectionNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleMakeModel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmployeeName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RentalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdometerReading", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "OdometerReading", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15612,6 +15610,8 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InspectionNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionNotes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BranchName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BranchName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmployeeName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleMakeModel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleMakeModel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleMakeModel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InspectionCode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InspectionCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15630,9 +15630,9 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading" +
-                ", InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription," +
-                " InspectionNotes, BranchName, VehicleMakeModel\r\nFROM            [Vehicle Inspect" +
+            this._commandCollection[0].CommandText = "SELECT        InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionTy" +
+                "pe, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNot" +
+                "es, BranchName, EmployeeName, VehicleMakeModel\r\nFROM            [Vehicle Inspect" +
                 "ion]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -15694,57 +15694,57 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_InspectionCode, int Original_EmployeeID, string Original_EmployeeName, int Original_RentalID, decimal Original_OdometerReading, string Original_InspectionType, System.DateTime Original_InspectionDateTime, string Original_FuelLevel, string Original_DamageFound, string Original_DamageDescription, string Original_InspectionNotes, string Original_BranchName, string Original_VehicleMakeModel) {
+        public virtual int Delete(int Original_InspectionCode, int Original_EmployeeID, int Original_RentalID, decimal Original_OdometerReading, string Original_InspectionType, System.DateTime Original_InspectionDateTime, string Original_FuelLevel, string Original_DamageFound, string Original_DamageDescription, string Original_InspectionNotes, string Original_BranchName, string Original_EmployeeName, string Original_VehicleMakeModel) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_InspectionCode));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_EmployeeID));
-            if ((Original_EmployeeName == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_EmployeeName));
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_RentalID));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_OdometerReading));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RentalID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_OdometerReading));
             if ((Original_InspectionType == null)) {
                 throw new global::System.ArgumentNullException("Original_InspectionType");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_InspectionType));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_InspectionType));
             }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_InspectionDateTime));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_InspectionDateTime));
             if ((Original_FuelLevel == null)) {
                 throw new global::System.ArgumentNullException("Original_FuelLevel");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_FuelLevel));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_FuelLevel));
             }
             if ((Original_DamageFound == null)) {
                 throw new global::System.ArgumentNullException("Original_DamageFound");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_DamageFound));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_DamageFound));
             }
             if ((Original_DamageDescription == null)) {
                 throw new global::System.ArgumentNullException("Original_DamageDescription");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_DamageDescription));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_DamageDescription));
             }
             if ((Original_InspectionNotes == null)) {
                 throw new global::System.ArgumentNullException("Original_InspectionNotes");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_InspectionNotes));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_InspectionNotes));
             }
             if ((Original_BranchName == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_BranchName));
+            }
+            if ((Original_EmployeeName == null)) {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_BranchName));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_EmployeeName));
             }
             if ((Original_VehicleMakeModel == null)) {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
@@ -15774,52 +15774,52 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int EmployeeID, string EmployeeName, int RentalID, decimal OdometerReading, string InspectionType, System.DateTime InspectionDateTime, string FuelLevel, string DamageFound, string DamageDescription, string InspectionNotes, string BranchName, string VehicleMakeModel) {
+        public virtual int Insert(int EmployeeID, int RentalID, decimal OdometerReading, string InspectionType, System.DateTime InspectionDateTime, string FuelLevel, string DamageFound, string DamageDescription, string InspectionNotes, string BranchName, string EmployeeName, string VehicleMakeModel) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(EmployeeID));
-            if ((EmployeeName == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(EmployeeName));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(RentalID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(OdometerReading));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(RentalID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(OdometerReading));
             if ((InspectionType == null)) {
                 throw new global::System.ArgumentNullException("InspectionType");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(InspectionType));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(InspectionType));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(InspectionDateTime));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(InspectionDateTime));
             if ((FuelLevel == null)) {
                 throw new global::System.ArgumentNullException("FuelLevel");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(FuelLevel));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(FuelLevel));
             }
             if ((DamageFound == null)) {
                 throw new global::System.ArgumentNullException("DamageFound");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DamageFound));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(DamageFound));
             }
             if ((DamageDescription == null)) {
                 throw new global::System.ArgumentNullException("DamageDescription");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(DamageDescription));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DamageDescription));
             }
             if ((InspectionNotes == null)) {
                 throw new global::System.ArgumentNullException("InspectionNotes");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(InspectionNotes));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(InspectionNotes));
             }
             if ((BranchName == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(BranchName));
+            }
+            if ((EmployeeName == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(BranchName));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(EmployeeName));
             }
             if ((VehicleMakeModel == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -15849,7 +15849,6 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int EmployeeID, 
-                    string EmployeeName, 
                     int RentalID, 
                     decimal OdometerReading, 
                     string InspectionType, 
@@ -15859,10 +15858,10 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
                     string DamageDescription, 
                     string InspectionNotes, 
                     string BranchName, 
+                    string EmployeeName, 
                     string VehicleMakeModel, 
                     int Original_InspectionCode, 
                     int Original_EmployeeID, 
-                    string Original_EmployeeName, 
                     int Original_RentalID, 
                     decimal Original_OdometerReading, 
                     string Original_InspectionType, 
@@ -15872,53 +15871,54 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
                     string Original_DamageDescription, 
                     string Original_InspectionNotes, 
                     string Original_BranchName, 
+                    string Original_EmployeeName, 
                     string Original_VehicleMakeModel, 
                     int InspectionCode) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(EmployeeID));
-            if ((EmployeeName == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(EmployeeName));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(RentalID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(OdometerReading));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(RentalID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(OdometerReading));
             if ((InspectionType == null)) {
                 throw new global::System.ArgumentNullException("InspectionType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(InspectionType));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(InspectionType));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(InspectionDateTime));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(InspectionDateTime));
             if ((FuelLevel == null)) {
                 throw new global::System.ArgumentNullException("FuelLevel");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(FuelLevel));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(FuelLevel));
             }
             if ((DamageFound == null)) {
                 throw new global::System.ArgumentNullException("DamageFound");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DamageFound));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(DamageFound));
             }
             if ((DamageDescription == null)) {
                 throw new global::System.ArgumentNullException("DamageDescription");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(DamageDescription));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DamageDescription));
             }
             if ((InspectionNotes == null)) {
                 throw new global::System.ArgumentNullException("InspectionNotes");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(InspectionNotes));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(InspectionNotes));
             }
             if ((BranchName == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(BranchName));
+            }
+            if ((EmployeeName == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(BranchName));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(EmployeeName));
             }
             if ((VehicleMakeModel == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -15928,54 +15928,54 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
             }
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_InspectionCode));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_EmployeeID));
-            if ((Original_EmployeeName == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_EmployeeName));
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_RentalID));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_OdometerReading));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_RentalID));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_OdometerReading));
             if ((Original_InspectionType == null)) {
                 throw new global::System.ArgumentNullException("Original_InspectionType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_InspectionType));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_InspectionType));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_InspectionDateTime));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_InspectionDateTime));
             if ((Original_FuelLevel == null)) {
                 throw new global::System.ArgumentNullException("Original_FuelLevel");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_FuelLevel));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_FuelLevel));
             }
             if ((Original_DamageFound == null)) {
                 throw new global::System.ArgumentNullException("Original_DamageFound");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_DamageFound));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_DamageFound));
             }
             if ((Original_DamageDescription == null)) {
                 throw new global::System.ArgumentNullException("Original_DamageDescription");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_DamageDescription));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_DamageDescription));
             }
             if ((Original_InspectionNotes == null)) {
                 throw new global::System.ArgumentNullException("Original_InspectionNotes");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_InspectionNotes));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_InspectionNotes));
             }
             if ((Original_BranchName == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_BranchName));
+            }
+            if ((Original_EmployeeName == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_BranchName));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_EmployeeName));
             }
             if ((Original_VehicleMakeModel == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
@@ -16008,7 +16008,6 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int EmployeeID, 
-                    string EmployeeName, 
                     int RentalID, 
                     decimal OdometerReading, 
                     string InspectionType, 
@@ -16018,10 +16017,10 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
                     string DamageDescription, 
                     string InspectionNotes, 
                     string BranchName, 
+                    string EmployeeName, 
                     string VehicleMakeModel, 
                     int Original_InspectionCode, 
                     int Original_EmployeeID, 
-                    string Original_EmployeeName, 
                     int Original_RentalID, 
                     decimal Original_OdometerReading, 
                     string Original_InspectionType, 
@@ -16031,8 +16030,9 @@ SELECT InspectionCode, EmployeeID, EmployeeName, RentalID, OdometerReading, Insp
                     string Original_DamageDescription, 
                     string Original_InspectionNotes, 
                     string Original_BranchName, 
+                    string Original_EmployeeName, 
                     string Original_VehicleMakeModel) {
-            return this.Update(EmployeeID, EmployeeName, RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, VehicleMakeModel, Original_InspectionCode, Original_EmployeeID, Original_EmployeeName, Original_RentalID, Original_OdometerReading, Original_InspectionType, Original_InspectionDateTime, Original_FuelLevel, Original_DamageFound, Original_DamageDescription, Original_InspectionNotes, Original_BranchName, Original_VehicleMakeModel, Original_InspectionCode);
+            return this.Update(EmployeeID, RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, EmployeeName, VehicleMakeModel, Original_InspectionCode, Original_EmployeeID, Original_RentalID, Original_OdometerReading, Original_InspectionType, Original_InspectionDateTime, Original_FuelLevel, Original_DamageFound, Original_DamageDescription, Original_InspectionNotes, Original_BranchName, Original_EmployeeName, Original_VehicleMakeModel, Original_InspectionCode);
         }
     }
     
