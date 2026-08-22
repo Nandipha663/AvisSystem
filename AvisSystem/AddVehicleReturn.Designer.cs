@@ -1,6 +1,6 @@
 ﻿namespace AvisSystem
 {
-    partial class AddRental
+    partial class AddVehicleReturn
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRental));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddVehicleReturn));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -115,6 +115,9 @@
             this.bRANCHTableAdapter = new AvisSystem.AvisDSTableAdapters.BRANCHTableAdapter();
             this.vehicleTableAdapter1 = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
             this.vehiclE_RETURNTableAdapter1 = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
+            this.manageRentalsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -859,7 +862,8 @@
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageInspectionRecordsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem,
+            this.manageRentalsToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 609);
@@ -934,6 +938,30 @@
             // vehiclE_RETURNTableAdapter1
             // 
             this.vehiclE_RETURNTableAdapter1.ClearBeforeFill = true;
+            // 
+            // manageRentalsToolStripMenuItem2
+            // 
+            this.manageRentalsToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem2,
+            this.viewRentalsToolStripMenuItem});
+            this.manageRentalsToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.manageRentalsToolStripMenuItem2.Name = "manageRentalsToolStripMenuItem2";
+            this.manageRentalsToolStripMenuItem2.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalsToolStripMenuItem2.Text = "📓 Manage Rentals";
+            // 
+            // addRentalToolStripMenuItem2
+            // 
+            this.addRentalToolStripMenuItem2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem2.Name = "addRentalToolStripMenuItem2";
+            this.addRentalToolStripMenuItem2.Size = new System.Drawing.Size(274, 34);
+            this.addRentalToolStripMenuItem2.Text = "Add Rental";
+            // 
+            // viewRentalsToolStripMenuItem
+            // 
+            this.viewRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewRentalsToolStripMenuItem.Name = "viewRentalsToolStripMenuItem";
+            this.viewRentalsToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
+            this.viewRentalsToolStripMenuItem.Text = "View Rental Details";
             // 
             // AddRental
             // 
@@ -1056,5 +1084,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageRentalsToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem viewRentalsToolStripMenuItem;
     }
 }

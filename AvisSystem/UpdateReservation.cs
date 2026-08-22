@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -180,7 +181,7 @@ namespace AvisSystem
         {
 
             string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            string vin = dataGridView1.CurrentRow.Cells["VehicleVinNo"].Value.ToString();
+            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
             if (bookingStatus == "Cancelled")
             {
@@ -195,7 +196,7 @@ namespace AvisSystem
                 bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
                 bOOKINGTableAdapter.Fill(avisDS.BOOKING);
-                MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
+                MessageBox.Show($"Booking Updated with:\nBooking ID: {id}");
             }
             catch (Exception ex)
             {
@@ -402,7 +403,7 @@ namespace AvisSystem
         private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                  "Are you sure you want to delete this vehicle return record?",
+                                  "Are you sure you want to delete this booking record?",
                                   "Confirm Delete",
                                   MessageBoxButtons.YesNo,
                                   MessageBoxIcon.Question
@@ -655,7 +656,7 @@ namespace AvisSystem
              */
 
             string bookingStatus = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            string vin = dataGridView1.CurrentRow.Cells["VehicleVinNo"].Value.ToString();
+            string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
             DialogResult result = MessageBox.Show(
                                  "Are you sure you want to cancel this booking?",
@@ -675,9 +676,14 @@ namespace AvisSystem
                 {
                     dataGridView1.CurrentRow.Cells[13].Value = "Cancelled";
                     vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+                }
+                else if (bookingStatus == "Completed")
+                {
+                    MessageBox.Show("Booking cannot be cancelled as it is already completed.", "Cancellation Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-                    //check if refund is elligible based on the pick up date and current date
-                    DateTime pickupDateTime = Convert.ToDateTime( dataGridView1.CurrentRow.Cells["PickupDateTime"].Value );
+                //check if refund is elligible based on the pick up date and current date
+                DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["PickupDateTime"].Value);
 
                     DateTime currentDateTime = DateTime.Now;
 
@@ -691,7 +697,7 @@ namespace AvisSystem
                     {
                         dataGridView1.CurrentRow.Cells[15].Value = "Not eligible";
                     }
-                }
+                
             }
             else
             {

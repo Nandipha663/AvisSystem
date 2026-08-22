@@ -12,13 +12,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AvisSystem
 {
-    public partial class AddRental : Form
+    public partial class AddVehicleReturn : Form
     {
 
         private bool bookingSelected = false;
         private bool usePickerDate = false;
 
-        public AddRental()
+        public AddVehicleReturn()
         {
             InitializeComponent();
             label3.Click += panel1_Click;
@@ -112,14 +112,14 @@ namespace AvisSystem
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRental newAddRental = new AddRental();
+            AddVehicleReturn newAddRental = new AddVehicleReturn();
             newAddRental.Show();
             this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateRental newUpdateRental = new UpdateRental();
+            ManageVehicleReturns newUpdateRental = new ManageVehicleReturns();
             newUpdateRental.Show();
             this.Hide();
         }
@@ -265,7 +265,7 @@ namespace AvisSystem
                 bOOKINGTableAdapter.Fill(this.avisDS.BOOKING);
 
                 //Refill employees table
-                UpdateRental Return = Application.OpenForms["UpdateRental"] as UpdateRental;
+                ManageVehicleReturns Return = Application.OpenForms["UpdateRental"] as ManageVehicleReturns;
 
                 if (Return != null)
                 {

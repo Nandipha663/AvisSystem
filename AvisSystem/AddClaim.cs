@@ -355,5 +355,19 @@ namespace AvisSystem
                     textBox8.Text = row.Cells[9].Value.ToString();
             }
         }
+
+        private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddInspection newAddInspection = new AddInspection();
+            this.Hide();
+            newAddInspection.Show();
+        }
+
+        private void viewInspectionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageInspection newManageInspection = new ManageInspection(); 
+            this.Hide();
+            newManageInspection.Show();
+        }
     }
 }
