@@ -82,6 +82,9 @@
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.processPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -106,9 +109,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).BeginInit();
@@ -136,11 +136,10 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(330, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 459);
+            this.groupBox1.Size = new System.Drawing.Size(366, 459);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fleet";
-       
             // 
             // button7
             // 
@@ -162,7 +161,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(395, 410);
+            this.button5.Location = new System.Drawing.Point(150, 410);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(208, 37);
             this.button5.TabIndex = 20;
@@ -199,7 +198,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(395, 363);
+            this.button1.Location = new System.Drawing.Point(150, 363);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 43);
             this.button1.TabIndex = 3;
@@ -255,7 +254,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(346, 317);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
@@ -373,7 +372,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
             this.textBox1.Location = new System.Drawing.Point(497, 44);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(333, 31);
+            this.textBox1.Size = new System.Drawing.Size(199, 31);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "🔍 Search Vehicles...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -450,7 +449,6 @@
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
             this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageCustomerToolStripMenuItem.Text = "👥 Manage Customer";
-       
             // 
             // addCustomerToolStripMenuItem
             // 
@@ -648,6 +646,29 @@
             this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
             this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
             // 
+            // manageInspectionRecordsToolStripMenuItem
+            // 
+            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInspectionRecordToolStripMenuItem,
+            this.viewInspectionDetailsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
+            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
+            // 
+            // addInspectionRecordToolStripMenuItem
+            // 
+            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
+            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            // 
+            // viewInspectionDetailsToolStripMenuItem
+            // 
+            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
+            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -685,13 +706,12 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(947, 6);
+            this.groupBox2.Location = new System.Drawing.Point(722, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(531, 520);
+            this.groupBox2.Size = new System.Drawing.Size(756, 520);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vehicle information Summary";
-        
             // 
             // button6
             // 
@@ -699,7 +719,7 @@
             this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(213, 282);
+            this.button6.Location = new System.Drawing.Point(438, 282);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(198, 44);
             this.button6.TabIndex = 38;
@@ -811,12 +831,11 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(332, 22);
+            this.label2.Location = new System.Drawing.Point(557, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Status";
-       
             // 
             // pictureBox1
             // 
@@ -828,7 +847,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-          
             // 
             // button4
             // 
@@ -856,7 +874,7 @@
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(119, 470);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 44);
+            this.button3.Size = new System.Drawing.Size(394, 44);
             this.button3.TabIndex = 3;
             this.button3.Text = "Save Changes";
             this.button3.UseVisualStyleBackColor = false;
@@ -868,7 +886,7 @@
             this.button2.BackColor = System.Drawing.Color.LightCyan;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(294, 470);
+            this.button2.Location = new System.Drawing.Point(519, 470);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 43);
             this.button2.TabIndex = 2;
@@ -924,29 +942,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
-            // 
-            // manageInspectionRecordsToolStripMenuItem
-            // 
-            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addInspectionRecordToolStripMenuItem,
-            this.viewInspectionDetailsToolStripMenuItem});
-            this.manageInspectionRecordsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
-            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
-            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
-            // 
-            // addInspectionRecordToolStripMenuItem
-            // 
-            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
-            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
-            // 
-            // viewInspectionDetailsToolStripMenuItem
-            // 
-            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
-            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             // 
             // UpdateVehicles
             // 

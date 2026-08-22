@@ -381,7 +381,7 @@ namespace AvisSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string id = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             try
             {
                 this.Validate();
@@ -389,7 +389,7 @@ namespace AvisSystem
                 pAYMENTTableAdapter.Update(avisDS.PAYMENT);
 
                 pAYMENTTableAdapter.Fill(avisDS.PAYMENT);
-                MessageBox.Show($"Vehicle Return Updated with:\nBooking ID: {id}");
+                MessageBox.Show( "Paymnet record Updated with:\nBooking ID: {id}");
             }
             catch (Exception ex)
             {

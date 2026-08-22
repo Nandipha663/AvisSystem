@@ -144,6 +144,7 @@ namespace AvisSystem
             textBox2.Clear();
             comboBox1.SelectedIndex = -1;
             textBox3.Text =""; ;
+            textBox6.Clear();
 
             //comboBox1.Text = "";
             // maskedTextBox2.Clear();
@@ -175,7 +176,7 @@ namespace AvisSystem
 
                 paymentTableAdapter1.AddNewPayment(Convert.ToInt32(textBox3.Text), comboBox1.Text, dateTimePicker1.Value.ToString("yyyy-MM-dd"), amount, textBox1.Text, textBox5.Text);
                 
-                string vvn = dataGridView1.CurrentRow.Cells[3].Value.ToString(); // Get the selected vehicle vin
+                string vvn = dataGridView1.CurrentRow.Cells[5].Value.ToString(); // Get the selected vehicle vin
                                                                                   // Find the Booking form and set the pending highlight
                 VEHICLETableAdapter vehAdapt = new VEHICLETableAdapter();
                 //Update vehicle status to Reserved after payment is made
@@ -250,7 +251,7 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            string status = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            string status = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
             if (status != "Pending")
             {
                 MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
@@ -260,8 +261,9 @@ namespace AvisSystem
             else
             {
                 textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBox4.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                textBox5.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
             }
                  
         }

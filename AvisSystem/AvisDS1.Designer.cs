@@ -58,14 +58,6 @@ namespace AvisSystem {
         
         private global::System.Data.DataRelation relationFK_BOOKING_CUSTOMER1;
         
-        private global::System.Data.DataRelation relationFK_Rental_Booking;
-        
-        private global::System.Data.DataRelation relationFK_Rental_Customer;
-        
-        private global::System.Data.DataRelation relationFK_Rental_Employee;
-        
-        private global::System.Data.DataRelation relationFK_Rental_Vehicle;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -481,10 +473,6 @@ namespace AvisSystem {
             this.relationFK_VehicleReturn_Booking1 = this.Relations["FK_VehicleReturn_Booking1"];
             this.relationFK_VehicleReturn_Vehicle1 = this.Relations["FK_VehicleReturn_Vehicle1"];
             this.relationFK_BOOKING_CUSTOMER1 = this.Relations["FK_BOOKING_CUSTOMER1"];
-            this.relationFK_Rental_Booking = this.Relations["FK_Rental_Booking"];
-            this.relationFK_Rental_Customer = this.Relations["FK_Rental_Customer"];
-            this.relationFK_Rental_Employee = this.Relations["FK_Rental_Employee"];
-            this.relationFK_Rental_Vehicle = this.Relations["FK_Rental_Vehicle"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -539,22 +527,6 @@ namespace AvisSystem {
                         this.tableCUSTOMER.CustomerIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableVEHICLE_RETURN.CustomerIDColumn}, false);
             this.Relations.Add(this.relationFK_BOOKING_CUSTOMER1);
-            this.relationFK_Rental_Booking = new global::System.Data.DataRelation("FK_Rental_Booking", new global::System.Data.DataColumn[] {
-                        this.tableBOOKING.BookingIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRENTAL.BookingIDColumn}, false);
-            this.Relations.Add(this.relationFK_Rental_Booking);
-            this.relationFK_Rental_Customer = new global::System.Data.DataRelation("FK_Rental_Customer", new global::System.Data.DataColumn[] {
-                        this.tableCUSTOMER.CustomerIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRENTAL.CustomerIDColumn}, false);
-            this.Relations.Add(this.relationFK_Rental_Customer);
-            this.relationFK_Rental_Employee = new global::System.Data.DataRelation("FK_Rental_Employee", new global::System.Data.DataColumn[] {
-                        this.tableEMPLOYEE.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRENTAL.EmployeeIDColumn}, false);
-            this.Relations.Add(this.relationFK_Rental_Employee);
-            this.relationFK_Rental_Vehicle = new global::System.Data.DataRelation("FK_Rental_Vehicle", new global::System.Data.DataColumn[] {
-                        this.tableVEHICLE.VehicleVinNoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRENTAL.VehicleVinNoColumn}, false);
-            this.Relations.Add(this.relationFK_Rental_Vehicle);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4630,15 +4602,15 @@ namespace AvisSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow AddRENTALRow(BOOKINGRow parentBOOKINGRowByFK_Rental_Booking, CUSTOMERRow parentCUSTOMERRowByFK_Rental_Customer, string CustomerName, VEHICLERow parentVEHICLERowByFK_Rental_Vehicle, EMPLOYEERow parentEMPLOYEERowByFK_Rental_Employee, string EmployeeName, System.DateTime PickupDate, System.DateTime StartDate, System.DateTime ExpectedReturnDate, string RentalStatus, decimal DepositAmount, string VehicleMakeModel) {
+            public RENTALRow AddRENTALRow(int BookingID, int CustomerID, string CustomerName, string VehicleVinNo, int EmployeeID, string EmployeeName, System.DateTime PickupDate, System.DateTime StartDate, System.DateTime ExpectedReturnDate, string RentalStatus, decimal DepositAmount, string VehicleMakeModel) {
                 RENTALRow rowRENTALRow = ((RENTALRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
-                        null,
+                        BookingID,
+                        CustomerID,
                         CustomerName,
-                        null,
-                        null,
+                        VehicleVinNo,
+                        EmployeeID,
                         EmployeeName,
                         PickupDate,
                         StartDate,
@@ -4646,18 +4618,6 @@ namespace AvisSystem {
                         RentalStatus,
                         DepositAmount,
                         VehicleMakeModel};
-                if ((parentBOOKINGRowByFK_Rental_Booking != null)) {
-                    columnValuesArray[1] = parentBOOKINGRowByFK_Rental_Booking[0];
-                }
-                if ((parentCUSTOMERRowByFK_Rental_Customer != null)) {
-                    columnValuesArray[2] = parentCUSTOMERRowByFK_Rental_Customer[0];
-                }
-                if ((parentVEHICLERowByFK_Rental_Vehicle != null)) {
-                    columnValuesArray[4] = parentVEHICLERowByFK_Rental_Vehicle[0];
-                }
-                if ((parentEMPLOYEERowByFK_Rental_Employee != null)) {
-                    columnValuesArray[5] = parentEMPLOYEERowByFK_Rental_Employee[0];
-                }
                 rowRENTALRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRENTALRow);
                 return rowRENTALRow;
@@ -6147,17 +6107,6 @@ namespace AvisSystem {
                     return ((VEHICLE_RETURNRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VehicleReturn_Booking1"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow[] GetRENTALRows() {
-                if ((this.Table.ChildRelations["FK_Rental_Booking"] == null)) {
-                    return new RENTALRow[0];
-                }
-                else {
-                    return ((RENTALRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Rental_Booking"])));
-                }
-            }
         }
         
         /// <summary>
@@ -6641,17 +6590,6 @@ namespace AvisSystem {
                     return ((VEHICLE_RETURNRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BOOKING_CUSTOMER1"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow[] GetRENTALRows() {
-                if ((this.Table.ChildRelations["FK_Rental_Customer"] == null)) {
-                    return new RENTALRow[0];
-                }
-                else {
-                    return ((RENTALRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Rental_Customer"])));
-                }
-            }
         }
         
         /// <summary>
@@ -6893,17 +6831,6 @@ namespace AvisSystem {
                 }
                 else {
                     return ((VEHICLE_RETURNRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VehicleReturn_Vehicle1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow[] GetRENTALRows() {
-                if ((this.Table.ChildRelations["FK_Rental_Vehicle"] == null)) {
-                    return new RENTALRow[0];
-                }
-                else {
-                    return ((RENTALRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Rental_Vehicle"])));
                 }
             }
         }
@@ -7770,17 +7697,6 @@ namespace AvisSystem {
             public void SetBranchNameNull() {
                 this[this.tableEMPLOYEE.BranchNameColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RENTALRow[] GetRENTALRows() {
-                if ((this.Table.ChildRelations["FK_Rental_Employee"] == null)) {
-                    return new RENTALRow[0];
-                }
-                else {
-                    return ((RENTALRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Rental_Employee"])));
-                }
-            }
         }
         
         /// <summary>
@@ -7977,50 +7893,6 @@ namespace AvisSystem {
                 }
                 set {
                     this[this.tableRENTAL.VehicleMakeModelColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BOOKINGRow BOOKINGRow {
-                get {
-                    return ((BOOKINGRow)(this.GetParentRow(this.Table.ParentRelations["FK_Rental_Booking"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Rental_Booking"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CUSTOMERRow CUSTOMERRow {
-                get {
-                    return ((CUSTOMERRow)(this.GetParentRow(this.Table.ParentRelations["FK_Rental_Customer"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Rental_Customer"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EMPLOYEERow EMPLOYEERow {
-                get {
-                    return ((EMPLOYEERow)(this.GetParentRow(this.Table.ParentRelations["FK_Rental_Employee"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Rental_Employee"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLERow VEHICLERow {
-                get {
-                    return ((VEHICLERow)(this.GetParentRow(this.Table.ParentRelations["FK_Rental_Vehicle"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Rental_Vehicle"]);
                 }
             }
             
@@ -9260,9 +9132,9 @@ FROM            BOOKING";
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"INSERT INTO BOOKING
-                         (CustomerID, CustomerFullName, VehicleVinNo, [Booking Date], [PickUp Date], ExpectedReturnDate, [Invoice Amount], PickUpBranchName, DropOffBranchName, BranchName, Vehicle_make, Vehicle_model, Position, FullName, 
-                         EmployeeID, LastUpdated, RefundStatus, Status)
-VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp_Date,@ExpectedReturnDate,@Invoice_Amount,@PickUpBranchName,@DropOffBranchName,@BranchName,@Vehicle_make,@Vehicle_model,,,,,,)";
+                         (CustomerID, CustomerFullName, VehicleVinNo, [Booking Date], [PickUp Date], ExpectedReturnDate, [Invoice Amount], PickUpBranchName, DropOffBranchName, BranchName, EmployeeID, FullName, Position, Vehicle_make, 
+                         Vehicle_model)
+VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp_Date,@ExpectedReturnDate,@Invoice_Amount,@PickUpBranchName,@DropOffBranchName,@BranchName,@EmployeeID,@FullName,@Position,@Vehicle_make,@Vehicle_model)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerFullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerFullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9274,6 +9146,9 @@ VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickUpBranchName", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "PickUpBranchName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DropOffBranchName", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "DropOffBranchName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchName", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "BranchName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicle_make", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicle_make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicle_model", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicle_model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
@@ -9521,7 +9396,7 @@ VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertBooking(int CustomerID, string CustomerFullName, string VehicleVinNo, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime ExpectedReturnDate, global::System.Nullable<decimal> Invoice_Amount, string PickUpBranchName, string DropOffBranchName, string BranchName, string Vehicle_make, string Vehicle_model) {
+        public virtual int InsertBooking(int CustomerID, string CustomerFullName, string VehicleVinNo, System.DateTime Booking_Date, System.DateTime PickUp_Date, System.DateTime ExpectedReturnDate, global::System.Nullable<decimal> Invoice_Amount, string PickUpBranchName, string DropOffBranchName, string BranchName, global::System.Nullable<int> EmployeeID, string FullName, string Position, string Vehicle_make, string Vehicle_model) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((int)(CustomerID));
             if ((CustomerFullName == null)) {
@@ -9563,17 +9438,35 @@ VALUES        (@CustomerID,@CustomerFullName,@VehicleVinNo,@Booking_Date,@PickUp
             else {
                 command.Parameters[9].Value = ((string)(BranchName));
             }
-            if ((Vehicle_make == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
+            if ((EmployeeID.HasValue == true)) {
+                command.Parameters[10].Value = ((int)(EmployeeID.Value));
             }
             else {
-                command.Parameters[10].Value = ((string)(Vehicle_make));
+                command.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Vehicle_model == null)) {
+            if ((FullName == null)) {
                 command.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[11].Value = ((string)(Vehicle_model));
+                command.Parameters[11].Value = ((string)(FullName));
+            }
+            if ((Position == null)) {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[12].Value = ((string)(Position));
+            }
+            if ((Vehicle_make == null)) {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[13].Value = ((string)(Vehicle_make));
+            }
+            if ((Vehicle_model == null)) {
+                command.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[14].Value = ((string)(Vehicle_model));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -16309,15 +16202,6 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._eMPLOYEETableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._eMPLOYEETableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._bRANCHTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.BRANCH.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -16342,6 +16226,15 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._pAYMENTTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._eMPLOYEETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._eMPLOYEETableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16389,14 +16282,6 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._eMPLOYEETableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._eMPLOYEETableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._bRANCHTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.BRANCH.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -16418,6 +16303,14 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._pAYMENTTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._eMPLOYEETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._eMPLOYEETableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16463,6 +16356,14 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._eMPLOYEETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._eMPLOYEETableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._pAYMENTTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PAYMENT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16484,14 +16385,6 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._bRANCHTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._eMPLOYEETableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.EMPLOYEE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._eMPLOYEETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

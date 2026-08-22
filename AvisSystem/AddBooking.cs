@@ -36,6 +36,8 @@ namespace AvisSystem
 
             textBox2.Clear();
             textBox3.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
             textBox9.Clear();
             textBox10.Clear();
             textBox1.Clear();
@@ -258,8 +260,8 @@ namespace AvisSystem
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //UserSession.SelectedVehicleVIN = dataGridView1.CurrentRow.Cells["VehicleDescription"].Value.ToString();
-            textBox5.Text= dataGridView2.CurrentRow.Cells[3].Value.ToString();
-            textBox6.Text= dataGridView2.CurrentRow.Cells[4].Value.ToString();
+            textBox5.Text= dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            textBox6.Text= dataGridView2.CurrentRow.Cells[1].Value.ToString();
 
             try
             {
@@ -352,7 +354,7 @@ namespace AvisSystem
 
             string vehicleVin = textBox9.Text; // Get the selected vehicle VIN
             // Find the Vehicle form and set the pending highlight
-            
+            bookingTableAdapter1.InsertBooking(Convert.ToInt32(textBox10.Text), textBox2.Text, textBox9.Text, Convert.ToDateTime(textBox4.Text), dateTimePicker2.Value, dateTimePicker3.Value, Convert.ToDecimal(textBox3.Text), comboBox4.Text, comboBox3.Text, comboBox1.Text, Convert.ToInt32(employeeID), employeeName, employeePosition, textBox5.Text, textBox6.Text);
             vEHICLETableAdapter.UpdateVehicleTime(vehicleVin);
             UpdateVehicles vehicleForm = new UpdateVehicles();
             vehicleForm.HighlightVehicleVIN = vehicleVin;
@@ -369,7 +371,6 @@ namespace AvisSystem
             comboBox1.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
-            dateTimePicker2.Value = DateTime.Now;
             dateTimePicker3.Value = DateTime.Now;
 
             cUSTOMERTableAdapter.Fill(this.avisDS.CUSTOMER);
@@ -534,7 +535,13 @@ namespace AvisSystem
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
-            FilterVehiclesBySelectedBranch();
+            FilterVehiclesBySelectedBranch(); 
+            if (dateTimePicker3.Value < dateTimePicker2.Value)
+            {
+                MessageBox.Show("Return date cannot be before pickup date.", "Invalid Dates",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePicker3.Value = dateTimePicker2.Value; // Reset to pickup date
+            }
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -549,6 +556,11 @@ namespace AvisSystem
             ManageInspection newManageInspection = new ManageInspection();
             this.Hide();
             newManageInspection.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

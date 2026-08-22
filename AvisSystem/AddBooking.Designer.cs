@@ -378,7 +378,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(729, 626);
+            this.button1.Location = new System.Drawing.Point(780, 647);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 90);
             this.button1.TabIndex = 20;
@@ -761,7 +761,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(510, 629);
+            this.button3.Location = new System.Drawing.Point(517, 649);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(171, 41);
             this.button3.TabIndex = 22;
@@ -774,7 +774,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.Color.Silver;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(510, 675);
+            this.button2.Location = new System.Drawing.Point(513, 696);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 41);
             this.button2.TabIndex = 21;
