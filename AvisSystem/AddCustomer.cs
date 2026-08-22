@@ -341,5 +341,12 @@ namespace AvisSystem
             this.Hide();
             newManageInspection.Show();
         }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRentalRental addRentalRental = new AddRentalRental();
+            this.Hide();
+            addRentalRental.Show();
+        }
     }
 }

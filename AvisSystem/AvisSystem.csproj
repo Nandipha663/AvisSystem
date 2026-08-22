@@ -63,6 +63,12 @@
     <Compile Include="AddInspection.Designer.cs">
       <DependentUpon>AddInspection.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddRentalRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRentalRental.Designer.cs">
+      <DependentUpon>AddRentalRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="AvisDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +199,12 @@
     <Compile Include="UpdateRental.Designer.cs">
       <DependentUpon>UpdateRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateRentalRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateRentalRental.Designer.cs">
+      <DependentUpon>UpdateRentalRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateReservation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +220,9 @@
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="AddInspection.resx">
       <DependentUpon>AddInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRentalRental.resx">
+      <DependentUpon>AddRentalRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageInspection.resx">
       <DependentUpon>ManageInspection.cs</DependentUpon>
@@ -279,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateRental.resx">
       <DependentUpon>UpdateRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRentalRental.resx">
+      <DependentUpon>UpdateRentalRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateReservation.resx">
       <DependentUpon>UpdateReservation.cs</DependentUpon>
