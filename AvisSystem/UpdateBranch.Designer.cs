@@ -410,12 +410,14 @@
             this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
             this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(282, 34);
             this.addRentalToolStripMenuItem1.Text = "Add Rental";
+            this.addRentalToolStripMenuItem1.Click += new System.EventHandler(this.addRentalToolStripMenuItem1_Click);
             // 
             // viewUpdateRentalToolStripMenuItem
             // 
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
             this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
             // label3
             // 

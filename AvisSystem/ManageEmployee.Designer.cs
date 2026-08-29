@@ -61,6 +61,9 @@
             this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,9 +98,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -404,6 +404,33 @@
             this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
+            // 
+            // manageRentalsToolStripMenuItem1
+            // 
+            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem,
+            this.viewUpdateRentalToolStripMenuItem});
+            this.manageRentalsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
+            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            // 
+            // addRentalToolStripMenuItem
+            // 
+            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
+            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
+            // 
+            // viewUpdateRentalToolStripMenuItem
+            // 
+            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
+            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
+            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -769,31 +796,6 @@
             this.button5.Text = "Filter";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // manageRentalsToolStripMenuItem1
-            // 
-            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentalToolStripMenuItem,
-            this.viewUpdateRentalToolStripMenuItem});
-            this.manageRentalsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
-            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
-            // 
-            // addRentalToolStripMenuItem
-            // 
-            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.addRentalToolStripMenuItem.Text = "Add Rental";
-            // 
-            // viewUpdateRentalToolStripMenuItem
-            // 
-            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
-            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
             // 
             // ManageEmployee
             // 

@@ -21,90 +21,105 @@ namespace AvisSystem
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Hide();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HomeForm homeForm = new HomeForm();
             homeForm.Show();
+            this.Hide();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HomeForm homeForm = new HomeForm();
             homeForm.Show();
+            this.Hide();
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCustomer addCustomer = new AddCustomer();
-            addCustomer.ShowDialog();
+            addCustomer.Show();
+            this.Hide();
         }
 
         private void viewUpdateCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCustomers manageCustomers = new ManageCustomers();
-                        manageCustomers.ShowDialog();
+                        manageCustomers.Show();
+            this.Hide();
         }
 
         private void addBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookingReservation addBookingReservation = new AddBookingReservation();
-            addBookingReservation.ShowDialog();
+            addBookingReservation.Show();
+            this.Hide();
         }
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateReservation updateReservation = new UpdateReservation();
-            updateReservation.ShowDialog();
+            updateReservation.Show();
+            this.Hide();
         }
 
         private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddVehicle addVehicle = new AddVehicle();
-                        addVehicle.ShowDialog();
+                        addVehicle.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateVehicles updateVehicles = new UpdateVehicles();
-            updateVehicles.ShowDialog();
+            updateVehicles.Show();
+            this.Hide();
         }
 
         private void addVehicleReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRental addRental = new AddRental();
-            addRental.ShowDialog();
+            addRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateVehicleReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRental updateRental = new UpdateRental();
-                        updateRental.ShowDialog();
+                        updateRental.Show();
+            this.Hide();
         }
 
         private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment addPayment = new AddPayment();
-                addPayment.ShowDialog();
+                addPayment.Show();
+            this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePayment addPayment = new UpdatePayment();
-            addPayment.ShowDialog();
+            addPayment.Show();
+            this.Hide();
         }
 
         private void addClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddClaim addClaim = new AddClaim();
-                        addClaim.ShowDialog();
+                        addClaim.Show();
+            this.Hide();
         }
 
         private void viewUpdateClaimToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateClaim addClaim = new UpdateClaim();
-            addClaim.ShowDialog();
+            addClaim.Show();
+            this.Hide();
         }
 
         private void branchesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,7 +135,8 @@ namespace AvisSystem
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageEmployee manageEmployee = new ManageEmployee();
-            manageEmployee.ShowDialog();
+            manageEmployee.Show();
+            this.Hide();
         }
 
         private void manageInspectionRecordsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,25 +147,29 @@ namespace AvisSystem
         private void viewUpdateInspectionRecordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageInspection manageInspection = new ManageInspection();
-                        manageInspection.ShowDialog();
+                        manageInspection.Show();
+            this.Hide();
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddInspection addInspection = new AddInspection();
-            addInspection.ShowDialog();
+            addInspection.Show();
+            this.Hide();
         }
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRentalRental addRentalRental = new AddRentalRental();
-                        addRentalRental.ShowDialog();
+                        addRentalRental.Show();
+            this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateRentalRental updateRentalRental = new UpdateRentalRental();
-                        updateRentalRental.ShowDialog();
+                        updateRentalRental.Show();
+            this.Hide();
         }
     }
 }

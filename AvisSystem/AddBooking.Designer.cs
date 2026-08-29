@@ -138,6 +138,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.manageRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -474,6 +477,7 @@
             this.label6.Size = new System.Drawing.Size(181, 25);
             this.label6.TabIndex = 36;
             this.label6.Text = "DropOff Branch:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // dateTimePicker2
             // 
@@ -803,7 +807,8 @@
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageInspectionRecordsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem,
+            this.manageRentalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 749);
@@ -1137,6 +1142,32 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // manageRentalToolStripMenuItem
+            // 
+            this.manageRentalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem1,
+            this.viewRentalsToolStripMenuItem});
+            this.manageRentalToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageRentalToolStripMenuItem.Name = "manageRentalToolStripMenuItem";
+            this.manageRentalToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalToolStripMenuItem.Text = "📓 Manage Rental";
+            // 
+            // addRentalToolStripMenuItem1
+            // 
+            this.addRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
+            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(211, 34);
+            this.addRentalToolStripMenuItem1.Text = "Add Rental";
+            this.addRentalToolStripMenuItem1.Click += new System.EventHandler(this.addRentalToolStripMenuItem1_Click);
+            // 
+            // viewRentalsToolStripMenuItem
+            // 
+            this.viewRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewRentalsToolStripMenuItem.Name = "viewRentalsToolStripMenuItem";
+            this.viewRentalsToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
+            this.viewRentalsToolStripMenuItem.Text = "View Rentals";
+            this.viewRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewRentalsToolStripMenuItem_Click);
+            // 
             // AddBookingReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1285,5 +1316,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dailyRateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem manageRentalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewRentalsToolStripMenuItem;
     }
 }

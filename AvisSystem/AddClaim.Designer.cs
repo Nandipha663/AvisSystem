@@ -61,6 +61,9 @@
             this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -116,9 +119,6 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.bookingTableAdapter1 = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -206,7 +206,6 @@
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
-            
             // 
             // viewUpdateCustomersToolStripMenuItem
             // 
@@ -214,7 +213,6 @@
             this.viewUpdateCustomersToolStripMenuItem.Name = "viewUpdateCustomersToolStripMenuItem";
             this.viewUpdateCustomersToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.viewUpdateCustomersToolStripMenuItem.Text = "View/Update Customers";
-       
             // 
             // manageBookingToolStripMenuItem
             // 
@@ -225,7 +223,6 @@
             this.manageBookingToolStripMenuItem.Name = "manageBookingToolStripMenuItem";
             this.manageBookingToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.manageBookingToolStripMenuItem.Text = "📅 Manage Booking";
-           
             // 
             // addNewBookingToolStripMenuItem
             // 
@@ -416,6 +413,32 @@
             this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
+            // 
+            // manageRentalsToolStripMenuItem1
+            // 
+            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem,
+            this.viewRentalsToolStripMenuItem});
+            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
+            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            // 
+            // addRentalToolStripMenuItem
+            // 
+            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
+            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
+            // 
+            // viewRentalsToolStripMenuItem
+            // 
+            this.viewRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewRentalsToolStripMenuItem.Name = "viewRentalsToolStripMenuItem";
+            this.viewRentalsToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
+            this.viewRentalsToolStripMenuItem.Text = "View Rentals";
+            this.viewRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewRentalsToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -673,7 +696,6 @@
             this.textBox4.Size = new System.Drawing.Size(317, 30);
             this.textBox4.TabIndex = 47;
             this.toolTip1.SetToolTip(this.textBox4, "Describe the claim, damage, or incident related to the vehicle.");
-       
             // 
             // pictureBox1
             // 
@@ -719,7 +741,6 @@
             this.textBox1.Size = new System.Drawing.Size(322, 85);
             this.textBox1.TabIndex = 43;
             this.toolTip1.SetToolTip(this.textBox1, "Describe the claim, damage, or incident related to the vehicle.");
-            
             // 
             // textBox3
             // 
@@ -931,30 +952,6 @@
             // vEHICLE_RETURNTableAdapter
             // 
             this.vEHICLE_RETURNTableAdapter.ClearBeforeFill = true;
-            // 
-            // manageRentalsToolStripMenuItem1
-            // 
-            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentalToolStripMenuItem,
-            this.viewRentalsToolStripMenuItem});
-            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
-            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
-            // 
-            // addRentalToolStripMenuItem
-            // 
-            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
-            this.addRentalToolStripMenuItem.Text = "Add Rental";
-            // 
-            // viewRentalsToolStripMenuItem
-            // 
-            this.viewRentalsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewRentalsToolStripMenuItem.Name = "viewRentalsToolStripMenuItem";
-            this.viewRentalsToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
-            this.viewRentalsToolStripMenuItem.Text = "View Rentals";
             // 
             // AddClaim
             // 

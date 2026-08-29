@@ -102,6 +102,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             this.vehicleReturnDetailsTableAdapter = new AvisSystem.AvisDSTableAdapters.VehicleReturnDetailsTableAdapter();
+            this.manageRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleReturnDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -264,7 +267,8 @@
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageInspectionRecordsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem,
+            this.manageRentalToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 609);
@@ -832,6 +836,31 @@
             // 
             this.vehicleReturnDetailsTableAdapter.ClearBeforeFill = true;
             // 
+            // manageRentalToolStripMenuItem1
+            // 
+            this.manageRentalToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem1,
+            this.viewRentalToolStripMenuItem});
+            this.manageRentalToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageRentalToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.manageRentalToolStripMenuItem1.Name = "manageRentalToolStripMenuItem1";
+            this.manageRentalToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalToolStripMenuItem1.Text = "📓 Manage Rental";
+            // 
+            // addRentalToolStripMenuItem1
+            // 
+            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
+            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
+            this.addRentalToolStripMenuItem1.Text = "Add Rental";
+            this.addRentalToolStripMenuItem1.Click += new System.EventHandler(this.addRentalToolStripMenuItem1_Click);
+            // 
+            // viewRentalToolStripMenuItem
+            // 
+            this.viewRentalToolStripMenuItem.Name = "viewRentalToolStripMenuItem";
+            this.viewRentalToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
+            this.viewRentalToolStripMenuItem.Text = "View Rental";
+            this.viewRentalToolStripMenuItem.Click += new System.EventHandler(this.viewRentalToolStripMenuItem_Click);
+            // 
             // UpdateRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -949,5 +978,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageRentalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewRentalToolStripMenuItem;
     }
 }

@@ -97,12 +97,12 @@
             this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
             this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.cUSTOMERTableAdapter = new AvisSystem.AvisDSTableAdapters.CUSTOMERTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -198,7 +198,6 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Customer";
-          
             // 
             // maskedTextBox1
             // 
@@ -271,7 +270,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(674, 261);
             this.dataGridView1.TabIndex = 0;
-           
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -452,7 +450,6 @@
             this.label11.Size = new System.Drawing.Size(121, 25);
             this.label11.TabIndex = 27;
             this.label11.Text = "Password:";
-        
             // 
             // label10
             // 
@@ -541,7 +538,6 @@
             this.addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
             this.addNewCustomerToolStripMenuItem.Size = new System.Drawing.Size(314, 34);
             this.addNewCustomerToolStripMenuItem.Text = "Add Customer";
-          
             // 
             // viewUpdateCustomerToolStripMenuItem1
             // 
@@ -753,10 +749,6 @@
             this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
             // 
-            // cUSTOMERTableAdapter
-            // 
-            this.cUSTOMERTableAdapter.ClearBeforeFill = true;
-            // 
             // manageRentalsToolStripMenuItem1
             // 
             this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -766,6 +758,7 @@
             this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
             this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
             this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            this.manageRentalsToolStripMenuItem1.Click += new System.EventHandler(this.manageRentalsToolStripMenuItem1_Click);
             // 
             // addRentalToolStripMenuItem
             // 
@@ -781,6 +774,11 @@
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
             this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
+            // 
+            // cUSTOMERTableAdapter
+            // 
+            this.cUSTOMERTableAdapter.ClearBeforeFill = true;
             // 
             // AddCustomer
             // 

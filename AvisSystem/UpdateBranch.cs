@@ -416,6 +416,20 @@ namespace AvisSystem
             this.Hide();
 
         }
+
+        private void addRentalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddRentalRental addRentalRentalForm = new AddRentalRental();
+            addRentalRentalForm.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental updateRentalRentalForm = new UpdateRentalRental();
+            updateRentalRentalForm.Show();
+            this.Hide();
+        }
     }
     
 }

@@ -346,5 +346,19 @@ namespace AvisSystem
             manageInspectionForm.Show();
             this.Hide();
         }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           AddRentalRental addRentalRentalForm = new AddRentalRental();
+            addRentalRentalForm.Show();
+            this.Hide();
+        }
+
+        private void viewRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental updateRentalRentalForm = new UpdateRentalRental();
+            updateRentalRentalForm.Show();
+            this.Hide();
+        }
     }
 }

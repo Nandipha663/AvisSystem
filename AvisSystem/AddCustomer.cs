@@ -273,9 +273,21 @@ namespace AvisSystem
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRentalRental addRentalRental = new AddRentalRental();
+            AddRentalRental addRentalRentalForm = new AddRentalRental();
+            addRentalRentalForm.Show();
             this.Hide();
-            addRentalRental.Show();
+        }
+
+        private void manageRentalsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental updateRentalRentalForm = new UpdateRentalRental();
+            updateRentalRentalForm.Show();
+            this.Hide();
         }
     }
 }

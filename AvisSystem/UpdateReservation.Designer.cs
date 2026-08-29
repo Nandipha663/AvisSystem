@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateReservation));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +116,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bOOKINGTableAdapter = new AvisSystem.AvisDSTableAdapters.BOOKINGTableAdapter();
             this.vehicleTableAdapter1 = new AvisSystem.AvisDSTableAdapters.VEHICLETableAdapter();
+            this.manageRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKINGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -203,8 +206,8 @@
             // bookingDateDataGridViewTextBoxColumn
             // 
             this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking Date";
-            dataGridViewCellStyle1.Format = "d";
-            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "d";
+            this.bookingDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking Date";
             this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
             this.bookingDateDataGridViewTextBoxColumn.Width = 150;
@@ -212,9 +215,9 @@
             // pickUpDateDataGridViewTextBoxColumn
             // 
             this.pickUpDateDataGridViewTextBoxColumn.DataPropertyName = "PickUp Date";
-            dataGridViewCellStyle2.Format = "g";
-            dataGridViewCellStyle2.NullValue = null;
-            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "g";
+            dataGridViewCellStyle5.NullValue = null;
+            this.pickUpDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.pickUpDateDataGridViewTextBoxColumn.HeaderText = "PickUp Date";
             this.pickUpDateDataGridViewTextBoxColumn.Name = "pickUpDateDataGridViewTextBoxColumn";
             this.pickUpDateDataGridViewTextBoxColumn.Width = 150;
@@ -222,9 +225,9 @@
             // expectedReturnDateDataGridViewTextBoxColumn
             // 
             this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
-            dataGridViewCellStyle3.Format = "g";
-            dataGridViewCellStyle3.NullValue = null;
-            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "g";
+            dataGridViewCellStyle6.NullValue = null;
+            this.expectedReturnDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
             this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
             this.expectedReturnDateDataGridViewTextBoxColumn.Width = 150;
@@ -513,7 +516,8 @@
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageInspectionRecordsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem,
+            this.manageRentalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 633);
@@ -929,6 +933,30 @@
             // 
             this.vehicleTableAdapter1.ClearBeforeFill = true;
             // 
+            // manageRentalToolStripMenuItem
+            // 
+            this.manageRentalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem1,
+            this.viewRentalToolStripMenuItem});
+            this.manageRentalToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageRentalToolStripMenuItem.Name = "manageRentalToolStripMenuItem";
+            this.manageRentalToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalToolStripMenuItem.Text = "📓 Manage Rental";
+            // 
+            // addRentalToolStripMenuItem1
+            // 
+            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
+            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
+            this.addRentalToolStripMenuItem1.Text = "Add Rental";
+            this.addRentalToolStripMenuItem1.Click += new System.EventHandler(this.addRentalToolStripMenuItem1_Click);
+            // 
+            // viewRentalToolStripMenuItem
+            // 
+            this.viewRentalToolStripMenuItem.Name = "viewRentalToolStripMenuItem";
+            this.viewRentalToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
+            this.viewRentalToolStripMenuItem.Text = "View Rental";
+            this.viewRentalToolStripMenuItem.Click += new System.EventHandler(this.viewRentalToolStripMenuItem_Click);
+            // 
             // UpdateReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1058,5 +1086,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RefundStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlertStatus;
+        private System.Windows.Forms.ToolStripMenuItem manageRentalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewRentalToolStripMenuItem;
     }
 }

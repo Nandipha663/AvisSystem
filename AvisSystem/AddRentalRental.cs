@@ -144,5 +144,12 @@ namespace AvisSystem
         {
 
         }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental updateRentalRentalForm = new UpdateRentalRental();
+            updateRentalRentalForm.Show();
+            this.Hide();
+        }
     }
 }
