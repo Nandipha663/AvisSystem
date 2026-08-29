@@ -109,8 +109,8 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label6);
+            //this.groupBox1.Controls.Add(this.textBox6);
+            //this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -369,7 +369,8 @@
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
             this.manageInspectionRecordsToolStripMenuItem,
-            this.manageRentalsToolStripMenuItem1});
+            });
+            //this.manageRentalsToolStripMenuItem1
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 591);
@@ -818,11 +819,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dropOffBranchNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label2;
-        private AvisDSTableAdapters.PAYMENTTableAdapter paymentTableAdapter1;
-        private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
+        //private System.Windows.Forms.TextBox textBox5;
+        //private System.Windows.Forms.Label label2;
+        //private AvisDSTableAdapters.PAYMENTTableAdapter paymentTableAdapter1;
+        //private System.Windows.Forms.ToolStripMenuItem manageInspectionRecordsToolStripMenuItem;
+        //private System.Windows.Forms.ToolStripMenuItem addInspectionRecordToolStripMenuItem;
+        //private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
     }
 }

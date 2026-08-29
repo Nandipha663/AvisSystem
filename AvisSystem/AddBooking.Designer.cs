@@ -67,16 +67,16 @@
             this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Make = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.Make = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            //this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -137,9 +137,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            //this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            //this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            //this.viewRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -533,16 +533,17 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Make,
-            this.Model,
-            this.registrationNoDataGridViewTextBoxColumn,
-            this.vehicleVinNoDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.BranchName,
-            this.DailyRate,
-            this.statusDataGridViewTextBoxColumn1,
-            this.imageDataGridViewImageColumn,
-            this.LastUpdated});
+            //this.Make,
+            //this.Model,
+            //this.registrationNoDataGridViewTextBoxColumn,
+            //this.vehicleVinNoDataGridViewTextBoxColumn,
+            //this.categoryDataGridViewTextBoxColumn,
+            //this.BranchName,
+            //this.DailyRate,
+            //this.statusDataGridViewTextBoxColumn1,
+            //this.imageDataGridViewImageColumn,
+            //this.LastUpdated
+            });
             this.dataGridView2.DataSource = this.vEHICLEBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 25);
@@ -553,7 +554,7 @@
             // 
             // Make
             // 
-            this.Make.DataPropertyName = "Make";
+           /* this.Make.DataPropertyName = "Make";
             this.Make.HeaderText = "Make";
             this.Make.Name = "Make";
             // 
@@ -611,7 +612,7 @@
             // 
             this.LastUpdated.DataPropertyName = "LastUpdated";
             this.LastUpdated.HeaderText = "LastUpdated";
-            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.Name = "LastUpdated"; */
             // 
             // vEHICLEBindingSource
             // 
@@ -801,7 +802,7 @@
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
             this.manageInspectionRecordsToolStripMenuItem,
-            this.manageRentalsToolStripMenuItem1});
+            });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 749);
@@ -1137,7 +1138,7 @@
             // 
             // manageRentalsToolStripMenuItem1
             // 
-            this.manageRentalsToolStripMenuItem1.BackColor = System.Drawing.Color.MidnightBlue;
+           /* this.manageRentalsToolStripMenuItem1.BackColor = System.Drawing.Color.MidnightBlue;
             this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRentalToolStripMenuItem1,
             this.viewRentalToolStripMenuItem});
@@ -1158,7 +1159,7 @@
             this.viewRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.viewRentalToolStripMenuItem.Name = "viewRentalToolStripMenuItem";
             this.viewRentalToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
-            this.viewRentalToolStripMenuItem.Text = "View Rental";
+            this.viewRentalToolStripMenuItem.Text = "View Rental";  */
             // 
             // AddBookingReservation
             // 

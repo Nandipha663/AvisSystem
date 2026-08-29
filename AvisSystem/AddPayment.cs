@@ -144,7 +144,7 @@ namespace AvisSystem
             textBox2.Clear();
             comboBox1.SelectedIndex = -1;
             textBox3.Text =""; ;
-            textBox6.Clear();
+            //textBox6.Clear();
 
             //comboBox1.Text = "";
             // maskedTextBox2.Clear();
@@ -263,7 +263,7 @@ namespace AvisSystem
                 textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 textBox4.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
                 textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                //textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
             }
                  
         }
