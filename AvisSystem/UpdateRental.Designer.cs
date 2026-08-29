@@ -73,6 +73,9 @@
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -99,9 +102,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.vEHICLE_RETURNTableAdapter = new AvisSystem.AvisDSTableAdapters.VEHICLE_RETURNTableAdapter();
             this.vehicleReturnDetailsTableAdapter = new AvisSystem.AvisDSTableAdapters.VehicleReturnDetailsTableAdapter();
-            this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleReturnDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -517,6 +517,32 @@
             this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
             this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
             // 
+            // manageInspectionRecordsToolStripMenuItem
+            // 
+            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInspectionRecordToolStripMenuItem,
+            this.viewInspectionDetailsToolStripMenuItem});
+            this.manageInspectionRecordsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
+            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
+            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
+            // 
+            // addInspectionRecordToolStripMenuItem
+            // 
+            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
+            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
+            // 
+            // viewInspectionDetailsToolStripMenuItem
+            // 
+            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
+            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -805,31 +831,6 @@
             // vehicleReturnDetailsTableAdapter
             // 
             this.vehicleReturnDetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // manageInspectionRecordsToolStripMenuItem
-            // 
-            this.manageInspectionRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addInspectionRecordToolStripMenuItem,
-            this.viewInspectionDetailsToolStripMenuItem});
-            this.manageInspectionRecordsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageInspectionRecordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
-            this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
-            this.manageInspectionRecordsToolStripMenuItem.Text = "📜 Manage Inspection Records";
-            // 
-            // addInspectionRecordToolStripMenuItem
-            // 
-            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
-            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
-            // 
-            // viewInspectionDetailsToolStripMenuItem
-            // 
-            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
-            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             // 
             // UpdateRental
             // 

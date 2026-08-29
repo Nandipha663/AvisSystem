@@ -67,16 +67,17 @@
             this.bRANCHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            //this.Make = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            //this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dailyRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -137,9 +138,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            //this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            //this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            //this.viewRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bRANCHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
@@ -533,17 +531,17 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            //this.Make,
-            //this.Model,
-            //this.registrationNoDataGridViewTextBoxColumn,
-            //this.vehicleVinNoDataGridViewTextBoxColumn,
-            //this.categoryDataGridViewTextBoxColumn,
-            //this.BranchName,
-            //this.DailyRate,
-            //this.statusDataGridViewTextBoxColumn1,
-            //this.imageDataGridViewImageColumn,
-            //this.LastUpdated
-            });
+            this.vehicleVinNoDataGridViewTextBoxColumn,
+            this.registrationNoDataGridViewTextBoxColumn,
+            this.makeDataGridViewTextBoxColumn,
+            this.modelDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn1,
+            this.imageDataGridViewImageColumn,
+            this.branchNameDataGridViewTextBoxColumn,
+            this.dailyRateDataGridViewTextBoxColumn,
+            this.vehicleDescriptionDataGridViewTextBoxColumn,
+            this.lastUpdatedDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.vEHICLEBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 25);
@@ -552,17 +550,11 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
             // 
-            // Make
+            // vehicleVinNoDataGridViewTextBoxColumn
             // 
-           /* this.Make.DataPropertyName = "Make";
-            this.Make.HeaderText = "Make";
-            this.Make.Name = "Make";
-            // 
-            // Model
-            // 
-            this.Model.DataPropertyName = "Model";
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
             // 
             // registrationNoDataGridViewTextBoxColumn
             // 
@@ -570,31 +562,23 @@
             this.registrationNoDataGridViewTextBoxColumn.HeaderText = "RegistrationNo";
             this.registrationNoDataGridViewTextBoxColumn.Name = "registrationNoDataGridViewTextBoxColumn";
             // 
-            // vehicleVinNoDataGridViewTextBoxColumn
+            // makeDataGridViewTextBoxColumn
             // 
-            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
-            this.vehicleVinNoDataGridViewTextBoxColumn.Width = 200;
+            this.makeDataGridViewTextBoxColumn.DataPropertyName = "Make";
+            this.makeDataGridViewTextBoxColumn.HeaderText = "Make";
+            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             // 
             // categoryDataGridViewTextBoxColumn
             // 
             this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
             this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            // 
-            // BranchName
-            // 
-            this.BranchName.DataPropertyName = "BranchName";
-            this.BranchName.HeaderText = "BranchName";
-            this.BranchName.Name = "BranchName";
-            this.BranchName.Width = 200;
-            // 
-            // DailyRate
-            // 
-            this.DailyRate.DataPropertyName = "DailyRate";
-            this.DailyRate.HeaderText = "DailyRate";
-            this.DailyRate.Name = "DailyRate";
             // 
             // statusDataGridViewTextBoxColumn1
             // 
@@ -608,11 +592,29 @@
             this.imageDataGridViewImageColumn.HeaderText = "Image";
             this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
             // 
-            // LastUpdated
+            // branchNameDataGridViewTextBoxColumn
             // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "LastUpdated";
-            this.LastUpdated.Name = "LastUpdated"; */
+            this.branchNameDataGridViewTextBoxColumn.DataPropertyName = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.HeaderText = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.Name = "branchNameDataGridViewTextBoxColumn";
+            // 
+            // dailyRateDataGridViewTextBoxColumn
+            // 
+            this.dailyRateDataGridViewTextBoxColumn.DataPropertyName = "DailyRate";
+            this.dailyRateDataGridViewTextBoxColumn.HeaderText = "DailyRate";
+            this.dailyRateDataGridViewTextBoxColumn.Name = "dailyRateDataGridViewTextBoxColumn";
+            // 
+            // vehicleDescriptionDataGridViewTextBoxColumn
+            // 
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
+            // 
+            // lastUpdatedDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
             // 
             // vEHICLEBindingSource
             // 
@@ -801,8 +803,7 @@
             this.manageClaimsToolStripMenuItem,
             this.manageBranchesToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageInspectionRecordsToolStripMenuItem,
-            });
+            this.manageInspectionRecordsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(338, 749);
@@ -1136,31 +1137,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // manageRentalsToolStripMenuItem1
-            // 
-           /* this.manageRentalsToolStripMenuItem1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentalToolStripMenuItem1,
-            this.viewRentalToolStripMenuItem});
-            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
-            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals ";
-            // 
-            // addRentalToolStripMenuItem1
-            // 
-            this.addRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
-            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
-            this.addRentalToolStripMenuItem1.Text = "Add Rental";
-            // 
-            // viewRentalToolStripMenuItem
-            // 
-            this.viewRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewRentalToolStripMenuItem.Name = "viewRentalToolStripMenuItem";
-            this.viewRentalToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
-            this.viewRentalToolStripMenuItem.Text = "View Rental";  */
-            // 
             // AddBookingReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1298,5 +1274,16 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn makeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn imageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dailyRateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
     }
 }

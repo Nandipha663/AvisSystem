@@ -662,6 +662,7 @@
             this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
             this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
             // 
             // viewInspectionDetailsToolStripMenuItem
             // 

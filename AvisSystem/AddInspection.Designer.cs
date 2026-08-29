@@ -60,6 +60,9 @@
             this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -110,9 +113,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateRentalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -196,6 +196,7 @@
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // viewUpdateCustomersToolStripMenuItem
             // 
@@ -203,6 +204,7 @@
             this.viewUpdateCustomersToolStripMenuItem.Name = "viewUpdateCustomersToolStripMenuItem";
             this.viewUpdateCustomersToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.viewUpdateCustomersToolStripMenuItem.Text = "View/Update Customers";
+            this.viewUpdateCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomersToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -220,6 +222,7 @@
             this.addBookingToolStripMenuItem2.Name = "addBookingToolStripMenuItem2";
             this.addBookingToolStripMenuItem2.Size = new System.Drawing.Size(303, 34);
             this.addBookingToolStripMenuItem2.Text = "Add booking";
+            this.addBookingToolStripMenuItem2.Click += new System.EventHandler(this.addBookingToolStripMenuItem2_Click);
             // 
             // viewBookingToolStripItem2
             // 
@@ -227,6 +230,7 @@
             this.viewBookingToolStripItem2.Name = "viewBookingToolStripItem2";
             this.viewBookingToolStripItem2.Size = new System.Drawing.Size(303, 34);
             this.viewBookingToolStripItem2.Text = "View/Update Booking";
+            this.viewBookingToolStripItem2.Click += new System.EventHandler(this.viewBookingToolStripItem2_Click);
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -244,6 +248,7 @@
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
             this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
             this.addRentalToolStripMenuItem.Text = "Add Returned Vehicles";
+            this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
             // 
             // viewUpdateRentalToolStripMenuItem
             // 
@@ -251,6 +256,7 @@
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
             this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Returned Vehicles";
+            this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
             // manageVehicleToolStripMenuItem
             // 
@@ -268,6 +274,7 @@
             this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
             this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(356, 34);
             this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
+            this.addVehicleToolStripMenuItem.Click += new System.EventHandler(this.addVehicleToolStripMenuItem_Click);
             // 
             // viewUpdateVehicleStatusToolStripMenuItem
             // 
@@ -275,6 +282,7 @@
             this.viewUpdateVehicleStatusToolStripMenuItem.Name = "viewUpdateVehicleStatusToolStripMenuItem";
             this.viewUpdateVehicleStatusToolStripMenuItem.Size = new System.Drawing.Size(356, 34);
             this.viewUpdateVehicleStatusToolStripMenuItem.Text = "View/Update Vehicle Status";
+            this.viewUpdateVehicleStatusToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateVehicleStatusToolStripMenuItem_Click);
             // 
             // processPaymentToolStripMenuItem
             // 
@@ -292,6 +300,7 @@
             this.addPaymentToolStripMenuItem.Name = "addPaymentToolStripMenuItem";
             this.addPaymentToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.addPaymentToolStripMenuItem.Text = "Add Payment";
+            this.addPaymentToolStripMenuItem.Click += new System.EventHandler(this.addPaymentToolStripMenuItem_Click);
             // 
             // viewUpdatePaymentToolStripMenuItem
             // 
@@ -299,6 +308,7 @@
             this.viewUpdatePaymentToolStripMenuItem.Name = "viewUpdatePaymentToolStripMenuItem";
             this.viewUpdatePaymentToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
+            this.viewUpdatePaymentToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentToolStripMenuItem_Click);
             // 
             // manageClaimsToolStripMenuItem
             // 
@@ -317,6 +327,7 @@
             this.addClaimToolStripMenuItem.Name = "addClaimToolStripMenuItem";
             this.addClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
             this.addClaimToolStripMenuItem.Text = "Add New Claim";
+            this.addClaimToolStripMenuItem.Click += new System.EventHandler(this.addClaimToolStripMenuItem_Click);
             // 
             // updateClaimToolStripMenuItem
             // 
@@ -325,6 +336,7 @@
             this.updateClaimToolStripMenuItem.Name = "updateClaimToolStripMenuItem";
             this.updateClaimToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
             this.updateClaimToolStripMenuItem.Text = "View/Update Claims";
+            this.updateClaimToolStripMenuItem.Click += new System.EventHandler(this.updateClaimToolStripMenuItem_Click);
             // 
             // manageBranchesToolStripMenuItem
             // 
@@ -342,6 +354,7 @@
             this.updateBranchToolStripMenuItem.Name = "updateBranchToolStripMenuItem";
             this.updateBranchToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.updateBranchToolStripMenuItem.Text = "View Active Branches";
+            this.updateBranchToolStripMenuItem.Click += new System.EventHandler(this.updateBranchToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
@@ -359,6 +372,7 @@
             this.signUpNewEmployeeToolStripMenuItem.Name = "signUpNewEmployeeToolStripMenuItem";
             this.signUpNewEmployeeToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
             this.signUpNewEmployeeToolStripMenuItem.Text = "Sign up New Employee";
+            this.signUpNewEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpNewEmployeeToolStripMenuItem_Click);
             // 
             // viewUpdateEmployeesToolStripMenuItem
             // 
@@ -366,6 +380,7 @@
             this.viewUpdateEmployeesToolStripMenuItem.Name = "viewUpdateEmployeesToolStripMenuItem";
             this.viewUpdateEmployeesToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
             this.viewUpdateEmployeesToolStripMenuItem.Text = "View/Update Employees";
+            this.viewUpdateEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeesToolStripMenuItem_Click);
             // 
             // manageInspectionRecordsToolStripMenuItem
             // 
@@ -383,6 +398,7 @@
             this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
             this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
             // 
             // viewInspectionDetailsToolStripMenuItem
             // 
@@ -391,6 +407,32 @@
             this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             this.viewInspectionDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewInspectionDetailsToolStripMenuItem_Click);
+            // 
+            // manageRentalsToolStripMenuItem1
+            // 
+            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem1,
+            this.viewUpdateRentalToolStripMenuItem1});
+            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
+            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            // 
+            // addRentalToolStripMenuItem1
+            // 
+            this.addRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
+            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(282, 34);
+            this.addRentalToolStripMenuItem1.Text = "Add Rental";
+            this.addRentalToolStripMenuItem1.Click += new System.EventHandler(this.addRentalToolStripMenuItem1_Click);
+            // 
+            // viewUpdateRentalToolStripMenuItem1
+            // 
+            this.viewUpdateRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateRentalToolStripMenuItem1.Name = "viewUpdateRentalToolStripMenuItem1";
+            this.viewUpdateRentalToolStripMenuItem1.Size = new System.Drawing.Size(282, 34);
+            this.viewUpdateRentalToolStripMenuItem1.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem1.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem1_Click);
             // 
             // panel1
             // 
@@ -946,30 +988,6 @@
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // manageRentalsToolStripMenuItem1
-            // 
-            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentalToolStripMenuItem1,
-            this.viewUpdateRentalToolStripMenuItem1});
-            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
-            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
-            // 
-            // addRentalToolStripMenuItem1
-            // 
-            this.addRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem1.Name = "addRentalToolStripMenuItem1";
-            this.addRentalToolStripMenuItem1.Size = new System.Drawing.Size(282, 34);
-            this.addRentalToolStripMenuItem1.Text = "Add Rental";
-            // 
-            // viewUpdateRentalToolStripMenuItem1
-            // 
-            this.viewUpdateRentalToolStripMenuItem1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateRentalToolStripMenuItem1.Name = "viewUpdateRentalToolStripMenuItem1";
-            this.viewUpdateRentalToolStripMenuItem1.Size = new System.Drawing.Size(282, 34);
-            this.viewUpdateRentalToolStripMenuItem1.Text = "View/Update Rental";
             // 
             // AddInspection
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageInspection));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,9 @@
             this.manageInspectionRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -78,15 +82,30 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.manageRentalsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avisDS = new AvisSystem.AvisDS();
+            this.vehicleInspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehicle_InspectionTableAdapter = new AvisSystem.AvisDSTableAdapters.Vehicle_InspectionTableAdapter();
+            this.inspectionCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleMakeModelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.odometerReadingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fuelLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionDateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damageFoundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damageDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectionNotesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -165,6 +184,7 @@
             this.addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
             this.addNewCustomerToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.addNewCustomerToolStripMenuItem.Text = "Add New Customer";
+            this.addNewCustomerToolStripMenuItem.Click += new System.EventHandler(this.addNewCustomerToolStripMenuItem_Click);
             // 
             // viewUpdateCustomersToolStripMenuItem
             // 
@@ -172,6 +192,7 @@
             this.viewUpdateCustomersToolStripMenuItem.Name = "viewUpdateCustomersToolStripMenuItem";
             this.viewUpdateCustomersToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
             this.viewUpdateCustomersToolStripMenuItem.Text = "View/Update Customers";
+            this.viewUpdateCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateCustomersToolStripMenuItem_Click);
             // 
             // manageBookingToolStripMenuItem
             // 
@@ -190,6 +211,7 @@
             this.addNewBookingToolStripMenuItem.Name = "addNewBookingToolStripMenuItem";
             this.addNewBookingToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.addNewBookingToolStripMenuItem.Text = "Add New Booking";
+            this.addNewBookingToolStripMenuItem.Click += new System.EventHandler(this.addNewBookingToolStripMenuItem_Click);
             // 
             // viewUpdateBookingsToolStripMenuItem
             // 
@@ -197,6 +219,7 @@
             this.viewUpdateBookingsToolStripMenuItem.Name = "viewUpdateBookingsToolStripMenuItem";
             this.viewUpdateBookingsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.viewUpdateBookingsToolStripMenuItem.Text = "View/Update Bookings";
+            this.viewUpdateBookingsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateBookingsToolStripMenuItem_Click);
             // 
             // manageRentalsToolStripMenuItem
             // 
@@ -215,6 +238,7 @@
             this.addNewRentalToolStripMenuItem.Name = "addNewRentalToolStripMenuItem";
             this.addNewRentalToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
             this.addNewRentalToolStripMenuItem.Text = "Add New Returned Vehicle";
+            this.addNewRentalToolStripMenuItem.Click += new System.EventHandler(this.addNewRentalToolStripMenuItem_Click);
             // 
             // viewUpdateRentalsToolStripMenuItem
             // 
@@ -222,6 +246,7 @@
             this.viewUpdateRentalsToolStripMenuItem.Name = "viewUpdateRentalsToolStripMenuItem";
             this.viewUpdateRentalsToolStripMenuItem.Size = new System.Drawing.Size(395, 34);
             this.viewUpdateRentalsToolStripMenuItem.Text = "View/Update Returned Vehicles";
+            this.viewUpdateRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalsToolStripMenuItem_Click);
             // 
             // manageVehiclesToolStripMenuItem
             // 
@@ -240,6 +265,7 @@
             this.addNewVehicleToolStripMenuItem.Name = "addNewVehicleToolStripMenuItem";
             this.addNewVehicleToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.addNewVehicleToolStripMenuItem.Text = "Add New Vehicle";
+            this.addNewVehicleToolStripMenuItem.Click += new System.EventHandler(this.addNewVehicleToolStripMenuItem_Click);
             // 
             // viToolStripMenuItem
             // 
@@ -247,6 +273,7 @@
             this.viToolStripMenuItem.Name = "viToolStripMenuItem";
             this.viToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.viToolStripMenuItem.Text = "View/Update Vehicles";
+            this.viToolStripMenuItem.Click += new System.EventHandler(this.viToolStripMenuItem_Click);
             // 
             // processPaymentToolStripMenuItem
             // 
@@ -265,6 +292,7 @@
             this.addNewPaymentToolStripMenuItem.Name = "addNewPaymentToolStripMenuItem";
             this.addNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.addNewPaymentToolStripMenuItem.Text = "Add New Payment";
+            this.addNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.addNewPaymentToolStripMenuItem_Click);
             // 
             // viewUpdatePaymentToolStripMenuItem
             // 
@@ -272,6 +300,7 @@
             this.viewUpdatePaymentToolStripMenuItem.Name = "viewUpdatePaymentToolStripMenuItem";
             this.viewUpdatePaymentToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.viewUpdatePaymentToolStripMenuItem.Text = "View/Update Payment";
+            this.viewUpdatePaymentToolStripMenuItem.Click += new System.EventHandler(this.viewUpdatePaymentToolStripMenuItem_Click);
             // 
             // manageClaimsToolStripMenuItem
             // 
@@ -290,6 +319,7 @@
             this.adNewToolStripMenuItem.Name = "adNewToolStripMenuItem";
             this.adNewToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
             this.adNewToolStripMenuItem.Text = "Add New Claim";
+            this.adNewToolStripMenuItem.Click += new System.EventHandler(this.adNewToolStripMenuItem_Click);
             // 
             // viewUpdateClaimsToolStripMenuItem
             // 
@@ -297,6 +327,7 @@
             this.viewUpdateClaimsToolStripMenuItem.Name = "viewUpdateClaimsToolStripMenuItem";
             this.viewUpdateClaimsToolStripMenuItem.Size = new System.Drawing.Size(284, 34);
             this.viewUpdateClaimsToolStripMenuItem.Text = "View/Update Claims";
+            this.viewUpdateClaimsToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateClaimsToolStripMenuItem_Click);
             // 
             // manageBranchesToolStripMenuItem
             // 
@@ -314,6 +345,7 @@
             this.viewBranchesToolStripMenuItem.Name = "viewBranchesToolStripMenuItem";
             this.viewBranchesToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.viewBranchesToolStripMenuItem.Text = "View Active Branches";
+            this.viewBranchesToolStripMenuItem.Click += new System.EventHandler(this.viewBranchesToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
@@ -332,6 +364,7 @@
             this.signUpNewEmployeeToolStripMenuItem.Name = "signUpNewEmployeeToolStripMenuItem";
             this.signUpNewEmployeeToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
             this.signUpNewEmployeeToolStripMenuItem.Text = "Sign Up New Employee";
+            this.signUpNewEmployeeToolStripMenuItem.Click += new System.EventHandler(this.signUpNewEmployeeToolStripMenuItem_Click);
             // 
             // viewUpdateEmployeeToolStripMenuItem
             // 
@@ -339,6 +372,7 @@
             this.viewUpdateEmployeeToolStripMenuItem.Name = "viewUpdateEmployeeToolStripMenuItem";
             this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(324, 34);
             this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employees";
+            this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
             // 
             // manageInspectionRecordsToolStripMenuItem
             // 
@@ -365,6 +399,33 @@
             this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
             this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
+            // 
+            // manageRentalsToolStripMenuItem1
+            // 
+            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalToolStripMenuItem,
+            this.viewUpdateRentalToolStripMenuItem});
+            this.manageRentalsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
+            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
+            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            // 
+            // addRentalToolStripMenuItem
+            // 
+            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
+            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.addRentalToolStripMenuItem_Click);
+            // 
+            // viewUpdateRentalToolStripMenuItem
+            // 
+            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
+            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
+            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.viewUpdateRentalToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateRentalToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -534,11 +595,27 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-69, 52);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.inspectionCodeDataGridViewTextBoxColumn,
+            this.employeeNameDataGridViewTextBoxColumn,
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.rentalIDDataGridViewTextBoxColumn,
+            this.branchNameDataGridViewTextBoxColumn,
+            this.vehicleMakeModelDataGridViewTextBoxColumn,
+            this.odometerReadingDataGridViewTextBoxColumn,
+            this.fuelLevelDataGridViewTextBoxColumn,
+            this.inspectionTypeDataGridViewTextBoxColumn,
+            this.inspectionDateTimeDataGridViewTextBoxColumn,
+            this.damageFoundDataGridViewTextBoxColumn,
+            this.damageDescriptionDataGridViewTextBoxColumn,
+            this.inspectionNotesDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.vehicleInspectionBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1051, 178);
+            this.dataGridView1.Size = new System.Drawing.Size(981, 178);
             this.dataGridView1.TabIndex = 49;
             // 
             // button2
@@ -598,30 +675,109 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // manageRentalsToolStripMenuItem1
+            // avisDS
             // 
-            this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentalToolStripMenuItem,
-            this.viewUpdateRentalToolStripMenuItem});
-            this.manageRentalsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
-            this.manageRentalsToolStripMenuItem1.Size = new System.Drawing.Size(325, 34);
-            this.manageRentalsToolStripMenuItem1.Text = "Manage Rentals";
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // addRentalToolStripMenuItem
+            // vehicleInspectionBindingSource
             // 
-            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.addRentalToolStripMenuItem.Text = "Add Rental";
+            this.vehicleInspectionBindingSource.DataMember = "Vehicle Inspection";
+            this.vehicleInspectionBindingSource.DataSource = this.avisDS;
             // 
-            // viewUpdateRentalToolStripMenuItem
+            // vehicle_InspectionTableAdapter
             // 
-            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
-            this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";
+            this.vehicle_InspectionTableAdapter.ClearBeforeFill = true;
+            // 
+            // inspectionCodeDataGridViewTextBoxColumn
+            // 
+            this.inspectionCodeDataGridViewTextBoxColumn.DataPropertyName = "InspectionCode";
+            this.inspectionCodeDataGridViewTextBoxColumn.HeaderText = "InspectionCode";
+            this.inspectionCodeDataGridViewTextBoxColumn.Name = "inspectionCodeDataGridViewTextBoxColumn";
+            this.inspectionCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeNameDataGridViewTextBoxColumn
+            // 
+            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            this.employeeIDDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // rentalIDDataGridViewTextBoxColumn
+            // 
+            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
+            this.rentalIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // branchNameDataGridViewTextBoxColumn
+            // 
+            this.branchNameDataGridViewTextBoxColumn.DataPropertyName = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.HeaderText = "BranchName";
+            this.branchNameDataGridViewTextBoxColumn.Name = "branchNameDataGridViewTextBoxColumn";
+            this.branchNameDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // vehicleMakeModelDataGridViewTextBoxColumn
+            // 
+            this.vehicleMakeModelDataGridViewTextBoxColumn.DataPropertyName = "VehicleMakeModel";
+            this.vehicleMakeModelDataGridViewTextBoxColumn.HeaderText = "VehicleMakeModel";
+            this.vehicleMakeModelDataGridViewTextBoxColumn.Name = "vehicleMakeModelDataGridViewTextBoxColumn";
+            this.vehicleMakeModelDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // odometerReadingDataGridViewTextBoxColumn
+            // 
+            this.odometerReadingDataGridViewTextBoxColumn.DataPropertyName = "OdometerReading";
+            this.odometerReadingDataGridViewTextBoxColumn.HeaderText = "OdometerReading";
+            this.odometerReadingDataGridViewTextBoxColumn.Name = "odometerReadingDataGridViewTextBoxColumn";
+            this.odometerReadingDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fuelLevelDataGridViewTextBoxColumn
+            // 
+            this.fuelLevelDataGridViewTextBoxColumn.DataPropertyName = "FuelLevel";
+            this.fuelLevelDataGridViewTextBoxColumn.HeaderText = "FuelLevel";
+            this.fuelLevelDataGridViewTextBoxColumn.Name = "fuelLevelDataGridViewTextBoxColumn";
+            this.fuelLevelDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // inspectionTypeDataGridViewTextBoxColumn
+            // 
+            this.inspectionTypeDataGridViewTextBoxColumn.DataPropertyName = "InspectionType";
+            this.inspectionTypeDataGridViewTextBoxColumn.HeaderText = "InspectionType";
+            this.inspectionTypeDataGridViewTextBoxColumn.Name = "inspectionTypeDataGridViewTextBoxColumn";
+            this.inspectionTypeDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // inspectionDateTimeDataGridViewTextBoxColumn
+            // 
+            this.inspectionDateTimeDataGridViewTextBoxColumn.DataPropertyName = "InspectionDateTime";
+            this.inspectionDateTimeDataGridViewTextBoxColumn.HeaderText = "InspectionDateTime";
+            this.inspectionDateTimeDataGridViewTextBoxColumn.Name = "inspectionDateTimeDataGridViewTextBoxColumn";
+            this.inspectionDateTimeDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // damageFoundDataGridViewTextBoxColumn
+            // 
+            this.damageFoundDataGridViewTextBoxColumn.DataPropertyName = "DamageFound";
+            this.damageFoundDataGridViewTextBoxColumn.HeaderText = "DamageFound";
+            this.damageFoundDataGridViewTextBoxColumn.Name = "damageFoundDataGridViewTextBoxColumn";
+            this.damageFoundDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // damageDescriptionDataGridViewTextBoxColumn
+            // 
+            this.damageDescriptionDataGridViewTextBoxColumn.DataPropertyName = "DamageDescription";
+            this.damageDescriptionDataGridViewTextBoxColumn.HeaderText = "DamageDescription";
+            this.damageDescriptionDataGridViewTextBoxColumn.Name = "damageDescriptionDataGridViewTextBoxColumn";
+            this.damageDescriptionDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // inspectionNotesDataGridViewTextBoxColumn
+            // 
+            this.inspectionNotesDataGridViewTextBoxColumn.DataPropertyName = "InspectionNotes";
+            this.inspectionNotesDataGridViewTextBoxColumn.HeaderText = "InspectionNotes";
+            this.inspectionNotesDataGridViewTextBoxColumn.Name = "inspectionNotesDataGridViewTextBoxColumn";
+            this.inspectionNotesDataGridViewTextBoxColumn.Width = 180;
             // 
             // ManageInspection
             // 
@@ -633,6 +789,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "ManageInspection";
             this.Text = "ManageInspection";
+            this.Load += new System.EventHandler(this.ManageInspection_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -642,6 +799,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,5 +860,21 @@
         private System.Windows.Forms.ToolStripMenuItem manageRentalsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateRentalToolStripMenuItem;
+        private AvisDS avisDS;
+        private System.Windows.Forms.BindingSource vehicleInspectionBindingSource;
+        private AvisDSTableAdapters.Vehicle_InspectionTableAdapter vehicle_InspectionTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspectionCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleMakeModelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn odometerReadingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fuelLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspectionTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspectionDateTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn damageFoundDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn damageDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspectionNotesDataGridViewTextBoxColumn;
     }
 }

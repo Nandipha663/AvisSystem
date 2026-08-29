@@ -474,5 +474,21 @@ namespace AvisSystem
             MessageBox.Show("Data refreshed!", "Refresh",
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddInspection newAddInspection = new AddInspection();
+            newAddInspection.Show();
+            this.Hide();
+
+        }
+
+        private void viewInspectionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageInspection newManageInspection = new ManageInspection();
+            newManageInspection.Show();
+            this.Hide();
+
+        }
     }
 }

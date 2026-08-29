@@ -26,134 +26,147 @@ namespace AvisSystem
         {
 
         }
-
-        private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
-        
-        {
-            AddInspection newAddInspection = new AddInspection();
-            this.Hide();
-            newAddInspection.Show();
-        }
         private void panel1_Click(object sender, EventArgs e)
         {
             AIHelpFeature ai = new AIHelpFeature();
             ai.Show();
             this.Hide();
         }
-        private void adNewToolStripMenuItem_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            AddClaim newAddClaim = new AddClaim();
-            newAddClaim.Show();
-            this.Hide();
-        }
 
-        private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddVehicle newAddVehicle = new AddVehicle();
-            newAddVehicle.Show();
-            this.Hide();
-        }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoginForm loginform = new LoginForm();
-            loginform.Show();
-            this.Hide();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            HomeForm homeform = new HomeForm();
-            homeform.Show();
-            this.Hide();
         }
 
         private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCustomer newAddCustomer = new AddCustomer();
-            newAddCustomer.Show();
+            AddCustomer addCustomerForm = new AddCustomer();
+            addCustomerForm.Show();
             this.Hide();
         }
 
         private void viewUpdateCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCustomer newAddCustomer = new AddCustomer(); ;
-            newAddCustomer.Show();
+            ManageCustomers manageCustomersForm = new ManageCustomers();
+            manageCustomersForm.Show();
             this.Hide();
         }
 
         private void addNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBookingReservation newAddReservation = new AddBookingReservation();
-            newAddReservation.Show();
+            AddBookingReservation addBookingForm = new AddBookingReservation();
+            addBookingForm.Show();
             this.Hide();
         }
 
         private void viewUpdateBookingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateReservation newUpdateReservation = new UpdateReservation();
-            newUpdateReservation.Show();
+            UpdateReservation updateReservationForm = new UpdateReservation();
+            updateReservationForm.Show();
             this.Hide();
         }
 
         private void addNewRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRental newAddRental = new AddRental();
-            newAddRental.Show();
+            AddRental addRentalForm = new AddRental();
+            addRentalForm.Show();
             this.Hide();
         }
 
         private void viewUpdateRentalsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateRental newUpdateRental = new UpdateRental();
-            newUpdateRental.Show();
+         UpdateRental updateRentalForm = new UpdateRental();
+            updateRentalForm.Show();
+            this.Hide();
+        }
+
+        private void addNewVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVehicle addVehicleForm = new AddVehicle();
+            addVehicleForm.Show();
             this.Hide();
         }
 
         private void viToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateVehicles newUpdateVehicles = new UpdateVehicles();
-            newUpdateVehicles.Show();
+            UpdateVehicles updateVehiclesForm = new UpdateVehicles();
+            updateVehiclesForm.Show();
             this.Hide();
         }
 
         private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddPayment newAddPayment = new AddPayment();
-            newAddPayment.Show();
+           AddPayment addPaymentForm = new AddPayment();
+            addPaymentForm.Show();
             this.Hide();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdatePayment newUpdatePayment = new UpdatePayment();
-            newUpdatePayment.Show();
+            UpdatePayment updatePaymentForm = new UpdatePayment();
+            updatePaymentForm.Show();
+            this.Hide();
+        }
+
+        private void adNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClaim addClaimForm = new AddClaim();
+            addClaimForm.Show();
             this.Hide();
         }
 
         private void viewUpdateClaimsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateClaim newUpdateClaim = new UpdateClaim();
-            newUpdateClaim.Show();
+            UpdateClaim updateClaimForm = new UpdateClaim();
+            updateClaimForm.Show();
             this.Hide();
         }
 
         private void viewBranchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateBranch newUpdateBranch = new UpdateBranch();
-            newUpdateBranch.Show();
+            UpdateBranch updateBranchForm = new UpdateBranch();
+            updateBranchForm.Show();
             this.Hide();
         }
 
         private void signUpNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SignUpForm signUp = new SignUpForm();
-            signUp.Show();
+            SignUpForm signUpForm = new SignUpForm();
+            signUpForm.Show();
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void viewUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ManageEmployee manageEmployeeForm = new ManageEmployee();
+            manageEmployeeForm.Show();
+            this.Hide();
+        }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRentalRental addRentalForm = new AddRentalRental();
+            addRentalForm.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental updateRentalForm = new UpdateRentalRental();
+            updateRentalForm.Show();
+            this.Hide();
+        }
+
+        private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddInspection addInspectionForm = new AddInspection();
+            addInspectionForm.Show();
+            this.Hide();
+        }
+
+        private void ManageInspection_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'avisDS.Vehicle_Inspection' table. You can move, or remove it, as needed.
+            this.vehicle_InspectionTableAdapter.Fill(this.avisDS.Vehicle_Inspection);
 
         }
     }

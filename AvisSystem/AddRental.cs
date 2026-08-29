@@ -471,16 +471,18 @@ namespace AvisSystem
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddInspection newAddInspection = new AddInspection();
+            AddInspection AddInspection = new AddInspection();
+            
+            AddInspection.Show();
             this.Hide();
-            newAddInspection.Show();
         }
 
         private void viewInspectionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageInspection newManageInspection = new ManageInspection();
+            ManageInspection ManageInspection = new ManageInspection();
+           
+            ManageInspection.Show();
             this.Hide();
-            newManageInspection.Show();
         }
     }
     

@@ -381,19 +381,20 @@ namespace AvisSystem
             ai.Show();
             this.Hide();
         }
-
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddInspection newAddInspection = new AddInspection();
-            this.Hide();
             newAddInspection.Show();
+            this.Hide();
+
         }
 
         private void viewInspectionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageInspection manageInspection = new ManageInspection();
+            ManageInspection newManageInspection = new ManageInspection();
+            newManageInspection.Show();
             this.Hide();
-            manageInspection.Show();
+
         }
     }
 }

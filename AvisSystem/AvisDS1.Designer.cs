@@ -15521,7 +15521,7 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionTy" +
@@ -15529,6 +15529,13 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
                 "es, BranchName, EmployeeName, VehicleMakeModel\r\nFROM            [Vehicle Inspect" +
                 "ion]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, InspectionDateTime, FuelLevel, DamageFound, DamageDescription, InspectionNotes, BranchName, EmployeeName, VehicleMakeModel
+FROM            [Vehicle Inspection]
+WHERE        (EmployeeName LIKE @EmployeeName + '%')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeName", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15550,6 +15557,42 @@ SELECT InspectionCode, EmployeeID, RentalID, OdometerReading, InspectionType, In
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AvisDS.Vehicle_InspectionDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AvisDS.Vehicle_InspectionDataTable dataTable = new AvisDS.Vehicle_InspectionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByName(AvisDS.Vehicle_InspectionDataTable dataTable, string EmployeeName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((EmployeeName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(EmployeeName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AvisDS.Vehicle_InspectionDataTable GetDataBy(string EmployeeName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((EmployeeName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(EmployeeName));
+            }
             AvisDS.Vehicle_InspectionDataTable dataTable = new AvisDS.Vehicle_InspectionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

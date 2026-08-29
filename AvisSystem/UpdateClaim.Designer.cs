@@ -58,6 +58,9 @@
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -100,9 +103,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.manageInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInspectionRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewInspectionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -372,6 +372,31 @@
             this.viewUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
             this.viewUpdateEmployeeToolStripMenuItem.Text = "View/Update Employee";
             this.viewUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateEmployeeToolStripMenuItem_Click);
+            // 
+            // manageInspectionRecordToolStripMenuItem
+            // 
+            this.manageInspectionRecordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInspectionRecordToolStripMenuItem,
+            this.viewInspectionDetailsToolStripMenuItem});
+            this.manageInspectionRecordToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.manageInspectionRecordToolStripMenuItem.Name = "manageInspectionRecordToolStripMenuItem";
+            this.manageInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(316, 34);
+            this.manageInspectionRecordToolStripMenuItem.Text = "📜 Manage Inspection Record";
+            // 
+            // addInspectionRecordToolStripMenuItem
+            // 
+            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
+            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
+            this.addInspectionRecordToolStripMenuItem.Click += new System.EventHandler(this.addInspectionRecordToolStripMenuItem_Click);
+            // 
+            // viewInspectionDetailsToolStripMenuItem
+            // 
+            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
+            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             // 
             // label3
             // 
@@ -796,30 +821,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(318, 20);
             this.dateTimePicker1.TabIndex = 24;
-            // 
-            // manageInspectionRecordToolStripMenuItem
-            // 
-            this.manageInspectionRecordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addInspectionRecordToolStripMenuItem,
-            this.viewInspectionDetailsToolStripMenuItem});
-            this.manageInspectionRecordToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.manageInspectionRecordToolStripMenuItem.Name = "manageInspectionRecordToolStripMenuItem";
-            this.manageInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(316, 34);
-            this.manageInspectionRecordToolStripMenuItem.Text = "📜 Manage Inspection Record";
-            // 
-            // addInspectionRecordToolStripMenuItem
-            // 
-            this.addInspectionRecordToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.addInspectionRecordToolStripMenuItem.Name = "addInspectionRecordToolStripMenuItem";
-            this.addInspectionRecordToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.addInspectionRecordToolStripMenuItem.Text = "Add Inspection Record";
-            // 
-            // viewInspectionDetailsToolStripMenuItem
-            // 
-            this.viewInspectionDetailsToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.viewInspectionDetailsToolStripMenuItem.Name = "viewInspectionDetailsToolStripMenuItem";
-            this.viewInspectionDetailsToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            this.viewInspectionDetailsToolStripMenuItem.Text = "View Inspection Details";
             // 
             // UpdateClaim
             // 
