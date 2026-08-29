@@ -151,5 +151,32 @@ namespace AvisSystem
             updateRentalRentalForm.Show();
             this.Hide();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddRentalRental_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'avisDS.RENTAL' table. You can move, or remove it, as needed.
+            this.rENTALTableAdapter.Fill(this.avisDS.RENTAL);
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
