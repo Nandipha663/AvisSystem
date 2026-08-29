@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddInspection));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleVinNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pickupDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentalStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleMakeModelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rENTALBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -113,10 +133,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.rENTALTableAdapter = new AvisSystem.AvisDSTableAdapters.RENTALTableAdapter();
+            this.eMPLOYEETableAdapter = new AvisSystem.AvisDSTableAdapters.EMPLOYEETableAdapter();
+            this.vehicle_InspectionTableAdapter = new AvisSystem.AvisDSTableAdapters.Vehicle_InspectionTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rENTALBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -481,6 +508,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
@@ -498,6 +526,148 @@
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Inspection";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.dataGridView1);
+            this.groupBox4.Location = new System.Drawing.Point(692, 141);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(328, 279);
+            this.groupBox4.TabIndex = 60;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Rental Records";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(12, 62);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(273, 31);
+            this.textBox7.TabIndex = 2;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(291, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Search using customer name";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rentalIDDataGridViewTextBoxColumn,
+            this.bookingIDDataGridViewTextBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.vehicleVinNoDataGridViewTextBoxColumn,
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.employeeNameDataGridViewTextBoxColumn,
+            this.pickupDateDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.expectedReturnDateDataGridViewTextBoxColumn,
+            this.rentalStatusDataGridViewTextBoxColumn,
+            this.depositAmountDataGridViewTextBoxColumn,
+            this.vehicleMakeModelDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.rENTALBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 109);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(316, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // rentalIDDataGridViewTextBoxColumn
+            // 
+            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
+            this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            // 
+            // vehicleVinNoDataGridViewTextBoxColumn
+            // 
+            this.vehicleVinNoDataGridViewTextBoxColumn.DataPropertyName = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.HeaderText = "VehicleVinNo";
+            this.vehicleVinNoDataGridViewTextBoxColumn.Name = "vehicleVinNoDataGridViewTextBoxColumn";
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            // 
+            // employeeNameDataGridViewTextBoxColumn
+            // 
+            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
+            // 
+            // pickupDateDataGridViewTextBoxColumn
+            // 
+            this.pickupDateDataGridViewTextBoxColumn.DataPropertyName = "PickupDate";
+            this.pickupDateDataGridViewTextBoxColumn.HeaderText = "PickupDate";
+            this.pickupDateDataGridViewTextBoxColumn.Name = "pickupDateDataGridViewTextBoxColumn";
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            // 
+            // expectedReturnDateDataGridViewTextBoxColumn
+            // 
+            this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
+            // 
+            // rentalStatusDataGridViewTextBoxColumn
+            // 
+            this.rentalStatusDataGridViewTextBoxColumn.DataPropertyName = "RentalStatus";
+            this.rentalStatusDataGridViewTextBoxColumn.HeaderText = "RentalStatus";
+            this.rentalStatusDataGridViewTextBoxColumn.Name = "rentalStatusDataGridViewTextBoxColumn";
+            // 
+            // depositAmountDataGridViewTextBoxColumn
+            // 
+            this.depositAmountDataGridViewTextBoxColumn.DataPropertyName = "DepositAmount";
+            this.depositAmountDataGridViewTextBoxColumn.HeaderText = "DepositAmount";
+            this.depositAmountDataGridViewTextBoxColumn.Name = "depositAmountDataGridViewTextBoxColumn";
+            // 
+            // vehicleMakeModelDataGridViewTextBoxColumn
+            // 
+            this.vehicleMakeModelDataGridViewTextBoxColumn.DataPropertyName = "VehicleMakeModel";
+            this.vehicleMakeModelDataGridViewTextBoxColumn.HeaderText = "VehicleMakeModel";
+            this.vehicleMakeModelDataGridViewTextBoxColumn.Name = "vehicleMakeModelDataGridViewTextBoxColumn";
+            // 
+            // rENTALBindingSource
+            // 
+            this.rENTALBindingSource.DataMember = "RENTAL";
+            this.rENTALBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox3
             // 
@@ -587,7 +757,6 @@
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(213, 61);
             this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(148, 31);
             this.textBox11.TabIndex = 55;
             // 
@@ -596,7 +765,6 @@
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(213, 24);
             this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(148, 31);
             this.textBox12.TabIndex = 51;
             // 
@@ -675,7 +843,7 @@
             // 
             this.textBox16.AcceptsReturn = true;
             this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(387, 58);
+            this.textBox16.Location = new System.Drawing.Point(368, 58);
             this.textBox16.Multiline = true;
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(267, 85);
@@ -824,7 +992,6 @@
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(213, 61);
             this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(148, 31);
             this.textBox8.TabIndex = 55;
             // 
@@ -833,7 +1000,6 @@
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(213, 24);
             this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(148, 31);
             this.textBox6.TabIndex = 51;
             // 
@@ -966,7 +1132,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(826, 290);
+            this.button1.Location = new System.Drawing.Point(748, 509);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(170, 83);
             this.button1.TabIndex = 40;
@@ -981,13 +1147,25 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(826, 384);
+            this.button3.Location = new System.Drawing.Point(748, 618);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(170, 83);
             this.button3.TabIndex = 38;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // rENTALTableAdapter
+            // 
+            this.rENTALTableAdapter.ClearBeforeFill = true;
+            // 
+            // eMPLOYEETableAdapter
+            // 
+            this.eMPLOYEETableAdapter.ClearBeforeFill = true;
+            // 
+            // vehicle_InspectionTableAdapter
+            // 
+            this.vehicle_InspectionTableAdapter.ClearBeforeFill = true;
             // 
             // AddInspection
             // 
@@ -1008,6 +1186,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rENTALBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1104,5 +1287,27 @@
         private System.Windows.Forms.ToolStripMenuItem manageRentalsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addRentalToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewUpdateRentalToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private AvisDS avisDS;
+        private System.Windows.Forms.BindingSource rENTALBindingSource;
+        private AvisDSTableAdapters.RENTALTableAdapter rENTALTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleVinNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pickupDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn depositAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleMakeModelDataGridViewTextBoxColumn;
+        private AvisDSTableAdapters.EMPLOYEETableAdapter eMPLOYEETableAdapter;
+        private AvisDSTableAdapters.Vehicle_InspectionTableAdapter vehicle_InspectionTableAdapter;
     }
 }
