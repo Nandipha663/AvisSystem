@@ -65,6 +65,7 @@
             this.addRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateRentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -77,13 +78,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.vehicleInspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avisDS = new AvisSystem.AvisDS();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.avisDS = new AvisSystem.AvisDS();
-            this.vehicleInspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicle_InspectionTableAdapter = new AvisSystem.AvisDSTableAdapters.Vehicle_InspectionTableAdapter();
             this.inspectionCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,10 +102,10 @@
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -430,6 +430,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button4);
@@ -441,7 +442,6 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(338, 0);
@@ -450,6 +450,13 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Inspection Details";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(426, 19);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(399, 31);
+            this.dateTimePicker1.TabIndex = 68;
             // 
             // button1
             // 
@@ -464,6 +471,7 @@
             this.button1.TabIndex = 67;
             this.button1.Text = " Clear";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 
@@ -477,6 +485,7 @@
             this.button6.TabIndex = 50;
             this.button6.Text = "🗑️   Delete";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
@@ -491,6 +500,7 @@
             this.button4.TabIndex = 59;
             this.button4.Text = "Reset Filter";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -505,6 +515,7 @@
             this.button5.TabIndex = 66;
             this.button5.Text = "Filter";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // comboBox2
             // 
@@ -564,7 +575,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(341, 31);
             this.textBox1.TabIndex = 61;
-            this.textBox1.Text = "🔍 Search using employee name...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
@@ -618,17 +628,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(981, 178);
             this.dataGridView1.TabIndex = 49;
             // 
-            // button2
+            // vehicleInspectionBindingSource
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Silver;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(484, 425);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 59);
-            this.button2.TabIndex = 39;
-            this.button2.Text = " Cancel";
-            this.button2.UseVisualStyleBackColor = false;
+            this.vehicleInspectionBindingSource.DataMember = "Vehicle Inspection";
+            this.vehicleInspectionBindingSource.DataSource = this.avisDS;
+            // 
+            // avisDS
+            // 
+            this.avisDS.DataSetName = "AvisDS";
+            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -675,16 +683,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // avisDS
-            // 
-            this.avisDS.DataSetName = "AvisDS";
-            this.avisDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vehicleInspectionBindingSource
-            // 
-            this.vehicleInspectionBindingSource.DataMember = "Vehicle Inspection";
-            this.vehicleInspectionBindingSource.DataSource = this.avisDS;
-            // 
             // vehicle_InspectionTableAdapter
             // 
             this.vehicle_InspectionTableAdapter.ClearBeforeFill = true;
@@ -695,12 +693,14 @@
             this.inspectionCodeDataGridViewTextBoxColumn.HeaderText = "InspectionCode";
             this.inspectionCodeDataGridViewTextBoxColumn.Name = "inspectionCodeDataGridViewTextBoxColumn";
             this.inspectionCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.inspectionCodeDataGridViewTextBoxColumn.Width = 200;
             // 
             // employeeNameDataGridViewTextBoxColumn
             // 
             this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
             this.employeeNameDataGridViewTextBoxColumn.HeaderText = "EmployeeName";
             this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
+            this.employeeNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // employeeIDDataGridViewTextBoxColumn
             // 
@@ -728,14 +728,14 @@
             this.vehicleMakeModelDataGridViewTextBoxColumn.DataPropertyName = "VehicleMakeModel";
             this.vehicleMakeModelDataGridViewTextBoxColumn.HeaderText = "VehicleMakeModel";
             this.vehicleMakeModelDataGridViewTextBoxColumn.Name = "vehicleMakeModelDataGridViewTextBoxColumn";
-            this.vehicleMakeModelDataGridViewTextBoxColumn.Width = 180;
+            this.vehicleMakeModelDataGridViewTextBoxColumn.Width = 250;
             // 
             // odometerReadingDataGridViewTextBoxColumn
             // 
             this.odometerReadingDataGridViewTextBoxColumn.DataPropertyName = "OdometerReading";
             this.odometerReadingDataGridViewTextBoxColumn.HeaderText = "OdometerReading";
             this.odometerReadingDataGridViewTextBoxColumn.Name = "odometerReadingDataGridViewTextBoxColumn";
-            this.odometerReadingDataGridViewTextBoxColumn.Width = 150;
+            this.odometerReadingDataGridViewTextBoxColumn.Width = 250;
             // 
             // fuelLevelDataGridViewTextBoxColumn
             // 
@@ -749,28 +749,28 @@
             this.inspectionTypeDataGridViewTextBoxColumn.DataPropertyName = "InspectionType";
             this.inspectionTypeDataGridViewTextBoxColumn.HeaderText = "InspectionType";
             this.inspectionTypeDataGridViewTextBoxColumn.Name = "inspectionTypeDataGridViewTextBoxColumn";
-            this.inspectionTypeDataGridViewTextBoxColumn.Width = 180;
+            this.inspectionTypeDataGridViewTextBoxColumn.Width = 200;
             // 
             // inspectionDateTimeDataGridViewTextBoxColumn
             // 
             this.inspectionDateTimeDataGridViewTextBoxColumn.DataPropertyName = "InspectionDateTime";
             this.inspectionDateTimeDataGridViewTextBoxColumn.HeaderText = "InspectionDateTime";
             this.inspectionDateTimeDataGridViewTextBoxColumn.Name = "inspectionDateTimeDataGridViewTextBoxColumn";
-            this.inspectionDateTimeDataGridViewTextBoxColumn.Width = 180;
+            this.inspectionDateTimeDataGridViewTextBoxColumn.Width = 250;
             // 
             // damageFoundDataGridViewTextBoxColumn
             // 
             this.damageFoundDataGridViewTextBoxColumn.DataPropertyName = "DamageFound";
             this.damageFoundDataGridViewTextBoxColumn.HeaderText = "DamageFound";
             this.damageFoundDataGridViewTextBoxColumn.Name = "damageFoundDataGridViewTextBoxColumn";
-            this.damageFoundDataGridViewTextBoxColumn.Width = 150;
+            this.damageFoundDataGridViewTextBoxColumn.Width = 180;
             // 
             // damageDescriptionDataGridViewTextBoxColumn
             // 
             this.damageDescriptionDataGridViewTextBoxColumn.DataPropertyName = "DamageDescription";
             this.damageDescriptionDataGridViewTextBoxColumn.HeaderText = "DamageDescription";
             this.damageDescriptionDataGridViewTextBoxColumn.Name = "damageDescriptionDataGridViewTextBoxColumn";
-            this.damageDescriptionDataGridViewTextBoxColumn.Width = 180;
+            this.damageDescriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // inspectionNotesDataGridViewTextBoxColumn
             // 
@@ -796,11 +796,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avisDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleInspectionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,7 +841,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewInspectionDetailsToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -863,6 +862,7 @@
         private AvisDS avisDS;
         private System.Windows.Forms.BindingSource vehicleInspectionBindingSource;
         private AvisDSTableAdapters.Vehicle_InspectionTableAdapter vehicle_InspectionTableAdapter;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inspectionCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
