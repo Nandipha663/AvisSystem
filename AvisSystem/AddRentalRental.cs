@@ -171,11 +171,25 @@ namespace AvisSystem
         {
             // TODO: This line of code loads data into the 'avisDS.RENTAL' table. You can move, or remove it, as needed.
             this.rENTALTableAdapter.Fill(this.avisDS.RENTAL);
-
+           
         }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text= "";
+            textBox2.Text= "";
+            textBox4.Text= "";
+            textBox5.Text= "";
+            textBox6.Text= "";  
+            textBox8.Text= "";
+            textBox9.Text= "";
+            comboBox1.SelectedIndex = -1;
 
         }
     }
