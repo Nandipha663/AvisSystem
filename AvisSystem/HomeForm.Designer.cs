@@ -317,6 +317,7 @@
             this.manageInspectionRecordsToolStripMenuItem.Name = "manageInspectionRecordsToolStripMenuItem";
             this.manageInspectionRecordsToolStripMenuItem.Size = new System.Drawing.Size(289, 34);
             this.manageInspectionRecordsToolStripMenuItem.Text = "Manage Inspection Records";
+            this.manageInspectionRecordsToolStripMenuItem.Click += new System.EventHandler(this.manageInspectionRecordsToolStripMenuItem_Click);
             // 
             // addInpectionRecordToolStripMenuItem
             // 

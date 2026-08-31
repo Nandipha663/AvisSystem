@@ -76,21 +76,26 @@ namespace AvisSystem
 
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRentalRental addRentalRentalForm = new AddRentalRental();
-            addRentalRentalForm.Show();
+            AddRentalRental AddRentalRentalForm = new AddRentalRental();
+            AddRentalRentalForm.Show();
             this.Hide();
         }
 
         private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateRentalRental updateRentalRentalForm = new UpdateRentalRental();
-            updateRentalRentalForm.Show();
+            UpdateRentalRental UpdateRentalRentalForm = new UpdateRentalRental();
+            UpdateRentalRentalForm.Show();
             this.Hide();
         }
 
         private void manageRentalsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
          
+        }
+
+        private void manageInspectionRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

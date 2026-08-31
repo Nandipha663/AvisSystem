@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,8 @@ namespace AvisSystem
         private void manageCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog(); 
-         }
+            loginForm.ShowDialog();
+        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -30,7 +31,7 @@ namespace AvisSystem
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
+        {
             HomeForm homeForm = new HomeForm();
             homeForm.Show();
 
@@ -56,7 +57,7 @@ namespace AvisSystem
 
         private void viewUpdateBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          UpdateReservation updateReservationForm = new UpdateReservation();
+            UpdateReservation updateReservationForm = new UpdateReservation();
             updateReservationForm.ShowDialog();
         }
 
@@ -79,7 +80,7 @@ namespace AvisSystem
 
         private void manageReturnedVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void addVehicleReturnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +98,7 @@ namespace AvisSystem
         private void addPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPayment addPaymentForm = new AddPayment();
-                        addPaymentForm.ShowDialog();
+            addPaymentForm.ShowDialog();
         }
 
         private void viewUpdatePaymentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,7 +138,7 @@ namespace AvisSystem
         private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddRentalRental addRentalRental = new AddRentalRental();
-                        addRentalRental.ShowDialog();
+            addRentalRental.ShowDialog();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -169,9 +170,9 @@ namespace AvisSystem
 
         private void AddRentalRental_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'avisDS.RENTAL' table. You can move, or remove it, as needed.
+
             this.rENTALTableAdapter.Fill(this.avisDS.RENTAL);
-           
+
         }
 
 
@@ -182,15 +183,123 @@ namespace AvisSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text= "";
-            textBox2.Text= "";
-            textBox4.Text= "";
-            textBox5.Text= "";
-            textBox6.Text= "";  
-            textBox8.Text= "";
-            textBox9.Text= "";
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();   
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker3.Value = DateTime.Now;
+            dateTimePicker4.Value = DateTime.Now;
             comboBox1.SelectedIndex = -1;
+            rENTALTableAdapter.Fill(avisDS.RENTAL);
 
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+            rENTALTableAdapter.FillByCustName(avisDS.RENTAL, textBox3.Text);
+        }
+
+        private void RentalGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = RentalGridView.Rows[e.RowIndex];
+
+            if (RentalGridView.Columns.Contains("RentalStatus"))
+            {
+                string status = row.Cells["RentalStatus"].Value?.ToString();
+                if (status == "Inactive")
+                {
+                    MessageBox.Show("This customer is inactive. Please select an active customer.",
+                                    "Inactive Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            if (RentalGridView.Columns.Contains("RentalID"))
+                textBox9.Text = row.Cells["RentalID"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("BookingID"))
+                textBox6.Text = row.Cells["BookingID"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("CustomerName"))
+                textBox5.Text = row.Cells["CustomerName"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("VehicleMakeModel"))
+                textBox2.Text = row.Cells["VehicleMakeModel"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("VehicleVinNo"))
+                textBox1.Text = row.Cells["VehicleVinNo"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("Odometer"))
+                textBox8.Text = row.Cells["Odometer"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("RentalStatus"))
+                textBox4.Text = row.Cells["RentalStatus"].Value?.ToString() ?? "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+            this.Hide();
+            newAvisMenuForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox5.Text) ||
+        string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Please select a customer and vehicle before adding a rental.",
+                                "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            { 
+                int bookingId = 0;
+                int customerId = 0;
+                int employeeId = 0;
+
+                int.TryParse(textBox6.Text, out bookingId);     
+                int.TryParse(textBox9.Text, out customerId);   
+                if (comboBox1.SelectedValue != null)
+                {
+                    int.TryParse(comboBox1.SelectedValue.ToString(), out employeeId);
+                }
+
+                decimal? deposit = null;
+                rENTALTableAdapter.Insert(
+                    bookingId,
+                    customerId,
+                    textBox5.Text,          
+                    textBox1.Text,          
+                    employeeId,
+                    comboBox1.Text,         
+                    dateTimePicker1.Value,  
+                    dateTimePicker2.Value,  
+                    dateTimePicker3.Value,  
+                    "Active",               
+                    deposit,              
+                    textBox2.Text           
+                );
+
+                MessageBox.Show("Rental added successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rENTALTableAdapter.Fill(avisDS.RENTAL);
+                this.Hide();
+                AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+                newAvisMenuForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding rental: " + ex.Message, "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
+
+
+
+
