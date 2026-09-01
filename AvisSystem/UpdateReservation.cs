@@ -659,27 +659,62 @@ namespace AvisSystem
                 }
 
                 //check if refund is elligible based on the pick up date and current date
-                DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+               // DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
 
-                    DateTime currentDateTime = DateTime.Now;
+                 //   DateTime currentDateTime = DateTime.Now;
 
-                    TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
+                   // TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
 
-                if (timeUntilPickup.TotalHours >= 24)
-                    {
-                        dataGridView1.CurrentRow.Cells[17].Value = "Eligible";
-                    }
-                    else
-                    {
-                        dataGridView1.CurrentRow.Cells[17].Value = "Not eligible";
-                    }
+                //if (timeUntilPickup.TotalHours >= 24)
+                  //  {
+                    //    dataGridView1.CurrentRow.Cells[17].Value = "Eligible";
+                    //}
+                    //else
+                    //{
+                      //  dataGridView1.CurrentRow.Cells[17].Value = "Not eligible";
+                    //}
                 
             }
             else
             {
                 MessageBox.Show("Booking Cancelation Terminated.", "Termination", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+            this.Validate();
+            bOOKINGBindingSource.EndEdit();
+            bOOKINGTableAdapter.Update(avisDS.BOOKING);
+
+            bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+            //try
+            //{
+            //    // Update the in-memory row
+            //    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
+
+            //    if (bookingStatus == "Confirmed")
+            //    {
+            //        vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+            //    }
+
+            //    // NOTE: RefundStatus is marked read-only both on the DataGridView column
+            //    // and on the underlying DataTable (see AvisDS.xsd), which is exactly what
+            //    // was throwing the "Column 'RefundStatus' is read only" error. It can't be
+            //    // set through dataGridView1.CurrentRow.Cells[...] at all. If you still want
+            //    // to record refund eligibility, that needs its own TableAdapter update query
+            //    // (or the ReadOnly flag removed from the dataset), not a direct cell write.
+
+            //    // Persist the status change to the database
+            //    this.Validate();
+            //    bOOKINGBindingSource.EndEdit();
+            //    bOOKINGTableAdapter.Update(avisDS.BOOKING);
+
+            //    bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+
+            //    MessageBox.Show($"Booking has been cancelled.", "Booking Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error cancelling booking: " + ex.Message);
+            //}
+
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)

@@ -142,6 +142,7 @@ namespace AvisSystem
         private void button3_Click(object sender, EventArgs e)
         {
             textBox2.Clear();
+            textBox5.Clear();
             comboBox1.SelectedIndex = -1;
             textBox3.Text =""; ;
             //textBox6.Clear();
@@ -251,20 +252,20 @@ namespace AvisSystem
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            string status = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-            if (status != "Pending")
-            {
-                MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
-                               "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBox4.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                //textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            }
+            //string status = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            //if (status != "Pending")
+            //{
+            //    MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
+            //                   "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //else
+            //{
+            //    textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //    textBox4.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            //    textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //    //textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //}
                  
         }
 
@@ -285,6 +286,24 @@ namespace AvisSystem
             ManageInspection manageInspection = new ManageInspection();
             this.Hide();
             manageInspection.Show();
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string status = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+            if (status != "Pending")
+            {
+                MessageBox.Show("Only Pending bookings can be selected for this operation!. Please select a Pending booking.",
+                               "Invalid Booking Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                //textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString() +""+ dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            }
         }
     }
 }

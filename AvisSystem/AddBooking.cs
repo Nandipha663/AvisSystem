@@ -260,8 +260,8 @@ namespace AvisSystem
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //UserSession.SelectedVehicleVIN = dataGridView1.CurrentRow.Cells["VehicleDescription"].Value.ToString();
-            textBox5.Text= dataGridView2.CurrentRow.Cells[0].Value.ToString();
-            textBox6.Text= dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            textBox5.Text= dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            textBox6.Text= dataGridView2.CurrentRow.Cells[3].Value.ToString();
 
             try
             {
@@ -274,7 +274,7 @@ namespace AvisSystem
                 }
 
                 // Validate vehicle status
-                string vehicleStatus = dataGridView2.CurrentRow.Cells[7].Value?.ToString() ?? "";
+                string vehicleStatus = dataGridView2.CurrentRow.Cells[5].Value?.ToString() ?? "";
                 if (vehicleStatus != "Available")
                 {
                     MessageBox.Show($"This vehicle is {vehicleStatus}. Only available vehicles can be selected.",
@@ -282,7 +282,7 @@ namespace AvisSystem
                     return;
                 }else
                 {
-                    textBox9.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+                    textBox9.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
                     textBox9.BackColor = Color.LightGreen;
                 }
 
@@ -290,13 +290,7 @@ namespace AvisSystem
                     DateTime pickupDate = dateTimePicker2.Value.Date;  // Use .Date to ignore time
                 DateTime returnDate = dateTimePicker3.Value.Date;  // Use .Date to ignore time
 
-                // Validate dates
-                if (pickupDate > returnDate)
-                {
-                    MessageBox.Show("Return date cannot be before pickup date.", "Invalid Dates",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+               
 
                 // Calculate days
                 int numberOfDays = (returnDate - pickupDate).Days;
@@ -309,10 +303,10 @@ namespace AvisSystem
 
                 // Get daily rate (make sure column index is correct)
                 decimal dailyRate = 0;
-                if (dataGridView2.CurrentRow.Cells[6].Value != null &&
-                    dataGridView2.CurrentRow.Cells[6].Value != DBNull.Value)
+                if (dataGridView2.CurrentRow.Cells[8].Value != null &&
+                    dataGridView2.CurrentRow.Cells[8].Value != DBNull.Value)
                 {
-                    dailyRate = Convert.ToDecimal(dataGridView2.CurrentRow.Cells[6].Value);
+                    dailyRate = Convert.ToDecimal(dataGridView2.CurrentRow.Cells[8].Value);
                 }
                 else
                 {
@@ -531,6 +525,11 @@ namespace AvisSystem
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             FilterVehiclesBySelectedBranch();
+            if (dateTimePicker2.Value <  DateTime.Now)
+            {
+                MessageBox.Show("Please select a date that is not in the past", "Error");
+                dateTimePicker2.Value = DateTime.Now;
+            }
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
