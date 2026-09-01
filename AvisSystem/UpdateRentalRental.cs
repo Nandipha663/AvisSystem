@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvisSystem.AvisDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -170,6 +171,35 @@ namespace AvisSystem
             UpdateRentalRental updateRentalRental = new UpdateRentalRental();
                         updateRentalRental.Show();
             this.Hide();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateRentalRental_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'avisDS.RENTAL' table. You can move, or remove it, as needed.
+            this.rENTALTableAdapter.Fill(this.avisDS.RENTAL);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
+            this.Hide();
+            newAvisMenuForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "🔍 Search Rentals...";
+            textBox1.ForeColor = Color.Gray;
+            textBox2.Clear();
+            textBox3.Clear();
+            rENTALTableAdapter.Fill(avisDS.RENTAL);
+
         }
     }
 }
