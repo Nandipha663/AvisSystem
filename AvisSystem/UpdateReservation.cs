@@ -624,12 +624,6 @@ namespace AvisSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
-            /*if the booking status is pending,change booking status to cancelled
-             * if booking status is confirmed, change booking status to cancelled and update vehicle status to available
-             * record refund
-             * refund status should be pending and once the refund payment has been recorded for that booking , the refund status should be updated to refund is being processed
-             * on payment table we should record refund payment and make the status to be pending
-             */
             if (dataGridView1.CurrentRow == null)
             {
                 MessageBox.Show("Please select a booking first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -696,6 +690,42 @@ namespace AvisSystem
             {
                 MessageBox.Show("Booking Cancelation Terminated.", "Termination", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //this.Validate();
+            //bOOKINGBindingSource.EndEdit();
+            //bOOKINGTableAdapter.Update(avisDS.BOOKING);
+
+            //bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+            //try
+            //{
+            //    // Update the in-memory row
+            //    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
+
+            //    if (bookingStatus == "Confirmed")
+            //    {
+            //        vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+            //    }
+
+            //    // NOTE: RefundStatus is marked read-only both on the DataGridView column
+            //    // and on the underlying DataTable (see AvisDS.xsd), which is exactly what
+            //    // was throwing the "Column 'RefundStatus' is read only" error. It can't be
+            //    // set through dataGridView1.CurrentRow.Cells[...] at all. If you still want
+            //    // to record refund eligibility, that needs its own TableAdapter update query
+            //    // (or the ReadOnly flag removed from the dataset), not a direct cell write.
+
+            //    // Persist the status change to the database
+            //    this.Validate();
+            //    bOOKINGBindingSource.EndEdit();
+            //    bOOKINGTableAdapter.Update(avisDS.BOOKING);
+
+            //    bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+
+            //    MessageBox.Show($"Booking has been cancelled.", "Booking Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error cancelling booking: " + ex.Message);
+            //}
+
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
