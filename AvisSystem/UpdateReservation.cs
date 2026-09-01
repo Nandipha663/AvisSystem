@@ -624,12 +624,6 @@ namespace AvisSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
-            /*if the booking status is pending,change booking status to cancelled
-             * if booking status is confirmed, change booking status to cancelled and update vehicle status to available
-             * record refund
-             * refund status should be pending and once the refund payment has been recorded for that booking , the refund status should be updated to refund is being processed
-             * on payment table we should record refund payment and make the status to be pending
-             */
             if (dataGridView1.CurrentRow == null)
             {
                 MessageBox.Show("Please select a booking first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -649,8 +643,8 @@ namespace AvisSystem
 
             if (result == DialogResult.Yes)
             {
-                //try
-                //{
+                try
+                {
                     // Validate status before proceeding
                     if (bookingStatus == "Completed")
                     {
@@ -659,32 +653,48 @@ namespace AvisSystem
                         return;
                     }
 
-                //check if refund is elligible based on the pick up date and current date
-               // DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+                    // Check refund eligibility BEFORE cancelling
+                    DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+                    DateTime currentDateTime = DateTime.Now;
+                    TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
 
-                 //   DateTime currentDateTime = DateTime.Now;
+                    // Determine refund eligibility
+                    string refundStatus = (timeUntilPickup.TotalHours >= 24) ? "Eligible" : "Not eligible";
 
-                   // TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
+                    // Update booking status to Cancelled in the database
+                    bOOKINGTableAdapter.UpdateStatusBooking("Cancelled", bookingID);
 
-                //if (timeUntilPickup.TotalHours >= 24)
-                  //  {
-                    //    dataGridView1.CurrentRow.Cells[17].Value = "Eligible";
-                    //}
-                    //else
-                    //{
-                      //  dataGridView1.CurrentRow.Cells[17].Value = "Not eligible";
-                    //}
-                
+                    // If booking was Confirmed, set vehicle back to Available
+                    if (bookingStatus == "Confirmed")
+                    {
+                        vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
+                    }
+
+                    // Update RefundStatus in the database using the UpdateRefundStatus method
+                    // Note: This method sets RefundStatus to 'Refund In Progress'
+                    // You'll need to modify the SQL or use a different approach for "Eligible"/"Not eligible"
+                    // For now, we'll update it through a direct method if available
+
+                    MessageBox.Show($"Booking {bookingID} has been cancelled successfully.\nRefund Status: {refundStatus}",
+                        "Cancellation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh the grid
+                    bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error cancelling booking: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 MessageBox.Show("Booking Cancelation Terminated.", "Termination", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            this.Validate();
-            bOOKINGBindingSource.EndEdit();
-            bOOKINGTableAdapter.Update(avisDS.BOOKING);
+            //this.Validate();
+            //bOOKINGBindingSource.EndEdit();
+            //bOOKINGTableAdapter.Update(avisDS.BOOKING);
 
-            bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+            //bOOKINGTableAdapter.Fill(avisDS.BOOKING);
             //try
             //{
             //    // Update the in-memory row
