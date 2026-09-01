@@ -649,8 +649,8 @@ namespace AvisSystem
 
             if (result == DialogResult.Yes)
             {
-                try
-                {
+                //try
+                //{
                     // Validate status before proceeding
                     if (bookingStatus == "Completed")
                     {

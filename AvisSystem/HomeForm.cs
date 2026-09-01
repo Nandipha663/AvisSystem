@@ -36,6 +36,7 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = true;
             logoutToolStripMenuItem.Enabled = false;
             exitToolStripMenuItem.Enabled = false;
+            manageRentalsToolStripMenuItem.Visible = false;
 
         }
 
@@ -69,6 +70,30 @@ namespace AvisSystem
         }
 
         private void addBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRentalRental AddRentalRentalForm = new AddRentalRental();
+            AddRentalRentalForm.Show();
+            this.Hide();
+        }
+
+        private void viewUpdateRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateRentalRental UpdateRentalRentalForm = new UpdateRentalRental();
+            UpdateRentalRentalForm.Show();
+            this.Hide();
+        }
+
+        private void manageRentalsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void manageInspectionRecordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
