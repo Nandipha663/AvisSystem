@@ -110,7 +110,7 @@
             this.loginToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click_1);
             // 
@@ -211,6 +211,7 @@
             this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
             this.manageVehiclesToolStripMenuItem.Size = new System.Drawing.Size(289, 34);
             this.manageVehiclesToolStripMenuItem.Text = "Manage Vehicles";
+            this.manageVehiclesToolStripMenuItem.Click += new System.EventHandler(this.manageVehiclesToolStripMenuItem_Click);
             // 
             // addVehicleToolStripMenuItem
             // 
@@ -337,6 +338,7 @@
             this.manageRentalsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRentalToolStripMenuItem,
             this.viewUpdateRentalToolStripMenuItem});
+            this.manageRentalsToolStripMenuItem1.Enabled = false;
             this.manageRentalsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageRentalsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.manageRentalsToolStripMenuItem1.Name = "manageRentalsToolStripMenuItem1";
@@ -346,7 +348,7 @@
             // 
             // addRentalToolStripMenuItem
             // 
-            this.addRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.addRentalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
             this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
             this.addRentalToolStripMenuItem.Text = "Add Rental";
@@ -354,7 +356,7 @@
             // 
             // viewUpdateRentalToolStripMenuItem
             // 
-            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.viewUpdateRentalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.viewUpdateRentalToolStripMenuItem.Name = "viewUpdateRentalToolStripMenuItem";
             this.viewUpdateRentalToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
             this.viewUpdateRentalToolStripMenuItem.Text = "View/Update Rental";

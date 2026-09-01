@@ -15,16 +15,18 @@ namespace AvisSystem
     public partial class AddRentalRental : Form
     {
         private string connectionString;
-         
+        private int? selectedCustomerId = null; 
+
         public AddRentalRental(string connectionString)
         {
             InitializeComponent();
-            this.connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
+            
         }
 
         public AddRentalRental()
         {
             InitializeComponent();
+            this.connectionString = Properties.Settings.Default.GroupPmb3ConnectionString; 
         }
 
         private void manageCustomersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -221,42 +223,78 @@ namespace AvisSystem
 
             DataGridViewRow row = RentalGridView.Rows[e.RowIndex];
 
-            if (RentalGridView.Columns.Contains("RentalStatus"))
-            {
-                string status = row.Cells["RentalStatus"].Value?.ToString();
-                if (status == "Inactive")
-                {
-                    MessageBox.Show("This customer is inactive. Please select an active customer.",
-                                    "Inactive Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-            }
-
-            if (RentalGridView.Columns.Contains("RentalID"))
-                textBox9.Text = row.Cells["RentalID"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("BookingID"))
-                textBox6.Text = row.Cells["BookingID"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("CustomerName"))
-                textBox5.Text = row.Cells["CustomerName"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("VehicleMakeModel"))
-                textBox2.Text = row.Cells["VehicleMakeModel"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("VehicleVinNo"))
-                textBox1.Text = row.Cells["VehicleVinNo"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("Odometer"))
-                textBox8.Text = row.Cells["Odometer"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("RentalStatus"))
-                textBox4.Text = row.Cells["RentalStatus"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("EmployeeID"))
-                textBox7.Text = row.Cells["EmployeeID"].Value?.ToString() ?? "";
-            if (RentalGridView.Columns.Contains("EmployeeName"))
-                textBox3.Text = row.Cells["EmployeeName"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("CustomerID"))
+                selectedCustomerId = row.Cells["CustomerID"].Value != null ?
+                    Convert.ToInt32(row.Cells["CustomerID"].Value) :
+                    (int?)null;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AvisMenuForm newAvisMenuForm = new AvisMenuForm();
-            this.Hide();
-            newAvisMenuForm.Show();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(connectionString))
+                {
+                    MessageBox.Show("Database connection string is not set.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(textBox9.Text, out int rentalId))
+                {
+                    MessageBox.Show("Please select a rental from the grid first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string currentStatus = textBox4.Text;
+                if (currentStatus == "Completed")
+                {
+                    MessageBox.Show("This rental has already been completed and cannot be cancelled.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (currentStatus == "Cancelled")
+                {
+                    MessageBox.Show("This rental is already cancelled.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult confirm = MessageBox.Show(
+                    "Are you sure you want to cancel this rental?",
+                    "Confirm Cancellation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes)
+                    return;
+
+                string query = @"UPDATE [RENTAL]
+                          SET [RentalStatus] = 'Cancelled'
+                          WHERE [RentalID] = @RentalID;";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@RentalID", rentalId);
+
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Rental cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBox4.Text = "Cancelled";
+                        rENTALTableAdapter.Fill(avisDS.RENTAL);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No matching rental was found to cancel.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error cancelling rental: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -269,70 +307,120 @@ namespace AvisSystem
                     return;
                 }
 
-                string query = @"INSERT INTO [RENTAL]
-([BookingID], [CustomerID], [CustomerName], [VehicleVinNo], [EmployeeID],
- [EmployeeName], [PickupDate], [StartDate], [ExpectedReturnDate],
- [RentalStatus], [DepositAmount], [VehicleMakeModel])
-VALUES
-(@BookingID, @CustomerID, @CustomerName, @VehicleVinNo, @EmployeeID,
- @EmployeeName, @PickupDate, @StartDate, @ExpectedReturnDate,
- @RentalStatus, @DepositAmount, @VehicleMakeModel);";
+                // Validate required fields before hitting the database
+                if (!int.TryParse(textBox6.Text, out int bookingId))
+                {
+                    MessageBox.Show("Please select a valid Booking (Booking ID is missing or invalid).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (selectedCustomerId == null)
+                {
+                    MessageBox.Show("Please select a customer from the grid first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string insertQuery = @"INSERT INTO [RENTAL]
+                ([BookingID], [CustomerID], [CustomerName], [VehicleVinNo], [EmployeeID],
+                [EmployeeName], [PickupDate], [StartDate], [ExpectedReturnDate],
+                [RentalStatus], [DepositAmount], [VehicleMakeModel])
+                VALUES
+                (@BookingID, @CustomerID, @CustomerName, @VehicleVinNo, @EmployeeID,
+                @EmployeeName, @PickupDate, @StartDate, @ExpectedReturnDate,
+                @RentalStatus, @DepositAmount, @VehicleMakeModel);";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
-                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    // BookingID
-                    int bookingId;
-                    if (int.TryParse(textBox6.Text, out bookingId))
-                        cmd.Parameters.AddWithValue("@BookingID", bookingId);
-                    else
-                        cmd.Parameters.AddWithValue("@BookingID", DBNull.Value);
-
-                    // CustomerID - no explicit control identified; try parse textBox? otherwise DBNull
-                    int customerId;
-                    if (int.TryParse(textBox9.Text, out customerId))
-                        cmd.Parameters.AddWithValue("@CustomerID", customerId);
-                    else
-                        cmd.Parameters.AddWithValue("@CustomerID", DBNull.Value);
-
-                    // CustomerName
-                    cmd.Parameters.AddWithValue("@CustomerName", (object)textBox5.Text ?? DBNull.Value);
-
-                    // VehicleVinNo
-                    cmd.Parameters.AddWithValue("@VehicleVinNo", (object)textBox1.Text ?? DBNull.Value);
-
-                    // EmployeeID
-                    int employeeId;
-                    if (int.TryParse(textBox8.Text, out employeeId))
-                        cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
-                    else
-                        cmd.Parameters.AddWithValue("@EmployeeID", DBNull.Value);
-
-                    // EmployeeName
-                    cmd.Parameters.AddWithValue("@EmployeeName", (object)textBox2.Text ?? DBNull.Value);
-
-                    // PickupDate and StartDate (combined date + time)
-                    DateTime pickupDateTime = dateTimePicker1.Value.Date + dateTimePicker4.Value.TimeOfDay;
-                    cmd.Parameters.AddWithValue("@PickupDate", pickupDateTime);
-                    cmd.Parameters.AddWithValue("@StartDate", pickupDateTime);
-
-                    // ExpectedReturnDate (combined)
-                    DateTime returnDateTime = dateTimePicker2.Value.Date + dateTimePicker3.Value.TimeOfDay;
-                    cmd.Parameters.AddWithValue("@ExpectedReturnDate", returnDateTime);
-
-                    // RentalStatus
-                    cmd.Parameters.AddWithValue("@RentalStatus", (object)textBox4.Text ?? DBNull.Value);
-
-                   
-                    // VehicleMakeModel
-                    cmd.Parameters.AddWithValue("@VehicleMakeModel", (object)textBox2.Text ?? DBNull.Value);
-
                     conn.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Rental added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // --- Status-specific checks ---
+                    string statusQuery = @"SELECT [RentalStatus] FROM [RENTAL] WHERE [BookingID] = @BookingID;";
+                    using (SqlCommand statusCmd = new SqlCommand(statusQuery, conn))
+                    {
+                        statusCmd.Parameters.AddWithValue("@BookingID", bookingId);
+                        using (SqlDataReader reader = statusCmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string status = reader["RentalStatus"].ToString();
 
-                    // Refresh grid
-                    rENTALTableAdapter.Fill(avisDS.RENTAL);
+                                if (status == "Completed")
+                                {
+                                    MessageBox.Show("This booking has already been completed and cannot be added again.", "Booking Already Completed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+
+                                if (status == "Active")
+                                {
+                                    MessageBox.Show("This booking already has an active rental in progress.", "Booking Already Active", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                                if (status == "Cancelled")
+                                {
+                                    DialogResult result = MessageBox.Show(
+                                    "This booking was previously cancelled. Do you want to create a new rental for it?",
+                                    "Previously Cancelled Booking",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+
+                                    if (result != DialogResult.Yes)
+                                        return;
+                                }
+                            }
+                        }
+                    }
+
+                    // Separate check: warn (but don't block) if a cancelled rental exists for this booking
+                    string cancelledQuery = @"SELECT COUNT(*) FROM [RENTAL] WHERE [BookingID] = @BookingID AND [RentalStatus] = 'Cancelled';";
+                    using (SqlCommand cancelledCmd = new SqlCommand(cancelledQuery, conn))
+                    {
+                        cancelledCmd.Parameters.AddWithValue("@BookingID", bookingId);
+                        int cancelledCount = (int)cancelledCmd.ExecuteScalar();
+
+                        if (cancelledCount > 0)
+                        {
+                            DialogResult result = MessageBox.Show(
+                                "This booking was previously cancelled. Do you want to create a new rental for it?",
+                                "Previously Cancelled Booking",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (result != DialogResult.Yes)
+                                return;
+                        }
+                    }
+
+                    // --- Insert (your existing logic, unchanged) ---
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@BookingID", bookingId);
+                        cmd.Parameters.AddWithValue("@CustomerID", selectedCustomerId.Value);
+                        cmd.Parameters.AddWithValue("@CustomerName",
+                            string.IsNullOrEmpty(textBox5.Text) ? (object)DBNull.Value : textBox5.Text);
+                        cmd.Parameters.AddWithValue("@VehicleVinNo",
+                            string.IsNullOrEmpty(textBox1.Text) ? (object)DBNull.Value : textBox1.Text);
+                        if (int.TryParse(textBox7.Text, out int employeeId))
+                            cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
+                        else
+                            cmd.Parameters.AddWithValue("@EmployeeID", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@EmployeeName",
+                            string.IsNullOrEmpty(textBox8.Text) ? (object)DBNull.Value : textBox8.Text);
+                        DateTime pickupDateTime = dateTimePicker1.Value.Date + dateTimePicker4.Value.TimeOfDay;
+                        cmd.Parameters.AddWithValue("@PickupDate", pickupDateTime);
+                        cmd.Parameters.AddWithValue("@StartDate", pickupDateTime);
+                        DateTime returnDateTime = dateTimePicker2.Value.Date + dateTimePicker3.Value.TimeOfDay;
+                        cmd.Parameters.AddWithValue("@ExpectedReturnDate", returnDateTime);
+                        cmd.Parameters.AddWithValue("@RentalStatus", "Active");
+                       // cmd.Parameters.AddWithValue("@RentalStatus", 
+                           // string.IsNullOrEmpty(textBox4.Text) ? (object)"Active" : textBox4.Text);
+                        cmd.Parameters.AddWithValue("@DepositAmount", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@VehicleMakeModel",
+                            string.IsNullOrEmpty(textBox2.Text) ? (object)DBNull.Value : textBox2.Text);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Rental added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBox4.Text = "Active";
+                        rENTALTableAdapter.Fill(avisDS.RENTAL);
+                    }
                 }
             }
             catch (Exception ex)
@@ -351,11 +439,11 @@ VALUES
             textBox9.Text = RentalGridView.CurrentRow.Cells[0].Value.ToString();
             textBox7.Text = RentalGridView.CurrentRow.Cells[5].Value.ToString();
             textBox8.Text = RentalGridView.CurrentRow.Cells[6].Value.ToString();
-            // dateTimePicker1.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[6].Value);
-            // dateTimePicker4.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[6].Value);
-            //  dateTimePicker2.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[8].Value);
-            // dateTimePicker3.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[8].Value);
 
+
+            selectedCustomerId = RentalGridView.CurrentRow.Cells[2].Value != null?
+            Convert.ToInt32(RentalGridView.CurrentRow.Cells[2].Value):
+            (int?)null;
         }
     }
 }

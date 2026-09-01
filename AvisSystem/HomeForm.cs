@@ -36,7 +36,6 @@ namespace AvisSystem
             loginToolStripMenuItem.Enabled = true;
             logoutToolStripMenuItem.Enabled = false;
             exitToolStripMenuItem.Enabled = false;
-            manageRentalsToolStripMenuItem.Visible = false;
 
         }
 
@@ -94,6 +93,11 @@ namespace AvisSystem
         }
 
         private void manageInspectionRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
