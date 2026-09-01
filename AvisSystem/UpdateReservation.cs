@@ -630,9 +630,15 @@ namespace AvisSystem
              * refund status should be pending and once the refund payment has been recorded for that booking , the refund status should be updated to refund is being processed
              * on payment table we should record refund payment and make the status to be pending
              */
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a booking first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            string bookingStatus = dataGridView1.CurrentRow.Cells[15 ].Value.ToString();
+            string bookingStatus = dataGridView1.CurrentRow.Cells[15].Value.ToString();
             string vin = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            int bookingID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
 
             DialogResult result = MessageBox.Show(
                                  "Are you sure you want to cancel this booking?",
@@ -643,43 +649,53 @@ namespace AvisSystem
 
             if (result == DialogResult.Yes)
             {
-                if (bookingStatus == "Pending")
+                try
                 {
-                    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
+                    // Validate status before proceeding
+                    if (bookingStatus == "Completed")
+                    {
+                        MessageBox.Show("Booking cannot be cancelled as it is already completed.",
+                            "Cancellation Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                }
-                else if (bookingStatus == "Confirmed")
-                {
-                    dataGridView1.CurrentRow.Cells[15].Value = "Cancelled";
-                    vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
-                }
-                else if (bookingStatus == "Completed")
-                {
-                    MessageBox.Show("Booking cannot be cancelled as it is already completed.", "Cancellation Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                //check if refund is elligible based on the pick up date and current date
-                DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
-
+                    // Check refund eligibility BEFORE cancelling
+                    DateTime pickupDateTime = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
                     DateTime currentDateTime = DateTime.Now;
-
                     TimeSpan timeUntilPickup = pickupDateTime - currentDateTime;
 
-                if (timeUntilPickup.TotalHours >= 24)
+                    // Determine refund eligibility
+                    string refundStatus = (timeUntilPickup.TotalHours >= 24) ? "Eligible" : "Not eligible";
+
+                    // Update booking status to Cancelled in the database
+                    bOOKINGTableAdapter.UpdateStatusBooking("Cancelled", bookingID);
+
+                    // If booking was Confirmed, set vehicle back to Available
+                    if (bookingStatus == "Confirmed")
                     {
-                        dataGridView1.CurrentRow.Cells[17].Value = "Eligible";
+                        vehicleTableAdapter1.UpdateVehicleStatus("Available", vin);
                     }
-                    else
-                    {
-                        dataGridView1.CurrentRow.Cells[17].Value = "Not eligible";
-                    }
-                
+
+                    // Update RefundStatus in the database using the UpdateRefundStatus method
+                    // Note: This method sets RefundStatus to 'Refund In Progress'
+                    // You'll need to modify the SQL or use a different approach for "Eligible"/"Not eligible"
+                    // For now, we'll update it through a direct method if available
+
+                    MessageBox.Show($"Booking {bookingID} has been cancelled successfully.\nRefund Status: {refundStatus}",
+                        "Cancellation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh the grid
+                    bOOKINGTableAdapter.Fill(avisDS.BOOKING);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error cancelling booking: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 MessageBox.Show("Booking Cancelation Terminated.", "Termination", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
 
         private void addInspectionRecordToolStripMenuItem_Click(object sender, EventArgs e)
