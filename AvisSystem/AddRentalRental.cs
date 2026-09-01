@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,14 @@ namespace AvisSystem
 {
     public partial class AddRentalRental : Form
     {
+        private string connectionString;
+         
+        public AddRentalRental(string connectionString)
+        {
+            InitializeComponent();
+            this.connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
+        }
+
         public AddRentalRental()
         {
             InitializeComponent();
@@ -189,6 +198,7 @@ namespace AvisSystem
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
+            textBox7.Clear();
             textBox8.Clear();
             textBox9.Clear();
             dateTimePicker1.Value = DateTime.Now;
@@ -236,6 +246,10 @@ namespace AvisSystem
                 textBox8.Text = row.Cells["Odometer"].Value?.ToString() ?? "";
             if (RentalGridView.Columns.Contains("RentalStatus"))
                 textBox4.Text = row.Cells["RentalStatus"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("EmployeeID"))
+                textBox7.Text = row.Cells["EmployeeID"].Value?.ToString() ?? "";
+            if (RentalGridView.Columns.Contains("EmployeeName"))
+                textBox3.Text = row.Cells["EmployeeName"].Value?.ToString() ?? "";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -247,58 +261,107 @@ namespace AvisSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox5.Text) ||
-        string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                MessageBox.Show("Please select a customer and vehicle before adding a rental.",
-                                "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             try
-            { 
-                int bookingId = 0;
-                int customerId = 0;
-                int employeeId = 0;
-
-                int.TryParse(textBox6.Text, out bookingId);     
-                int.TryParse(textBox9.Text, out customerId);   
-                if (comboBox1.SelectedValue != null)
+            {
+                if (string.IsNullOrWhiteSpace(connectionString))
                 {
-                    int.TryParse(comboBox1.SelectedValue.ToString(), out employeeId);
+                    MessageBox.Show("Database connection string is not set.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                decimal? deposit = null;
-                rENTALTableAdapter.Insert(
-                    bookingId,
-                    customerId,
-                    textBox5.Text,          
-                    textBox1.Text,          
-                    employeeId,
-                    comboBox1.Text,         
-                    dateTimePicker1.Value,  
-                    dateTimePicker2.Value,  
-                    dateTimePicker3.Value,  
-                    "Active",               
-                    deposit,              
-                    textBox2.Text           
-                );
+                string query = @"INSERT INTO [RENTAL]
+([BookingID], [CustomerID], [CustomerName], [VehicleVinNo], [EmployeeID],
+ [EmployeeName], [PickupDate], [StartDate], [ExpectedReturnDate],
+ [RentalStatus], [DepositAmount], [VehicleMakeModel])
+VALUES
+(@BookingID, @CustomerID, @CustomerName, @VehicleVinNo, @EmployeeID,
+ @EmployeeName, @PickupDate, @StartDate, @ExpectedReturnDate,
+ @RentalStatus, @DepositAmount, @VehicleMakeModel);";
 
-                MessageBox.Show("Rental added successfully.", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                rENTALTableAdapter.Fill(avisDS.RENTAL);
-                this.Hide();
-                AvisMenuForm newAvisMenuForm = new AvisMenuForm();
-                newAvisMenuForm.Show();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // BookingID
+                    int bookingId;
+                    if (int.TryParse(textBox6.Text, out bookingId))
+                        cmd.Parameters.AddWithValue("@BookingID", bookingId);
+                    else
+                        cmd.Parameters.AddWithValue("@BookingID", DBNull.Value);
+
+                    // CustomerID - no explicit control identified; try parse textBox? otherwise DBNull
+                    int customerId;
+                    if (int.TryParse(textBox9.Text, out customerId))
+                        cmd.Parameters.AddWithValue("@CustomerID", customerId);
+                    else
+                        cmd.Parameters.AddWithValue("@CustomerID", DBNull.Value);
+
+                    // CustomerName
+                    cmd.Parameters.AddWithValue("@CustomerName", (object)textBox5.Text ?? DBNull.Value);
+
+                    // VehicleVinNo
+                    cmd.Parameters.AddWithValue("@VehicleVinNo", (object)textBox1.Text ?? DBNull.Value);
+
+                    // EmployeeID
+                    int employeeId;
+                    if (int.TryParse(textBox8.Text, out employeeId))
+                        cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
+                    else
+                        cmd.Parameters.AddWithValue("@EmployeeID", DBNull.Value);
+
+                    // EmployeeName
+                    cmd.Parameters.AddWithValue("@EmployeeName", (object)textBox2.Text ?? DBNull.Value);
+
+                    // PickupDate and StartDate (combined date + time)
+                    DateTime pickupDateTime = dateTimePicker1.Value.Date + dateTimePicker4.Value.TimeOfDay;
+                    cmd.Parameters.AddWithValue("@PickupDate", pickupDateTime);
+                    cmd.Parameters.AddWithValue("@StartDate", pickupDateTime);
+
+                    // ExpectedReturnDate (combined)
+                    DateTime returnDateTime = dateTimePicker2.Value.Date + dateTimePicker3.Value.TimeOfDay;
+                    cmd.Parameters.AddWithValue("@ExpectedReturnDate", returnDateTime);
+
+                    // RentalStatus
+                    cmd.Parameters.AddWithValue("@RentalStatus", (object)textBox4.Text ?? DBNull.Value);
+
+                   
+                    // VehicleMakeModel
+                    cmd.Parameters.AddWithValue("@VehicleMakeModel", (object)textBox2.Text ?? DBNull.Value);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Rental added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh grid
+                    rENTALTableAdapter.Fill(avisDS.RENTAL);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error adding rental: " + ex.Message, "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error adding rental: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RentalGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox1.Text = RentalGridView.CurrentRow.Cells[4].Value.ToString();
+            textBox2.Text = RentalGridView.CurrentRow.Cells[11].Value.ToString();
+            textBox4.Text = RentalGridView.CurrentRow.Cells[10].Value.ToString();
+            textBox5.Text = RentalGridView.CurrentRow.Cells[3].Value.ToString();
+            textBox6.Text = RentalGridView.CurrentRow.Cells[1].Value.ToString();
+            textBox9.Text = RentalGridView.CurrentRow.Cells[0].Value.ToString();
+            textBox7.Text = RentalGridView.CurrentRow.Cells[5].Value.ToString();
+            textBox8.Text = RentalGridView.CurrentRow.Cells[6].Value.ToString();
+            // dateTimePicker1.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[6].Value);
+            // dateTimePicker4.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[6].Value);
+            //  dateTimePicker2.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[8].Value);
+            // dateTimePicker3.Value = Convert.ToDateTime(RentalGridView.CurrentRow.Cells[8].Value);
+
         }
     }
 }
+
+
+
 
 
 
