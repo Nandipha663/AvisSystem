@@ -445,6 +445,12 @@ namespace AvisSystem
             Convert.ToInt32(RentalGridView.CurrentRow.Cells[2].Value):
             (int?)null;
         }
+
+        private void viewRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRentalRental addRentalRental = new AddRentalRental();
+            addRentalRental.ShowDialog();
+        }
     }
 }
 

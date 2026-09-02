@@ -888,6 +888,7 @@
             this.viewRentalsToolStripMenuItem.Name = "viewRentalsToolStripMenuItem";
             this.viewRentalsToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
             this.viewRentalsToolStripMenuItem.Text = "View Rentals";
+            this.viewRentalsToolStripMenuItem.Click += new System.EventHandler(this.viewRentalsToolStripMenuItem_Click);
             // 
             // panel1
             // 

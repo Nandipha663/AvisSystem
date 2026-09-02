@@ -169,6 +169,7 @@
     <Compile Include="SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="System\Configuration\ConfigurationManager.cs" />
     <Compile Include="TermsandConditions.cs">
       <SubType>Form</SubType>
     </Compile>
