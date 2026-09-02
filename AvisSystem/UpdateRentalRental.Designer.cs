@@ -91,6 +91,8 @@
             this.avisDS = new AvisSystem.AvisDS();
             this.rENTALTableAdapter = new AvisSystem.AvisDSTableAdapters.RENTALTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -101,8 +103,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -672,6 +672,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Rental";
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Cancelled",
+            "Completed"});
+            this.comboBox3.Location = new System.Drawing.Point(230, 126);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(266, 28);
+            this.comboBox3.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 24);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "New Status:";
+            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -782,27 +803,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(326, 20);
             this.dateTimePicker1.TabIndex = 32;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 24);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "New Status:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Cancelled",
-            "Completed"});
-            this.comboBox3.Location = new System.Drawing.Point(230, 126);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(266, 28);
-            this.comboBox3.TabIndex = 12;
             // 
             // UpdateRentalRental
             // 

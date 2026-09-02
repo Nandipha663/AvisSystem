@@ -27,7 +27,7 @@ namespace AvisSystem
             if (string.IsNullOrEmpty(connectionString))
             {
                 // Replace "AvisDB" with the actual name of your connection string in App.config / Settings
-                connectionString = ConfigurationManager.ConnectionStrings["AvisDB"]?.ConnectionString;
+                //connectionString = ConfigurationManager.ConnectionStrings["AvisDB"]?.ConnectionString;
             }
         }
 

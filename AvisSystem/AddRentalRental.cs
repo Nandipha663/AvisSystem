@@ -391,6 +391,25 @@ namespace AvisSystem
             AddRentalRental addRentalRental = new AddRentalRental();
             addRentalRental.ShowDialog();
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value < DateTime.Now)
+            {
+                MessageBox.Show("Please select a date that is not in the past", "Error");
+                dateTimePicker1.Value= DateTime.Now;
+            }
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker2.Value< dateTimePicker1.Value)
+            {
+                MessageBox.Show("Return date cannot be before pick up date", "Error");
+                dateTimePicker2.Value= DateTime.Now;
+            }
+        }
     }
 }
 
