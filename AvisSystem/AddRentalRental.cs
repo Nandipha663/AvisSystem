@@ -231,69 +231,9 @@ namespace AvisSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(connectionString))
-                {
-                    MessageBox.Show("Database connection string is not set.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (!int.TryParse(textBox9.Text, out int rentalId))
-                {
-                    MessageBox.Show("Please select a rental from the grid first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                string currentStatus = textBox4.Text;
-                if (currentStatus == "Completed")
-                {
-                    MessageBox.Show("This rental has already been completed and cannot be cancelled.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (currentStatus == "Cancelled")
-                {
-                    MessageBox.Show("This rental is already cancelled.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                DialogResult confirm = MessageBox.Show(
-                    "Are you sure you want to cancel this rental?",
-                    "Confirm Cancellation",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (confirm != DialogResult.Yes)
-                    return;
-
-                string query = @"UPDATE [RENTAL]
-                          SET [RentalStatus] = 'Cancelled'
-                          WHERE [RentalID] = @RentalID;";
-
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@RentalID", rentalId);
-
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Rental cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        textBox4.Text = "Cancelled";
-                        rENTALTableAdapter.Fill(avisDS.RENTAL);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No matching rental was found to cancel.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error cancelling rental: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            HomeForm homeForm = new HomeForm();
+            homeForm.ShowDialog();
+            this.Hide();
 
         }
 
